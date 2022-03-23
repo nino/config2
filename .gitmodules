@@ -1,0 +1,3 @@
+[submodule "secret-config2"]
+	path = secret-config2
+	url = git@github.com:nino/secret-config
