@@ -25,3 +25,4 @@ nvim/CurrentWorkingDirectory.vim
 karabiner/automatic_backups/karabiner_20190809.json
 karabiner/automatic_backups/karabiner_20190904.json
 target
+zig-cache
