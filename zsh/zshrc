@@ -1,0 +1,297 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+# default: ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# plugins=(git github osx history ruby rvm brew vi-mode)
+plugins=(git github macos history ruby brew wd vi-mode)
+# prev:
+# plugins=(git github heroku osx history ruby rvm brew macports vi-mode)
+
+bindkey -v
+source $ZSH/oh-my-zsh.sh
+
+setopt extended_glob
+
+PROMPT="$PROMPT$ "
+
+trash() {
+  mv $1 ~/.Trash/$1-$(date +%H%M%S)
+}
+
+
+local_ip_address() {
+  ipconfig getifaddr en0 || ipconfig getifaddr en7
+}
+
+# supposed to make the git prompt thing faster:
+function git_prompt_info() {
+  echo ""
+}
+# export DISABLE_AUTO_TITLE=true
+
+alias l='ls -l -h'
+alias ls='ls'
+alias dum='diskutil unmount'
+alias js='jekyll serve --watch'
+alias pastepd='pbpaste | pandoc --smart --css css.css'
+alias pdtex='pandoc --template ~/Google\ Drive/Other\ Shit/pandoc-template.tex'
+alias osajsi='osascript -i -l JavaScript'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias vs='nvim -S ~/Prevsession.vim'
+alias bb='bbedit'
+alias vimserv='NVIM_LISTEN_ADDRESS=/tmp/neovim/neovim nvim'
+alias vv='/Applications/VV.app/Contents/Resources/bin/vv'
+alias zhrc='bbedit ~/.zshrc'
+alias zshrc='bbedit ~/.zshrc'
+alias tmconf='bbedit ~/.tmux.conf'
+alias tst='tig status'
+alias vc='nvim -S `ls | grep .vim | fzf`'
+alias ydl="youtube-dl -f 'best[ext=mp4]' "
+alias yda="youtube-dl -x --audio-format mp3 "
+alias ct='ctags -R .'
+alias uuid='uuidgen | tr -d "\n" | pbcopy'
+alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.lock'
+
+if [ -f ~/.config/secret-config2/secret_zsh ]; then
+  source ~/.config/secret-config2/secret_zsh
+fi
+
+alias tnm='tig --no-merges'
+alias yran='yarn'
+alias zzr='source ~/.zshrc'
+
+rmnodemodules() {
+  echo "Deleting at root"
+  rm -rf ./node_modules
+  echo "Deleting at 1 level deep"
+  rm -rf ./*/node_modules
+  echo "Deleting at 2 levels deep"
+  rm -rf ./*/*/node_modules
+  echo "Deleting at 3 levels deep"
+  rm -rf ./*/*/*/node_modules
+  echo "Deleting at 4 levels deep"
+  rm -rf ./*/*/*/*/node_modules
+  echo "Deleting at 5 levels deep"
+  rm -rf ./*/*/*/*/*/node_modules
+  echo "Deleting at 6 levels deep"
+  rm -rf ./*/*/*/*/*/*/node_modules
+  true
+}
+
+co() {
+  local branch=`git lb | uniquelines | fzf`
+  if [ -z "$1" ]; then
+    gco $branch
+  elif [ "$1" = "merge" ]; then
+    eval "git merge \"$branch\""
+  fi
+  # local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
+  # if [ ! -z $branch ]; then
+  #   if [ -z $1 ]; then
+  #     git checkout "$branch"
+  #   elif [ "$1" = "tig" ]; then
+  #     eval "tig \"$branch\""
+  #   else
+  #     local command="git $1 \"$branch\""
+  #     eval $command
+  #   fi
+  # fi
+}
+
+
+alias stash='git stash --include-untracked'
+alias stpop='git stash pop'
+
+try_invoke() {
+  eval "$1 || $1 || $1"
+}
+
+updates() {
+  tmux rename-window UPDATES
+  tmux send-keys "brew update && brew upgrade && brew cask upgrade && brew cleanup" C-m
+
+  tmux split-window
+  tmux select-layout tiled
+  tmux send-keys "gem install neovim" C-m
+
+  tmux split-window
+  tmux select-layout tiled
+  tmux send-keys "yarn global add neovim@latest" C-m
+
+  tmux split-window
+  tmux select-layout tiled
+  tmux send-keys "pip install --upgrade pip && pip install --upgrade neovim" C-m
+
+  tmux split-window
+  tmux select-layout tiled
+  tmux send-keys "pip3 install --upgrade pip && pip3 install --upgrade neovim" C-m
+
+  tmux split-window
+  tmux select-layout tiled
+  tmux send-keys "nvim -c \"PluginUpdate| :UpdateRemotePlugins\"" C-m
+}
+
+# So you can press ctrl-s to save
+# v() {
+#     stty stop '' -ixoff; vim $*
+# }
+# this and stty stop '' -ixoff; make that ctrl is not intercepted by terminal
+# `Frozing' tty, so after any command terminal settings will be restored
+ttyctl -f
+
+# recursive line count
+countlines() {
+    find . -name $1 | xargs wc -l
+}
+
+# fortune -s rationality
+
+passgen(){
+    [ $# -eq 0 ] && 1="16"
+    tr -dc "[[:alnum:]!\"#$%&'()*+,./:;<=>?@\\_{|}~-]" < /dev/random |
+    head -c $1; echo
+}
+
+matrix() {
+  echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
+}
+
+export LIN='~/.config/nvim/lua/initialize.lua'
+export THINGLIGHT='~/.config/nvim/colors/thinglight.lua'
+
+PERL_MB_OPT="--install_base \"/Users/Nino/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/Nino/perl5"; export PERL_MM_OPT;
+
+# To fix the weird python utf8 problem
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
+if hash yarn 2>/dev/null; then
+  export PATH="$PATH:`yarn global bin`"
+fi
+
+# Rust path
+# export PATH="$PATH:/Users/Nino/.cargo/bin"
+
+# Set NVM dir if nvm is installed
+if hash nvm 2>/dev/null; then
+  NVM_DIR="/Users/Nino/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
+# export PATH="/usr/local/opt/qt/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/qt/lib"
+# export CPPFLAGS="-I/usr/local/opt/qt/include"
+
+if hash opam 2>/dev/null; then
+  eval `opam config env`
+  . /Users/Nino/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# Fuzzy Finder
+export FZF_DEFAULT_COMMAND='fd --type f'
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+# export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:~/Library/Python/3.6/bin:${PATH}"
+# export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+# if [ -n "$(command -v pyenv)" ]; then # Only if pyenv command exists
+#   eval "$(pyenv init -)"
+# fi
+#
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
+# eval "$(pyenv init --path)"
+
+# Load pyenv into the shell by adding
+# the following to ~/.zshrc:
+
+eval "$(pyenv init -)"
+
+
+export PATH="/Users/nino/.config/scripts:${PATH}"
+export PATH="/Users/nino/.config/secret-config2/scripts:${PATH}"
+export PATH="/Applications/Racket v8.0/bin:${PATH}"
+export PATH="/Users/nino/.local/bin:${PATH}"
+
+# export TERM=xterm
+export TERM=xterm-256color
+
+# echo "Opened zsh at $(date)" >> ~/.config/zsh-startups.log
+
+# RBENV!
+
+if [ -n "$(command -v rbenv)" ]; then # Only if rbenv command exists
+  eval "$(rbenv init -)"
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/Nino/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/Nino/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/Nino/opt/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/Nino/opt/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
+
+export PYTHONPATH=/Users/Nino/.config/scripts:${PYTHONPATH}
+
+
+# Perl
+# source ~/perl5/perlbrew/etc/bashrc
+
+
+export REACT_EDITOR=nvr
+
+# Created by `pipx` on 2022-02-01 15:38:52
+export PATH="$PATH:/Users/nino/.local/bin"
+
+export PATH="$PATH:$HOME/zls"
