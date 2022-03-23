@@ -27,3 +27,6 @@ karabiner/automatic_backups/karabiner_20190904.json
 target
 zig-cache
 **/Alfred.alfredpreferences/remote/*
+exercism
+gh/hosts.yml
+hub
