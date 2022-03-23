@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>0F8A5440-972D-40C8-8AED-3B6BEEE5E0CF</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>sg</string>
+			<key>text</key>
+			<string>Search Sourcegraph for '{query}'</string>
+			<key>url</key>
+			<string>https://sourcegraph.com/search?q={query}&amp;patternType=literal</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>3967A3BE-64E8-4240-B904-6FD44DB99040</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>npm</string>
+			<key>text</key>
+			<string>Search NPM for '{query}'</string>
+			<key>url</key>
+			<string>https://www.npmjs.com/package/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>89282B3F-DCC5-4EBF-830F-BD427B035E9B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>j</string>
+			<key>text</key>
+			<string>Open Jira issue with {query}</string>
+			<key>url</key>
+			<string>https://immo.atlassian.net/browse/IMMO-{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>BEE8351F-24C9-4002-99DB-5DB4ECE36025</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>js</string>
+			<key>text</key>
+			<string>Search Jira issues for {query}</string>
+			<key>url</key>
+			<string>https://immo.atlassian.net/issues/?jql=text%20~%20%22{query}%22</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
