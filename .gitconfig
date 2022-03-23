@@ -1,0 +1,19 @@
+[commit]
+	template = ~/.gitmessage
+[user]
+	name = Nino Annighoefer
+	email = nino@ninoan.com
+[core]
+	editor = "nvim"
+	commentChar = "#"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[push]
+	default = current
+[init]
+	defaultBranch = trunk
+[alias]
+  lb = !git reflog show --pretty=format:'%gs' | grep 'checkout:' | grep -oE ' to (.+)' | perl -pe 's/ to //'

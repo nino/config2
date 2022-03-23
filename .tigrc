@@ -1,0 +1,14 @@
+set commit-order = date         # Order commits topologically
+# set line-graphics = utf-8
+# set commit-title-graph = v1 # aint workin
+# set commit-title-refs = no
+# set date-display = relative-compact
+# set main-options = no-decorate
+set refresh-mode = auto
+set mouse = true
+# set wrap-lines = yes
+set main-view = line-number:no,interval=5 id:no date:relative-compact author:full commit-title:yes,graph=no,refs=no
+color cursor white blue bold
+color title-focus black white bold
+color title-blur white blue normal
+
