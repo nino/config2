@@ -1,0 +1,301 @@
+local utils = require("utils")
+
+-- Colors
+local use_light_bg = false
+vim.opt.termguicolors = true
+if use_light_bg then
+    utils.color("thinglight")
+else
+    utils.color("thing")
+end
+
+-- Defaults
+vim.opt.lazyredraw = true
+vim.opt.autoread = true
+vim.opt.diffopt = vim.opt.diffopt + "iwhite"
+vim.opt.signcolumn = "yes"
+
+-- Mappings
+vim.g.mapleader = " "
+
+-- Commands
+vim.cmd("command! Q :mksession! ~/Prevsession.vim | qa")
+vim.cmd("command! CountBufs :echo len(getbufinfo({'buflisted':1}))")
+vim.cmd("command! Sy :syntax sync fromstart")
+vim.cmd(
+    "command! DiffApi :vert diffsplit ~/tech_recruitment_challenge/tests/frontend_engineer/api.js")
+vim.cmd(
+    "command! Syncheck echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, \"name\")')")
+
+vim.cmd("command! UT UndotreeToggle")
+vim.cmd("command! UF UndotreeToggle")
+vim.cmd("command! NF NERDTreeFind")
+vim.cmd("command! NT NERDTreeToggle")
+vim.cmd("command! NN NERDTreeFocus")
+
+-- Variables
+vim.env.FZF_DEFAULT_COMMAND = "fd --type f"
+
+-- LSP
+require('lspconfig').tsserver.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+    end
+}
+require('lspconfig').ember.setup {}
+require('lspconfig').tailwindcss.setup {}
+require('lspconfig').sumneko_lua.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {"vim", "use"},
+                disable = {"lowercase-global"}
+            }
+        }
+    }
+}
+require('lspconfig').julials.setup {}
+require('lspconfig').pylsp.setup {}
+require('lspconfig').solargraph.setup {}
+require('lspconfig').rls.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+    end
+}
+require('lspconfig').clangd.setup {}
+
+-- local function on_attach(client) print('Attached to ' .. client.name) end
+
+local dlsconfig = require 'diagnosticls-configs'
+
+dlsconfig.init {}
+
+local eslint = require "diagnosticls-configs.linters.eslint"
+local eslint_fmt = require 'diagnosticls-configs.formatters.eslint_fmt'
+local lua_format = require "diagnosticls-configs.formatters.lua_format"
+local rustfmt = require "rust_fmt"
+dlsconfig.setup {
+    ['javascript'] = {linter = eslint, formatter = eslint_fmt},
+    ['javascriptreact'] = {linter = eslint, formatter = {eslint_fmt}},
+    ['typescript'] = {linter = eslint, formatter = eslint_fmt},
+    ['typescriptreact'] = {linter = eslint, formatter = {eslint_fmt}},
+    ['lua'] = {formatter = {lua_format}},
+    ['rust'] = {formatter = {rustfmt}}
+}
+
+function format_file()
+  -- Looks like this works without that weird hack now \o/
+    -- if vim.o.filetype == "typescriptreact" or vim.o.filetype == "javascriptreact" then
+    --     vim.lsp.buf.formatting_sync(nil, 8000)
+    --     vim.cmd('e!')
+    -- else
+    vim.lsp.buf.formatting()
+    -- end
+end
+
+-- LSP Mappings
+vim.cmd("nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>")
+vim.cmd("nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>")
+vim.cmd("nnoremap <silent> _ :lua format_file()<CR>")
+vim.cmd("nnoremap <silent> ,n :lua vim.diagnostic.goto_next()<CR>")
+vim.cmd("nnoremap <silent> <leader>a :lua vim.diagnostic.open_float()<CR>")
+
+vim.cmd("command! -nargs=1 Rename lua vim.lsp.buf.rename(<f-args>)")
+
+vim.cmd("nnoremap <silent> <ESC> <ESC>:nohlsearch<CR>")
+
+-- Set up bleep bloop
+
+-- audio = require "libaudio"
+-- audio.initialize({
+--     "sounds/alarm01.mp3",
+--     "sounds/alarm02.mp3",
+--     "sounds/alarm03.mp3",
+--     "sounds/alert01.mp3",
+--     -- "sounds/alert02.mp3",
+--     -- "sounds/alert03.mp3",
+--     -- "sounds/alert04.mp3",
+--     -- "sounds/alert05.mp3",
+--     -- "sounds/alert06.mp3",
+--     -- "sounds/alert07.mp3",
+--     -- "sounds/alert08.mp3",
+--     -- "sounds/alert09.mp3",
+--     -- "sounds/alert10.mp3",
+--     -- "sounds/alert12.mp3",
+--     -- "sounds/alert13.mp3",
+--     -- "sounds/alert14.mp3",
+--     -- "sounds/alert15.mp3",
+--     -- "sounds/alert16.mp3",
+--     -- "sounds/alert17.mp3",
+--     -- "sounds/alert18.mp3",
+--     -- "sounds/alert19.mp3",
+--     -- "sounds/alert20.mp3",
+--     -- "sounds/alert21.mp3",
+--     -- "sounds/alert22.mp3",
+--     -- "sounds/alert23.mp3",
+--     -- "sounds/alert24.mp3",
+--     -- "sounds/communications_end_transmission.mp3",
+--     -- "sounds/communications_start_transmission.mp3",
+--     -- "sounds/computer_error.mp3",
+--     -- "sounds/computer_work_beep.mp3",
+--     -- "sounds/computerbeep_1.mp3",
+--     -- "sounds/computerbeep_2.mp3",
+--     -- "sounds/computerbeep_3.mp3",
+--     -- "sounds/computerbeep_4.mp3",
+--     -- "sounds/computerbeep_5.mp3",
+--     -- "sounds/computerbeep_6.mp3",
+--     -- "sounds/computerbeep_7.mp3",
+--     -- "sounds/computerbeep_8.mp3",
+--     -- "sounds/computerbeep_9.mp3",
+--     -- "sounds/computerbeep_10.mp3",
+--     -- "sounds/computerbeep_11.mp3",
+--     -- "sounds/computerbeep_12.mp3",
+--     -- "sounds/computerbeep_13.mp3",
+--     -- "sounds/computerbeep_14.mp3",
+--     -- "sounds/computerbeep_15.mp3",
+--     -- "sounds/computerbeep_16.mp3",
+--     -- "sounds/computerbeep_17.mp3",
+--     -- "sounds/computerbeep_18.mp3",
+--     -- "sounds/computerbeep_19.mp3",
+--     -- "sounds/computerbeep_20.mp3",
+--     -- "sounds/computerbeep_21.mp3",
+--     -- "sounds/computerbeep_22.mp3",
+--     -- "sounds/computerbeep_23.mp3",
+--     -- "sounds/computerbeep_24.mp3",
+--     -- "sounds/computerbeep_25.mp3",
+--     -- "sounds/computerbeep_26.mp3",
+--     -- "sounds/computerbeep_27.mp3",
+--     -- "sounds/computerbeep_28.mp3",
+--     -- "sounds/computerbeep_29.mp3",
+--     -- "sounds/computerbeep_30.mp3",
+--     -- "sounds/computerbeep_31.mp3",
+--     -- "sounds/computerbeep_32.mp3",
+--     -- "sounds/computerbeep_33.mp3",
+--     -- "sounds/computerbeep_34.mp3",
+--     -- "sounds/computerbeep_35.mp3",
+--     -- "sounds/computerbeep_36.mp3",
+--     -- "sounds/computerbeep_37.mp3",
+--     -- "sounds/computerbeep_38.mp3",
+--     -- "sounds/computerbeep_39.mp3",
+--     -- "sounds/computerbeep_40.mp3",
+--     -- "sounds/computerbeep_41.mp3",
+--     -- "sounds/computerbeep_42.mp3",
+--     -- "sounds/computerbeep_43.mp3",
+--     -- "sounds/computerbeep_44.mp3",
+--     -- "sounds/computerbeep_45.mp3",
+--     -- "sounds/computerbeep_46.mp3",
+--     -- "sounds/computerbeep_47.mp3",
+--     -- "sounds/computerbeep_48.mp3",
+--     -- "sounds/computerbeep_49.mp3",
+--     -- "sounds/computerbeep_50.mp3",
+--     -- "sounds/computerbeep_51.mp3",
+--     -- "sounds/computerbeep_52.mp3",
+--     -- "sounds/computerbeep_53.mp3",
+--     -- "sounds/computerbeep_54.mp3",
+--     -- "sounds/computerbeep_55.mp3",
+--     -- "sounds/computerbeep_56.mp3",
+--     -- "sounds/computerbeep_57.mp3",
+--     -- "sounds/computerbeep_58.mp3",
+--     -- "sounds/computerbeep_59.mp3",
+--     -- "sounds/computerbeep_60.mp3",
+--     -- "sounds/computerbeep_61.mp3",
+--     -- "sounds/computerbeep_62.mp3",
+--     -- "sounds/computerbeep_63.mp3",
+--     -- "sounds/computerbeep_64.mp3",
+--     -- "sounds/computerbeep_65.mp3",
+--     -- "sounds/computerbeep_66.mp3",
+--     -- "sounds/computerbeep_67.mp3",
+--     -- "sounds/computerbeep_68.mp3",
+--     -- "sounds/computerbeep_69.mp3",
+--     -- "sounds/computerbeep_70.mp3",
+--     -- "sounds/computerbeep_71.mp3",
+--     -- "sounds/computerbeep_72.mp3",
+--     -- "sounds/computerbeep_73.mp3",
+--     -- "sounds/computerbeep_74.mp3",
+--     -- "sounds/computerbeep_75.mp3",
+--     -- "sounds/computerbeep_76.mp3",
+--     -- "sounds/computerbeep_77.mp3",
+--     -- "sounds/consolewarning.mp3",
+--     -- "sounds/critical.mp3",
+--     -- "sounds/damagealarm.mp3",
+--     -- "sounds/denybeep1.mp3",
+--     -- "sounds/denybeep2.mp3",
+--     -- "sounds/denybeep3.mp3",
+--     -- "sounds/denybeep4.mp3",
+--     -- "sounds/deskviewer1.mp3",
+--     -- "sounds/deskviewer2.mp3",
+--     -- "sounds/deskviewerbeep.mp3",
+--     -- "sounds/ds9intercom.mp3",
+--     -- "sounds/energize.mp3",
+--     -- "sounds/engage.mp3",
+--     -- "sounds/hail_allship_ep.mp3",
+--     -- "sounds/hailalert_1.mp3",
+--     -- "sounds/hailalert_2.mp3",
+--     -- "sounds/hailbeep_5.mp3",
+--     -- "sounds/hailbeep_clean.mp3",
+--     -- "sounds/hailbeep2_clean.mp3",
+--     -- "sounds/hailbeep3_clean.mp3",
+--     -- "sounds/hailbeep4_clean.mp3",
+--     -- "sounds/hailingfrequencies_open1.mp3",
+--     -- "sounds/hailingfrequencies_open2.mp3",
+--     -- "sounds/hailingfrequencies_open3.mp3",
+--     -- "sounds/hailingfrequencies_open4.mp3",
+--     -- "sounds/helm_engage_clean.mp3",
+--     -- "sounds/incoming_hail1.mp3",
+--     -- "sounds/incoming_hail2.mp3",
+--     -- "sounds/incoming_hail3.mp3",
+--     -- "sounds/input_failed_clean.mp3",
+--     -- "sounds/input_failed2_clean.mp3",
+--     -- "sounds/input_ok_1_clean.mp3",
+--     -- "sounds/input_ok_2_clean.mp3",
+--     -- "sounds/input_ok_3_clean.mp3",
+--     -- "sounds/input_ok_4.mp3",
+--     -- "sounds/keyok1.mp3",
+--     -- "sounds/keyok2.mp3",
+--     -- "sounds/keyok3.mp3",
+--     -- "sounds/keyok4.mp3",
+--     -- "sounds/keyok5.mp3",
+--     -- "sounds/keyok6.mp3",
+--     -- "sounds/processing.mp3",
+--     -- "sounds/processing2.mp3",
+--     -- "sounds/processing3.mp3",
+--     -- "sounds/scrscroll1.mp3",
+--     -- "sounds/scrscroll2.mp3",
+--     -- "sounds/scrscroll3.mp3",
+--     -- "sounds/scrsearch.mp3",
+--     -- "sounds/scrshow.mp3",
+--     -- "sounds/transporter_beep.mp3",
+--     -- "sounds/voy_hail.mp3",
+-- })
+
+if audio ~= nil then
+    vim.cmd("augroup sounds\n" .. "autocmd!\n" ..
+                "autocmd BufWritePre * lua audio.play(2)" .. "augroup END")
+end
+
+-- Tree Sitter
+require'nvim-treesitter.configs'.setup {
+    -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = "maintained",
+
+    -- Install languages synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+
+    -- List of parsers to ignore installing
+    -- ignore_install = { "javascript" },
+
+    highlight = {
+        -- `false` will disable the whole extension
+        enable = true,
+
+        -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
+        -- list of language that will be disabled
+        disable = {"c", "rust"},
+
+        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+        -- Using this option may slow down your editor, and you may see some duplicate highlights.
+        -- Instead of true it can also be a list of languages
+        additional_vim_regex_highlighting = false
+    }
+}

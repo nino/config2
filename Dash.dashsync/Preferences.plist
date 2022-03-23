@@ -960,6 +960,29 @@
 					<string>Chartjs</string>
 				</dict>
 			</dict>
+			<key>Faker</key>
+			<dict>
+				<key>date</key>
+				<date>2022-03-23T17:18:07Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Faker</string>
+						<string>PHP Faker</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Faker#readme</string>
+					<key>authorLinkText</key>
+					<string>Adnan RIHAN</string>
+					<key>name</key>
+					<string>Faker</string>
+					<key>platform</key>
+					<string>usercontribFaker</string>
+					<key>uniqueIdentifier</key>
+					<string>Faker</string>
+				</dict>
+			</dict>
 			<key>Jest</key>
 			<dict>
 				<key>date</key>
