@@ -295,3 +295,5 @@ export REACT_EDITOR=nvr
 export PATH="$PATH:/Users/nino/.local/bin"
 
 export PATH="$PATH:$HOME/zls"
+
+export BROCCOLI_ENABLED_MEMOIZE=true
