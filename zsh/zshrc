@@ -251,10 +251,10 @@ export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init -)"
 
 
-export PATH="/Users/nino/.config/scripts:${PATH}"
-export PATH="/Users/nino/.config/secret-config2/scripts:${PATH}"
+export PATH="$HOME/.config/scripts:${PATH}"
+export PATH="$HOME/.config/secret-config2/scripts:${PATH}"
 export PATH="/Applications/Racket v8.0/bin:${PATH}"
-export PATH="/Users/nino/.local/bin:${PATH}"
+export PATH="$HOME/.local/bin:${PATH}"
 
 # export TERM=xterm
 export TERM=xterm-256color
