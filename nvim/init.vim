@@ -55,6 +55,7 @@ Plugin 'https://github.com/creativenull/diagnosticls-configs-nvim'
 Plugin 'https://github.com/ziglang/zig.vim'
 Plugin 'https://github.com/nino/bleepbloopvim'
 Plugin 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plugin 'https://github.com/jakwings/vim-pony'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
