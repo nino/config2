@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+clipboard_content = `pbpaste`
+input_string = if clipboard_content.match(/[a-zA-Z0-9_-]+:.*/)
+                 clipboard_content
+               else
+                 ARGV[0]
+               end
+args_components = input_string.split ':'
+
+user = args_components[0]
+branch = args_components[1]
+
+puts "Fetching remote #{user} ..."
+system "git fetch #{user} '#{branch}'"
+puts "Checkout out the branch '#{branch}' ..."
+system "git checkout --track #{user}/'#{branch}' || git checkout '#{branch}'"
+puts 'Pulling ...'
+system 'git pull'
+puts 'Ctagsing ...'
+system 'ctags -R . &'
