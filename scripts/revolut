@@ -1,0 +1,18 @@
+#!/usr/bin/env julia
+
+for infile in ARGS
+    if occursin(".out.csv", infile)
+        println("Skipping $infile because it is an output file")
+        continue
+    end
+
+    outfile = replace(infile, ".csv" => ".out.csv")
+
+    open(outfile, "w") do o
+        for line in eachline(infile, keep = true)
+            convertedline =
+                replace(line, r"(20\d\d-\d\d-\d\d) \d\d:\d\d:\d\d" => s"\1")
+            write(o, convertedline)
+        end
+    end
+end

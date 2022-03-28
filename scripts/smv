@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+from = ARGV[0]
+to = ARGV[1]
+
+if from.empty? || to.empty?
+  puts "Need to provide from and to"
+  exit
+end
+
+destination_dir = `dirname '#{to}'`.strip
+system "mkdir -p '#{destination_dir}' && mv '#{from}' '#{to}'"
