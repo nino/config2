@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@tailwindcss/language-server": "^0.0.7",
+    "diagnostic-languageserver": "^1.14.2",
     "typescript-language-server": "^0.9.7"
   }
 }
