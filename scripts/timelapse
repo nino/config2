@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'open3'
+
+timelapse_root_path = File.join(Dir.home, 'Timelapse')
+
+if __FILE__ == $PROGRAM_NAME
+  Dir.mkdir(timelapse_root_path) if !Dir.exist?(timelapse_root_path)
+
+  loop do
+    puts "It is #{Time.now}"
+    day_path = File.join(timelapse_root_path, Time.now.strftime('%Y-%m-%d'))
+    Dir.mkdir day_path if !Dir.exist?(day_path)
+
+    filename =
+      (
+        Dir.children(day_path).map { |s| s.gsub(/\.jpg/, '') }.map(&:to_i)
+          .max || 0
+      ) + 1
+
+    _stdout, _stderr, status =
+      Open3.capture3("screencapture -x -t jpg -m '#{day_path}/#{filename}.jpg'")
+    if status.success?
+      if File.exist? "#{day_path}/#{filename}.jpg"
+        system "convert -scale 1200 '#{day_path}/#{filename}.jpg' '#{
+                 day_path
+               }/#{filename}.jpg'"
+      end
+      sleep 4
+    else
+      sleep 60
+    end
+  end
+end

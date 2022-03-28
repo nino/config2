@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+timelapse_root_path = File.join(Dir.home, 'Timelapse')
+
+day = ARGV[0] || Time.now.strftime("%Y-%m-%d")
+
+images_path = File.join(timelapse_root_path, day, '%d.jpg')
+
+time = Time.now.strftime("%H-%M-%S")
+out_path = File.join(timelapse_root_path, "#{day}--#{time}.mov")
+
+system "ffmpeg -y -framerate 15 -i #{images_path} -vf \"format=yuv420p\" -vcodec h264 #{out_path}"
+
+ # command: List[str] = ["ffmpeg", "-y",
+ #                              "-framerate", "30",
+ #                              "-i", self.input,
+ #                              "-vf", "format=yuv420p",
+ #                              "-vcodec", "h264",
+ #                              self.output]
