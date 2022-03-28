@@ -1,8 +1,10 @@
 [commit]
 	template = ~/.gitmessage
+	gpgsign = true
 [user]
 	name = Nino Annighoefer
 	email = nino@ninoan.com
+	signingkey = EA66C4755AD14B29
 [core]
 	editor = "nvim"
 	commentChar = "#"
