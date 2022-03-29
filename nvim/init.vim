@@ -8,58 +8,54 @@ else
   let s:editor_root=expand("~/.vim")
 endif
 
-" set the runtime path to include Vundle and initialize
-let &rtp = &rtp . ',' . s:editor_root . '/bundle/Vundle.vim/'
-call vundle#begin(s:editor_root . '/bundle')
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'mbbill/undotree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-surround'
-Plugin 'SirVer/ultisnips'
-Plugin 'raimondi/delimitmate'
-Plugin 'neovim/node-host'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-ragtag'
-Plugin 'mileszs/ack.vim'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'https://github.com/Shougo/ddc.vim'
-Plugin 'https://github.com/vim-denops/denops.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'nino/itspronouncedmoove'
-Plugin 'rizzatti/dash.vim'
-Plugin 'keith/swift.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'https://github.com/udalov/kotlin-vim'
-Plugin 'tpope/vim-characterize'
-Plugin 'https://github.com/guns/vim-sexp'
-Plugin 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'https://github.com/morhetz/gruvbox'
-Plugin 'https://github.com/fweep/vim-zsh-path-completion'
-Plugin 'https://github.com/davidoc/taskpaper.vim'
-Plugin 'https://github.com/petertriho/nvim-scrollbar'
-Plugin 'https://github.com/gutenye/json5.vim'
-Plugin 'https://github.com/jxnblk/vim-mdx-js'
-Plugin 'https://github.com/neovim/nvim-lspconfig'
-Plugin 'https://github.com/sickill/vim-monokai'
-Plugin 'https://github.com/creativenull/diagnosticls-configs-nvim'
-Plugin 'https://github.com/ziglang/zig.vim'
-Plugin 'https://github.com/nino/bleepbloopvim'
-Plugin 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plugin 'https://github.com/jakwings/vim-pony'
+call plug#begin()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Install with
+" sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'SirVer/ultisnips'
+Plug 'raimondi/delimitmate'
+Plug 'neovim/node-host'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-ragtag'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/Shougo/ddc.vim'
+Plug 'https://github.com/vim-denops/denops.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'nino/itspronouncedmoove'
+Plug 'rizzatti/dash.vim'
+Plug 'keith/swift.vim'
+Plug 'preservim/nerdtree'
+Plug 'https://github.com/udalov/kotlin-vim'
+Plug 'tpope/vim-characterize'
+Plug 'https://github.com/guns/vim-sexp'
+Plug 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
+Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/fweep/vim-zsh-path-completion'
+Plug 'https://github.com/davidoc/taskpaper.vim'
+Plug 'https://github.com/petertriho/nvim-scrollbar'
+Plug 'https://github.com/gutenye/json5.vim'
+Plug 'https://github.com/jxnblk/vim-mdx-js'
+Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'https://github.com/sickill/vim-monokai'
+Plug 'https://github.com/creativenull/diagnosticls-configs-nvim'
+Plug 'https://github.com/ziglang/zig.vim'
+Plug 'https://github.com/nino/bleepbloopvim'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'https://github.com/jakwings/vim-pony'
+
+call plug#end()
 
 lua << EOF
   require("scrollbar").setup()
