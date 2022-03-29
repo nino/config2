@@ -450,6 +450,20 @@
 					<string>JuliaData/DataFrames.jl</string>
 				</dict>
 			</dict>
+			<key>Leonidas-from-XIV/node-xml2js</key>
+			<dict>
+				<key>date</key>
+				<date>2022-03-26T20:56:56Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>Leonidas-from-XIV/node-xml2js</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>Leonidas-from-XIV/node-xml2js</string>
+				</dict>
+			</dict>
 			<key>MikeMcl/bignumber.js</key>
 			<dict>
 				<key>date</key>
@@ -509,7 +523,7 @@
 			<key>denoland/deno</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-22T16:20:34Z</date>
+				<date>2022-03-18T19:40:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -607,7 +621,7 @@
 			<key>samselikoff/ember-cli-mirage</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-22T08:52:31Z</date>
+				<date>2022-03-23T20:57:13Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -663,7 +677,7 @@
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-28T08:44:44Z</date>
+				<date>2022-03-28T20:58:13Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>

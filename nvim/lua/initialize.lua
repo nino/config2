@@ -299,3 +299,11 @@ require'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = false
     }
 }
+
+function loadaudio()
+  local ffi = require "ffi"
+  ffi.cdef [[ int other_info(); ]]
+  local libaudio = ffi.load("./libaudio.so")
+  local res = libaudio.other_info()
+  print(res)
+end
