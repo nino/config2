@@ -570,7 +570,7 @@ colorize('DiagnosticVirtualTextHint', {fg = 'Gray-500'})
 
 colorize("ColorColumn", {bg = "Gray-200"})
 colorize("VertSplit", {bg = "none", fg = "Gray-600", decoration = "none"})
-colorize("SignColumn", {bg="Yellow-50"})
+colorize("SignColumn", {bg="Orange-50"})
 colorize("TabLineFill", {bg="Gray-300", decoration="none"})
 colorize("TabLineSel", {bg="Sky-600",fg="White"})
 colorize("TabLine", {bg="Gray-200",fg="Black", decoration="none"})
