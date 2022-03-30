@@ -84,7 +84,7 @@ dlsconfig.setup {
 }
 
 function format_file()
-  -- Looks like this works without that weird hack now \o/
+    -- Looks like this works without that weird hack now \o/
     -- if vim.o.filetype == "typescriptreact" or vim.o.filetype == "javascriptreact" then
     --     vim.lsp.buf.formatting_sync(nil, 8000)
     --     vim.cmd('e!')
@@ -301,9 +301,31 @@ require'nvim-treesitter.configs'.setup {
 }
 
 function loadaudio()
-  local ffi = require "ffi"
-  ffi.cdef [[ int other_info(); ]]
-  local libaudio = ffi.load("./libaudio.so")
-  local res = libaudio.other_info()
-  print(res)
+    ffi = require "ffi"
+    ffi.cdef [[
+      int lj_play(int idx);
+      int lj_initialize(const char** sample_paths, size_t num_samples);
+    ]]
+    libaudio = ffi.load("./libaudio.so")
+
+    function initialize(samples)
+        local c_samples = ffi.new("const char*[" .. tostring(#samples) .. "]",
+                                  samples)
+        libaudio.lj_initialize(c_samples, #samples)
+    end
+
+    initialize({"assets/hihat.wav", "assets/hihat2.wav"})
+end
+-- loadaudio()
+
+function play(idx)
+    local c_index = ffi.new("int", idx - 1)
+    libaudio.lj_play(c_index)
+end
+
+if libaudio ~= nil then
+  vim.cmd[[
+    autocmd! InsertEnter * :lua play(1)
+    autocmd! InsertLeave * :lua play(2)
+  ]]
 end
