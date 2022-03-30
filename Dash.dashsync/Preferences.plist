@@ -453,7 +453,7 @@
 			<key>Leonidas-from-XIV/node-xml2js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-26T20:56:56Z</date>
+				<date>2022-03-29T15:55:57Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -870,6 +870,20 @@
 					<string>rubyGems</string>
 					<key>uniqueIdentifier</key>
 					<string>geojson</string>
+				</dict>
+			</dict>
+			<key>rugged</key>
+			<dict>
+				<key>date</key>
+				<date>2022-03-29T16:01:34Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rugged</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rugged</string>
 				</dict>
 			</dict>
 			<key>xgboost</key>
@@ -1427,6 +1441,8 @@
 			<string>mechanize:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/restclient/rest-client.docset</key>
 			<string>restclient:</string>
+			<key>~/Library/Application Support/Dash/Ruby DocSets/rugged/rugged.docset</key>
+			<string>rugged:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Neovim/Neovim.docset</key>
 			<string>nvim:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Nextjs/nextjs.docset</key>
