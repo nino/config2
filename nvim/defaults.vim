@@ -13,8 +13,6 @@ set mouse=a
 set noswapfile
 set diffopt+=vertical,followwrap
 
-set rulerformat=%l/%L\ %P\ %c
-
 " Hopefully make Emoji show up correctly
 " set ambiwidth=double
 

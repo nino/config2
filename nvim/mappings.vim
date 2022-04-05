@@ -56,7 +56,6 @@ vnoremap > >gv
 
 vnoremap <Leader>p :diffput<CR>
 
-nnoremap <silent> <Leader>r :redraw!<CR>
 nnoremap <silent> <Leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>t :tabe<CR>
@@ -232,7 +231,4 @@ command! WTF %s/\d\zs Jan \ze\d/-01-/|%s/\d\zs Feb \ze\d/-02-/|%s/\d\zs Mar \ze\
 
 command! Nofile set buftype=nofile
 
-" Temp
-
-nnoremap <Leader>r :!tmux send-keys -t :.1 node\ make-pdf.js C-m<cr><cr>
 
