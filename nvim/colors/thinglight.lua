@@ -561,7 +561,7 @@ colorize("DiffAdd", {bg = "Emerald-100"})
 colorize("DiffChange", {bg = "Green-50"})
 colorize("DiffDelete", {bg = "Rose-100"})
 
-colorize("StatusLine", {bg = "Sky-600", fg = "White", decoration = "none"})
+colorize("StatusLine", {bg = "Rose-400", fg = "White", decoration = "none"})
 colorize("StatusLineNC", {fg = "Gray-600", bg = "Gray-200", decoration = "none"})
 colorize('Pmenu', {bg = 'Sky-100'})
 colorize('DiagnosticVirtualTextError', {fg = 'Red-100'})
