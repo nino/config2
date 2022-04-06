@@ -80,6 +80,7 @@ require('lspconfig').rls.setup {
     end
 }
 require('lspconfig').clangd.setup {}
+require('lspconfig').gopls.setup {}
 
 -- local function on_attach(client) print('Attached to ' .. client.name) end
 

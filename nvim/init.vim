@@ -54,6 +54,7 @@ Plug 'https://github.com/ziglang/zig.vim'
 Plug 'https://github.com/nino/bleepbloopvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'https://github.com/jakwings/vim-pony'
+Plug 'https://github.com/davidoc/taskpaper.vim'
 
 call plug#end()
 
