@@ -300,3 +300,6 @@ export PATH="$PATH:$HOME/zls"
 export BROCCOLI_ENABLED_MEMOIZE=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
