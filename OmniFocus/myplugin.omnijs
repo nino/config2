@@ -1,0 +1,10 @@
+(() => {
+  // lib.js
+  var Lib = { msg: "aaaaaa" };
+
+  // myplugin.js
+  return new PlugIn.Action(function(selection) {
+    console.log("Invoked with selection", selection);
+    new Alert("Message", Lib.msg).show();
+  });
+})();

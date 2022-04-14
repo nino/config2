@@ -1,0 +1,6 @@
+ninja_required_version = 1.3
+
+rule esbuild
+  command = esbuild --bundle $in | sed 's/var TO_BE_EXPORTED =/return/' > $out
+
+build myplugin.omnijs: esbuild myplugin.js
