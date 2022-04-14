@@ -94,6 +94,14 @@ alias tnm='tig --no-merges'
 alias yran='yarn'
 alias zzr='source ~/.zshrc'
 
+# Delete renovate PRs
+rmrenovate() {
+  for branch in `git branch | rg renovate/ | sed 's/^..//'`; do
+    git branch -D $branch
+  done
+}
+
+
 rmnodemodules() {
   echo "Deleting at root"
   rm -rf ./node_modules

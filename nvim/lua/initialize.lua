@@ -616,7 +616,7 @@ if libaudio ~= nil then
 end
 
 -- Run stuff in the other pane
-current_build_command = 'immo core test --grep to_typescript'
+current_build_command = 'immo core test --grep typescript'
 
 function send_keys()
     if current_build_command ~= nil then
@@ -627,3 +627,5 @@ end
 vim.cmd([[
 nnoremap <Leader>r :lua send_keys()<cr>
 ]])
+
+require "mappings"
