@@ -1,4 +1,4 @@
-set tabstop=4
+set tabstop=8
 set softtabstop=2
 set shiftwidth=2
 set textwidth=80
@@ -31,7 +31,7 @@ set breakindent
 set breakindentopt=shift:4
 set title
 set list
-set listchars=tab:\ \ ,nbsp:␣,trail:⌁,extends:→,precedes:←
+set listchars=tab:\⋅\ ,nbsp:␣,trail:⌁,extends:→,precedes:←
 
 " Preview changes made by :s and others
 set inccommand=nosplit

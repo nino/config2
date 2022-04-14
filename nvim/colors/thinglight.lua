@@ -574,6 +574,7 @@ colorize("SignColumn", {bg="Orange-50"})
 colorize("TabLineFill", {bg="Gray-300", decoration="none"})
 colorize("TabLineSel", {bg="Sky-600",fg="White"})
 colorize("TabLine", {bg="Gray-200",fg="Black", decoration="none"})
+colorize("NonText", {fg="Gray-300"})
 
 colorize("Keyword", {fg = "Purple-600", decoration = "none"})
 colorize("Statement", {fg = "Yellow-700"})
