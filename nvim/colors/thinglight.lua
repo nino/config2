@@ -544,7 +544,7 @@ end
 
 vim.opt.bg = 'light'
 
-colorize("Normal", {bg = "Yellow-100", fg = "Black"})
+colorize("Normal", {bg = "Gray-100", fg = "Black"})
 
 colorize("Cursor", {bg = "Pink-400"})
 colorize("Visual", {bg = "Gray-300"})
@@ -570,7 +570,7 @@ colorize('DiagnosticVirtualTextHint', {fg = 'Gray-500'})
 
 colorize("ColorColumn", {bg = "Gray-200"})
 colorize("VertSplit", {bg = "none", fg = "Gray-600", decoration = "none"})
-colorize("SignColumn", {bg="Orange-50"})
+colorize("SignColumn", {bg="Gray-50"})
 colorize("TabLineFill", {bg="Gray-300", decoration="none"})
 colorize("TabLineSel", {bg="Sky-600",fg="White"})
 colorize("TabLine", {bg="Gray-200",fg="Black", decoration="none"})
