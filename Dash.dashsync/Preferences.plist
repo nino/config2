@@ -525,7 +525,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-14T08:51:58Z</date>
+				<date>2022-04-19T08:45:14Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -595,7 +595,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-12T08:18:21Z</date>
+				<date>2022-04-19T08:44:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -623,7 +623,7 @@
 			<key>mapbox/node-sqlite3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-14T08:51:07Z</date>
+				<date>2022-04-19T08:44:43Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -651,7 +651,7 @@
 			<key>samselikoff/ember-cli-mirage</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-14T08:51:12Z</date>
+				<date>2022-04-19T08:44:42Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -679,7 +679,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-13T08:18:22Z</date>
+				<date>2022-04-19T08:44:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -707,7 +707,7 @@
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-12T08:20:18Z</date>
+				<date>2022-04-19T08:46:19Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -905,7 +905,7 @@
 			<key>rugged</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-29T16:01:34Z</date>
+				<date>2022-04-19T08:44:45Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1365,7 +1365,7 @@
 		<dict/>
 	</dict>
 	<key>DHWKWebViewTextSizeMultiplier</key>
-	<real>1</real>
+	<real>0.84999996423721313</real>
 	<key>actuallyDarkWebView</key>
 	<true/>
 	<key>annotationsAreShown</key>
