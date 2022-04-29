@@ -165,7 +165,7 @@ command! Nodraw call s:DisableBoxDrawing()
 
 command! Gpshu Gpush<CR>
 
-command! VD Gvdiffsplit upstream/develop:%|windo se wrap|normal zr
+command! VD Gvdiffsplit origin/develop:%|windo se wrap|normal zr
 command! T exe 'tabe ' . system('pbpaste')|VD
 command! Nums windo set modifiable|%s/\$\d\+/\$xx/g
 

@@ -9,6 +9,7 @@
 	editor = "nvim"
 	commentChar = "#"
 	attributesfile = /Users/nino/.config/.gitattributes
+	pager = delta
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -19,8 +20,26 @@
 [init]
 	defaultBranch = trunk
 [alias]
-  lb = !git reflog show --pretty=format:'%gs' | grep 'checkout:' | grep -oE ' to (.+)' | perl -pe 's/ to //'
+	lb = !git reflog show --pretty=format:'%gs' | grep 'checkout:' | grep -oE ' to (.+)' | perl -pe 's/ to //'
 [gpg]
 	program = gpg2
 [diff "plist"]
-	textconv = plutil -convert xml1 -o -
+	defaulttextconv = plutil -convert xml1 -o -
+
+[include]
+	path = /Users/Nino/code/delta/themes.gitconfig
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	side-by-side = true
+	dark = false
+  light = true
+  true-color = never
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = zebra
