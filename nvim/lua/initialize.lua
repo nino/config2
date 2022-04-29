@@ -10,6 +10,7 @@ else
 end
 
 -- Defaults
+vim.opt.laststatus = 2
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
@@ -18,6 +19,14 @@ vim.opt.list = true
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
+
+-- Providers
+-- TODO Make this depend on the computer because this is problably breaking the
+-- Linux
+vim.cmd[[
+let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
+let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
+]]
 
 -- Mappings
 vim.g.mapleader = " "
@@ -300,7 +309,7 @@ end
 -- Tree Sitter
 require'nvim-treesitter.configs'.setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = "maintained",
+    ensure_installed = "all",
 
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,
