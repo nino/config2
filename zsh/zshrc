@@ -312,3 +312,5 @@ export BROCCOLI_ENABLED_MEMOIZE=true
 
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+export OCIO=/Users/Nino/OpenColorIO/aces_1.2/config.ocio
