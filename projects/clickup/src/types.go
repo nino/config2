@@ -5,8 +5,13 @@ package clickup
 type User struct {
 	Id                int    `json:"id"`
 	Username          string `json:"username"`
+	Email             string `json:"email"`
 	Color             string `json:"color"`
 	ProfilePictureUrl string `json:"profilePicture"`
+	Initials          string `json:"initials"`
+	WeekStartDay      int    `json:"week_start_day"`
+	GlobalFontSupport bool   `json:"global_font_support"`
+	Timezone          string `json:"timezone"`
 }
 
 type Team struct {

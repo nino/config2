@@ -5,6 +5,7 @@ import (
 	"fmt"
 	cu "github.com/nino/config/projects/clickup/src"
 	"strings"
+	"os"
 )
 
 func isFuzzyMatch(query []rune, potentialCandidate string) bool {
@@ -53,4 +54,13 @@ func main() {
 
 	fmt.Printf("%+v\n", fuzzySearch("äbc", []string{"one", "two", "älphabetic", "aeeeexbeeeeaaaaccccc"}))
 	fmt.Printf("%+v\n", string("äbßß"[0]))
+
+
+	token := os.Getenv("CLICKUP_TOKEN")
+	u, e := cu.GetUser(token)
+	if e != nil {
+		panic(e)
+	}
+
+	fmt.Printf("User: %+v\n", u)
 }
