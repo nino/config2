@@ -2,3 +2,14 @@ Style/Documentation:
   Enabled: false
 Style/NegatedIf:
   Enabled: false
+Naming/MethodParameterName:
+  AllowedNames:
+    - a
+    - b
+    - c
+    - x
+    - y
+    - z
+    - u
+    - v
+    - uv
