@@ -23,6 +23,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@prettier/plugin-ruby@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-2.1.0.tgz#2df48c1c004fc9dec18a72f441d43d54137b25a6"
+  integrity sha512-lAoYFoDnwlxM3jl+dS7yrmxD49d3nbKFTBuhHx3VTPoAwmOOKOIO4nRJTTBWF+rS7KUAVn2XPLwRR0Obh/KW6A==
+  dependencies:
+    prettier ">=2.3.0"
+
 "@tailwindcss/language-server@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@tailwindcss/language-server/-/language-server-0.0.7.tgz#f8c3c662569132b7a6a3af1732fce3127cce72b7"
@@ -211,6 +218,11 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
   version "4.2.9"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
   integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
+
+grammar.js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/grammar.js/-/grammar.js-1.0.0.tgz#ec986a7844122f711610d86ade6d5d3da6112f59"
+  integrity sha1-7JhqeEQSL3EWENhq3m1dPaYRL1k=
 
 ignore@^5.2.0:
   version "5.2.0"
@@ -404,6 +416,11 @@ pkg-up@^3.1.0:
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
   dependencies:
     find-up "^3.0.0"
+
+prettier@>=2.3.0, prettier@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.2.tgz#e26d71a18a74c3d0f0597f55f01fb6c06c206032"
+  integrity sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==
 
 queue-microtask@^1.2.2:
   version "1.2.3"
