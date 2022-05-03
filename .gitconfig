@@ -26,8 +26,6 @@
 [diff "plist"]
 	defaulttextconv = plutil -convert xml1 -o -
 
-[include]
-	path = /Users/Nino/code/delta/themes.gitconfig
 [interactive]
 	diffFilter = delta --color-only
 
