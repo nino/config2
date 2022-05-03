@@ -31,3 +31,4 @@ karabiner/automatic_backups
 yarn/global/yarn-error.log
 PureRef.ini
 **/.ninja_log
+**/__pycache__/**
