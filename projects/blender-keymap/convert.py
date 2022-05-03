@@ -1,0 +1,60 @@
+import bindings
+from dataclasses import dataclass
+
+
+@dataclass
+class FullyQualifiedCommand:
+    context: str
+    space_type: str
+    region_type: str
+    command: str
+    options: dict = None
+
+
+@dataclass(frozen=True)
+class KeyCombo(dict):
+    type: str
+    value: str
+    alt: bool
+    shift: bool
+    ctrl: bool
+    oskey: bool
+
+    @classmethod
+    def from_dict(cls, obj):
+        return KeyCombo(
+            type=obj["type"],
+            value=obj["value"],
+            alt=obj.get("alt", False),
+            shift=obj.get("shift", False),
+            ctrl=obj.get("ctrl", False),
+            oskey=obj.get("oskey", False),
+        )
+
+
+allcommands = []
+commandsmap = {}
+
+
+def register_command(combo, cmd):
+    if combo in commandsmap:
+        commandsmap[combo].append(cmd)
+    else:
+        commandsmap[combo] = [cmd]
+
+
+for context_group in bindings.keyconfig_data:
+    context = context_group[0]
+    types = context_group[1]
+    specs = context_group[2]
+    for item in specs["items"]:
+        command = item[0]
+        keycombo = KeyCombo.from_dict(item[1])
+        options = item[2]
+        fqcommand = FullyQualifiedCommand(
+            context, types["space_type"], types["region_type"], command)
+        allcommands.append(fqcommand)
+        register_command(keycombo, fqcommand)
+
+for k, v in commandsmap.items():
+    print(k.type, [c.command for c in v])
