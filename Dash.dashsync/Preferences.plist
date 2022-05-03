@@ -525,7 +525,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-29T08:58:17Z</date>
+				<date>2022-05-01T20:47:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -606,6 +606,20 @@
 					<string>googlemaps/google-maps-services-js</string>
 				</dict>
 			</dict>
+			<key>gotk3/gotk3</key>
+			<dict>
+				<key>date</key>
+				<date>2022-05-01T20:45:48Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gotk3/gotk3</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>gotk3/gotk3</string>
+				</dict>
+			</dict>
 			<key>mapbox/mapbox-gl-js</key>
 			<dict>
 				<key>date</key>
@@ -623,7 +637,7 @@
 			<key>mapbox/node-sqlite3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-29T08:57:44Z</date>
+				<date>2022-05-01T20:47:21Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -679,7 +693,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-29T08:57:51Z</date>
+				<date>2022-05-01T20:47:41Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -707,7 +721,7 @@
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-25T08:02:54Z</date>
+				<date>2022-05-01T20:50:06Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1311,6 +1325,28 @@
 					<string>usercontribelectron</string>
 					<key>uniqueIdentifier</key>
 					<string>electron</string>
+				</dict>
+			</dict>
+			<key>gtkmm</key>
+			<dict>
+				<key>date</key>
+				<date>2022-05-01T20:45:25Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>gtk--</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/gtkmm#readme</string>
+					<key>authorLinkText</key>
+					<string>Jack Zhou</string>
+					<key>name</key>
+					<string>gtkmm</string>
+					<key>platform</key>
+					<string>usercontribgtkmm</string>
+					<key>uniqueIdentifier</key>
+					<string>gtkmm</string>
 				</dict>
 			</dict>
 			<key>next.js</key>
