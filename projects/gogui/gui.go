@@ -1,0 +1,201 @@
+package main
+
+import (
+	"github.com/gotk3/gotk3/gdk"
+	"github.com/gotk3/gotk3/gtk"
+	"github.com/gotk3/gotk3/glib"
+	"log"
+)
+
+var todos []string = []string{"One", "Two"}
+var todosBox *gtk.Box
+var globalWin *gtk.Window
+
+const (
+	MOD_NOTHING = uint(0)
+	MOD_SHIFT   = uint(gdk.SHIFT_MASK)
+	MOD_CTRL    = uint(gdk.CONTROL_MASK)
+	MOD_OPTION  = uint(gdk.MOD1_MASK)
+	MOD_COMMAND = uint(gdk.MOD2_MASK)
+)
+
+// KeyVal values
+const (
+	KEY_RETURN = 65293
+)
+
+func isKeyCombo(event *gdk.Event, modMasks uint, keyVal uint) bool {
+	keyEvent := &gdk.EventKey{Event: event}
+	state := keyEvent.State() & (MOD_NOTHING | MOD_CTRL | MOD_COMMAND | MOD_OPTION | MOD_SHIFT)
+	return (state == modMasks) && keyEvent.KeyVal() == keyVal
+}
+
+func maybeFail(msg string, err error) {
+	if err != nil {
+		log.Fatal(msg, err)
+	}
+}
+
+func todoItem(text string) *gtk.Box {
+	label, labelErr := gtk.LabelNew(text)
+	maybeFail("Unable to create label: ", labelErr)
+	button, buttonErr := gtk.ButtonNewWithLabel("×") // This is very bad
+	maybeFail("Unable to create button: ", buttonErr)
+
+	layout, err := gtk.BoxNew(gtk.ORIENTATION_HORIZONTAL, 8)
+	maybeFail("Unable to create layout for todo item: ", err)
+
+	layout.Add(button)
+	layout.Add(label)
+	return layout
+}
+
+func initTodoList() {
+	layout, boxErr := gtk.BoxNew(gtk.ORIENTATION_VERTICAL, 8)
+	if boxErr != nil {
+		log.Fatal("Unable to create stack", boxErr)
+	}
+
+	for _, t := range todos {
+		label := todoItem(t)
+		layout.Add(label)
+	}
+
+	todosBox = layout
+}
+
+func addTodo(text string) {
+	log.Print("Adding TODO", text)
+	widget := todoItem(text)
+	todosBox.Add(widget)
+	todosBox.CheckResize()
+	log.Print(todosBox.GetChildren().Length())
+	todosBox.GetChildren().Foreach(func(child interface{}) {
+		log.Print("Child: ", child)
+	})
+	todosBox.ShowAll()
+}
+
+var newTodoForm *gtk.Box
+
+func initNewTodoForm() {
+	layout, boxErr := gtk.BoxNew(gtk.ORIENTATION_HORIZONTAL, 8)
+	if boxErr != nil {
+		log.Fatal("Unable to create box for new todo form:", boxErr)
+	}
+
+	textField, textFieldErr := gtk.EntryNew()
+	if textFieldErr != nil {
+		log.Fatal("Unable to create text view:", textFieldErr)
+	}
+	layout.Add(textField)
+
+	addButton, buttonErr := gtk.ButtonNewWithLabel("Add")
+	if buttonErr != nil {
+		log.Fatal("Unable to add button:", buttonErr)
+	}
+
+	doAddTodo := func() {
+		text, _ := textField.GetText()
+		addTodo(text)
+		textField.SetText("")
+	}
+
+	addButton.Connect("clicked", doAddTodo)
+	layout.Add(addButton)
+
+	textField.Connect("key-press-event", func(field *gtk.Entry, event *gdk.Event) {
+		if isKeyCombo(event, MOD_NOTHING, KEY_RETURN) {
+			doAddTodo()
+		}
+	})
+
+	newTodoForm = layout
+}
+
+func mainContainer() *gtk.Box {
+	layout, boxErr := gtk.BoxNew(gtk.ORIENTATION_VERTICAL, 8)
+	if boxErr != nil {
+		log.Fatal("Unable to create main container:", boxErr)
+	}
+
+	initTodoList()
+	layout.Add(todosBox)
+
+	initNewTodoForm()
+	layout.Add(newTodoForm)
+
+	layout.SetBorderWidth(8)
+	return layout
+}
+
+func setUpOpeningFiles(app *gtk.Application) {
+	log.Print(app)
+	// app.Connect("Application::open", func(_ *gtk.Application) {
+	// 	log.Print("Got something to open")
+	// })
+}
+
+func main() {
+	// Initialize GTK without parsing any command line arguments.
+	// gtk.Init(nil)
+	app, err := gtk.ApplicationNew("com.ninoan.application", glib.APPLICATION_FLAGS_NONE)
+	setUpOpeningFiles(app)
+
+	// Create a new toplevel window, set its title, and connect it to the
+	// "destroy" signal to exit the GTK main loop when it is destroyed.
+	win, err := gtk.WindowNew(gtk.WINDOW_TOPLEVEL)
+	if err != nil {
+		log.Fatal("Unable to create window:", err)
+	}
+	win.SetTitle("TodoMVC")
+	win.Connect("destroy", func() {
+		gtk.MainQuit()
+	})
+	win.Connect("key-press-event", func(win *gtk.Window, event *gdk.Event) {
+		if isKeyCombo(event, MOD_COMMAND, 'w') {
+			win.Close()
+		}
+	})
+
+	globalWin = win
+
+	// layout, err := gtk.BoxNew(gtk.ORIENTATION_VERTICAL, 16)
+	// if err != nil {
+	// 	log.Fatal("Could not add label:", err)
+	// }
+
+	// Create a new label widget to show in the window.
+	// l, err := gtk.LabelNew("Hello, gotk3!")
+	// if err != nil {
+	// 	log.Fatal("Unable to create label:", err)
+	// }
+
+	// Add the label to the window.
+	// layout.Add(l)
+
+	// butt, err := gtk.ButtonNewWithLabel("Nino’s Button")
+	// if err != nil {
+	// 	log.Fatal("Unable to create button:", err)
+	// }
+
+	// butt.Connect("clicked", func() {
+	// 	log.Print("Clicked")
+	// })
+	// layout.Add(butt)
+
+	mainLayout := mainContainer()
+	win.Add(mainLayout)
+
+	// win.Add(layout)
+
+	// Set the default window size.
+	// win.SetDefaultSize(800, 600)
+
+	// Recursively show all widgets contained in this window.
+	win.ShowAll()
+
+	// Begin executing the GTK main loop.  This blocks until
+	// gtk.MainQuit() is run.
+	gtk.Main()
+}
