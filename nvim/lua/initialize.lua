@@ -14,7 +14,7 @@ vim.opt.laststatus = 2
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 vim.opt.list = true
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 
@@ -30,6 +30,9 @@ let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
 
 -- Mappings
 vim.g.mapleader = " "
+vim.cmd[[
+inoremap <C-l> =>
+]]
 
 -- Commands
 vim.cmd("command! Q :mksession! ~/Prevsession.vim | qa")
