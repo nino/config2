@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/gotk3/gotk3/gdk"
-	"github.com/gotk3/gotk3/gtk"
-	"github.com/gotk3/gotk3/glib"
+	"github.com/diamondburned/gotk4/pkg/gdk/v4"
+	"github.com/diamondburned/gotk4/pkg/gtk/v4"
 	"log"
+	"os"
 )
 
 var todos []string = []string{"One", "Two"}
@@ -37,12 +37,12 @@ func maybeFail(msg string, err error) {
 }
 
 func todoItem(text string) *gtk.Box {
-	label, labelErr := gtk.LabelNew(text)
+	label, labelErr := gtk.NewLabel(text)
 	maybeFail("Unable to create label: ", labelErr)
-	button, buttonErr := gtk.ButtonNewWithLabel("×") // This is very bad
+	button, buttonErr := gtk.NewButtonWithLabel("×") // This is very bad
 	maybeFail("Unable to create button: ", buttonErr)
 
-	layout, err := gtk.BoxNew(gtk.ORIENTATION_HORIZONTAL, 8)
+	layout, err := gtk.NewBox(gtk.OrientationHorizontal, 8)
 	maybeFail("Unable to create layout for todo item: ", err)
 
 	layout.Add(button)
@@ -51,7 +51,7 @@ func todoItem(text string) *gtk.Box {
 }
 
 func initTodoList() {
-	layout, boxErr := gtk.BoxNew(gtk.ORIENTATION_VERTICAL, 8)
+	layout, boxErr := gtk.NewBox(gtk.OrientationVertical, 8)
 	if boxErr != nil {
 		log.Fatal("Unable to create stack", boxErr)
 	}
@@ -79,7 +79,7 @@ func addTodo(text string) {
 var newTodoForm *gtk.Box
 
 func initNewTodoForm() {
-	layout, boxErr := gtk.BoxNew(gtk.ORIENTATION_HORIZONTAL, 8)
+	layout, boxErr := gtk.NewBox(gtk.ORIENTATION_HORIZONTAL, 8)
 	if boxErr != nil {
 		log.Fatal("Unable to create box for new todo form:", boxErr)
 	}
@@ -90,7 +90,7 @@ func initNewTodoForm() {
 	}
 	layout.Add(textField)
 
-	addButton, buttonErr := gtk.ButtonNewWithLabel("Add")
+	addButton, buttonErr := gtk.NewButtonWithLabel("Add")
 	if buttonErr != nil {
 		log.Fatal("Unable to add button:", buttonErr)
 	}
@@ -114,7 +114,7 @@ func initNewTodoForm() {
 }
 
 func mainContainer() *gtk.Box {
-	layout, boxErr := gtk.BoxNew(gtk.ORIENTATION_VERTICAL, 8)
+	layout, boxErr := gtk.NewBox(gtk.OrientationVertical, 8)
 	if boxErr != nil {
 		log.Fatal("Unable to create main container:", boxErr)
 	}
@@ -131,20 +131,12 @@ func mainContainer() *gtk.Box {
 
 func setUpOpeningFiles(app *gtk.Application) {
 	log.Print(app)
-	// app.Connect("Application::open", func(_ *gtk.Application) {
-	// 	log.Print("Got something to open")
-	// })
 }
 
 func main() {
-	// Initialize GTK without parsing any command line arguments.
-	// gtk.Init(nil)
-	app, err := gtk.ApplicationNew("com.ninoan.application", glib.APPLICATION_FLAGS_NONE)
-	setUpOpeningFiles(app)
+	app := gtk.NewApplication("com.ninoan.gtk4-app", 0)
 
-	// Create a new toplevel window, set its title, and connect it to the
-	// "destroy" signal to exit the GTK main loop when it is destroyed.
-	win, err := gtk.WindowNew(gtk.WINDOW_TOPLEVEL)
+	win, err := gtk.NewWindow()
 	if err != nil {
 		log.Fatal("Unable to create window:", err)
 	}
@@ -159,43 +151,10 @@ func main() {
 	})
 
 	globalWin = win
-
-	// layout, err := gtk.BoxNew(gtk.ORIENTATION_VERTICAL, 16)
-	// if err != nil {
-	// 	log.Fatal("Could not add label:", err)
-	// }
-
-	// Create a new label widget to show in the window.
-	// l, err := gtk.LabelNew("Hello, gotk3!")
-	// if err != nil {
-	// 	log.Fatal("Unable to create label:", err)
-	// }
-
-	// Add the label to the window.
-	// layout.Add(l)
-
-	// butt, err := gtk.ButtonNewWithLabel("Nino’s Button")
-	// if err != nil {
-	// 	log.Fatal("Unable to create button:", err)
-	// }
-
-	// butt.Connect("clicked", func() {
-	// 	log.Print("Clicked")
-	// })
-	// layout.Add(butt)
-
 	mainLayout := mainContainer()
 	win.Add(mainLayout)
 
-	// win.Add(layout)
-
-	// Set the default window size.
-	// win.SetDefaultSize(800, 600)
-
 	// Recursively show all widgets contained in this window.
 	win.ShowAll()
-
-	// Begin executing the GTK main loop.  This blocks until
-	// gtk.MainQuit() is run.
 	gtk.Main()
 }
