@@ -13,7 +13,7 @@
 			<key>text</key>
 			<string>Search Sourcegraph for '{query}'</string>
 			<key>url</key>
-			<string>https://sourcegraph.com/search?q={query}&amp;patternType=structural</string>
+			<string>https://sourcegraph.com/search?q={query}&amp;patternType=literal</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
@@ -26,7 +26,7 @@
 			<key>text</key>
 			<string>SourceGraph for {query} in IMMO repo</string>
 			<key>url</key>
-			<string>https://sourcegraph.com/search?q={query}+repo%3Aimmo-platform&amp;patternType=structural</string>
+			<string>https://sourcegraph.com/search?q={query}+repo%3Aimmo-platform&amp;patternType=literal</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
