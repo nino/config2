@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
+local use_light_bg = false
 vim.opt.termguicolors = true
 if use_light_bg then
     utils.color("thinglight")
@@ -53,7 +53,7 @@ vim.cmd("command! NN NERDTreeFocus")
 vim.env.FZF_DEFAULT_COMMAND = "fd --type f"
 
 -- LSP
-local on_attach = function(_, bufnr)
+local on_attach = function(_, _)
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
         vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             -- disable virtual text

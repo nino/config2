@@ -200,6 +200,7 @@ matrix() {
 
 export LIN='~/.config/nvim/lua/initialize.lua'
 export THINGLIGHT='~/.config/nvim/colors/thinglight.lua'
+export KITTYCONF='~/.config/kitty/kitty.conf'
 
 PERL_MB_OPT="--install_base \"/Users/Nino/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/Nino/perl5"; export PERL_MM_OPT;
