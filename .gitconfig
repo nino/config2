@@ -32,8 +32,8 @@
 [delta]
 	navigate = true  # use n and N to move between diff sections
 	side-by-side = true
-	dark = false
-  light = true
+	dark = true
+  light = false
   true-color = never
 
 [merge]
