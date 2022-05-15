@@ -466,6 +466,20 @@
 					<string>JuliaData/DataFrames.jl</string>
 				</dict>
 			</dict>
+			<key>JuliaPlots/Plots.jl</key>
+			<dict>
+				<key>date</key>
+				<date>2022-05-07T11:54:36Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>JuliaPlots/Plots.jl</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>JuliaPlots/Plots.jl</string>
+				</dict>
+			</dict>
 			<key>Leonidas-from-XIV/node-xml2js</key>
 			<dict>
 				<key>date</key>
@@ -525,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-10T07:12:59Z</date>
+				<date>2022-05-14T10:08:31Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -595,7 +609,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-10T07:12:08Z</date>
+				<date>2022-05-14T10:08:24Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -637,7 +651,7 @@
 			<key>mapbox/node-sqlite3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-10T07:12:16Z</date>
+				<date>2022-05-10T15:57:07Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -665,7 +679,7 @@
 			<key>samselikoff/ember-cli-mirage</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-25T08:01:32Z</date>
+				<date>2022-05-05T14:34:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -693,7 +707,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-10T07:12:19Z</date>
+				<date>2022-05-14T10:08:20Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -721,7 +735,7 @@
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-10T07:14:02Z</date>
+				<date>2022-05-08T14:10:38Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -859,7 +873,22 @@
 	<key>DHHaskellRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>postgrest</key>
+			<dict>
+				<key>date</key>
+				<date>2022-05-05T14:34:41Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>postgrest</string>
+					<key>platform</key>
+					<string>hackage</string>
+					<key>uniqueIdentifier</key>
+					<string>postgrest</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
@@ -1455,6 +1484,8 @@
 			<string>csvjl:</string>
 			<key>~/Library/Application Support/Dash/GitHub/JuliaDataDataFramesjl/JuliaData-DataFrames.jl.docset</key>
 			<string>dfjl:</string>
+			<key>~/Library/Application Support/Dash/GitHub/JuliaPlotsPlotsjl/JuliaPlots-Plots.jl.docset</key>
+			<string>plots:</string>
 			<key>~/Library/Application Support/Dash/GitHub/LeonidasfromXIVnodexml2js/Leonidas-from-XIV-node-xml2js.docset</key>
 			<string>xml2js:</string>
 			<key>~/Library/Application Support/Dash/GitHub/SwiftyJSONSwiftyJSON/SwiftyJSON-SwiftyJSON.docset</key>
@@ -1471,6 +1502,8 @@
 			<string>ember-qunit:</string>
 			<key>~/Library/Application Support/Dash/GitHub/googlemapsgooglemapsservicesjs/googlemaps-google-maps-services-js.docset</key>
 			<string>gmaps:</string>
+			<key>~/Library/Application Support/Dash/GitHub/gotk3gotk3/gotk3-gotk3.docset</key>
+			<string>gotk3:</string>
 			<key>~/Library/Application Support/Dash/GitHub/mapboxnodesqlite3/mapbox-node-sqlite3.docset</key>
 			<string>node-sqlite:</string>
 			<key>~/Library/Application Support/Dash/GitHub/qunitjsqunit/qunitjs-qunit.docset</key>
