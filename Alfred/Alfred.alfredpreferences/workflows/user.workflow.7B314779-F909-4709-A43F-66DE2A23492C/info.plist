@@ -973,33 +973,6 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>dash_keyword_godot</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>dash_action_normal</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>dash_action_cmd</string>
-				<key>modifiers</key>
-				<integer>1048576</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>dash_action_alt</string>
-				<key>modifiers</key>
-				<integer>524288</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>dash_keyword_gotk3</key>
 		<array>
 			<dict>
@@ -1028,6 +1001,33 @@
 			</dict>
 		</array>
 		<key>dash_keyword_gtkmm</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>dash_action_normal</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>dash_action_cmd</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>dash_action_alt</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>dash_keyword_hackage</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -3581,6 +3581,99 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>script</key>
+				<string>Dash dynamically updates this workflow with docset and search profile keywords.
+
+Do not try to change the keywords from within Alfred, as Dash will overwrite your changes. If you want to change a keyword, change it from within Dash (in Preferences &gt; Docsets).
+
+That said, you can edit anything else within this workflow (including adding new triggers/actions/hotkeys).</string>
+				<key>subtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>title</key>
+				<string>PLEASE README</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_note_readme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>script</key>
+				<string>Dash dynamically updates this workflow with docset and search profile keywords.
+
+Do not try to change the keywords from within Alfred, as Dash will overwrite your changes. If you want to change a keyword, change it from within Dash (in Preferences &gt; Docsets).
+
+That said, you can edit anything else within this workflow (including adding new triggers/actions/hotkeys).</string>
+				<key>subtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>title</key>
+				<string>PLEASE README</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_note_readme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>script</key>
+				<string>Dash dynamically updates this workflow with docset and search profile keywords.
+
+Do not try to change the keywords from within Alfred, as Dash will overwrite your changes. If you want to change a keyword, change it from within Dash (in Preferences &gt; Docsets).
+
+That said, you can edit anything else within this workflow (including adding new triggers/actions/hotkeys).</string>
+				<key>subtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>title</key>
+				<string>PLEASE README</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_note_readme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>airflow</string>
@@ -4488,7 +4581,7 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>script</key>
 				<string>./dashAlfredWorkflow "github:{query}"</string>
 				<key>subtext</key>
-				<string>Search PostgREST/postgrest-docs and 10 others for "{query}"</string>
+				<string>Search mapbox/mapbox-gl-js and 3 others for "{query}"</string>
 				<key>title</key>
 				<string>Search mapbox/mapbox-gl-js</string>
 				<key>type</key>
@@ -4569,35 +4662,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>escaping</key>
 				<integer>110</integer>
 				<key>keyword</key>
-				<string>godot</string>
-				<key>runningsubtext</key>
-				<string>Searching for "{query}"</string>
-				<key>script</key>
-				<string>./dashAlfredWorkflow "godot:{query}"</string>
-				<key>subtext</key>
-				<string>Search Godot for "{query}"</string>
-				<key>title</key>
-				<string>Search Godot</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>dash_keyword_godot</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>110</integer>
-				<key>keyword</key>
 				<string>gotk3</string>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
@@ -4645,6 +4709,35 @@ That said, you can edit anything else within this workflow (including adding new
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>dash_keyword_gtkmm</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>110</integer>
+				<key>keyword</key>
+				<string>hackage</string>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>./dashAlfredWorkflow "hackage:{query}"</string>
+				<key>subtext</key>
+				<string>Search postgrest for "{query}"</string>
+				<key>title</key>
+				<string>Search postgrest</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_keyword_hackage</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -6919,447 +7012,372 @@ The keyword is either a docset keyword (defined in Preferences &gt; Docsets) or 
 		<key>dash_keyword_gotk3</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6570</integer>
+			<integer>5010</integer>
 		</dict>
 		<key>dash_keyword_gtkmm</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6690</integer>
+			<integer>5130</integer>
 		</dict>
 		<key>dash_keyword_hackage</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6810</integer>
-		</dict>
-		<key>dash_keyword_haskell</key>
-		<dict>
-			<key>ypos</key>
-			<integer>5130</integer>
+			<integer>5250</integer>
 		</dict>
 		<key>dash_keyword_hg</key>
 		<dict>
 			<key>ypos</key>
-			<integer>5250</integer>
+			<integer>5370</integer>
 		</dict>
 		<key>dash_keyword_html</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7170</integer>
+			<integer>5490</integer>
 		</dict>
 		<key>dash_keyword_htmle</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7290</integer>
-		</dict>
-		<key>dash_keyword_htmlhe</key>
-		<dict>
-			<key>ypos</key>
-			<integer>5490</integer>
+			<integer>5610</integer>
 		</dict>
 		<key>dash_keyword_http</key>
 		<dict>
 			<key>ypos</key>
-			<integer>5610</integer>
+			<integer>5730</integer>
 		</dict>
 		<key>dash_keyword_hub</key>
 		<dict>
 			<key>ypos</key>
-			<integer>5730</integer>
+			<integer>5850</integer>
 		</dict>
 		<key>dash_keyword_iosd</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7770</integer>
+			<integer>5970</integer>
 		</dict>
 		<key>dash_keyword_java14</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7890</integer>
-		</dict>
-		<key>dash_keyword_jekyll</key>
-		<dict>
-			<key>ypos</key>
-			<integer>5970</integer>
+			<integer>6090</integer>
 		</dict>
 		<key>dash_keyword_jest</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6090</integer>
+			<integer>6210</integer>
 		</dict>
 		<key>dash_keyword_jestd</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6210</integer>
+			<integer>6330</integer>
 		</dict>
 		<key>dash_keyword_js</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8370</integer>
+			<integer>6450</integer>
 		</dict>
 		<key>dash_keyword_julia</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8490</integer>
-		</dict>
-		<key>dash_keyword_latex</key>
-		<dict>
-			<key>ypos</key>
-			<integer>6450</integer>
+			<integer>6570</integer>
 		</dict>
 		<key>dash_keyword_lldb</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6570</integer>
+			<integer>6690</integer>
 		</dict>
 		<key>dash_keyword_llvm</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6690</integer>
+			<integer>6810</integer>
 		</dict>
 		<key>dash_keyword_lua</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6810</integer>
+			<integer>6930</integer>
 		</dict>
 		<key>dash_keyword_lub</key>
 		<dict>
 			<key>ypos</key>
-			<integer>6930</integer>
+			<integer>7050</integer>
 		</dict>
 		<key>dash_keyword_manpages</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9210</integer>
+			<integer>7170</integer>
 		</dict>
 		<key>dash_keyword_matplotlib</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9330</integer>
-		</dict>
-		<key>dash_keyword_mechanize</key>
-		<dict>
-			<key>ypos</key>
-			<integer>7170</integer>
+			<integer>7290</integer>
 		</dict>
 		<key>dash_keyword_media</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7290</integer>
+			<integer>7410</integer>
 		</dict>
 		<key>dash_keyword_micro</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7410</integer>
+			<integer>7530</integer>
 		</dict>
 		<key>dash_keyword_mime</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7530</integer>
+			<integer>7650</integer>
 		</dict>
 		<key>dash_keyword_mirage</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9930</integer>
+			<integer>7770</integer>
 		</dict>
 		<key>dash_keyword_moment</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10050</integer>
-		</dict>
-		<key>dash_keyword_mongodb</key>
-		<dict>
-			<key>ypos</key>
-			<integer>7770</integer>
+			<integer>7890</integer>
 		</dict>
 		<key>dash_keyword_next</key>
 		<dict>
 			<key>ypos</key>
-			<integer>7890</integer>
+			<integer>8010</integer>
 		</dict>
 		<key>dash_keyword_nginx</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8010</integer>
+			<integer>8130</integer>
 		</dict>
 		<key>dash_keyword_node-sqlite</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8130</integer>
+			<integer>8250</integer>
 		</dict>
 		<key>dash_keyword_nodejs</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10650</integer>
+			<integer>8370</integer>
 		</dict>
 		<key>dash_keyword_nojq</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10770</integer>
-		</dict>
-		<key>dash_keyword_nokogiri</key>
-		<dict>
-			<key>ypos</key>
-			<integer>8370</integer>
+			<integer>8490</integer>
 		</dict>
 		<key>dash_keyword_numpy</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8490</integer>
+			<integer>8610</integer>
 		</dict>
 		<key>dash_keyword_nvim</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8610</integer>
+			<integer>8730</integer>
 		</dict>
 		<key>dash_keyword_pandas</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11250</integer>
+			<integer>8850</integer>
 		</dict>
 		<key>dash_keyword_plots</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11370</integer>
+			<integer>8970</integer>
 		</dict>
 		<key>dash_keyword_postgis</key>
 		<dict>
 			<key>ypos</key>
-			<integer>8850</integer>
-		</dict>
-		<key>dash_keyword_postgres</key>
-		<dict>
-			<key>ypos</key>
-			<integer>8970</integer>
+			<integer>9090</integer>
 		</dict>
 		<key>dash_keyword_psql</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9090</integer>
+			<integer>9210</integer>
 		</dict>
 		<key>dash_keyword_psycopg2</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11850</integer>
+			<integer>9330</integer>
 		</dict>
 		<key>dash_keyword_pyside</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11970</integer>
+			<integer>9450</integer>
 		</dict>
 		<key>dash_keyword_python</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9330</integer>
-		</dict>
-		<key>dash_keyword_qt</key>
-		<dict>
-			<key>ypos</key>
-			<integer>12210</integer>
+			<integer>9570</integer>
 		</dict>
 		<key>dash_keyword_qunit</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9690</integer>
+			<integer>9810</integer>
 		</dict>
 		<key>dash_keyword_qunit-dom</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12330</integer>
+			<integer>9690</integer>
 		</dict>
 		<key>dash_keyword_racket</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9810</integer>
+			<integer>9930</integer>
 		</dict>
 		<key>dash_keyword_ramda</key>
 		<dict>
 			<key>ypos</key>
-			<integer>9930</integer>
+			<integer>10050</integer>
 		</dict>
 		<key>dash_keyword_rb</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10050</integer>
+			<integer>10170</integer>
 		</dict>
 		<key>dash_keyword_rb2</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12930</integer>
+			<integer>10290</integer>
 		</dict>
 		<key>dash_keyword_react</key>
 		<dict>
 			<key>ypos</key>
-			<integer>13050</integer>
+			<integer>10410</integer>
 		</dict>
 		<key>dash_keyword_regex</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10290</integer>
-		</dict>
-		<key>dash_keyword_restclient</key>
-		<dict>
-			<key>ypos</key>
-			<integer>10410</integer>
+			<integer>10530</integer>
 		</dict>
 		<key>dash_keyword_rq</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10530</integer>
+			<integer>10650</integer>
 		</dict>
 		<key>dash_keyword_rtl</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10650</integer>
+			<integer>10770</integer>
 		</dict>
 		<key>dash_keyword_rubygems</key>
 		<dict>
 			<key>ypos</key>
-			<integer>10770</integer>
+			<integer>10890</integer>
 		</dict>
 		<key>dash_keyword_rugged</key>
 		<dict>
 			<key>ypos</key>
-			<integer>13770</integer>
+			<integer>11010</integer>
 		</dict>
 		<key>dash_keyword_rust</key>
 		<dict>
 			<key>ypos</key>
-			<integer>13890</integer>
+			<integer>11130</integer>
 		</dict>
 		<key>dash_keyword_sass</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11010</integer>
-		</dict>
-		<key>dash_keyword_scipy</key>
-		<dict>
-			<key>ypos</key>
-			<integer>11130</integer>
+			<integer>11250</integer>
 		</dict>
 		<key>dash_keyword_seaborn</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11250</integer>
+			<integer>11370</integer>
 		</dict>
 		<key>dash_keyword_serverless</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11370</integer>
+			<integer>11490</integer>
 		</dict>
 		<key>dash_keyword_sinon</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11490</integer>
+			<integer>11610</integer>
 		</dict>
 		<key>dash_keyword_sketch</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11610</integer>
+			<integer>11730</integer>
 		</dict>
 		<key>dash_keyword_solid</key>
 		<dict>
 			<key>ypos</key>
-			<integer>14730</integer>
+			<integer>11850</integer>
 		</dict>
 		<key>dash_keyword_sqlalchemy</key>
 		<dict>
 			<key>ypos</key>
-			<integer>14850</integer>
+			<integer>11970</integer>
 		</dict>
 		<key>dash_keyword_sqlite</key>
 		<dict>
 			<key>ypos</key>
-			<integer>11850</integer>
-		</dict>
-		<key>dash_keyword_strftime</key>
-		<dict>
-			<key>ypos</key>
-			<integer>11970</integer>
+			<integer>12090</integer>
 		</dict>
 		<key>dash_keyword_svg</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12090</integer>
+			<integer>12210</integer>
 		</dict>
 		<key>dash_keyword_swift</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12210</integer>
+			<integer>12330</integer>
 		</dict>
 		<key>dash_keyword_swiftyjson</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12330</integer>
+			<integer>12450</integer>
 		</dict>
 		<key>dash_keyword_tauri</key>
 		<dict>
 			<key>ypos</key>
-			<integer>15570</integer>
+			<integer>12570</integer>
 		</dict>
 		<key>dash_keyword_tensorflow2</key>
 		<dict>
 			<key>ypos</key>
-			<integer>15690</integer>
+			<integer>12690</integer>
 		</dict>
 		<key>dash_keyword_terraform</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12570</integer>
-		</dict>
-		<key>dash_keyword_threejs</key>
-		<dict>
-			<key>ypos</key>
-			<integer>12690</integer>
+			<integer>12810</integer>
 		</dict>
 		<key>dash_keyword_ts</key>
 		<dict>
 			<key>ypos</key>
-			<integer>12810</integer>
+			<integer>12930</integer>
 		</dict>
 		<key>dash_keyword_tw</key>
 		<dict>
 			<key>ypos</key>
-			<integer>16170</integer>
+			<integer>13050</integer>
 		</dict>
 		<key>dash_keyword_userevent</key>
 		<dict>
 			<key>ypos</key>
-			<integer>16290</integer>
+			<integer>13170</integer>
 		</dict>
 		<key>dash_keyword_vim</key>
 		<dict>
 			<key>ypos</key>
-			<integer>16410</integer>
-		</dict>
-		<key>dash_keyword_x86_64_asm</key>
-		<dict>
-			<key>ypos</key>
-			<integer>16530</integer>
+			<integer>13290</integer>
 		</dict>
 		<key>dash_keyword_xcode</key>
 		<dict>
 			<key>ypos</key>
-			<integer>13170</integer>
-		</dict>
-		<key>dash_keyword_xctui</key>
-		<dict>
-			<key>ypos</key>
-			<integer>13290</integer>
+			<integer>13410</integer>
 		</dict>
 		<key>dash_keyword_xml2js</key>
 		<dict>
 			<key>ypos</key>
-			<integer>13410</integer>
+			<integer>13530</integer>
 		</dict>
 		<key>dash_keyword_yaml</key>
 		<dict>
 			<key>ypos</key>
-			<integer>17010</integer>
+			<integer>13650</integer>
 		</dict>
 		<key>dash_keyword_zig</key>
 		<dict>
 			<key>ypos</key>
-			<integer>17130</integer>
+			<integer>13770</integer>
 		</dict>
 		<key>dash_note_readme</key>
 		<dict>
