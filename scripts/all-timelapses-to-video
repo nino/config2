@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+timelapse_root_path = File.join(Dir.home, 'Timelapse')
+current_day = Time.now.strftime('%Y-%m-%d')
+
+days_to_do =
+  Dir.entries(timelapse_root_path).reject do |entry|
+    /^\d\d\d\d-\d\d-\d\d$/.match(entry).nil? || entry == current_day
+  end
+
+days_to_do.each do |day|
+  puts "Doing #{day}..."
+  system "timelapse-to-video #{day} && rm -rf #{timelapse_root_path}/#{day}"
+  puts "#{day} is done."
+end
