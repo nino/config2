@@ -104,7 +104,7 @@ rmrenovate() {
 
 rmnodemodules() {
   echo "Deleting at root"
-  rm -rf ./node_modules
+  trash ./node_modules
   echo "Deleting at 1 level deep"
   rm -rf ./*/node_modules
   echo "Deleting at 2 levels deep"
@@ -210,10 +210,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-
-if hash yarn 2>/dev/null; then
-  export PATH="$PATH:`yarn global bin`"
-fi
 
 # Rust path
 # export PATH="$PATH:/Users/Nino/.cargo/bin"
