@@ -199,7 +199,9 @@ matrix() {
 }
 
 export LIN='~/.config/nvim/lua/initialize.lua'
+export THING='~/.config/nvim/colors/thing.lua'
 export THINGLIGHT='~/.config/nvim/colors/thinglight.lua'
+export SECRETZSH='~/.config/secret-config2/secret_zsh'
 export KITTYCONF='~/.config/kitty/kitty.conf'
 
 PERL_MB_OPT="--install_base \"/Users/Nino/perl5\""; export PERL_MB_OPT;
