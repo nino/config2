@@ -10,6 +10,7 @@
 	commentChar = "#"
 	attributesfile = /Users/nino/.config/.gitattributes
 	pager = delta
+	excludesfile = /Users/nino/.config/global_gitignore
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
