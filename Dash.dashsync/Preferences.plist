@@ -539,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-26T08:45:01Z</date>
+				<date>2022-05-27T08:46:49Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -651,7 +651,7 @@
 			<key>mapbox/node-sqlite3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-24T08:19:01Z</date>
+				<date>2022-05-27T08:46:08Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -660,6 +660,20 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>mapbox/node-sqlite3</string>
+				</dict>
+			</dict>
+			<key>moment/luxon</key>
+			<dict>
+				<key>date</key>
+				<date>2022-05-26T14:23:57Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>moment/luxon</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>moment/luxon</string>
 				</dict>
 			</dict>
 			<key>qunitjs/qunit</key>
@@ -707,7 +721,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-26T08:44:23Z</date>
+				<date>2022-05-27T08:46:10Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1506,6 +1520,8 @@
 			<string>gotk3:</string>
 			<key>~/Library/Application Support/Dash/GitHub/mapboxnodesqlite3/mapbox-node-sqlite3.docset</key>
 			<string>node-sqlite:</string>
+			<key>~/Library/Application Support/Dash/GitHub/momentluxon/moment-luxon.docset</key>
+			<string>luxon:</string>
 			<key>~/Library/Application Support/Dash/GitHub/qunitjsqunit/qunitjs-qunit.docset</key>
 			<string>qunit:</string>
 			<key>~/Library/Application Support/Dash/GitHub/samselikoffemberclimirage/samselikoff-ember-cli-mirage.docset</key>
