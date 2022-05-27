@@ -33,3 +33,4 @@ PureRef.ini
 **/.ninja_log
 **/__pycache__/**
 sheepit
+.DS_Store
