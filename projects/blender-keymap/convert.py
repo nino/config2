@@ -1,15 +1,17 @@
 import bindings
 from compile import FullyQualifiedCommand, KeyCombo
+import yaml
 
 allcommands = []
 commandsmap = {}
 
 
 def register_command(combo, cmd):
+    combo = str(combo)
     if combo in commandsmap:
-        commandsmap[combo].append(cmd)
+        commandsmap[combo].append(cmd.to_dict())
     else:
-        commandsmap[combo] = [cmd]
+        commandsmap[combo] = [cmd.to_dict()]
 
 
 for context_group in bindings.keyconfig_data:
@@ -26,5 +28,5 @@ for context_group in bindings.keyconfig_data:
         allcommands.append(fqcommand)
         register_command(keycombo, fqcommand)
 
-for k, v in commandsmap.items():
-    print("('" + str(k) + "', [" + ", ".join([str(item) for item in v]) + "]" + "),")
+
+print(yaml.dump(commandsmap))

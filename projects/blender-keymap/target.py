@@ -109,6 +109,8 @@ def compile(entries):
         context.append(context_types)
         context.append({"items": items})
         output.append(tuple(context))
+        print("keyconfig_version = (3, 1, 7)")
+        print("keyconfig_data = ", output)
         return output
 
 

@@ -12,13 +12,22 @@ class FullyQualifiedCommand:
     def __str__(self):
         return (
             "{ "
-            + f"'context': '{self.context}', "
-            + f"'space_type': '{self.space_type}', "
-            + f"'region_type': '{self.region_type}', "
-            + f"'command': '{self.command}', "
-            + f"'options': '{self.options}' "
+            + f'"context": "{self.context}", '
+            + f'"space_type": "{self.space_type}", '
+            + f'"region_type": "{self.region_type}", '
+            + f'"command": "{self.command}", '
+            + f'"options": "{self.options}" '
             + "}"
         )
+
+    def to_dict(self):
+        return {
+            "context": self.context,
+            "space_type": self.space_type,
+            "region_type": self.region_type,
+            "command": self.command,
+            "options": self.options,
+        }
 
 
 @dataclass(frozen=True)
