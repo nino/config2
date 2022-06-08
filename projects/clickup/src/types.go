@@ -80,7 +80,8 @@ type List struct {
 type Space struct {
 	// {
 	//   "id": "790",
-	Id string `json:"id"`
+	Id   string `json:"id"`
+	Name string `json:"name"`
 
 	//   "name": "Updated Space Name",
 	//   "private": false,
@@ -132,4 +133,31 @@ type Space struct {
 	//     }
 	//   }
 	// }
+}
+
+type CustomField struct {
+	Id    string      `json:"id"`
+	Name  string      `json:"name"`
+	Value interface{} `json:"value"`
+}
+
+type Task struct {
+	Id           string        `json:"id"`
+	Name         string        `json:"name"`
+	CustomFields []CustomField `json:"custom_fields"`
+	CustomId     string        `json:"custom_id"`
+}
+
+func (self *Task) GetCustomFieldValue(fieldName string) interface{} {
+	for _, field := range self.CustomFields {
+		if field.Name == fieldName {
+			return field.Value
+		}
+	}
+	return nil
+}
+
+type Folder struct {
+	Id   string `json:"id"`
+	Name string `json:"name"`
 }

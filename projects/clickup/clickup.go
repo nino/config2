@@ -1,11 +1,11 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	cu "github.com/nino/config/projects/clickup/src"
-	"strings"
+	"log"
 	"os"
+	"strings"
 )
 
 func isFuzzyMatch(query []rune, potentialCandidate string) bool {
@@ -32,35 +32,80 @@ func fuzzySearch(needle string, haystack []string) []string {
 	return res
 }
 
-func main() {
-	var user cu.User
-
-	err := json.Unmarshal([]byte("{ \"username\": \"Nino\", \"dob\": 1234567890, \"color\": \"12121\" }"), &user)
+func maybePanic(err error, msg string) {
 	if err != nil {
-		panic(err)
+		log.Fatal(err, msg)
 	}
-	fmt.Printf("%+v\n", user)
+}
 
-	bytes, marshalErr := json.Marshal(user)
-	if marshalErr != nil {
-		panic(marshalErr)
-	}
+func main() {
+	// var user cu.User
 
-	fmt.Printf("%s\n", string(bytes))
+	// err := json.Unmarshal([]byte("{ \"username\": \"Nino\", \"dob\": 1234567890, \"color\": \"12121\" }"), &user)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Printf("%+v\n", user)
 
-	for i := 0; i < 100; i += 1 {
-		fuzzySearch("äbc", []string{"one", "two", "älphabetic", "aeeeexbeeeeaaaaccccc"})
-	}
+	// bytes, marshalErr := json.Marshal(user)
+	// if marshalErr != nil {
+	// 	panic(marshalErr)
+	// }
 
-	fmt.Printf("%+v\n", fuzzySearch("äbc", []string{"one", "two", "älphabetic", "aeeeexbeeeeaaaaccccc"}))
-	fmt.Printf("%+v\n", string("äbßß"[0]))
+	// fmt.Printf("%s\n", string(bytes))
 
+	// for i := 0; i < 100; i += 1 {
+	// 	fuzzySearch("äbc", []string{"one", "two", "älphabetic", "aeeeexbeeeeaaaaccccc"})
+	// }
+
+	// fmt.Printf("%+v\n", fuzzySearch("äbc", []string{"one", "two", "älphabetic", "aeeeexbeeeeaaaaccccc"}))
+	// fmt.Printf("%+v\n", string("äbßß"[0]))
 
 	token := os.Getenv("CLICKUP_TOKEN")
-	u, e := cu.GetUser(token)
-	if e != nil {
-		panic(e)
+
+	// user, err := cu.GetUser(token)
+	// maybePanic(err, "Unable to get user")
+
+	teams, getTeamsErr := cu.GetTeams(token)
+	maybePanic(getTeamsErr, "Unable to get teams")
+
+	if len(teams) < 1 {
+		log.Fatal("No teams found")
+	}
+	immoTeam := teams[0]
+
+	spaces, getSpacesErr := cu.GetSpaces(token, immoTeam.Id)
+	maybePanic(getSpacesErr, "Unable to get spaces for team")
+
+	prodSpace := cu.Space{}
+	for _, space := range spaces {
+		if space.Name == "Product" {
+			prodSpace = space
+		}
+	}
+	if prodSpace.Name == "" {
+		log.Fatal("Product space not found")
 	}
 
-	fmt.Printf("User: %+v\n", u)
+	tasks := []cu.Task{}
+
+	log.Print("Space:", prodSpace)
+	folders, getFoldersErr := cu.GetFolders(token, prodSpace.Id)
+	maybePanic(getFoldersErr, "Unable to get folders")
+
+	for _, folder := range folders {
+		log.Printf("Will now fetch lists for folder %s...", folder.Name)
+		lists, getListsErr := cu.GetLists(token, folder.Id)
+		maybePanic(getListsErr, "Unable to get lists in folder")
+
+		for _, list := range lists {
+			nextTasks, getTasksErr := cu.GetTasks(token, list.Id)
+			maybePanic(getTasksErr, "Unable to get tasks in list")
+			tasks = append(tasks, nextTasks...)
+		}
+	}
+
+	for _, task := range tasks {
+		fmt.Println(task.Id, ", ", task.GetCustomFieldValue("Jira Issue Key"), ", ", task.CustomId)
+	}
 }
