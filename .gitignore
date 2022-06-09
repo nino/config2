@@ -34,3 +34,4 @@ PureRef.ini
 **/__pycache__/**
 sheepit
 .DS_Store
+.ipynb_checkpoints
