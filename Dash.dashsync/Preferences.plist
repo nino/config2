@@ -469,7 +469,7 @@
 			<key>JuliaPlots/Plots.jl</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-08T08:36:03Z</date>
+				<date>2022-06-15T20:56:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -539,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-10T08:36:25Z</date>
+				<date>2022-06-16T18:33:24Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -609,7 +609,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-07T08:35:39Z</date>
+				<date>2022-06-14T08:22:51Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -707,7 +707,7 @@
 			<key>serverless/serverless</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T22:18:36Z</date>
+				<date>2022-06-16T01:03:16Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -721,7 +721,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-08T08:35:46Z</date>
+				<date>2022-06-16T18:27:24Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -749,7 +749,7 @@
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-03T08:57:58Z</date>
+				<date>2022-06-15T20:56:41Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1309,7 +1309,7 @@
 			<key>Terraform</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-03T08:54:42Z</date>
+				<date>2022-06-13T08:22:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
