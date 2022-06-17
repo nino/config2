@@ -959,6 +959,20 @@
 					<string>geojson</string>
 				</dict>
 			</dict>
+			<key>mechanize</key>
+			<dict>
+				<key>date</key>
+				<date>2022-06-14T12:29:56Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>mechanize</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>mechanize</string>
+				</dict>
+			</dict>
 			<key>rugged</key>
 			<dict>
 				<key>date</key>
