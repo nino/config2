@@ -469,7 +469,7 @@
 			<key>JuliaPlots/Plots.jl</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-15T20:56:47Z</date>
+				<date>2022-06-23T08:31:21Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -539,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-16T18:33:24Z</date>
+				<date>2022-06-23T08:31:52Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -595,7 +595,7 @@
 			<key>facebook/react-native</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-20T17:56:04Z</date>
+				<date>2022-06-22T08:34:43Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -609,7 +609,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-14T08:22:51Z</date>
+				<date>2022-06-22T08:32:41Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -721,7 +721,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-16T18:27:24Z</date>
+				<date>2022-06-22T08:33:19Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1277,7 +1277,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-14T07:56:51Z</date>
+				<date>2022-06-22T08:32:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
