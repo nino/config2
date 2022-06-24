@@ -551,6 +551,10 @@ colorize("ScrollBarHandle", {bg = "Gray-600"})
 colorize("ScrollBarError", {bg = "Red-500", fg = "Red-500"})
 colorize("ScrollBarErrorHandle", {bg = "Red-500", fg = "Red-500"})
 
+colorize("TabLineFill", { bg = "Gray-700", decoration = "none" })
+colorize("TabLineSel", { bg = "Sky-800", fg = "White" })
+colorize("TabLine", { bg = "Gray-600", fg = "Gray-200", decoration = "none" })
+
 colorize("SpellBad", {bg = "Red-800", decoration = "none"})
 colorize("SpellCap", {bg = "Orange-800"})
 
