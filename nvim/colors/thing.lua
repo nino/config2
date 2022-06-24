@@ -576,4 +576,4 @@ colorize("VertSplit", {bg = "none", fg = "Gray-600", decoration = "none"})
 colorize("SignColumn", {bg="Gray-700"})
 colorize("CursorLine", {bg="Gray-700"})
 
-colorize("Statement", {fg = "Yellow-400"})
+colorize("Statement", {fg = "Teal-400" })
