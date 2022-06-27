@@ -469,7 +469,7 @@
 			<key>JuliaPlots/Plots.jl</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-29T08:28:49Z</date>
+				<date>2022-06-26T12:27:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -539,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-04T08:18:50Z</date>
+				<date>2022-06-27T12:27:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -595,7 +595,7 @@
 			<key>facebook/react-native</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-22T08:34:43Z</date>
+				<date>2022-06-24T10:50:23Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1277,7 +1277,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-22T08:32:03Z</date>
+				<date>2022-06-19T18:15:19Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1715,6 +1715,11 @@
 			<dict>
 				<key>date</key>
 				<date>2019-04-24T11:00:30Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Qt_6.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2022-06-26T11:22:15Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Racket.xml</key>
 			<dict>
