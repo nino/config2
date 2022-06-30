@@ -199,12 +199,12 @@ cabbrev DDAL data/immo_etl/src/immo_etl/data_ingestion/data_access_layer/oltp
 cabbrev WH web/hub
 cabbrev WHC web/hub/components
 
-cabbrev WSD web/seller/deu/app
-cabbrev WSDC web/seller/deu/app/components
-cabbrev WSDW web/seller/deu/app/components/widgets
-cabbrev WINT web/intranet
-cabbrev CW web/core/addon/components/widgets
-cabbrev CT web/core/addon/templates/components/widgets
+cabbrev WSD web/deprecated/seller/deu/app
+cabbrev WSDC web/deprecated/seller/deu/app/components
+cabbrev WSDW web/deprecated/seller/deu/app/components/widgets
+cabbrev WINT web/deprecated/intranet
+cabbrev CW web/deprecated/core/addon/components/widgets
+cabbrev CT web/deprecated/core/addon/templates/components/widgets
 
 
 
