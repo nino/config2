@@ -49,6 +49,10 @@ vim.cmd("command! NF NERDTreeFind")
 vim.cmd("command! NT NERDTreeToggle")
 vim.cmd("command! NN NERDTreeFocus")
 
+-- Resolve conflicts
+vim.cmd("command! A normal ddnVnd")
+vim.cmd("command! B normal Vndndd")
+
 -- Variables
 vim.env.FZF_DEFAULT_COMMAND = "fd --type f"
 
