@@ -313,3 +313,8 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # export OCIO=/Users/Nino/OpenColorIO/aces_1.2/config.ocio
+
+
+export Qt5_DIR=/usr/local/Cellar/qt@5.7/5.7.1/lib/cmake/Qt5/Qt5Config.cmake
+export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt@5/5.15.5/:$CMAKE_PREFIX_PATH
+
