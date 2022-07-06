@@ -721,7 +721,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-04T08:18:18Z</date>
+				<date>2022-07-05T08:18:05Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1502,6 +1502,8 @@
 			<string>python:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_5/Qt.docset</key>
 			<string>qt5:</string>
+			<key>~/Library/Application Support/Dash/DocSets/Qt_6/Qt.docset</key>
+			<string>qt:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_6/Qt.docset</key>
 			<string>qt:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Ruby_2/Ruby.docset</key>
