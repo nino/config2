@@ -93,7 +93,7 @@ require('lspconfig').rls.setup {
         client.resolved_capabilities.document_formatting = false
     end
 }
-require('lspconfig').clangd.setup {}
+-- require('lspconfig').clangd.setup {}
 require('lspconfig').gopls.setup {}
 
 -- local function on_attach(client) print('Attached to ' .. client.name) end
