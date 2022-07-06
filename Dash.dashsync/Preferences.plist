@@ -469,7 +469,7 @@
 			<key>JuliaPlots/Plots.jl</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-26T12:27:37Z</date>
+				<date>2022-06-28T13:50:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -539,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-27T12:27:37Z</date>
+				<date>2022-06-28T13:50:24Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -609,7 +609,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-28T08:28:17Z</date>
+				<date>2022-06-28T13:50:26Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -623,7 +623,7 @@
 			<key>gotk3/gotk3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-28T08:28:48Z</date>
+				<date>2022-06-28T13:50:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1501,6 +1501,8 @@
 			<key>~/Library/Application Support/Dash/DocSets/Python_3/Python 3.docset</key>
 			<string>python:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_5/Qt.docset</key>
+			<string>qt5:</string>
+			<key>~/Library/Application Support/Dash/DocSets/Qt_6/Qt.docset</key>
 			<string>qt:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Ruby_2/Ruby.docset</key>
 			<string>rb2:</string>
