@@ -847,7 +847,7 @@
 			<key>zeit/micro</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-03T08:56:58Z</date>
+				<date>2022-07-07T08:48:12Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1323,15 +1323,19 @@
 			<key>Terraform</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-13T08:22:46Z</date>
+				<date>2022-07-07T08:48:04Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
-					<array/>
+					<array>
+						<string>terraform</string>
+						<string>tf</string>
+						<string>terra</string>
+					</array>
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Terraform#readme</string>
 					<key>authorLinkText</key>
-					<string>rolandjohann</string>
+					<string>Roberth Kulbin</string>
 					<key>name</key>
 					<string>Terraform</string>
 					<key>platform</key>
