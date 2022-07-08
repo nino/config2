@@ -36,3 +36,4 @@ sheepit
 .DS_Store
 .ipynb_checkpoints
 QtProject
+scripts/pickfile
