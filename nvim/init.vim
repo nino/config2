@@ -8,6 +8,7 @@ else
   let s:editor_root=expand("~/.vim")
 endif
 
+let g:coq_settings = { 'auto_start': 'shut-up' }
 
 call plug#begin()
 
@@ -33,6 +34,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'ervandew/supertab'
 Plug 'https://github.com/ms-jpq/coq_nvim'
+Plug 'https://github.com/ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'godlygeek/tabular'
 Plug 'nino/itspronouncedmoove'
 Plug 'rizzatti/dash.vim'
@@ -69,6 +71,7 @@ EOF
 " DDC
 " call ddc#custom#patch_global('completionMode', 'manual')
 " call ddc#enable()
+
 
 " --------------- External ---------------
 
