@@ -469,7 +469,7 @@
 			<key>JuliaPlots/Plots.jl</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-28T13:50:36Z</date>
+				<date>2022-07-10T20:44:51Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -539,7 +539,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-28T13:50:24Z</date>
+				<date>2022-07-12T08:30:24Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -609,7 +609,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-28T13:50:26Z</date>
+				<date>2022-07-12T08:29:30Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -665,7 +665,7 @@
 			<key>moment/luxon</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-03T08:55:34Z</date>
+				<date>2022-07-10T20:45:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -721,7 +721,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-05T08:18:05Z</date>
+				<date>2022-07-12T08:29:39Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -891,7 +891,7 @@
 			<key>postgrest</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-17T13:35:01Z</date>
+				<date>2022-07-12T08:30:01Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1323,7 +1323,7 @@
 			<key>Terraform</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-07T08:48:04Z</date>
+				<date>2022-07-12T08:29:06Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1347,7 +1347,7 @@
 			<key>Zig</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-16T10:45:34Z</date>
+				<date>2022-07-10T20:43:59Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1506,8 +1506,6 @@
 			<string>python:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_5/Qt.docset</key>
 			<string>qt5:</string>
-			<key>~/Library/Application Support/Dash/DocSets/Qt_6/Qt.docset</key>
-			<string>qt:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_6/Qt.docset</key>
 			<string>qt:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Ruby_2/Ruby.docset</key>
