@@ -20,18 +20,19 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'raimondi/delimitmate'
 Plug 'neovim/node-host'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-ragtag'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/Shougo/ddc.vim'
+" Plug 'https://github.com/Shougo/ddc.vim'
 Plug 'https://github.com/vim-denops/denops.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
+Plug 'https://github.com/ms-jpq/coq_nvim'
 Plug 'godlygeek/tabular'
 Plug 'nino/itspronouncedmoove'
 Plug 'rizzatti/dash.vim'
@@ -42,7 +43,7 @@ Plug 'tpope/vim-characterize'
 Plug 'https://github.com/guns/vim-sexp'
 Plug 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
 Plug 'https://github.com/morhetz/gruvbox'
-Plug 'https://github.com/fweep/vim-zsh-path-completion'
+" Plug 'https://github.com/fweep/vim-zsh-path-completion'
 Plug 'https://github.com/davidoc/taskpaper.vim'
 Plug 'https://github.com/petertriho/nvim-scrollbar'
 Plug 'https://github.com/gutenye/json5.vim'
@@ -66,8 +67,8 @@ EOF
 
 
 " DDC
-call ddc#custom#patch_global('completionMode', 'manual')
-call ddc#enable()
+" call ddc#custom#patch_global('completionMode', 'manual')
+" call ddc#enable()
 
 " --------------- External ---------------
 
