@@ -469,7 +469,11 @@
 			<key>JuliaPlots/Plots.jl</key>
 			<dict>
 				<key>date</key>
+<<<<<<< HEAD
 				<date>2022-07-10T20:44:51Z</date>
+=======
+				<date>2022-07-10T19:01:40Z</date>
+>>>>>>> 38f7449 (Dash)
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -539,7 +543,11 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
+<<<<<<< HEAD
 				<date>2022-07-12T08:30:24Z</date>
+=======
+				<date>2022-07-08T20:42:01Z</date>
+>>>>>>> 38f7449 (Dash)
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -665,7 +673,11 @@
 			<key>moment/luxon</key>
 			<dict>
 				<key>date</key>
+<<<<<<< HEAD
 				<date>2022-07-10T20:45:03Z</date>
+=======
+				<date>2022-07-10T19:01:44Z</date>
+>>>>>>> 38f7449 (Dash)
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -721,7 +733,11 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
+<<<<<<< HEAD
 				<date>2022-07-12T08:29:39Z</date>
+=======
+				<date>2022-07-08T20:41:50Z</date>
+>>>>>>> 38f7449 (Dash)
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -842,6 +858,20 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>tidyverse/lubridate</string>
+				</dict>
+			</dict>
+			<key>vercel/next.js</key>
+			<dict>
+				<key>date</key>
+				<date>2022-07-10T19:03:54Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>vercel/next.js</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>vercel/next.js</string>
 				</dict>
 			</dict>
 			<key>zeit/micro</key>
@@ -1343,7 +1373,11 @@
 			<key>Zig</key>
 			<dict>
 				<key>date</key>
+<<<<<<< HEAD
 				<date>2022-07-10T20:43:59Z</date>
+=======
+				<date>2022-07-10T19:01:06Z</date>
+>>>>>>> 38f7449 (Dash)
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
