@@ -13,3 +13,5 @@
 --exclude=bazel-testlogs
 --exclude=bazel-*
 --exclude=.next
+--exclude=.yarn
+--exclude=storybook-static
