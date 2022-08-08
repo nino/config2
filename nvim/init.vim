@@ -8,7 +8,8 @@ else
   let s:editor_root=expand("~/.vim")
 endif
 
-let g:coq_settings = { 'auto_start': 'shut-up' }
+let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '' }
+
 
 call plug#begin()
 
