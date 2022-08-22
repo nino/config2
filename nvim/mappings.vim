@@ -198,6 +198,8 @@ cabbrev DEAL data/immo_etl/src/immo_etl/external_access_layer
 cabbrev DDAL data/immo_etl/src/immo_etl/data_ingestion/data_access_layer/oltp
 cabbrev WH web/hub
 cabbrev WHC web/hub/components
+cabbrev WB web/bricks
+cabbrev WBC web/bricks/components
 
 cabbrev WSD web/deprecated/seller/deu/app
 cabbrev WSDC web/deprecated/seller/deu/app/components
