@@ -89,6 +89,7 @@ require('lspconfig').sumneko_lua.setup {
         }
     }
 }
+require('lspconfig').rescriptls.setup {}
 require('lspconfig').julials.setup {}
 require('lspconfig').pylsp.setup {}
 require('lspconfig').solargraph.setup {}
