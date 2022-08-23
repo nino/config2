@@ -54,7 +54,7 @@ vim.cmd("command! A normal ddnVnd")
 vim.cmd("command! B normal Vndndd")
 
 -- Variables
-vim.env.FZF_DEFAULT_COMMAND = "fd --type f"
+vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden"
 
 -- LSP
 local on_attach = function(_, _)
