@@ -92,10 +92,12 @@ if [ -f ~/.config/secret-config2/secret_zsh ]; then
 fi
 
 alias tnm='tig --no-merges'
+
 alias yran='yarn'
 alias yanr='yarn'
 alias ynar='yarn'
 alias ynra='yarn'
+
 alias zzr='source ~/.zshrc'
 
 # Delete renovate PRs
