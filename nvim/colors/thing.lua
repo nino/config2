@@ -576,7 +576,7 @@ colorize("VertSplit", {bg = "none", fg = "Gray-600", decoration = "none"})
 colorize("SignColumn", {bg="Gray-700"})
 colorize("CursorLine", {bg="Gray-700"})
 
-colorize("Statement", {fg = "Slate-500", decoration = "none" })
+colorize("Statement", {fg = "Orange-400", decoration = "none" })
 colorize("Comment", {fg = "Lime-50", decoration = "bold"})
 colorize("Special", {fg = "Green-200"}) -- Delimiters and special characters
 colorize("Folded", {fg = "Sky-100", bg = "Slate-700"})
