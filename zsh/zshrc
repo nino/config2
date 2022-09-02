@@ -207,6 +207,7 @@ matrix() {
 export LIN='~/.config/nvim/lua/initialize.lua'
 export THING='~/.config/nvim/colors/thing.lua'
 export THINGLIGHT='~/.config/nvim/colors/thinglight.lua'
+export PLAINDARK='~/.config/nvim/colors/plaindark.lua'
 export SECRETZSH='~/.config/secret-config2/secret_zsh'
 export KITTYCONF='~/.config/kitty/kitty.conf'
 

@@ -6,7 +6,8 @@ vim.opt.termguicolors = true
 if use_light_bg then
     utils.color("thinglight")
 else
-    utils.color("thing")
+    -- utils.color("thing")
+    utils.color("plaindark")
 end
 
 -- Defaults
