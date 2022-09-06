@@ -6,8 +6,8 @@ vim.opt.termguicolors = true
 if use_light_bg then
     utils.color("thinglight")
 else
-    -- utils.color("thing")
-    utils.color("plaindark")
+    utils.color("thing")
+    -- utils.color("plaindark")
 end
 
 -- Defaults
@@ -78,6 +78,7 @@ require('lspconfig').tsserver.setup {
         client.resolved_capabilities.document_formatting = false
     end
 }
+require('lspconfig').ocamllsp.setup {}
 require('lspconfig').ember.setup {}
 require('lspconfig').tailwindcss.setup {}
 require('lspconfig').sumneko_lua.setup {
