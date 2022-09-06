@@ -326,4 +326,5 @@ export Qt5_DIR=/usr/local/Cellar/qt@5.7/5.7.1/lib/cmake/Qt5/Qt5Config.cmake
 export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt@5/5.15.5/:$CMAKE_PREFIX_PATH
 
 
-eval $(opam env)
+# eval $(opam env)
+[[ ! -r /Users/Nino/.opam/opam-init/init.zsh ]] || source /Users/Nino/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
