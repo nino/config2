@@ -43,3 +43,4 @@ xnviewmp/XnView.db
 xnviewmp/Thumb.db
 xnviewmp/bookmark.ini
 _build
+*.opam
