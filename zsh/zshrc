@@ -232,10 +232,10 @@ fi
 # export LDFLAGS="-L/usr/local/opt/qt/lib"
 # export CPPFLAGS="-I/usr/local/opt/qt/include"
 
-if hash opam 2>/dev/null; then
-  eval `opam config env`
-  . /Users/Nino/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-fi
+# if hash opam 2>/dev/null; then
+#   eval `opam config env`
+#   . /Users/Nino/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# fi
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -325,3 +325,5 @@ export PATH="$GOPATH/bin:$PATH"
 export Qt5_DIR=/usr/local/Cellar/qt@5.7/5.7.1/lib/cmake/Qt5/Qt5Config.cmake
 export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt@5/5.15.5/:$CMAKE_PREFIX_PATH
 
+
+eval $(opam env)
