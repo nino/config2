@@ -328,3 +328,5 @@ export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt@5/5.15.5/:$CMAKE_PREFIX_PATH
 
 # eval $(opam env)
 [[ ! -r /Users/Nino/.opam/opam-init/init.zsh ]] || source /Users/Nino/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+. /usr/local/opt/asdf/libexec/asdf.sh
