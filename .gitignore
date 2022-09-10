@@ -44,3 +44,4 @@ xnviewmp/Thumb.db
 xnviewmp/bookmark.ini
 _build
 *.opam
+iterm2/**
