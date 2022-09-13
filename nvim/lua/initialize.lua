@@ -24,14 +24,14 @@ vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 -- Providers
 -- TODO Make this depend on the computer because this is problably breaking the
 -- Linux
-vim.cmd[[
+vim.cmd [[
 let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
 let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
 ]]
 
 -- Mappings
 vim.g.mapleader = " "
-vim.cmd[[
+vim.cmd [[
 inoremap <C-l> =>
 ]]
 
@@ -82,6 +82,10 @@ require('lspconfig').ocamllsp.setup {}
 require('lspconfig').ember.setup {}
 require('lspconfig').tailwindcss.setup {}
 require('lspconfig').sumneko_lua.setup {
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+    end,
     settings = {
         Lua = {
             diagnostics = {
@@ -93,8 +97,14 @@ require('lspconfig').sumneko_lua.setup {
 }
 require('lspconfig').rescriptls.setup {}
 require('lspconfig').julials.setup {}
-require('lspconfig').pylsp.setup {}
-require('lspconfig').solargraph.setup {}
+require('lspconfig').pylsp.setup {
+    on_attach = function(client, bufnr) on_attach(client, bufnr) end
+}
+require('lspconfig').solargraph.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+    end
+}
 require('lspconfig').rls.setup {
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
@@ -622,6 +632,7 @@ function loadaudio()
         --    '/Users/nino/.config/secret-config2/sounds/voy_hail.wav'
     })
 end
+
 -- loadaudio()
 
 function play(idx)
