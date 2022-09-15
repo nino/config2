@@ -1,0 +1,3 @@
+(test 
+  (name wav_test)
+  (libraries wav ounit2 stdint base bytes))
