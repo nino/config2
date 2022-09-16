@@ -78,7 +78,9 @@ require('lspconfig').tsserver.setup {
     client.resolved_capabilities.document_formatting = false
   end
 }
-require('lspconfig').ocamllsp.setup {}
+require('lspconfig').ocamllsp.setup {
+    on_attach = function(client, bufnr) on_attach(client, bufnr) end
+}
 require('lspconfig').ember.setup {}
 require('lspconfig').tailwindcss.setup {}
 require('lspconfig').sumneko_lua.setup {
@@ -96,7 +98,8 @@ require('lspconfig').sumneko_lua.setup {
     }
 }
 require('lspconfig').rescriptls.setup {
-  cmd = { 'node', '/Users/nino/code-friends/vim-rescript/server/out/server.js', '--stdio' }
+  cmd = { 'node', '/Users/nino/code-friends/vim-rescript/server/out/server.js', '--stdio' },
+    on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
 require('lspconfig').julials.setup {}
 require('lspconfig').pylsp.setup {
