@@ -2,7 +2,7 @@ local utils = require("utils")
 
 -- Colors
 local use_light_bg = false
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 if use_light_bg then
     utils.color("thinglight")
 else
@@ -23,12 +23,17 @@ vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
 -- Providers
--- TODO Make this depend on the computer because this is problably breaking the
--- Linux
+if vim.fn.has("macunix") == 1 then
 vim.cmd [[
 let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
 let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
 ]]
+else
+vim.cmd [[
+let g:python3_host_prog = '/home/nino/.pyenv/shims/python'
+let g:python_host_prog = '/home/nino/.pyenv/shims/python'
+]]
+end
 
 -- Mappings
 vim.g.mapleader = " "
