@@ -59,7 +59,7 @@ Plug 'https://github.com/nino/bleepbloopvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'https://github.com/jakwings/vim-pony'
 Plug 'https://github.com/davidoc/taskpaper.vim'
-Plug 'https://github.com/github/copilot.vim'
+" Plug 'https://github.com/github/copilot.vim'
 Plug 'https://github.com/koron/nyancat-vim'
 Plug 'https://github.com/rescript-lang/vim-rescript'
 
