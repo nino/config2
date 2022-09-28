@@ -1,0 +1,4 @@
+(executable
+ (name timelapse)
+ (public_name timelapse)
+ (libraries stdio core))
