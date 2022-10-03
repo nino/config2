@@ -97,6 +97,7 @@ alias yran='yarn'
 alias yanr='yarn'
 alias ynar='yarn'
 alias ynra='yarn'
+alias ayrn='yarn'
 
 alias zzr='source ~/.zshrc'
 

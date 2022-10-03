@@ -8,7 +8,9 @@ else
   let s:editor_root=expand("~/.vim")
 endif
 
-let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '' }
+if has('macunix')
+  let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '' }
+endif
 
 
 call plug#begin()
@@ -34,8 +36,6 @@ Plug 'https://github.com/vim-denops/denops.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'ervandew/supertab'
-Plug 'https://github.com/ms-jpq/coq_nvim'
-Plug 'https://github.com/ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'godlygeek/tabular'
 Plug 'nino/itspronouncedmoove'
 Plug 'rizzatti/dash.vim'
@@ -56,10 +56,13 @@ Plug 'https://github.com/sickill/vim-monokai'
 Plug 'https://github.com/creativenull/diagnosticls-configs-nvim'
 Plug 'https://github.com/ziglang/zig.vim'
 Plug 'https://github.com/nino/bleepbloopvim'
-Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+if has('macunix')
+  Plug 'https://github.com/ms-jpq/coq_nvim'
+  Plug 'https://github.com/ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+  Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+endif
 Plug 'https://github.com/jakwings/vim-pony'
 Plug 'https://github.com/davidoc/taskpaper.vim'
-Plug 'https://github.com/github/copilot.vim'
 Plug 'https://github.com/koron/nyancat-vim'
 Plug 'https://github.com/rescript-lang/vim-rescript'
 

@@ -1,3 +1,0 @@
-(library
- (name tools)
- (libraries stdio base unix text))
