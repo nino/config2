@@ -82,7 +82,7 @@ end
 require('lspconfig').tsserver.setup {
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
 }
 require('lspconfig').ocamllsp.setup {
@@ -93,7 +93,7 @@ require('lspconfig').tailwindcss.setup {}
 require('lspconfig').sumneko_lua.setup {
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end,
     settings = {
         Lua = {
@@ -117,12 +117,12 @@ require('lspconfig').pylsp.setup {
 }
 require('lspconfig').solargraph.setup {
     on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
 }
 require('lspconfig').rls.setup {
     on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
 }
 -- require('lspconfig').clangd.setup {}
@@ -153,7 +153,7 @@ function format_file()
     --     vim.lsp.buf.formatting_sync(nil, 8000)
     --     vim.cmd('e!')
     -- else
-    vim.lsp.buf.formatting()
+    vim.lsp.buf.format {async = true}
     -- end
 end
 
