@@ -570,6 +570,7 @@ colorize('DiagnosticVirtualTextWarn', { fg = 'Yellow-300' })
 colorize('DiagnosticVirtualTextHint', { fg = 'Gray-500' })
 colorize('DiagnosticHint', { fg = 'Gray-500' })
 colorize('DiagnosticInfo', { fg = 'Gray-500' })
+colorize("LineNr", {fg = "Slate-400"})
 
 colorize("ColorColumn", { bg = "Gray-200" })
 colorize("VertSplit", { bg = "none", fg = "Gray-600", decoration = "none" })
