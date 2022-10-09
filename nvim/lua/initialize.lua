@@ -12,7 +12,7 @@ end
 
 -- Defaults
 vim.opt.laststatus = 2
-vim.opt.ch = 0 -- command-height
+vim.opt.ch = 1 -- command-height
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
