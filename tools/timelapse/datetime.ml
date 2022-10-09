@@ -9,7 +9,9 @@ let get_time_zone () =
   match !time_zone with
   | Some zone -> zone
   | None ->
-      let zone = try force Time.Zone.local with _ -> Time.Zone.utc in
+      let zone =
+        try force Time_unix.Zone.local with _ -> Time_unix.Zone.utc
+      in
       time_zone := Some zone;
       zone
 

@@ -1,4 +1,10 @@
 (executable
  (name timelapse)
  (public_name timelapse)
- (libraries stdio core))
+ (libraries stdio
+            core
+            core_unix.sys_unix
+            core_unix.time_unix
+            core_unix
+            core_unix.date_unix
+            re))
