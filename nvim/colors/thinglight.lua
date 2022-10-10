@@ -1,7 +1,7 @@
 -- RGB: { red, green, blue }
 local function rgb_diff(a, b)
   return math.sqrt((a.red - b.red) ^ 2 + (a.green - b.green) ^ 2 +
-  (a.blue - b.blue) ^ 2)
+    (a.blue - b.blue) ^ 2)
 end
 
 local function hex_to_rgb(hex)
@@ -544,7 +544,7 @@ end
 
 vim.opt.bg = 'light'
 
-colorize("Normal", { bg = "Gray-100", fg = "Black" })
+colorize("Normal", { bg = "White", fg = "Black" })
 colorize("Comment", { fg = "Green-800" })
 
 colorize("Cursor", { bg = "Pink-400" })
@@ -570,7 +570,7 @@ colorize('DiagnosticVirtualTextWarn', { fg = 'Yellow-300' })
 colorize('DiagnosticVirtualTextHint', { fg = 'Gray-500' })
 colorize('DiagnosticHint', { fg = 'Gray-500' })
 colorize('DiagnosticInfo', { fg = 'Gray-500' })
-colorize("LineNr", {fg = "Slate-400"})
+colorize("LineNr", { fg = "Slate-400" })
 
 colorize("ColorColumn", { bg = "Gray-200" })
 colorize("VertSplit", { bg = "none", fg = "Gray-600", decoration = "none" })
@@ -580,11 +580,11 @@ colorize("TabLineSel", { bg = "Sky-600", fg = "White" })
 colorize("TabLine", { bg = "Gray-200", fg = "Black", decoration = "none" })
 colorize("NonText", { fg = "Gray-300" })
 
-colorize("Keyword", { fg = "Purple-600", decoration = "none" })
-colorize("Statement", { fg = "Yellow-700" })
-colorize("Identifier", { fg = "Blue-600" })
+colorize("Keyword", { fg = "Blue-600", decoration = "none" })
+colorize("Statement", { fg = "Teal-600", decoration = "none" })
+colorize("Identifier", { fg = "Black" })
 colorize("Title", { fg = "Lime-600" })
 colorize("Type", { fg = "Cyan-700", decoration = "none" })
 
 -- String links to Constant
-colorize("Constant", { fg = "Pink-600" })
+colorize("Constant", { fg = "Red-600" })
