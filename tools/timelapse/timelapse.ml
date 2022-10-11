@@ -23,7 +23,7 @@ let next_filename day_dir =
       in
       match List.reduce ~f:Int.max numbers with
       | Some x -> Ok (Int.to_string (x + 1) ^ ".jpg")
-      | None -> Error "cannot generate next filename")
+      | None -> Ok "1.jpg")
   | Error _ -> Error "cannot generate next filename"
 
 let screencapture path =
