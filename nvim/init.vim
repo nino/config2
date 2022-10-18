@@ -65,6 +65,8 @@ Plug 'https://github.com/jakwings/vim-pony'
 Plug 'https://github.com/davidoc/taskpaper.vim'
 Plug 'https://github.com/koron/nyancat-vim'
 Plug 'https://github.com/rescript-lang/vim-rescript'
+Plug 'https://github.com/chriskempson/base16-vim'
+Plug 'https://github.com/vim-scripts/CycleColor'
 
 call plug#end()
 
