@@ -1,13 +1,14 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
+local use_light_bg = false
 vim.opt.termguicolors = true
 if use_light_bg then
   utils.color("thinglight")
 else
-  utils.color("thing")
+  -- utils.color("thing")
   -- utils.color("plaindark")
+  utils.color("base16-gruvbox-dark-pale")
 end
 
 -- Defaults
@@ -141,7 +142,7 @@ dlsconfig.setup {
   ['javascript'] = { linter = eslint },
   ['javascriptreact'] = { linter = eslint },
   ['typescript'] = { linter = eslint },
-  ['typescriptreact'] = { linter = eslint },
+  ['typescriptreact'] = { linter = eslint, formatter = { eslint_fmt } },
   ['rust'] = { formatter = { rustfmt } }
 }
 
