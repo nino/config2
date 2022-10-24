@@ -8,7 +8,27 @@ if use_light_bg then
 else
   -- utils.color("thing")
   -- utils.color("plaindark")
-  utils.color("base16-gruvbox-dark-pale")
+
+  vim.o.background = "dark"
+  require("gruvbox").setup({
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = false,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "", -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
+  })
+
+  utils.color("gruvbox")
 end
 
 -- Defaults

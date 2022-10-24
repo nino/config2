@@ -45,7 +45,6 @@ Plug 'https://github.com/udalov/kotlin-vim'
 Plug 'tpope/vim-characterize'
 Plug 'https://github.com/guns/vim-sexp'
 Plug 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
-Plug 'https://github.com/morhetz/gruvbox'
 " Plug 'https://github.com/fweep/vim-zsh-path-completion'
 Plug 'https://github.com/davidoc/taskpaper.vim'
 Plug 'https://github.com/petertriho/nvim-scrollbar'
@@ -66,7 +65,8 @@ Plug 'https://github.com/davidoc/taskpaper.vim'
 Plug 'https://github.com/koron/nyancat-vim'
 Plug 'https://github.com/rescript-lang/vim-rescript'
 Plug 'https://github.com/chriskempson/base16-vim'
-Plug 'https://github.com/vim-scripts/CycleColor'
+" Plug 'https://github.com/vim-scripts/CycleColor'
+Plug 'https://github.com/ellisonleao/gruvbox.nvim'
 
 call plug#end()
 

@@ -17,8 +17,8 @@ vnoremap <C-P> "2y:exe 'FZF -q ' . @2<CR>
 nnoremap <C-S> :w<CR>
 " inoremap <Tab> <C-N>
 " inoremap <S-Tab> <C-P>
-nnoremap <C-c> gt
-nnoremap <C-x> gT
+nnoremap <F3> gT
+nnoremap <F4> gt
 "
 " <TAB>: completion.
 inoremap <silent><expr> <TAB>
@@ -36,7 +36,7 @@ inoremap [;<CR> [<CR>];<ESC>O
 
 nnoremap Y y$
 
-" nnoremap <C-x> :cprev<CR>zz
+nnoremap <C-x> :cprev<CR>zz
 nnoremap <C-q> :cnext<CR>zz
 
 nnoremap <Leader>m 0f{lr<CR>f}hr<CR>k:s/, /,\r/g<CR>
