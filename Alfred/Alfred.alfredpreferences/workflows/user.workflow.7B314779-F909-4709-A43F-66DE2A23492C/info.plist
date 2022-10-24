@@ -8491,7 +8491,7 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>script</key>
 				<string>./dashAlfredWorkflow "seaborn:{query}"</string>
 				<key>subtext</key>
-				<string>Search seaborn 0.11.0 for "{query}"</string>
+				<string>Search seaborn 0.11.0 and 1 other for "{query}"</string>
 				<key>title</key>
 				<string>Search seaborn 0.11.0</string>
 				<key>type</key>
