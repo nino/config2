@@ -2,7 +2,7 @@ local utils = require("utils")
 
 -- Colors
 local use_light_bg = false
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
 else
@@ -174,6 +174,7 @@ vim.cmd([[
   nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
   nnoremap <silent> _ :lua format_file()<CR>
   nnoremap <silent> ,n :lua vim.diagnostic.goto_next()<CR>
+  nnoremap <silent> ,a :lua vim.lsp.buf.code_action()<CR>
   nnoremap <silent> <leader>a :lua vim.diagnostic.open_float()<CR>
   nnoremap - F r_
   nnoremap <Leader>e :e!<CR>
