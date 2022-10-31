@@ -211,12 +211,13 @@ vim.cmd("command! -nargs=1 Rename lua vim.lsp.buf.rename(<f-args>)")
 vim.cmd("nnoremap <silent> <ESC> <ESC>:nohlsearch<CR>")
 
 -- Tree Sitter
-if vim.fn.has('macunix') then
+local use_tree_sitter = false
+if vim.fn.has('macunix') and use_tree_sitter then
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-      "javascript", "typescript", "ruby", "ocaml", "lua", "bash", "json",
-      "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
-      "tsx", "latex", "bibtex", "sql"
+      -- "javascript", "typescript", "ruby", "ocaml", "lua", "bash", "json",
+      -- "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
+      -- "tsx", "latex", "bibtex", "sql"
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
