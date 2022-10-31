@@ -27,12 +27,12 @@ inoremap <silent><expr> <TAB>
 \ '<TAB>' : ddc#map#manual_complete()
 nnoremap ,s :wa<CR>
 
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {,<CR> {<CR>},<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-inoremap [<CR> [<CR>]<ESC>O
-inoremap [,<CR> [<CR>],<ESC>O
-inoremap [;<CR> [<CR>];<ESC>O
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {,<CR> {<CR>},<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O
+" inoremap [<CR> [<CR>]<ESC>O
+" inoremap [,<CR> [<CR>],<ESC>O
+" inoremap [;<CR> [<CR>];<ESC>O
 
 nnoremap Y y$
 
