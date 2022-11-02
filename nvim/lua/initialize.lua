@@ -199,6 +199,7 @@ vim.cmd([[
   nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
   nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
   nnoremap <silent> _ :lua format_file()<CR>
+  nnoremap <silent> <leader>- :!yarn exec eslint --fix %<CR>
   nnoremap <silent> ,n :lua vim.diagnostic.goto_next()<CR>
   nnoremap <silent> ,a :lua vim.lsp.buf.code_action()<CR>
   nnoremap <silent> <leader>a :lua vim.diagnostic.open_float()<CR>
