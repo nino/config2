@@ -276,7 +276,7 @@ current_build_command = 'immo core test --grep typescript'
 
 function send_keys()
   if current_build_command ~= nil then
-    os.execute("tmux send-keys -t :.1 '" .. current_build_command .. "' C-m")
+    os.execute("tmux send-keys -t 1: '" .. current_build_command .. "' C-m")
   end
 end
 
