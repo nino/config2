@@ -2,7 +2,7 @@
 
 require "rugged"
 
-repo = Rugged::Repository.new("/Users/nino/immo-platform")
+repo = Rugged::Repository.new("/Users/nino/immo/immo-platform")
 branch = repo.head.name.gsub('refs/heads/', '')
 issue_match = branch.match(/^\w+-\d+/)
 if !issue_match.nil?

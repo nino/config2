@@ -256,14 +256,6 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 #   eval "$(pyenv init -)"
 # fi
 #
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
-# eval "$(pyenv init --path)"
-
-# Load pyenv into the shell by adding
-# the following to ~/.zshrc:
-
-eval "$(pyenv init -)"
 
 
 export PATH="$HOME/.config/scripts:${PATH}"
@@ -338,3 +330,12 @@ if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
 fi
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
+# eval "$(pyenv init --path)"
+
+# Load pyenv into the shell by adding
+# the following to ~/.zshrc:
+
+eval "$(pyenv init -)"
