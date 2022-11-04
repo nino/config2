@@ -271,10 +271,19 @@ function play(idx)
   libaudio.lj_play(c_index)
 end
 
--- Run stuff in the other pane
-current_build_command = 'immo core test --grep typescript'
+function read_file(filepath)
+  local file = io.open(filepath, "r")
+  if file == nil then
+    print("File is nil")
+    return nil
+  end
+  local content = file:read("*a")
+  file:close()
+  return content
+end
 
 function send_keys()
+  local current_build_command = read_file("/Users/nino/build_cmd")
   if current_build_command ~= nil then
     os.execute("tmux send-keys -t 1: '" .. current_build_command .. "' C-m")
   end
