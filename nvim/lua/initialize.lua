@@ -78,6 +78,8 @@ vim.cmd("command! NF NERDTreeFind")
 vim.cmd("command! NT NERDTreeToggle")
 vim.cmd("command! NN NERDTreeFocus")
 
+vim.cmd("command! Com G commit -a")
+
 -- Resolve conflicts
 vim.cmd("command! A normal ddnVnd")
 vim.cmd("command! B normal Vndndd")
