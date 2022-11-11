@@ -43,6 +43,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>3DC106AE-0C5A-420A-B991-42E43A6593BB</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>cs</string>
+			<key>text</key>
+			<string>GitHub CodeSearch</string>
+			<key>url</key>
+			<string>https://cs.github.com/?scopeName=All+repos&amp;scope=&amp;q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>89282B3F-DCC5-4EBF-830F-BD427B035E9B</key>
 		<dict>
 			<key>enabled</key>
