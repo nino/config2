@@ -39,7 +39,8 @@ vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
 -- vim.opt.signcolumn = "yes"
 vim.opt.list = true
-vim.opt.number = false
+vim.opt.number = true
+vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
