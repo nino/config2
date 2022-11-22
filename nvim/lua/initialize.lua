@@ -45,6 +45,8 @@ vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
+vim.g [ "NERDTreeIgnore"]={'\\.cm.$', '\\.a$', '\\.cm..$'}
+
 -- Providers
 if vim.fn.has("macunix") == 1 then
   vim.cmd [[
@@ -86,7 +88,7 @@ vim.cmd("command! A normal ddnVnd")
 vim.cmd("command! B normal Vndndd")
 
 -- Variables
-vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git"
+vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
 
 -- LSP
 local on_attach = function(_, _)
