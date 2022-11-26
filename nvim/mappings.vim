@@ -76,8 +76,8 @@ nnoremap <silent> gI "8yiw:!open https://github.com/immocapital/immo-platform/is
 " nnoremap <silent> gm "8yiw:!open "https://github.com/immocapital/immo-platform/issues?q=is\%3Aissue+is\%3Aopen+assignee\%3Anino+milestone\%3A<C-R>8"<CR><CR>
 
 nnoremap <silent> gu "8yiW:!open "<C-R>8"<CR><CR>
-nnoremap <silent> gs "8yiw:!open "https://sourcegraph.com/search?q=<C-R>8&pattern=literal"<CR><CR>
-vnoremap <silent> gs "8y:!open "https://sourcegraph.com/search?q=<C-R>8&pattern=literal"<CR><CR>
+nnoremap <silent> gs "8yiw:!open "https://cs.github.com/?scopeName=All+repos&scope=&q=<C-R>8"<CR><CR>
+vnoremap <silent> gs "8y:!open "https://cs.github.com/?scopeName=All+repos&scope=&q=<C-R>8"<CR><CR>
 
 " Terminal navigation:
 " tnoremap <C-H> <C-\><C-N><C-W><C-H>

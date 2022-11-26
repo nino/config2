@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = false
+local use_light_bg = true
 vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
@@ -39,10 +39,13 @@ vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
 -- vim.opt.signcolumn = "yes"
 vim.opt.list = true
-vim.opt.number = false
+vim.opt.number = true
+vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
+
+vim.g [ "NERDTreeIgnore"]={'\\.cm.$', '\\.a$', '\\.cm..$'}
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
@@ -85,7 +88,7 @@ vim.cmd("command! A normal ddnVnd")
 vim.cmd("command! B normal Vndndd")
 
 -- Variables
-vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git"
+vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
 
 -- LSP
 local on_attach = function(_, _)

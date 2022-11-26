@@ -47,7 +47,7 @@ Plug 'https://github.com/guns/vim-sexp'
 Plug 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
 " Plug 'https://github.com/fweep/vim-zsh-path-completion'
 Plug 'https://github.com/davidoc/taskpaper.vim'
-Plug 'https://github.com/petertriho/nvim-scrollbar'
+" Plug 'https://github.com/petertriho/nvim-scrollbar'
 Plug 'https://github.com/gutenye/json5.vim'
 Plug 'https://github.com/jxnblk/vim-mdx-js'
 Plug 'https://github.com/neovim/nvim-lspconfig'
@@ -59,6 +59,7 @@ if has('macunix')
   Plug 'https://github.com/ms-jpq/coq_nvim'
   Plug 'https://github.com/ms-jpq/coq.artifacts', {'branch': 'artifacts'}
   " Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  " Plug 'https://github.com/nvim-treesitter/playground'
 endif
 Plug 'https://github.com/jakwings/vim-pony'
 Plug 'https://github.com/davidoc/taskpaper.vim'
@@ -71,7 +72,7 @@ Plug 'https://github.com/ellisonleao/gruvbox.nvim'
 call plug#end()
 
 lua << EOF
-  require("scrollbar").setup()
+  --  require("scrollbar").setup()
   require("initialize")
 EOF
 
