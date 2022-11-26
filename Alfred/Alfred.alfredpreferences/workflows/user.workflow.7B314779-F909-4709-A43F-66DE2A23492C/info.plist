@@ -3187,6 +3187,33 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>dash_keyword_scheme</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>dash_action_normal</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>dash_action_cmd</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>dash_action_alt</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>dash_keyword_scipy</key>
 		<array>
 			<dict>
@@ -5155,6 +5182,68 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>ack</string>
+				<key>runningsubtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>script</key>
+				<string>Dash dynamically updates this workflow with docset and search profile keywords.
+
+Do not try to change the keywords from within Alfred, as Dash will overwrite your changes. If you want to change a keyword, change it from within Dash (in Preferences &gt; Docsets).
+
+That said, you can edit anything else within this workflow (including adding new triggers/actions/hotkeys).</string>
+				<key>subtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>title</key>
+				<string>PLEASE README</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_note_readme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>script</key>
+				<string>Dash dynamically updates this workflow with docset and search profile keywords.
+
+Do not try to change the keywords from within Alfred, as Dash will overwrite your changes. If you want to change a keyword, change it from within Dash (in Preferences &gt; Docsets).
+
+That said, you can edit anything else within this workflow (including adding new triggers/actions/hotkeys).</string>
+				<key>subtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>title</key>
+				<string>PLEASE README</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_note_readme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
 				<key>runningsubtext</key>
 				<string>Please read what's in the "Script:" section below</string>
 				<key>script</key>
@@ -8675,6 +8764,35 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>escaping</key>
 				<integer>110</integer>
 				<key>keyword</key>
+				<string>scheme</string>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>./dashAlfredWorkflow "scheme:{query}"</string>
+				<key>subtext</key>
+				<string>Search R5RS for "{query}"</string>
+				<key>title</key>
+				<string>Search R5RS</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_keyword_scheme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>110</integer>
+				<key>keyword</key>
 				<string>scipy</string>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
@@ -10040,135 +10158,140 @@ The keyword is either a docset keyword (defined in Preferences &gt; Docsets) or 
 			<key>ypos</key>
 			<integer>14730</integer>
 		</dict>
-		<key>dash_keyword_scipy</key>
+		<key>dash_keyword_scheme</key>
 		<dict>
 			<key>ypos</key>
 			<integer>14850</integer>
 		</dict>
-		<key>dash_keyword_seaborn</key>
+		<key>dash_keyword_scipy</key>
 		<dict>
 			<key>ypos</key>
 			<integer>14970</integer>
 		</dict>
-		<key>dash_keyword_serverless</key>
+		<key>dash_keyword_seaborn</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15090</integer>
 		</dict>
-		<key>dash_keyword_sinon</key>
+		<key>dash_keyword_serverless</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15210</integer>
 		</dict>
-		<key>dash_keyword_sketch</key>
+		<key>dash_keyword_sinon</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15330</integer>
 		</dict>
-		<key>dash_keyword_solid</key>
+		<key>dash_keyword_sketch</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15450</integer>
 		</dict>
-		<key>dash_keyword_sqlalchemy</key>
+		<key>dash_keyword_solid</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15570</integer>
 		</dict>
-		<key>dash_keyword_sqlite</key>
+		<key>dash_keyword_sqlalchemy</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15690</integer>
 		</dict>
-		<key>dash_keyword_strftime</key>
+		<key>dash_keyword_sqlite</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15810</integer>
 		</dict>
-		<key>dash_keyword_svg</key>
+		<key>dash_keyword_strftime</key>
 		<dict>
 			<key>ypos</key>
 			<integer>15930</integer>
 		</dict>
-		<key>dash_keyword_swift</key>
+		<key>dash_keyword_svg</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16050</integer>
 		</dict>
-		<key>dash_keyword_swiftyjson</key>
+		<key>dash_keyword_swift</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16170</integer>
 		</dict>
-		<key>dash_keyword_tauri</key>
+		<key>dash_keyword_swiftyjson</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16290</integer>
 		</dict>
-		<key>dash_keyword_tensorflow2</key>
+		<key>dash_keyword_tauri</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16410</integer>
 		</dict>
-		<key>dash_keyword_terraform</key>
+		<key>dash_keyword_tensorflow2</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16530</integer>
 		</dict>
-		<key>dash_keyword_three.js</key>
+		<key>dash_keyword_terraform</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16650</integer>
 		</dict>
-		<key>dash_keyword_ts</key>
+		<key>dash_keyword_three.js</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16770</integer>
 		</dict>
-		<key>dash_keyword_tw</key>
+		<key>dash_keyword_ts</key>
 		<dict>
 			<key>ypos</key>
 			<integer>16890</integer>
 		</dict>
-		<key>dash_keyword_userevent</key>
+		<key>dash_keyword_tw</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17010</integer>
 		</dict>
-		<key>dash_keyword_vim</key>
+		<key>dash_keyword_userevent</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17130</integer>
 		</dict>
-		<key>dash_keyword_x86_64_asm</key>
+		<key>dash_keyword_vim</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17250</integer>
 		</dict>
-		<key>dash_keyword_xcode</key>
+		<key>dash_keyword_x86_64_asm</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17370</integer>
 		</dict>
-		<key>dash_keyword_xctui</key>
+		<key>dash_keyword_xcode</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17490</integer>
 		</dict>
-		<key>dash_keyword_xml2js</key>
+		<key>dash_keyword_xctui</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17610</integer>
 		</dict>
-		<key>dash_keyword_yaml</key>
+		<key>dash_keyword_xml2js</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17730</integer>
 		</dict>
-		<key>dash_keyword_zig</key>
+		<key>dash_keyword_yaml</key>
 		<dict>
 			<key>ypos</key>
 			<integer>17850</integer>
+		</dict>
+		<key>dash_keyword_zig</key>
+		<dict>
+			<key>ypos</key>
+			<integer>17970</integer>
 		</dict>
 		<key>dash_note_readme</key>
 		<dict>
