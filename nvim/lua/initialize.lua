@@ -119,7 +119,6 @@ require('lspconfig').tsserver.setup {
 require('lspconfig').ocamllsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require('lspconfig').ember.setup {}
 require('lspconfig').tailwindcss.setup {}
 require('lspconfig').sumneko_lua.setup {
   on_attach = function(client, bufnr)
