@@ -1,10 +1,8 @@
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 set wrap
 
 setlocal breakindentopt=shift:2
-
-if stridx(expand('%'), 'nino/immo-platform') != -1
-  setlocal textwidth=120
-endif
+set textwidth=9999

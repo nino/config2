@@ -544,13 +544,23 @@ end
 
 colorize("Normal", { bg = "Gray-900", fg = "White" })
 
+function rgb(r, g, b)
+  return 16 + b + 6 * g + 36 * r
+end
+
+function grey(level)
+  return 232 + level
+end
+
+-- vim.api.nvim_command("highlight Normal ctermbg=" .. rgb(1,0,0))
+
 colorize("Cursor", { bg = "Pink-400" })
 colorize("Visual", { bg = "Gray-700" })
 colorize("ScrollBar", { bg = "Gray-800" })
 colorize("ScrollBarHandle", { bg = "Gray-600" })
 colorize("ScrollBarError", { bg = "Red-500", fg = "Red-500" })
 colorize("ScrollBarErrorHandle", { bg = "Red-500", fg = "Red-500" })
-colorize("LineNr", { fg = "Slate-600" })
+-- colorize("LineNr", { fg = "Slate-600" })
 colorize("NonText", { fg = "Slate-700" })
 
 colorize("TabLineFill", { bg = "Gray-700", decoration = "none" })
@@ -578,9 +588,10 @@ colorize("VertSplit", { bg = "none", fg = "Gray-600", decoration = "none" })
 colorize("SignColumn", { bg = "Gray-700" })
 colorize("CursorLine", { bg = "Gray-700" })
 
-colorize("Statement", { fg = "Orange-400", decoration = "none" })
+colorize("Statement", { fg = "Yellow-400", decoration = "none" })
 colorize("Comment", { fg = "Lime-50", decoration = "bold" })
 colorize("Special", { fg = "Green-200" }) -- Delimiters and special characters
 colorize("Folded", { fg = "Sky-100", bg = "Slate-700" })
 colorize("typescriptParens", { fg = "Gray-200" })
-colorize("DiagnosticUnderlineError", { bg = "Orange-900", decoration = "none" })
+colorize("DiagnosticUnderlineError", { bg = "Gray-600", decoration = "none" })
+colorize("DiagnosticUnderlineHint", { bg = "Gray-500", decoration = "none" })

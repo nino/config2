@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
+local use_light_bg = false
 vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
@@ -42,6 +42,11 @@ vim.opt.list = true
 vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
+
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.cindent = true
+vim.opt.copyindent = true
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
@@ -221,7 +226,7 @@ local use_tree_sitter = false
 if vim.fn.has('macunix') and use_tree_sitter then
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-      -- "javascript", "typescript", "ruby", "ocaml", "lua", "bash", "json",
+      -- "javascript", "typescript", "ruby", "ocaml", "bash", "json",
       -- "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
       -- "tsx", "latex", "bibtex", "sql"
     },
@@ -285,6 +290,16 @@ function read_file(filepath)
   local content = file:read("*a")
   file:close()
   return content
+end
+
+function set_build_cmd(cmd)
+  local file, err = io.open("/Users/nino/build_cmd", "w")
+  if file == nil then
+    print("Unable to read file: " .. err)
+    return
+  end
+  file:write(cmd)
+  file:close()
 end
 
 function send_keys()
