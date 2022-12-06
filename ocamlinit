@@ -5,6 +5,8 @@ let () =
 ;;
 #use "topfind";;
 #require "base";;
+open Base;;
 #require "stdio";;
+open Stdio;;
 (* #require "stdint";; *)
-#require "containers";;
+(* #require "containers";; *)
