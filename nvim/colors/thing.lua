@@ -548,6 +548,13 @@ function rgb(r, g, b)
   return 16 + b + 6 * g + 36 * r
 end
 
+function gui_rgb(r, g, b)
+  local r_hex = string.format("%x", math.floor(r / 6 * 256))
+  local g_hex = string.format("%x", math.floor(g / 6 * 256))
+  local b_hex = string.format("%x", math.floor(b / 6 * 256))
+  return "#" .. r_hex .. g_hex .. b_hex
+end
+
 function grey(level)
   return 232 + level
 end
