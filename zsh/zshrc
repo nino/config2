@@ -264,7 +264,7 @@ export PATH="/Applications/Racket v8.0/bin:${PATH}"
 export PATH="$HOME/.local/bin:${PATH}"
 
 # export TERM=xterm
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # echo "Opened zsh at $(date)" >> ~/.config/zsh-startups.log
 
