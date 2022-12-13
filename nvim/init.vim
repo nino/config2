@@ -61,11 +61,11 @@ if has('macunix')
   Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   " Plug 'https://github.com/nvim-treesitter/playground'
 endif
-Plug 'https://github.com/jakwings/vim-pony'
+" Plug 'https://github.com/jakwings/vim-pony'
 Plug 'https://github.com/davidoc/taskpaper.vim'
 Plug 'https://github.com/koron/nyancat-vim'
 Plug 'https://github.com/rescript-lang/vim-rescript'
-Plug 'https://github.com/chriskempson/base16-vim'
+" Plug 'https://github.com/chriskempson/base16-vim'
 " Plug 'https://github.com/vim-scripts/CycleColor'
 Plug 'https://github.com/ellisonleao/gruvbox.nvim'
 
