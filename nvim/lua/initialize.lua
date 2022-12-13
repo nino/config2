@@ -6,34 +6,34 @@ vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
 else
-  utils.color("thing")
+  -- utils.color("thing")
   -- utils.color("plaindark")
 
-  -- vim.o.background = "dark"
-  -- require("gruvbox").setup({
-  --   undercurl = true,
-  --   underline = true,
-  --   bold = true,
-  --   italic = false,
-  --   strikethrough = true,
-  --   invert_selection = false,
-  --   invert_signs = false,
-  --   invert_tabline = false,
-  --   invert_intend_guides = false,
-  --   inverse = true, -- invert background for search, diffs, statuslines and errors
-  --   contrast = "", -- can be "hard", "soft" or empty string
-  --   palette_overrides = {},
-  --   overrides = {},
-  --   dim_inactive = false,
-  --   transparent_mode = false,
-  -- })
+  vim.o.background = "dark"
+  require("gruvbox").setup({
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = true,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "", -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
+  })
 
-  -- utils.color("gruvbox")
+  utils.color("gruvbox")
 end
 
 -- Defaults
 vim.opt.laststatus = 2
-vim.opt.ch = 1 -- command-height
+vim.opt.ch = 0 -- command-height
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
@@ -225,9 +225,9 @@ local use_tree_sitter = false
 if vim.fn.has('macunix') and use_tree_sitter then
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-      -- "javascript", "typescript", "ruby", "ocaml", "bash", "json",
-      -- "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
-      -- "tsx", "latex", "bibtex", "sql"
+      "javascript", "typescript", "ruby", "ocaml", "bash", "json",
+      "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
+      "tsx", "latex", "bibtex", "sql"
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
@@ -304,6 +304,7 @@ end
 function send_keys()
   local current_build_command = read_file("/Users/nino/build_cmd")
   if current_build_command ~= nil then
+    os.execute("tmux send-keys -t 1: -X cancel")
     os.execute("tmux send-keys -t 1: '" .. current_build_command .. "' C-m")
   end
 end
