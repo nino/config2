@@ -37,7 +37,7 @@ vim.opt.ch = 1 -- command-height
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
--- vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "number" -- no extra column
 vim.opt.list = true
 vim.opt.number = true
 vim.opt.numberwidth = 1
@@ -304,7 +304,6 @@ end
 function send_keys()
   local current_build_command = read_file("/Users/nino/build_cmd")
   if current_build_command ~= nil then
-    os.execute("tmux send-keys -t 1: -X cancel")
     os.execute("tmux send-keys -t 1: '" .. current_build_command .. "' C-m")
   end
 end
