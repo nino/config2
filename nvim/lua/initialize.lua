@@ -33,7 +33,7 @@ end
 
 -- Defaults
 vim.opt.laststatus = 2
-vim.opt.ch = 0 -- command-height
+vim.opt.ch = 1 -- command-height
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
@@ -50,7 +50,7 @@ vim.opt.copyindent = true
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
-vim.g [ "NERDTreeIgnore"]={'\\.cm.$', '\\.a$', '\\.cm..$'}
+vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
