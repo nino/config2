@@ -600,6 +600,6 @@ colorize("Comment", { fg = "Lime-50", decoration = "bold" })
 colorize("Special", { fg = "Green-200" }) -- Delimiters and special characters
 colorize("Folded", { fg = "Sky-100", bg = "Slate-700" })
 colorize("typescriptParens", { fg = "Gray-200" })
-colorize("DiagnosticUnderlineError", { bg = "Gray-600", decoration = "none" })
+colorize("DiagnosticUnderlineError", { bg = "Gray-700", decoration = "none" })
 colorize("DiagnosticUnderlineHint", { bg = "Gray-500", decoration = "none" })
 colorize("DiagnosticUnderlineWarn", { bg = "Gray-700", decoration = "none" })

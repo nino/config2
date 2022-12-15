@@ -6,29 +6,29 @@ vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
 else
-  utils.color("thing")
+  -- utils.color("thing")
   -- utils.color("plaindark")
 
-  -- vim.o.background = "dark"
-  -- require("gruvbox").setup({
-  --   undercurl = true,
-  --   underline = true,
-  --   bold = true,
-  --   italic = false,
-  --   strikethrough = true,
-  --   invert_selection = false,
-  --   invert_signs = false,
-  --   invert_tabline = false,
-  --   invert_intend_guides = false,
-  --   inverse = true, -- invert background for search, diffs, statuslines and errors
-  --   contrast = "", -- can be "hard", "soft" or empty string
-  --   palette_overrides = {},
-  --   overrides = {},
-  --   dim_inactive = false,
-  --   transparent_mode = false,
-  -- })
+  vim.o.background = "dark"
+  require("gruvbox").setup({
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = true,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "", -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
+  })
 
-  -- utils.color("gruvbox")
+  utils.color("gruvbox")
 end
 
 -- Defaults
@@ -37,7 +37,7 @@ vim.opt.ch = 1 -- command-height
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
--- vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "number" -- no extra column
 vim.opt.list = true
 vim.opt.number = true
 vim.opt.numberwidth = 1
@@ -50,7 +50,7 @@ vim.opt.copyindent = true
 
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
-vim.g [ "NERDTreeIgnore"]={'\\.cm.$', '\\.a$', '\\.cm..$'}
+vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
@@ -225,9 +225,9 @@ local use_tree_sitter = false
 if vim.fn.has('macunix') and use_tree_sitter then
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-      -- "javascript", "typescript", "ruby", "ocaml", "bash", "json",
-      -- "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
-      -- "tsx", "latex", "bibtex", "sql"
+      "javascript", "typescript", "ruby", "ocaml", "bash", "json",
+      "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
+      "tsx", "latex", "bibtex", "sql"
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
