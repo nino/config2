@@ -221,7 +221,7 @@ vim.cmd("command! -nargs=1 Rename lua vim.lsp.buf.rename(<f-args>)")
 vim.cmd("nnoremap <silent> <ESC> <ESC>:nohlsearch<CR>")
 
 -- Tree Sitter
-local use_tree_sitter = false
+local use_tree_sitter = true
 if vim.fn.has('macunix') and use_tree_sitter then
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
@@ -242,7 +242,7 @@ if vim.fn.has('macunix') and use_tree_sitter then
 
       -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
       -- list of language that will be disabled
-      disable = { "rust" },
+      disable = { "rust", "lua", "vim" },
 
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
