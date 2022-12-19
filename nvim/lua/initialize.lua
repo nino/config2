@@ -69,6 +69,7 @@ end
 vim.g.mapleader = " "
 vim.cmd [[
 inoremap <C-l> =>
+nnoremap gy mzggyG`z
 ]]
 
 -- Commands
@@ -313,3 +314,53 @@ nnoremap <Leader>r :lua send_keys()<cr>
 ]])
 
 require "mappings"
+
+
+vim.cmd([[
+" RIPGREP
+
+if executable('rg')
+  " let g:ctrlp_user_command = 'rg --files %s'
+  " let g:ctrlp_use_caching = 1
+  " let g:ctrlp_working_path_mode = 'ra'
+  " let g:ctrlp_switch_buffer = 'et'
+
+  let g:ackprg = 'rg --vimgrep --no-heading --glob=!tags'
+endif
+
+" /RIPGREP
+
+nnoremap <silent> <Leader>ut :UndotreeShow \| UndotreeFocus<CR>
+nnoremap <silent> <Leader>uc :UndotreeHide<CR>
+
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal nowrap
+augroup END
+
+augroup gitcommit
+  autocmd!
+  autocmd FileType gitcommit setlocal nowrap
+augroup END
+
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" Visual @
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+]])
