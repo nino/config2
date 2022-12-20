@@ -69,6 +69,7 @@ end
 vim.g.mapleader = " "
 vim.cmd [[
 inoremap <C-l> =>
+nnoremap gy mzggyG`z
 ]]
 
 -- Commands
@@ -221,7 +222,7 @@ vim.cmd("command! -nargs=1 Rename lua vim.lsp.buf.rename(<f-args>)")
 vim.cmd("nnoremap <silent> <ESC> <ESC>:nohlsearch<CR>")
 
 -- Tree Sitter
-local use_tree_sitter = false
+local use_tree_sitter = true
 if vim.fn.has('macunix') and use_tree_sitter then
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
@@ -242,7 +243,7 @@ if vim.fn.has('macunix') and use_tree_sitter then
 
       -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
       -- list of language that will be disabled
-      disable = { "rust" },
+      disable = { "rust", "lua", "vim" },
 
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -313,3 +314,53 @@ nnoremap <Leader>r :lua send_keys()<cr>
 ]])
 
 require "mappings"
+
+
+vim.cmd([[
+" RIPGREP
+
+if executable('rg')
+  " let g:ctrlp_user_command = 'rg --files %s'
+  " let g:ctrlp_use_caching = 1
+  " let g:ctrlp_working_path_mode = 'ra'
+  " let g:ctrlp_switch_buffer = 'et'
+
+  let g:ackprg = 'rg --vimgrep --no-heading --glob=!tags'
+endif
+
+" /RIPGREP
+
+nnoremap <silent> <Leader>ut :UndotreeShow \| UndotreeFocus<CR>
+nnoremap <silent> <Leader>uc :UndotreeHide<CR>
+
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal nowrap
+augroup END
+
+augroup gitcommit
+  autocmd!
+  autocmd FileType gitcommit setlocal nowrap
+augroup END
+
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" Visual @
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+]])
