@@ -55,6 +55,7 @@ if has('macunix')
   Plug 'https://github.com/ms-jpq/coq_nvim'
   Plug 'https://github.com/ms-jpq/coq.artifacts', {'branch': 'artifacts'}
   Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'https://github.com/nvim-treesitter/playground'
 endif
 Plug 'https://github.com/davidoc/taskpaper.vim'
 Plug 'https://github.com/koron/nyancat-vim'
