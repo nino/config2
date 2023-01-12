@@ -42,6 +42,7 @@ vim.opt.list = true
 vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
+vim.opt.conceallevel = 2
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -146,6 +147,8 @@ require('lspconfig').julials.setup {}
 require('lspconfig').pylsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
+
+-- Ruby
 require('lspconfig').solargraph.setup {
   on_attach = function(client)
     client.server_capabilities.document_formatting = false
