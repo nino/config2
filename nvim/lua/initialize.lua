@@ -228,7 +228,7 @@ if vim.fn.has('macunix') and use_tree_sitter then
     ensure_installed = {
       "javascript", "typescript", "ruby", "ocaml", "bash", "json",
       "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
-      "tsx", "latex", "bibtex", "sql"
+      "tsx", "latex", "bibtex", "sql", "lua", "html", "css"
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
@@ -243,7 +243,7 @@ if vim.fn.has('macunix') and use_tree_sitter then
 
       -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
       -- list of language that will be disabled
-      disable = { "rust", "lua", "vim" },
+      disable = {},
 
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
