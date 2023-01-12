@@ -30,7 +30,7 @@ let screencapture path =
   print_endline @@ "Capturing screengrab at " ^ path;
   let quoted = Filename.quote path in
   match sh @@ "screencapture -x -t jpg -m " ^ quoted with
-  | Ok () -> sh @@ "convert -scale 1800 " ^ quoted ^ " " ^ quoted
+  | Ok () -> sh @@ "convert -scale 1800x1124! " ^ quoted ^ " " ^ quoted
   | Error err -> Error err
 
 let screenshot_loop () =
