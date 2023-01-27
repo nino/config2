@@ -1,16 +1,18 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
+local use_light_bg = false
 vim.opt.termguicolors = true
 if use_light_bg then
-  utils.color("thinglight")
+  -- utils.color("thinglight")
+  utils.color("morning")
 else
+  vim.o.background = "dark"
+
   utils.color("thing")
   -- utils.color("plaindark")
   -- utils.color("desert")
 
-  -- vim.o.background = "dark"
   -- require("gruvbox").setup({
   --   undercurl = true,
   --   underline = true,
@@ -205,7 +207,7 @@ dlsconfig.setup {
   ['rust'] = { formatter = { rustfmt } }
 }
 
-function format_file() vim.lsp.buf.format { async = true } end
+function format_file() vim.lsp.buf.format { async = false, timeout_ms=12000 } end
 
 -- LSP Mappings
 vim.cmd([[
@@ -214,6 +216,7 @@ vim.cmd([[
   nnoremap <silent> _ :lua format_file()<CR>
   nnoremap <silent> <leader>- :!yarn exec eslint --fix %<CR>
   nnoremap <silent> ,n :lua vim.diagnostic.goto_next()<CR>
+  nnoremap <silent> <c-n> :lua vim.diagnostic.goto_next()<CR>
   nnoremap <silent> ,a :lua vim.lsp.buf.code_action()<CR>
   nnoremap <silent> <leader>a :lua vim.diagnostic.open_float()<CR>
   nnoremap - F r_

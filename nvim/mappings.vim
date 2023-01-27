@@ -43,9 +43,6 @@ nnoremap <Leader>m 0f{lr<CR>f}hr<CR>k:s/, /,\r/g<CR>
 
 nnoremap <F2> "7yiw:%s/\<<C-R>7\>/<C-R>7/g<left><left>
 
-nnoremap <c-b> :bprev<CR>
-nnoremap <c-n> :bnext<CR>
-
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j

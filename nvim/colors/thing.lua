@@ -542,7 +542,7 @@ local function colorize(group, attrs)
   vim.api.nvim_command(cmd)
 end
 
-colorize("Normal", { bg = "Gray-900", fg = "White" })
+colorize("Normal", { fg = "White" })
 
 function rgb(r, g, b)
   return 16 + b + 6 * g + 36 * r
