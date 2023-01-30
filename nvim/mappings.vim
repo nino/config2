@@ -43,9 +43,6 @@ nnoremap <Leader>m 0f{lr<CR>f}hr<CR>k:s/, /,\r/g<CR>
 
 nnoremap <F2> "7yiw:%s/\<<C-R>7\>/<C-R>7/g<left><left>
 
-nnoremap <c-b> :bprev<CR>
-nnoremap <c-n> :bnext<CR>
-
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
@@ -61,7 +58,7 @@ vnoremap <Leader>p :diffput<CR>
 nnoremap <silent> <Leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>t :tabe<CR>
-nnoremap <silent> <Leader>T :tabe %<CR>
+nnoremap <silent> <Leader>T :tabe %<CR><c-o>
 nnoremap <silent> <Leader>s :Gstatus<CR>
 nnoremap <silent> <Leader>S :tabe .git/index<CR>
 nnoremap <silent> <Leader>D :Gdiff<CR>

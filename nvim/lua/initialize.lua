@@ -2,33 +2,35 @@ local utils = require("utils")
 
 -- Colors
 local use_light_bg = false
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 if use_light_bg then
-  utils.color("thinglight")
+  -- utils.color("thinglight")
+  utils.color("morning")
 else
-  -- utils.color("thing")
-  -- utils.color("plaindark")
-
   vim.o.background = "dark"
-  require("gruvbox").setup({
-    undercurl = true,
-    underline = true,
-    bold = true,
-    italic = true,
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "", -- can be "hard", "soft" or empty string
-    palette_overrides = {},
-    overrides = {},
-    dim_inactive = false,
-    transparent_mode = false,
-  })
 
-  utils.color("gruvbox")
+  utils.color("thing")
+  -- utils.color("plaindark")
+  -- utils.color("desert")
+
+  -- require("gruvbox").setup({
+  --   undercurl = true,
+  --   underline = true,
+  --   bold = true,
+  --   italic = true,
+  --   strikethrough = true,
+  --   invert_selection = false,
+  --   invert_signs = false,
+  --   invert_tabline = false,
+  --   invert_intend_guides = false,
+  --   inverse = true, -- invert background for search, diffs, statuslines and errors
+  --   contrast = "hard", -- can be "hard", "soft" or empty string
+  --   palette_overrides = {},
+  --   overrides = {},
+  --   dim_inactive = false,
+  --   transparent_mode = false,
+  -- })
+  -- utils.color("gruvbox")
 end
 
 -- Defaults
@@ -205,7 +207,7 @@ dlsconfig.setup {
   ['rust'] = { formatter = { rustfmt } }
 }
 
-function format_file() vim.lsp.buf.format { async = true } end
+function format_file() vim.lsp.buf.format { async = false, timeout_ms=12000 } end
 
 -- LSP Mappings
 vim.cmd([[
@@ -214,6 +216,7 @@ vim.cmd([[
   nnoremap <silent> _ :lua format_file()<CR>
   nnoremap <silent> <leader>- :!yarn exec eslint --fix %<CR>
   nnoremap <silent> ,n :lua vim.diagnostic.goto_next()<CR>
+  nnoremap <silent> <c-n> :lua vim.diagnostic.goto_next()<CR>
   nnoremap <silent> ,a :lua vim.lsp.buf.code_action()<CR>
   nnoremap <silent> <leader>a :lua vim.diagnostic.open_float()<CR>
   nnoremap - F r_
@@ -231,7 +234,7 @@ if vim.fn.has('macunix') and use_tree_sitter then
     ensure_installed = {
       "javascript", "typescript", "ruby", "ocaml", "bash", "json",
       "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
-      "tsx", "latex", "bibtex", "sql", "lua", "html", "css"
+      "tsx", "latex", "bibtex", "sql", "lua", "html", "css", "vim"
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
@@ -308,13 +311,13 @@ end
 function send_keys()
   local current_build_command = read_file("/Users/nino/build_cmd")
   if current_build_command ~= nil then
-    os.execute("tmux send-keys -t 1: '" .. current_build_command .. "' C-m")
+    os.execute("tmux send-keys -t :1 '" .. current_build_command .. "' C-m")
   end
 end
 
-vim.cmd([[
-nnoremap <Leader>r :lua send_keys()<cr>
-]])
+-- vim.cmd([[
+-- nnoremap <Leader>r :lua send_keys()<cr>
+-- ]])
 
 require "mappings"
 
