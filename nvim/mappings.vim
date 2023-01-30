@@ -58,7 +58,7 @@ vnoremap <Leader>p :diffput<CR>
 nnoremap <silent> <Leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>t :tabe<CR>
-nnoremap <silent> <Leader>T :tabe %<CR>
+nnoremap <silent> <Leader>T :tabe %<CR><c-o>
 nnoremap <silent> <Leader>s :Gstatus<CR>
 nnoremap <silent> <Leader>S :tabe .git/index<CR>
 nnoremap <silent> <Leader>D :Gdiff<CR>
