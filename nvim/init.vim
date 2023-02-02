@@ -66,7 +66,7 @@ Plug 'https://github.com/leoluz/nvim-dap-go'
 Plug 'https://github.com/rcarriga/nvim-dap-ui'
 Plug 'https://github.com/theHamsta/nvim-dap-virtual-text'
 " Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
-
+Plug 'whonore/Coqtail'
 call plug#end()
 
 lua << EOF
