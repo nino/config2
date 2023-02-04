@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
+local use_light_bg = false
 vim.opt.termguicolors = true
 if use_light_bg then
   utils.color("thinglight")
@@ -54,6 +54,9 @@ vim.opt.copyindent = true
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
 vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
+vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
+vim.g["coqtail_imap_prefix"] = "…"
+vim.g["coqtail_map_prefix"] = "…"
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
@@ -73,6 +76,7 @@ vim.g.mapleader = " "
 vim.cmd [[
 inoremap <C-l> =>
 nnoremap gy mzggyG`z
+
 ]]
 
 -- Commands
