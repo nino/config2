@@ -4,33 +4,33 @@ local utils = require("utils")
 local use_light_bg = false
 vim.opt.termguicolors = true
 if use_light_bg then
-  -- utils.color("thinglight")
-  utils.color("morning")
+  utils.color("thinglight")
+  -- utils.color("morning")
 else
   vim.o.background = "dark"
 
-  -- utils.color("thing")
-  utils.color("plaindark")
-  utils.color("desert")
+  utils.color("thing")
+  -- utils.color("plaindark")
+  -- utils.color("desert")
 
-  require("gruvbox").setup({
-    undercurl = true,
-    underline = true,
-    bold = true,
-    italic = true,
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "hard", -- can be "hard", "soft" or empty string
-    palette_overrides = {},
-    overrides = {},
-    dim_inactive = false,
-    transparent_mode = false,
-  })
-  utils.color("gruvbox")
+  -- require("gruvbox").setup({
+  --   undercurl = true,
+  --   underline = true,
+  --   bold = true,
+  --   italic = true,
+  --   strikethrough = true,
+  --   invert_selection = false,
+  --   invert_signs = false,
+  --   invert_tabline = false,
+  --   invert_intend_guides = false,
+  --   inverse = true, -- invert background for search, diffs, statuslines and errors
+  --   contrast = "hard", -- can be "hard", "soft" or empty string
+  --   palette_overrides = {},
+  --   overrides = {},
+  --   dim_inactive = false,
+  --   transparent_mode = false,
+  -- })
+  -- utils.color("gruvbox")
 end
 
 -- Defaults
@@ -54,6 +54,9 @@ vim.opt.copyindent = true
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
 vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
+vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
+vim.g["coqtail_imap_prefix"] = "…"
+vim.g["coqtail_map_prefix"] = "…"
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
@@ -73,6 +76,7 @@ vim.g.mapleader = " "
 vim.cmd [[
 inoremap <C-l> =>
 nnoremap gy mzggyG`z
+
 ]]
 
 -- Commands

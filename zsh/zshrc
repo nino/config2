@@ -339,3 +339,6 @@ export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 # the following to ~/.zshrc:
 
 eval "$(pyenv init -)"
+
+
+export PATH=$PATH:/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin
