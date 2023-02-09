@@ -58,6 +58,9 @@ vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Content
 vim.g["coqtail_imap_prefix"] = "…"
 vim.g["coqtail_map_prefix"] = "…"
 
+-- Coq autocompletion
+vim.g['coq_settings.keymap.repeat'] = ','
+
 -- Providers
 if vim.fn.has("macunix") == 1 then
   vim.cmd [[

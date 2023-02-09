@@ -462,6 +462,11 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
+create-next-app@^13.1.6:
+  version "13.1.6"
+  resolved "https://registry.yarnpkg.com/create-next-app/-/create-next-app-13.1.6.tgz#5d8fa03b44be1a1ddb0dad3eb5b80d9cc720415c"
+  integrity sha512-L0DajZKvef1aXt/kIxVWzlBYDH3/FVstGRM160M7/XWs4f6VyELgqfM9P0Tz0chDKg0DLhe1YQBZpyllY7rQhw==
+
 crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
