@@ -605,3 +605,5 @@ colorize("typescriptParens", { fg = "Gray-200" })
 colorize("DiagnosticUnderlineError", { bg = "Gray-700", decoration = "none" })
 colorize("DiagnosticUnderlineHint", { bg = "Gray-500", decoration = "none" })
 colorize("DiagnosticUnderlineWarn", { bg = "Gray-700", decoration = "none" })
+
+colorize("CoqtailChecked", { bg = "Gray-800", decoration = "none" })
