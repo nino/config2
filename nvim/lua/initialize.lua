@@ -1,15 +1,15 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = false
+local use_light_bg = true
 vim.opt.termguicolors = true
 if use_light_bg then
-  -- utils.color("thinglight")
-  utils.color("morning")
+  utils.color("thinglight")
+  -- utils.color("morning")
 else
   vim.o.background = "dark"
 
-  utils.color("thing")
+  -- utils.color("thing")
   -- utils.color("plaindark")
   -- utils.color("desert")
 
@@ -45,6 +45,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 vim.opt.conceallevel = 2
+vim.opt.digraph = true
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -54,6 +55,12 @@ vim.opt.copyindent = true
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
 vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
+vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
+vim.g["coqtail_imap_prefix"] = "…"
+vim.g["coqtail_map_prefix"] = "…"
+
+-- Coq autocompletion
+vim.g['coq_settings.keymap.repeat'] = ','
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
@@ -73,6 +80,11 @@ vim.g.mapleader = " "
 vim.cmd [[
 inoremap <C-l> =>
 nnoremap gy mzggyG`z
+]]
+
+-- Digraphs
+vim.cmd [[
+exe ":digraph SS " .. 0x1E9E
 ]]
 
 -- Commands
@@ -124,7 +136,7 @@ require('lspconfig').ocamllsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
 require('lspconfig').tailwindcss.setup {}
-require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     -- client.server_capabilities.document_formatting = false
