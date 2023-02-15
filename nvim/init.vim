@@ -74,7 +74,6 @@ lua << EOF
   require("initialize")
 EOF
 
-
 " --------------- External ---------------
 
 runtime defaults.vim
