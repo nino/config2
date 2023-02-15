@@ -1,15 +1,15 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
-vim.opt.termguicolors = true
+local use_light_bg = false
+vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
   -- utils.color("morning")
 else
   vim.o.background = "dark"
 
-  -- utils.color("thing")
+  utils.color("thing")
   -- utils.color("plaindark")
   -- utils.color("desert")
 
@@ -17,7 +17,7 @@ else
   --   undercurl = true,
   --   underline = true,
   --   bold = true,
-  --   italic = true,
+  --   italic = false,
   --   strikethrough = true,
   --   invert_selection = false,
   --   invert_signs = false,
@@ -45,7 +45,6 @@ vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 vim.opt.conceallevel = 2
-vim.opt.digraph = true
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
