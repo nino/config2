@@ -69,6 +69,17 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>9D037C67-3342-4C76-99D2-6D3442DBD975</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ca</string>
+			<key>text</key>
+			<string>Calendar</string>
+			<key>url</key>
+			<string>https://calendar.google.com</string>
+		</dict>
 		<key>BEE8351F-24C9-4002-99DB-5DB4ECE36025</key>
 		<dict>
 			<key>enabled</key>
