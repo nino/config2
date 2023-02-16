@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = false
+local use_light_bg = true
 vim.opt.termguicolors = false
 if use_light_bg then
   utils.color("thinglight")
