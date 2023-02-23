@@ -58,7 +58,7 @@ vnoremap <Leader>p :diffput<CR>
 nnoremap <silent> <Leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>t :tabe<CR>
-nnoremap <silent> <Leader>T :tabe %<CR><c-o>
+nnoremap <silent> <Leader>T :tab split<CR>
 nnoremap <silent> <Leader>s :Gstatus<CR>
 nnoremap <silent> <Leader>S :tabe .git/index<CR>
 nnoremap <silent> <Leader>D :Gdiff<CR>
@@ -90,6 +90,7 @@ nnoremap ¬ 5zl
 nnoremap ˙ 5zh
 nnoremap <M-l> 5zl
 nnoremap <M-h> 5zh
+nnoremap ∑ :tabc<CR>
 
 nnoremap ™ @@
 
@@ -98,7 +99,7 @@ vnoremap <silent> <C-a> :Tabularize /^[^:]*:\zs/l0l1<CR>
 
 nnoremap <silent> cp :!echo '%' \| ruby -e 'print(STDIN.read.strip)' \| pbcopy<CR><CR>
 
-inoremap jj <ESC>
+" inoremap jj <ESC>
 " command! ADB :ALEDisableBuffer
 
 function! s:setIndentWidth(w)
@@ -169,6 +170,8 @@ command! T exe 'tabe ' . system('pbpaste')|VD
 command! Nums windo set modifiable|%s/\$\d\+/\$xx/g
 
 " vnoremap p "0p
+
+nnoremap gD :tab split \| lua vim.lsp.buf.definition()<CR>
 
 " LSP
 " nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>

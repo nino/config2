@@ -9,9 +9,8 @@ else
 endif
 
 if has('macunix')
-  let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '' }
+  let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '<c-g>', 'keymap.repeat': ';' }
 endif
-
 
 call plug#begin()
 
@@ -67,6 +66,7 @@ Plug 'https://github.com/rcarriga/nvim-dap-ui'
 Plug 'https://github.com/theHamsta/nvim-dap-virtual-text'
 " Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
 Plug 'whonore/Coqtail'
+Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 call plug#end()
 
 lua << EOF
