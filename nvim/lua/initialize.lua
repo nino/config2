@@ -1,16 +1,17 @@
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = true
+local use_light_bg = false
 vim.opt.termguicolors = false
 if use_light_bg then
-  utils.color("thinglight")
-  -- utils.color("morning")
+  vim.o.background = "light"
+  -- utils.color("lucius")
+  utils.color("morning")
 else
   vim.o.background = "dark"
 
   utils.color("thing")
-  -- utils.color("plaindark")
+  -- utils.color("deus")
   -- utils.color("desert")
 
   -- require("gruvbox").setup({
@@ -27,7 +28,7 @@ else
   --   contrast = "hard", -- can be "hard", "soft" or empty string
   --   palette_overrides = {},
   --   overrides = {},
-  --   dim_inactive = false,
+  --   dim_inactive = true,
   --   transparent_mode = false,
   -- })
   -- utils.color("gruvbox")
@@ -57,9 +58,6 @@ vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
 vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
 vim.g["coqtail_imap_prefix"] = "…"
 vim.g["coqtail_map_prefix"] = "…"
-
--- Coq autocompletion
-vim.g['coq_settings.keymap.repeat'] = ','
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
