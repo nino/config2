@@ -1,12 +1,11 @@
 local mod = {}
 
 function mod.color(colorscheme)
-    vim.cmd("color " .. colorscheme)
+  vim.cmd("color " .. colorscheme)
 end
 
-
 ---@alias color
----| { rgb: { r: integer, g: integer, b: integer } }
+---| { rgb: { r: 0 | 1 | 2 | 3 | 4 | 5, g: 0 | 1 | 2 | 3 | 4 | 5, b: 0 | 1 | 2 | 3 | 4 | 5 } }
 ---| { grey: integer }
 ---| { basic: integer }
 
@@ -22,21 +21,21 @@ function mod.ctermcolor(color)
   end
 end
 
----@param r integer
----@param g integer
----@param b integer
+---@param r 0 | 1 | 2 | 3 | 4 | 5
+---@param g 0 | 1 | 2 | 3 | 4 | 5
+---@param b 0 | 1 | 2 | 3 | 4 | 5
 ---@return color
 function mod.rgb(r, g, b)
   return { rgb = { r = r, g = g, b = b } }
 end
 
----@param level integer
+---@param level 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23
 ---@return color
 function mod.grey(level)
   return { grey = level }
 end
 
----@param level integer
+---@param level  0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
 ---@return color
 function mod.basic(level)
   return { basic = level }
