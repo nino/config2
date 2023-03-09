@@ -60,7 +60,6 @@ vim.g["coqtail_map_prefix"] = "…"
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
-  vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
   vim.cmd [[
     let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
     let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
@@ -99,11 +98,15 @@ vim.cmd("command! NF NERDTreeFind")
 vim.cmd("command! NT NERDTreeToggle")
 vim.cmd("command! NN NERDTreeFocus")
 
-vim.cmd("command! Com G commit -a")
 
 -- Resolve conflicts
 vim.cmd("command! A normal ddnVnd")
 vim.cmd("command! B normal Vndndd")
+
+-- Git
+vim.cmd("command! Gc G commit")
+vim.cmd("command! Gp G push -p")
+vim.cmd("command! Com G commit -a")
 
 -- Variables
 vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
@@ -158,6 +161,24 @@ require('lspconfig').julials.setup {}
 require('lspconfig').pylsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
+
+local lsp_util = require "lspconfig.util"
+
+function coq_lsp()
+  return {
+    name = 'coq-lsp',
+    cmd = {"coq-lsp"},
+    filetypes = "coq",
+    root_dir = vim.fs.dirname(vim.fs.find({'_CoqProject'}, { upward = true})[1]),
+    single_file_support = true,
+  }
+end
+
+-- vim.cmd [[
+--   augroup coq
+--     autocmd! BufRead *.v lua vim.lsp.start(coq_lsp())
+--   augroup END
+-- ]]
 
 -- Ruby
 require('lspconfig').solargraph.setup {

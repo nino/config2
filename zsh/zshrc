@@ -101,6 +101,10 @@ alias ayrn='yarn'
 
 alias zzr='source ~/.zshrc'
 
+mcd() {
+  mkdir $1 && cd $1
+}
+
 # Delete renovate PRs
 rmrenovate() {
   for branch in `git branch | rg renovate/ | sed 's/^..//'`; do
