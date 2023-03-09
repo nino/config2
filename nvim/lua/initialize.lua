@@ -6,32 +6,32 @@ vim.opt.termguicolors = false
 if use_light_bg then
   vim.o.background = "light"
   -- utils.color("lucius")
-  utils.color("morning")
+  utils.color("zellner")
 else
   vim.o.background = "dark"
 
-  utils.color("thing")
+  -- utils.color("thing")
   -- utils.color("deus")
   -- utils.color("desert")
 
-  -- require("gruvbox").setup({
-  --   undercurl = true,
-  --   underline = true,
-  --   bold = true,
-  --   italic = false,
-  --   strikethrough = true,
-  --   invert_selection = false,
-  --   invert_signs = false,
-  --   invert_tabline = false,
-  --   invert_intend_guides = false,
-  --   inverse = true, -- invert background for search, diffs, statuslines and errors
-  --   contrast = "hard", -- can be "hard", "soft" or empty string
-  --   palette_overrides = {},
-  --   overrides = {},
-  --   dim_inactive = true,
-  --   transparent_mode = false,
-  -- })
-  -- utils.color("gruvbox")
+  require("gruvbox").setup({
+    undercurl = false,
+    underline = false,
+    bold = true,
+    italic = false,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "hard", -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = true,
+    transparent_mode = false,
+  })
+  utils.color("gruvbox")
 end
 
 -- Defaults
@@ -106,21 +106,20 @@ vim.cmd("command! A normal ddnVnd")
 vim.cmd("command! B normal Vndndd")
 
 -- Variables
-vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
+vim.env.FZF_DEFAULT_COMMAND =
+"fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
 
 -- LSP
 local on_attach = function(_, _)
   vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- disable virtual text
-    virtual_text = false,
-
-    -- show signs
-    signs = true,
-
-    -- delay update diagnostics
-    update_in_insert = false
-  })
+      vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- disable virtual text
+        virtual_text = false,
+        -- show signs
+        signs = true,
+        -- delay update diagnostics
+        update_in_insert = false
+      })
 end
 
 require('lspconfig').tsserver.setup {
@@ -216,7 +215,9 @@ dlsconfig.setup {
   ['rust'] = { formatter = { rustfmt } }
 }
 
-function format_file() vim.lsp.buf.format { async = false, timeout_ms=12000 } end
+function format_file()
+  vim.lsp.buf.format() -- { async = false, timeout_ms=12000 }
+end
 
 -- LSP Mappings
 vim.cmd([[
