@@ -588,3 +588,4 @@ colorize("Type", { fg = "Cyan-700", decoration = "none" })
 
 -- String links to Constant
 colorize("Constant", { fg = "Red-600" })
+colorize("CoqtailChecked", { bg = "Gray-100", decoration = "none" })

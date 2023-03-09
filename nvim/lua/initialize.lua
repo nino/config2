@@ -55,20 +55,20 @@ vim.opt.copyindent = true
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
 vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
-vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
 vim.g["coqtail_imap_prefix"] = "…"
 vim.g["coqtail_map_prefix"] = "…"
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
+  vim.g["coqtail_coq_path"] = "/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin"
   vim.cmd [[
-let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
-let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
+    let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
+    let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
 ]]
 else
   vim.cmd [[
-let g:python3_host_prog = '/home/nino/.pyenv/shims/python'
-let g:python_host_prog = '/home/nino/.pyenv/shims/python'
+    let g:python3_host_prog = '/home/nino/.pyenv/shims/python'
+    let g:python_host_prog = '/home/nino/.pyenv/shims/python'
 ]]
 end
 
