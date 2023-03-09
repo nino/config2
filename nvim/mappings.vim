@@ -90,7 +90,8 @@ nnoremap ¬ 5zl
 nnoremap ˙ 5zh
 nnoremap <M-l> 5zl
 nnoremap <M-h> 5zh
-nnoremap ∑ :tabc<CR>
+nnoremap ∑ <c-w><c-c>
+nnoremap ø <c-w><c-o>
 
 nnoremap ™ @@
 

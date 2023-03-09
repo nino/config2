@@ -346,3 +346,4 @@ eval "$(pyenv init -)"
 
 
 export PATH=$PATH:/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin
+export PATH=$PATH:/home/nino/.cargo/bin
