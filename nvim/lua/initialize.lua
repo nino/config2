@@ -18,7 +18,7 @@ else
     undercurl = false,
     underline = false,
     bold = true,
-    italic = false,
+    italic = {},
     strikethrough = true,
     invert_selection = false,
     invert_signs = false,
