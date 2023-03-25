@@ -42,3 +42,5 @@
 
 [diff]
 	colorMoved = zebra
+[pull]
+	rebase = false
