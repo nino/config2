@@ -45,7 +45,7 @@ vim.opt.list = true
 vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -57,18 +57,17 @@ vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 vim.g["NERDTreeIgnore"] = { '\\.cm.$', '\\.a$', '\\.cm..$' }
 vim.g["coqtail_imap_prefix"] = "…"
 vim.g["coqtail_map_prefix"] = "…"
+vim.g["coqtail_coq_prog"] = "docker run -it coqorg/coq coqidetop.opt"
+
+-- Disable Python 2
+-- vim.g["loaded_python_provider"] = 0
 
 -- Providers
 if vim.fn.has("macunix") == 1 then
-  vim.cmd [[
-    let g:python3_host_prog = '/Users/nino/.pyenv/shims/python'
-    let g:python_host_prog = '/Users/nino/.pyenv/shims/python'
-]]
+  -- vim.g["python3_host_prog"] = '/Users/nino/.pyenv/shims/python'
+  -- vim.g["python_host_prog"] = '/Users/nino/.pyenv/shims/python'
 else
-  vim.cmd [[
-    let g:python3_host_prog = '/home/nino/.pyenv/shims/python'
-    let g:python_host_prog = '/home/nino/.pyenv/shims/python'
-]]
+  -- vim.g["python3_host_prog"] = '/home/nino/.pyenv/shims/python'
 end
 
 -- Mappings
@@ -161,8 +160,6 @@ require('lspconfig').pylsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
 
-local lsp_util = require "lspconfig.util"
-
 function coq_lsp()
   return {
     name = 'coq-lsp',
@@ -185,11 +182,12 @@ require('lspconfig').solargraph.setup {
     client.server_capabilities.document_formatting = false
   end
 }
-require('lspconfig').rls.setup {
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-  end
+
+-- Rust
+require('lspconfig').rust_analyzer.setup {
+  cmd = {"rustup", "run", "stable", "rust-analyzer"}
 }
+
 -- require('lspconfig').clangd.setup {}
 require('lspconfig').gopls.setup {}
 
