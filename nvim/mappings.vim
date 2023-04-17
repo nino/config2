@@ -166,7 +166,7 @@ command! Nodraw call s:DisableBoxDrawing()
 
 command! Gpshu Gpush<CR>
 
-command! VD Gvdiffsplit origin/$TRUNKBRANCHNAME:%|windo se wrap|normal zr
+command! VD exe 'Gvdiffsplit origin/' . system('echo $TRUNKBRANCHNAME') . ':%|windo se wrap|normal zr'
 command! T exe 'tabe ' . system('pbpaste')|VD
 command! Nums windo set modifiable|%s/\$\d\+/\$xx/g
 
