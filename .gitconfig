@@ -19,7 +19,7 @@
 [push]
 	default = current
 [init]
-	defaultBranch = trunk
+	defaultBranch = main
 [alias]
 	lb = !git reflog show --pretty=format:'%gs' | grep 'checkout:' | grep -oE ' to (.+)' | perl -pe 's/ to //'
 [gpg]
