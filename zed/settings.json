@@ -9,5 +9,6 @@
 {
     "base_keymap": "SublimeText",
     "theme": "Gruvbox Dark Hard",
-    "buffer_font_size": 15
+    "buffer_font_size": 14,
+    "buffer_font_family": "Iosevka Custom"
 }
