@@ -75,6 +75,9 @@ vim.g.mapleader = " "
 vim.cmd [[
 inoremap <C-l> =>
 nnoremap gy mzggyG`z
+
+" tmp
+nnoremap ß :Gw<CR>
 ]]
 
 -- Digraphs
@@ -130,6 +133,7 @@ require('lspconfig').tsserver.setup {
     client.server_capabilities.document_formatting = false
   end
 }
+
 require('lspconfig').ocamllsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
@@ -197,41 +201,14 @@ local dlsconfig = require 'diagnosticls-configs'
 
 dlsconfig.init {}
 
-function make_eslint_fmt()
-  local fs = require('diagnosticls-configs.fs')
-  return {
-    sourceName = 'eslint_fmt_custom',
-    command = fs.executable('yarn', fs.Scope.NODE),
-    args = {
-      'exec',
-      'eslint',
-      '--fix',
-      '%file',
-    },
-    isStdout = false,
-    doesWriteToFile = true,
-    rootPatterns = {
-      '.eslintrc',
-      '.eslintrc.cjs',
-      '.eslintrc.js',
-      '.eslintrc.json',
-      '.eslintrc.yaml',
-      '.eslintrc.yml',
-    },
-  }
-end
 
-local eslint_fmt = make_eslint_fmt()
-
-local eslint = require "diagnosticls-configs.linters.eslint"
--- local eslint_fmt = require 'diagnosticls-configs.formatters.eslint_fmt'
-local rustfmt = require "rust_fmt"
+local eslint = require "diagnosticls-configs.linters.eslint_d"
+local eslint_fmt = require 'diagnosticls-configs.formatters.eslint_d_fmt'
 dlsconfig.setup {
   ['javascript'] = { linter = eslint },
   ['javascriptreact'] = { linter = eslint },
   ['typescript'] = { linter = eslint },
   ['typescriptreact'] = { linter = eslint, formatter = eslint_fmt },
-  ['rust'] = { formatter = { rustfmt } }
 }
 
 function format_file()

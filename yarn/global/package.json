@@ -5,6 +5,8 @@
     "create-next-app": "^13.1.6",
     "create-react-app": "^5.0.1",
     "diagnostic-languageserver": "^1.14.2",
+    "eslint": "^8.39.0",
+    "eslint_d": "^12.2.1",
     "grammar.js": "^1.0.0",
     "neovim": "^4.10.1",
     "npm": "^8.9.0",
@@ -12,6 +14,7 @@
     "serverless": "^3.30.1",
     "typescript": "^4.6.4",
     "typescript-language-server": "^0.9.7",
-    "vercel": "^28.16.5"
+    "vercel": "^28.16.5",
+    "vscode-langservers-extracted": "^4.6.0"
   }
 }
