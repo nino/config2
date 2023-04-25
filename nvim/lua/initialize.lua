@@ -24,7 +24,7 @@ else
     invert_signs = false,
     invert_tabline = false,
     invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
+    inverse = true,    -- invert background for search, diffs, statuslines and errors
     contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {},
     overrides = {},
@@ -32,6 +32,8 @@ else
     transparent_mode = false,
   })
   utils.color("gruvbox")
+
+  utils.colorize("DiagnosticError", { fg = utils.rgb(4, 3, 1) })
 end
 
 -- Defaults
@@ -163,13 +165,16 @@ require('lspconfig').julials.setup {}
 require('lspconfig').pylsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
+require('lspconfig').pyright.setup {
+  on_attach = function(client, bufnr) on_attach(client, bufnr) end
+}
 
 function coq_lsp()
   return {
     name = 'coq-lsp',
-    cmd = {"coq-lsp"},
+    cmd = { "coq-lsp" },
     filetypes = "coq",
-    root_dir = vim.fs.dirname(vim.fs.find({'_CoqProject'}, { upward = true})[1]),
+    root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
     single_file_support = true,
   }
 end
@@ -189,7 +194,7 @@ require('lspconfig').solargraph.setup {
 
 -- Rust
 require('lspconfig').rust_analyzer.setup {
-  cmd = {"rustup", "run", "stable", "rust-analyzer"}
+  cmd = { "rustup", "run", "stable", "rust-analyzer" }
 }
 
 -- require('lspconfig').clangd.setup {}
@@ -252,11 +257,9 @@ if vim.fn.has('macunix') and use_tree_sitter then
     highlight = {
       -- `false` will disable the whole extension
       enable = true,
-
       -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
       -- list of language that will be disabled
       disable = {},
-
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
       -- Using this option may slow down your editor, and you may see some duplicate highlights.

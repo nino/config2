@@ -2,7 +2,7 @@
   "dependencies": {
     "@prettier/plugin-ruby": "^2.1.0",
     "@tailwindcss/language-server": "^0.0.7",
-    "create-next-app": "^13.1.6",
+    "create-next-app": "^13.3.1",
     "create-react-app": "^5.0.1",
     "diagnostic-languageserver": "^1.14.2",
     "eslint": "^8.39.0",
