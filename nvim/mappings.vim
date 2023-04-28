@@ -1,9 +1,9 @@
 nnoremap <silent> <Leader>fp :w<CR>:!prettier-eslint --print-width=100 --arrow-parens always --trailing-comma es5 --write '%'<CR>:e!<CR>
 nnoremap <silent> <Leader>ff :w<CR>:!prettier --single-quote --trailing-comma es5 --arrow-parens always --print-width 100 --write '%'<CR>:e!<CR>
 nnoremap <silent> <Leader>fm :w<CR>:!prettier --write --prose-wrap=always '%'<CR>:e!<CR>
-nnoremap <silent> <Leader>pp :w<CR>:!prettier --trailing-comma=all --write '%'<CR>:e!<CR>
-nnoremap <silent> <Leader>pn :w<CR>:!prettier --trailing-comma=all --use-tabs --tab-width=4 --write '%'<CR>:e!<CR>
-nnoremap <silent> <Leader>pw :w<CR>:!prettier --trailing-comma=all --use-tabs --tab-width=8 --print-width=100 --write '%'<CR>:e!<CR>
+nnoremap <silent> <Leader>pp :w<CR>:!prettier --write '%'<CR>:e!<CR>
+nnoremap <silent> <Leader>pn :w<CR>:!prettier --tab-width=4 --write '%'<CR>:e!<CR>
+nnoremap <silent> <Leader>pw :w<CR>:!prettier --tab-width=8 --print-width=100 --write '%'<CR>:e!<CR>
 
 " nnoremap _ F r_
 " nnoremap - f r_

@@ -48,6 +48,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 vim.opt.conceallevel = 0
+vim.opt.scrolloff = 2
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
