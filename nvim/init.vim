@@ -67,6 +67,8 @@ Plug 'https://github.com/theHamsta/nvim-dap-virtual-text'
 " Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
 Plug 'whonore/Coqtail'
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 lua << EOF
