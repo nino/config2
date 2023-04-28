@@ -81,7 +81,10 @@ nnoremap gy mzggyG`z
 
 " tmp
 nnoremap ß :Gw<CR>
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 ]]
+
 
 -- Digraphs
 vim.cmd [[
