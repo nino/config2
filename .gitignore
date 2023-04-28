@@ -46,3 +46,4 @@ _build
 *.opam
 iterm2/**
 github-copilot
+op/
