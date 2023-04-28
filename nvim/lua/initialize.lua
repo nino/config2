@@ -249,7 +249,7 @@ if vim.fn.has('macunix') and use_tree_sitter then
     ensure_installed = {
       "javascript", "typescript", "ruby", "ocaml", "bash", "json",
       "julia", "make", "ninja", "ocaml_interface", "yaml", "toml", "rust",
-      "tsx", "latex", "bibtex", "sql", "lua", "html", "css", "vim"
+      "tsx", "latex", "bibtex", "lua", "html", "css", "vim"
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
