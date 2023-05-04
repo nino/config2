@@ -172,6 +172,7 @@ require('lspconfig').pylsp.setup {
 require('lspconfig').pyright.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
+require'lspconfig'.terraformls.setup{}
 
 function coq_lsp()
   return {
