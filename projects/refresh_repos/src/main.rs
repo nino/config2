@@ -2,6 +2,28 @@ use std::env;
 use std::fs;
 use std::process::Command;
 
+#[allow(dead_code)]
+fn trunk_branch_name() -> Result<String, String> {
+    let full_branch_name: String = Command::new("git")
+        .args(&["symbolic-ref", "refs/remotes/origin/HEAD"])
+        .output()
+        .map_err(|_| {
+            "Failed to get full branch name from `git symbolic-ref refs/remotes/origin/HEAD`"
+        })?
+        .stdout
+        .iter()
+        .map(|&byte| byte as char)
+        .collect();
+
+    match full_branch_name.split('/').last() {
+        Some(x) => Ok(x.to_string()),
+        None => Err(
+            "Unable to get branch name from `git symbolic-ref refs/remotes/origin/HEAD`"
+                .to_string(),
+        ),
+    }
+}
+
 fn cd(path: &str) {
     env::set_current_dir(path).unwrap();
 }
