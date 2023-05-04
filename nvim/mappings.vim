@@ -164,9 +164,9 @@ function! s:DisableBoxDrawing()
 endfunction
 command! Nodraw call s:DisableBoxDrawing()
 
-command! Gp G push -u<CR>
-command! Gpush G push -u<CR>
-command! Gpshu G push -u<CR>
+command! Gp G\ push\ -u<CR>
+command! Gpush G\ push\ -u<CR>
+command! Gpshu G\ push\ -u<CR>
 
 command! VD exe 'Gvdiffsplit origin/' . system('echo $TRUNKBRANCHNAME') . ':%|windo se wrap|normal zr'
 command! T exe 'tabe ' . system('pbpaste')|VD
