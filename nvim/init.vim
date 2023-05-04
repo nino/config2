@@ -68,6 +68,7 @@ Plug 'https://github.com/theHamsta/nvim-dap-virtual-text'
 Plug 'whonore/Coqtail'
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 Plug 'github/copilot.vim'
+Plug 'https://github.com/slint-ui/vim-slint'
 
 call plug#end()
 

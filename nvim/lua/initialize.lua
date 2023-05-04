@@ -200,6 +200,8 @@ require('lspconfig').solargraph.setup {
 require('lspconfig').rust_analyzer.setup {
   cmd = { "rustup", "run", "stable", "rust-analyzer" }
 }
+require('lspconfig').slint_lsp.setup {
+}
 
 -- require('lspconfig').clangd.setup {}
 require('lspconfig').gopls.setup {}
