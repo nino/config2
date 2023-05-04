@@ -22,24 +22,6 @@
 					<string>ASCII_Tables</string>
 				</dict>
 			</dict>
-			<key>Bash_Shortcuts</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-01T09:43:33Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>terminal shell bash</string>
-					</array>
-					<key>name</key>
-					<string>Bash Shortcuts</string>
-					<key>platform</key>
-					<string>cheatsheet</string>
-					<key>uniqueIdentifier</key>
-					<string>Bash_Shortcuts</string>
-				</dict>
-			</dict>
 			<key>CSS_Device_Media_Queries</key>
 			<dict>
 				<key>date</key>
@@ -70,24 +52,6 @@
 					<string>cheatsheet</string>
 					<key>uniqueIdentifier</key>
 					<string>CSS_Named_Colors</string>
-				</dict>
-			</dict>
-			<key>Cargo</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:03Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>rust cargo</string>
-					</array>
-					<key>name</key>
-					<string>Cargo</string>
-					<key>platform</key>
-					<string>cheatsheet</string>
-					<key>uniqueIdentifier</key>
-					<string>Cargo</string>
 				</dict>
 			</dict>
 			<key>Docker</key>
@@ -175,24 +139,6 @@
 					<string>HTTP_Status_Codes</string>
 				</dict>
 			</dict>
-			<key>Hub</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-01T09:43:35Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>github</string>
-					</array>
-					<key>name</key>
-					<string>Hub</string>
-					<key>platform</key>
-					<string>cheatsheet</string>
-					<key>uniqueIdentifier</key>
-					<string>Hub</string>
-				</dict>
-			</dict>
 			<key>LLDB_Commands</key>
 			<dict>
 				<key>date</key>
@@ -225,28 +171,6 @@
 					<string>MIME_Types</string>
 				</dict>
 			</dict>
-			<key>Mercurial</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-01T09:43:35Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>Mercurial hg</string>
-						<string>terminal</string>
-						<string>shell</string>
-						<string>bash</string>
-						<string>zsh</string>
-					</array>
-					<key>name</key>
-					<string>Mercurial</string>
-					<key>platform</key>
-					<string>cheatsheet</string>
-					<key>uniqueIdentifier</key>
-					<string>Mercurial</string>
-				</dict>
-			</dict>
 			<key>Regular_Expressions</key>
 			<dict>
 				<key>date</key>
@@ -266,10 +190,105 @@
 					<string>Regular_Expressions</string>
 				</dict>
 			</dict>
+			<key>YAML</key>
+			<dict>
+				<key>date</key>
+				<date>2022-02-01T09:43:34Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>name</key>
+					<string>YAML</string>
+					<key>platform</key>
+					<string>cheatsheet</string>
+					<key>uniqueIdentifier</key>
+					<string>YAML</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>uninstalled</key>
+		<dict>
+			<key>Bash_Shortcuts</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:09:55Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>terminal shell bash</string>
+					</array>
+					<key>name</key>
+					<string>Bash Shortcuts</string>
+					<key>platform</key>
+					<string>cheatsheet</string>
+					<key>uniqueIdentifier</key>
+					<string>Bash_Shortcuts</string>
+				</dict>
+			</dict>
+			<key>Cargo</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:08:10Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>rust cargo</string>
+					</array>
+					<key>name</key>
+					<string>Cargo</string>
+					<key>platform</key>
+					<string>cheatsheet</string>
+					<key>uniqueIdentifier</key>
+					<string>Cargo</string>
+				</dict>
+			</dict>
+			<key>Hub</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:10:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>github</string>
+					</array>
+					<key>name</key>
+					<string>Hub</string>
+					<key>platform</key>
+					<string>cheatsheet</string>
+					<key>uniqueIdentifier</key>
+					<string>Hub</string>
+				</dict>
+			</dict>
+			<key>Mercurial</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:10:17Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Mercurial hg</string>
+						<string>terminal</string>
+						<string>shell</string>
+						<string>bash</string>
+						<string>zsh</string>
+					</array>
+					<key>name</key>
+					<string>Mercurial</string>
+					<key>platform</key>
+					<string>cheatsheet</string>
+					<key>uniqueIdentifier</key>
+					<string>Mercurial</string>
+				</dict>
+			</dict>
 			<key>Sketch</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T12:53:04Z</date>
+				<date>2023-05-04T13:10:29Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -287,7 +306,7 @@
 			<key>Swift</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T12:53:06Z</date>
+				<date>2023-05-04T13:10:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -317,7 +336,7 @@
 			<key>Xcode_Shortcuts</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T12:53:06Z</date>
+				<date>2023-05-04T13:10:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -343,26 +362,10 @@
 					<string>Xcode_Shortcuts</string>
 				</dict>
 			</dict>
-			<key>YAML</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-01T09:43:34Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array/>
-					<key>name</key>
-					<string>YAML</string>
-					<key>platform</key>
-					<string>cheatsheet</string>
-					<key>uniqueIdentifier</key>
-					<string>YAML</string>
-				</dict>
-			</dict>
 			<key>You_Might_Not_Need_jQuery</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T12:53:06Z</date>
+				<date>2023-05-04T13:06:27Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -378,7 +381,7 @@
 			<key>iOS_Design</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-01T09:43:32Z</date>
+				<date>2023-05-04T13:10:10Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -403,8 +406,6 @@
 				</dict>
 			</dict>
 		</dict>
-		<key>uninstalled</key>
-		<dict/>
 	</dict>
 	<key>DHClojureRepo</key>
 	<dict>
@@ -452,34 +453,6 @@
 					<string>JuliaData/CSV.jl</string>
 				</dict>
 			</dict>
-			<key>JuliaData/DataFrames.jl</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:45Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>JuliaData/DataFrames.jl</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>JuliaData/DataFrames.jl</string>
-				</dict>
-			</dict>
-			<key>JuliaPlots/Plots.jl</key>
-			<dict>
-				<key>date</key>
-				<date>2022-07-10T20:44:51Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>JuliaPlots/Plots.jl</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>JuliaPlots/Plots.jl</string>
-				</dict>
-			</dict>
 			<key>Leonidas-from-XIV/node-xml2js</key>
 			<dict>
 				<key>date</key>
@@ -497,7 +470,7 @@
 			<key>MikeMcl/bignumber.js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-03T08:55:50Z</date>
+				<date>2023-05-04T12:56:19Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -511,7 +484,7 @@
 			<key>SwiftyJSON/SwiftyJSON</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-05T08:43:39Z</date>
+				<date>2023-05-04T12:54:18Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -567,7 +540,7 @@
 			<key>ember-intl/ember-intl</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:25Z</date>
+				<date>2023-05-04T12:55:13Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -581,7 +554,7 @@
 			<key>emberjs/ember-qunit</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-20T17:56:53Z</date>
+				<date>2023-05-04T12:55:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -595,7 +568,7 @@
 			<key>facebook/react-native</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-24T10:50:23Z</date>
+				<date>2023-05-04T13:14:45Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -604,26 +577,12 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>facebook/react-native</string>
-				</dict>
-			</dict>
-			<key>googlemaps/google-maps-services-js</key>
-			<dict>
-				<key>date</key>
-				<date>2022-07-12T08:29:30Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>googlemaps/google-maps-services-js</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>googlemaps/google-maps-services-js</string>
 				</dict>
 			</dict>
 			<key>gotk3/gotk3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-28T13:50:37Z</date>
+				<date>2023-05-04T12:55:13Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -651,7 +610,7 @@
 			<key>mapbox/node-sqlite3</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-03T08:56:32Z</date>
+				<date>2023-05-04T12:59:33Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -665,7 +624,7 @@
 			<key>moment/luxon</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-10T20:45:03Z</date>
+				<date>2023-05-04T12:55:18Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -679,7 +638,7 @@
 			<key>qunitjs/qunit</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-05T08:43:50Z</date>
+				<date>2023-05-04T12:54:41Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -693,7 +652,7 @@
 			<key>samselikoff/ember-cli-mirage</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-05T14:34:36Z</date>
+				<date>2023-05-04T13:04:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -707,7 +666,7 @@
 			<key>serverless/serverless</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-16T01:03:16Z</date>
+				<date>2023-05-04T13:00:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -721,7 +680,7 @@
 			<key>simplabs/qunit-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-12T08:29:39Z</date>
+				<date>2023-05-04T12:55:02Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -735,7 +694,7 @@
 			<key>solidjs/solid</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-16T19:27:38Z</date>
+				<date>2023-05-04T12:55:29Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -777,7 +736,7 @@
 			<key>testing-library/jest-dom</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:20Z</date>
+				<date>2023-05-04T12:53:45Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -791,7 +750,7 @@
 			<key>testing-library/react-testing-library</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:20Z</date>
+				<date>2023-05-04T12:54:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -805,7 +764,7 @@
 			<key>testing-library/user-event</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-09T07:16:22Z</date>
+				<date>2023-05-04T12:54:21Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -819,7 +778,7 @@
 			<key>tidyverse/dplyr</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:48Z</date>
+				<date>2023-05-04T12:56:38Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -833,7 +792,7 @@
 			<key>tidyverse/lubridate</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:23Z</date>
+				<date>2023-05-04T12:55:14Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -847,7 +806,7 @@
 			<key>vercel/next.js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-10T19:03:54Z</date>
+				<date>2023-05-04T13:36:22Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -856,25 +815,39 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>vercel/next.js</string>
-				</dict>
-			</dict>
-			<key>zeit/micro</key>
-			<dict>
-				<key>date</key>
-				<date>2022-07-07T20:43:20Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>zeit/micro</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>zeit/micro</string>
 				</dict>
 			</dict>
 		</dict>
 		<key>uninstalled</key>
 		<dict>
+			<key>JuliaData/DataFrames.jl</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:21:25Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>JuliaData/DataFrames.jl</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>JuliaData/DataFrames.jl</string>
+				</dict>
+			</dict>
+			<key>JuliaPlots/Plots.jl</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:21:26Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>JuliaPlots/Plots.jl</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>JuliaPlots/Plots.jl</string>
+				</dict>
+			</dict>
 			<key>dmlc/xgboost</key>
 			<dict>
 				<key>date</key>
@@ -887,6 +860,34 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>dmlc/xgboost</string>
+				</dict>
+			</dict>
+			<key>googlemaps/google-maps-services-js</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:21:26Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>googlemaps/google-maps-services-js</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>googlemaps/google-maps-services-js</string>
+				</dict>
+			</dict>
+			<key>zeit/micro</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:21:25Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>zeit/micro</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>zeit/micro</string>
 				</dict>
 			</dict>
 		</dict>
@@ -905,7 +906,7 @@
 			<key>postgrest</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-12T08:30:01Z</date>
+				<date>2023-05-04T12:54:01Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -959,20 +960,6 @@
 					<string>bcrypt</string>
 				</dict>
 			</dict>
-			<key>geojson</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:04Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>geojson</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>geojson</string>
-				</dict>
-			</dict>
 			<key>mechanize</key>
 			<dict>
 				<key>date</key>
@@ -987,10 +974,27 @@
 					<string>mechanize</string>
 				</dict>
 			</dict>
+		</dict>
+		<key>uninstalled</key>
+		<dict>
+			<key>geojson</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:08:23Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>geojson</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>geojson</string>
+				</dict>
+			</dict>
 			<key>rugged</key>
 			<dict>
 				<key>date</key>
-				<date>2022-04-20T17:55:04Z</date>
+				<date>2023-05-04T13:06:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1004,7 +1008,7 @@
 			<key>xgboost</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:05Z</date>
+				<date>2023-05-04T13:05:38Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1016,8 +1020,6 @@
 				</dict>
 			</dict>
 		</dict>
-		<key>uninstalled</key>
-		<dict/>
 	</dict>
 	<key>DHScalaRepo</key>
 	<dict>
@@ -1040,17 +1042,18 @@
 			<key>Airflow</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:05Z</date>
+				<date>2023-05-04T13:08:22Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
 					<array>
-						<string>python airflow apache</string>
+						<string>Apache Airflow</string>
+						<string>Python Airflow</string>
 					</array>
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Airflow#readme</string>
 					<key>authorLinkText</key>
-					<string>Thiago Medeiros</string>
+					<string>David Hong</string>
 					<key>name</key>
 					<string>Airflow</string>
 					<key>platform</key>
@@ -1062,7 +1065,7 @@
 			<key>Alembic</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:05Z</date>
+				<date>2023-05-04T12:54:18Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1077,30 +1080,6 @@
 					<string>usercontribAlembic</string>
 					<key>uniqueIdentifier</key>
 					<string>Alembic</string>
-				</dict>
-			</dict>
-			<key>Chartjs</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:03Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>chartjs</string>
-						<string>chart js</string>
-						<string>chart.js</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Chartjs#readme</string>
-					<key>authorLinkText</key>
-					<string>Guill Lo</string>
-					<key>name</key>
-					<string>Chart.js</string>
-					<key>platform</key>
-					<string>usercontribChartjs</string>
-					<key>uniqueIdentifier</key>
-					<string>Chartjs</string>
 				</dict>
 			</dict>
 			<key>Faker</key>
@@ -1223,7 +1202,7 @@
 			<key>PySide2</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:06Z</date>
+				<date>2023-05-04T13:06:42Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1240,26 +1219,6 @@
 					<string>usercontribPySide2</string>
 					<key>uniqueIdentifier</key>
 					<string>PySide2</string>
-				</dict>
-			</dict>
-			<key>Ramda</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:02Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array/>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Ramda#readme</string>
-					<key>authorLinkText</key>
-					<string>Alex Bepple</string>
-					<key>name</key>
-					<string>Ramda</string>
-					<key>platform</key>
-					<string>usercontribRamda</string>
-					<key>uniqueIdentifier</key>
-					<string>Ramda</string>
 				</dict>
 			</dict>
 			<key>Seaborn</key>
@@ -1357,7 +1316,7 @@
 			<key>Zig</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-10T20:43:59Z</date>
+				<date>2023-05-04T13:05:15Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1367,7 +1326,7 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Zig#readme</string>
 					<key>authorLinkText</key>
-					<string>kassane</string>
+					<string>puqeko</string>
 					<key>name</key>
 					<string>Zig</string>
 					<key>platform</key>
@@ -1379,7 +1338,7 @@
 			<key>electron</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:05Z</date>
+				<date>2023-05-04T12:59:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1401,7 +1360,7 @@
 			<key>gtkmm</key>
 			<dict>
 				<key>date</key>
-				<date>2022-05-06T12:01:13Z</date>
+				<date>2023-05-04T13:08:10Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1469,7 +1428,52 @@
 			</dict>
 		</dict>
 		<key>uninstalled</key>
-		<dict/>
+		<dict>
+			<key>Chartjs</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:08:23Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>chartjs</string>
+						<string>chart js</string>
+						<string>chart.js</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Chartjs#readme</string>
+					<key>authorLinkText</key>
+					<string>Guill Lo</string>
+					<key>name</key>
+					<string>Chart.js</string>
+					<key>platform</key>
+					<string>usercontribChartjs</string>
+					<key>uniqueIdentifier</key>
+					<string>Chartjs</string>
+				</dict>
+			</dict>
+			<key>Ramda</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:06:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Ramda#readme</string>
+					<key>authorLinkText</key>
+					<string>Alex Bepple</string>
+					<key>name</key>
+					<string>Ramda</string>
+					<key>platform</key>
+					<string>usercontribRamda</string>
+					<key>uniqueIdentifier</key>
+					<string>Ramda</string>
+				</dict>
+			</dict>
+		</dict>
 	</dict>
 	<key>DHWKWebViewTextSizeMultiplier</key>
 	<real>0.84999996423721313</real>
@@ -1605,7 +1609,7 @@
 			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2019-04-24T10:59:25Z</date>
+				<date>2023-05-04T13:13:05Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Bash.xml</key>
 			<dict>
@@ -1615,12 +1619,12 @@
 			<key>http://kapeli.com/feeds/C++.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-07-17T06:34:35Z</date>
+				<date>2023-05-04T13:13:15Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/C.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-07-17T06:34:40Z</date>
+				<date>2023-05-04T13:14:00Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
@@ -1630,12 +1634,12 @@
 			<key>http://kapeli.com/feeds/Chai.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2019-04-24T13:41:08Z</date>
+				<date>2023-05-04T12:53:59Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Clojure.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-08-27T14:56:16Z</date>
+				<date>2023-05-04T13:14:09Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/D3JS.xml</key>
 			<dict>
@@ -1645,12 +1649,12 @@
 			<key>http://kapeli.com/feeds/Docker.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2019-04-24T11:04:40Z</date>
+				<date>2023-05-04T13:21:47Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/EmberJS.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2019-04-24T10:58:56Z</date>
+				<date>2023-05-04T13:19:19Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Font_Awesome.xml</key>
 			<dict>
@@ -1675,7 +1679,7 @@
 			<key>http://kapeli.com/feeds/Java_SE14.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:23Z</date>
+				<date>2023-05-04T13:35:33Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Julia.xml</key>
 			<dict>
@@ -1697,15 +1701,10 @@
 				<key>date</key>
 				<date>2020-10-15T11:48:32Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/MomentJS.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2019-04-24T10:59:22Z</date>
-			</dict>
 			<key>http://kapeli.com/feeds/Nginx.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:15Z</date>
+				<date>2023-05-04T13:22:34Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/NodeJS.xml</key>
 			<dict>
@@ -1735,7 +1734,7 @@
 			<key>http://kapeli.com/feeds/Qt_6.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-26T11:22:15Z</date>
+				<date>2023-05-04T13:36:19Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Racket.xml</key>
 			<dict>
@@ -1765,7 +1764,7 @@
 			<key>http://kapeli.com/feeds/SQLAlchemy.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-10-21T10:15:33Z</date>
+				<date>2023-05-04T13:36:32Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/SQLite.xml</key>
 			<dict>
@@ -1780,12 +1779,7 @@
 			<key>http://kapeli.com/feeds/Sass.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2019-04-24T10:59:32Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Sinon.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:15Z</date>
+				<date>2023-05-04T13:22:43Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/TypeScript.xml</key>
 			<dict>
@@ -1795,7 +1789,7 @@
 			<key>http://kapeli.com/feeds/Vim.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:14Z</date>
+				<date>2023-05-04T13:22:02Z</date>
 			</dict>
 		</dict>
 		<key>uninstalled</key>
@@ -1825,6 +1819,11 @@
 				<key>date</key>
 				<date>2020-09-01T14:01:51Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/MomentJS.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:22:43Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/OCaml.xml</key>
 			<dict>
 				<key>date</key>
@@ -1844,6 +1843,11 @@
 			<dict>
 				<key>date</key>
 				<date>2019-04-29T11:47:14Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Sinon.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-04T13:14:09Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/VueJS.xml</key>
 			<dict>
