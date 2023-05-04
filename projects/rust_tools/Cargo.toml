@@ -1,0 +1,16 @@
+[package]
+name = "rust_tools"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "refresh_repos"
+path = "src/refresh_repos/main.rs"
+
+[[bin]]
+name = "timelapse"
+path = "src/timelapse/main.rs"
+
+[dependencies]
+chrono = "0.4.24"
+dirs = "5.0.1"
