@@ -69,6 +69,7 @@ Plug 'whonore/Coqtail'
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 Plug 'github/copilot.vim'
 Plug 'https://github.com/slint-ui/vim-slint'
+Plug 'rhysd/git-messenger.vim'
 
 call plug#end()
 

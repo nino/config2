@@ -164,31 +164,17 @@ function! s:DisableBoxDrawing()
 endfunction
 command! Nodraw call s:DisableBoxDrawing()
 
-command! Gpshu Gpush<CR>
-
 command! VD exe 'Gvdiffsplit origin/' . system('echo $TRUNKBRANCHNAME') . ':%|windo se wrap|normal zr'
 command! T exe 'tabe ' . system('pbpaste')|VD
 command! Nums windo set modifiable|%s/\$\d\+/\$xx/g
 
-" vnoremap p "0p
 
 nnoremap gD :tab split \| lua vim.lsp.buf.definition()<CR>
-
-" LSP
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-
 
 " TYPOS
 command! W w
 command! Tabe tabe
 command! Tabc tabc
-" command! AF ALEFix
 
 cabbrev MAP ~/.config/nvim/mappings.vim
 cabbrev DAL api/src/data_access_layer
@@ -201,21 +187,6 @@ cabbrev DEAL data/immo_etl/src/immo_etl/external_access_layer
 cabbrev DDAL data/immo_etl/src/immo_etl/data_ingestion/data_access_layer/oltp
 cabbrev WH web/hub
 cabbrev WHC web/hub/components
-cabbrev WB web/bricks
-cabbrev WBC web/bricks/components
-
-cabbrev WSD web/deprecated/seller/deu/app
-cabbrev WSDC web/deprecated/seller/deu/app/components
-cabbrev WSDW web/deprecated/seller/deu/app/components/widgets
-cabbrev WINT web/deprecated/intranet
-cabbrev CW web/deprecated/core/addon/components/widgets
-cabbrev CT web/deprecated/core/addon/templates/components/widgets
-
-
-
-" iabbrev @wc @immo/web-core
-" iabbrev @ic @immo/core
-" iabbrev @e @ember
 
 iabbrev constanst constants
 
