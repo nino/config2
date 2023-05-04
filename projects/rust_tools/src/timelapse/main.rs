@@ -7,17 +7,11 @@ trait OutputExt {
 
 impl OutputExt for std::process::Output {
     fn stdout_as_string(&self) -> String {
-        self.stdout
-            .iter()
-            .map(|&byte| byte as char)
-            .collect::<String>()
+        self.stdout.iter().map(|&byte| byte as char).collect()
     }
 
     fn stderr_as_string(&self) -> String {
-        self.stderr
-            .iter()
-            .map(|&byte| byte as char)
-            .collect::<String>()
+        self.stderr.iter().map(|&byte| byte as char).collect()
     }
 }
 
