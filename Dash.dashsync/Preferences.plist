@@ -428,7 +428,7 @@
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
-				<date>2022-07-12T08:30:24Z</date>
+				<date>2023-05-05T10:40:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -470,7 +470,7 @@
 			<key>mapbox/mapbox-gl-js</key>
 			<dict>
 				<key>date</key>
-				<date>2022-02-25T19:39:35Z</date>
+				<date>2023-05-05T10:40:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +484,7 @@
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-15T20:56:41Z</date>
+				<date>2023-05-05T10:41:16Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -498,7 +498,7 @@
 			<key>tauri-apps/tauri-docs</key>
 			<dict>
 				<key>date</key>
-				<date>2022-03-16T14:31:48Z</date>
+				<date>2023-05-05T10:42:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1735,7 +1735,7 @@
 			<key>http://kapeli.com/feeds/Racket.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-23T10:34:47Z</date>
+				<date>2023-05-05T10:40:49Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/React.xml</key>
 			<dict>
@@ -1745,7 +1745,7 @@
 			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2019-04-24T18:00:08Z</date>
+				<date>2023-05-05T10:40:14Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby_3.xml</key>
 			<dict>
