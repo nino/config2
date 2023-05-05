@@ -1,25 +1,51 @@
-use std::{path::PathBuf, process::Command};
+use rust_tools::cmd_helpers::OutputExt;
 
-trait OutputExt {
-    fn stdout_as_string(&self) -> String;
-    fn stderr_as_string(&self) -> String;
+use std::{path::PathBuf, process::Command, thread::sleep, time::Duration};
+
+struct Photographer {
+    timelapse_root_path: PathBuf,
 }
 
-impl OutputExt for std::process::Output {
-    fn stdout_as_string(&self) -> String {
-        self.stdout.iter().map(|&byte| byte as char).collect()
+impl Photographer {
+    fn new() -> Result<Photographer, String> {
+        Ok(Photographer {
+            timelapse_root_path: dirs::home_dir()
+                .ok_or("Unable to find home directory".to_string())?
+                .join("Timelapse2"),
+        })
     }
 
-    fn stderr_as_string(&self) -> String {
-        self.stderr.iter().map(|&byte| byte as char).collect()
+    fn create_day_dir_if_needed(&self) -> Result<PathBuf, String> {
+        let today = chrono::Local::now().format("%Y-%m-%d").to_string();
+        let day_dir = self.timelapse_root_path.join(&today);
+        std::fs::create_dir_all(&day_dir).map_err(|_| format!("Unable to create day dir"))?;
+        Ok(day_dir)
     }
-}
 
-fn create_day_dir_if_needed(timelapse_root_path: &PathBuf) -> Result<PathBuf, String> {
-    let today = chrono::Local::now().format("%Y-%m-%d").to_string();
-    let day_dir = timelapse_root_path.join(&today);
-    std::fs::create_dir_all(&day_dir).map_err(|_| format!("Unable to create day dir"))?;
-    Ok(day_dir)
+    fn screenshoot_loop(&self) {
+        loop {
+            match self.do_screenshot() {
+                Ok(()) => sleep(Duration::from_secs(4)),
+                Err(reason) => {
+                    println!("Error: {}", reason);
+                    sleep(Duration::from_secs(60))
+                }
+            }
+        }
+    }
+
+    fn do_screenshot(&self) -> Result<(), String> {
+        let day_dir = self.create_day_dir_if_needed()?;
+        let screenshot_path = String::from(
+            day_dir
+                .join(next_filename(&day_dir)?)
+                .to_str()
+                .ok_or("Couldn't make string from screenshot path".to_string())?,
+        );
+        capture_screenshot(&screenshot_path)?;
+        resize_screenshot(&screenshot_path)?;
+        Ok(())
+    }
 }
 
 fn next_filename(day_dir: &PathBuf) -> Result<String, String> {
@@ -76,37 +102,8 @@ fn resize_screenshot(file_path: &str) -> Result<(), String> {
     }
 }
 
-fn do_screenshot(timelapse_root_path: &PathBuf) -> Result<(), String> {
-    let day_dir = create_day_dir_if_needed(timelapse_root_path)?;
-    let screenshot_path = String::from(
-        day_dir
-            .join(next_filename(&day_dir)?)
-            .to_str()
-            .ok_or("Couldn't make string from screenshot path".to_string())?,
-    );
-    capture_screenshot(&screenshot_path)?;
-    resize_screenshot(&screenshot_path)?;
-    Ok(())
-}
-
-fn screenshoot_loop(timelapse_root_path: &PathBuf) {
-    loop {
-        match do_screenshot(timelapse_root_path) {
-            Ok(()) => std::thread::sleep(std::time::Duration::from_secs(4)),
-            Err(reason) => {
-                println!("Error: {}", reason);
-                std::thread::sleep(std::time::Duration::from_secs(60))
-            }
-        }
-    }
-}
-
 fn main() {
     println!("Starting up...");
-
-    let timelapse_root_path = dirs::home_dir()
-        .expect("Unable to find home directory")
-        .join("Timelapse2");
-
-    screenshoot_loop(&timelapse_root_path);
+    let photographer = Photographer::new().expect("Unable to create photographer");
+    photographer.screenshoot_loop();
 }

@@ -11,6 +11,9 @@ path = "src/refresh_repos/main.rs"
 name = "timelapse"
 path = "src/timelapse/main.rs"
 
+[lib]
+path = "src/lib/mod.rs"
+
 [dependencies]
 chrono = "0.4.24"
 dirs = "5.0.1"
