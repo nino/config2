@@ -1,24 +1,42 @@
 use rust_tools::cmd_helpers::OutputExt;
-
 use std::{path::PathBuf, process::Command, thread::sleep, time::Duration};
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+enum Error {
+    #[error("Unable to find home dir")]
+    UnableToFindHomeDir,
+
+    #[error("Unable to create screenshot")]
+    UnableToCreateScreenshot,
+
+    #[error("Unable to resize screenshot {path} because: {reason}")]
+    UnableToResizeScreenshot { path: String, reason: String },
+
+    #[error("Unable convert screenshot path to string")]
+    UnableToConvertScreenshotPathToString,
+
+    #[error("IO Error")]
+    IoError(#[from] std::io::Error),
+}
 
 struct Photographer {
     timelapse_root_path: PathBuf,
 }
 
 impl Photographer {
-    fn new() -> Result<Photographer, String> {
+    fn new() -> Result<Photographer, Error> {
         Ok(Photographer {
             timelapse_root_path: dirs::home_dir()
-                .ok_or("Unable to find home directory".to_string())?
+                .ok_or(Error::UnableToFindHomeDir)?
                 .join("Timelapse2"),
         })
     }
 
-    fn create_day_dir_if_needed(&self) -> Result<PathBuf, String> {
+    fn create_day_dir_if_needed(&self) -> Result<PathBuf, Error> {
         let today = chrono::Local::now().format("%Y-%m-%d").to_string();
         let day_dir = self.timelapse_root_path.join(&today);
-        std::fs::create_dir_all(&day_dir).map_err(|_| format!("Unable to create day dir"))?;
+        std::fs::create_dir_all(&day_dir)?;
         Ok(day_dir)
     }
 
@@ -34,13 +52,13 @@ impl Photographer {
         }
     }
 
-    fn do_screenshot(&self) -> Result<(), String> {
+    fn do_screenshot(&self) -> Result<(), Error> {
         let day_dir = self.create_day_dir_if_needed()?;
         let screenshot_path = String::from(
             day_dir
                 .join(next_filename(&day_dir)?)
                 .to_str()
-                .ok_or("Couldn't make string from screenshot path".to_string())?,
+                .ok_or(Error::UnableToConvertScreenshotPathToString)?,
         );
         capture_screenshot(&screenshot_path)?;
         resize_screenshot(&screenshot_path)?;
@@ -48,9 +66,8 @@ impl Photographer {
     }
 }
 
-fn next_filename(day_dir: &PathBuf) -> Result<String, String> {
-    let entries =
-        std::fs::read_dir(day_dir).map_err(|_| "Unable to read entries of day dir".to_string())?;
+fn next_filename(day_dir: &PathBuf) -> Result<String, Error> {
+    let entries = std::fs::read_dir(day_dir)?;
     let files = entries
         .filter_map(|entry| entry.ok())
         .filter(|entry| {
@@ -69,36 +86,32 @@ fn next_filename(day_dir: &PathBuf) -> Result<String, String> {
     Ok(String::from(format!("{:05}.jpg", max + 1)))
 }
 
-fn capture_screenshot(screenshot_path: &str) -> Result<(), String> {
+fn capture_screenshot(screenshot_path: &str) -> Result<(), Error> {
     let output = Command::new("screencapture")
         .args(&["-x", "-t", "jpg", "-m", &screenshot_path])
-        .output()
-        .map_err(|err| err.to_string())?;
+        .output()?;
 
     if output.status.success() {
         println!("Screenshot saved to {}", screenshot_path);
         Ok(())
     } else {
         println!("Unable to save screenshot");
-        Err("Unable to save screenshot".to_string())
+        Err(Error::UnableToCreateScreenshot)
     }
 }
 
-fn resize_screenshot(file_path: &str) -> Result<(), String> {
+fn resize_screenshot(file_path: &str) -> Result<(), Error> {
     let output = Command::new("convert")
         .args(&["-scale", "1800x1124!", file_path, file_path])
-        .output()
-        .map_err(|err| err.to_string())?;
+        .output()?;
 
     if output.status.success() {
         Ok(())
     } else {
-        Err(format!(
-            "Unable to resize screenshot {} because {}",
-            file_path,
-            output.stderr_as_string()
-        )
-        .to_string())
+        Err(Error::UnableToResizeScreenshot {
+            path: file_path.to_string(),
+            reason: output.stderr_as_string(),
+        })
     }
 }
 
