@@ -29,7 +29,7 @@ impl Photographer {
         Ok(Photographer {
             timelapse_root_path: dirs::home_dir()
                 .ok_or(Error::UnableToFindHomeDir)?
-                .join("Timelapse2"),
+                .join("Timelapse"),
         })
     }
 

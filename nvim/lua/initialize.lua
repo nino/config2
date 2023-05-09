@@ -1,40 +1,8 @@
-local utils = require("utils")
+local color_presets = require("color_presets")
 
 -- Colors
-local use_light_bg = false
-vim.opt.termguicolors = false
-if use_light_bg then
-  vim.o.background = "light"
-  -- utils.color("lucius")
-  utils.color("zellner")
-else
-  vim.o.background = "dark"
-
-  -- utils.color("thing")
-  -- utils.color("deus")
-  -- utils.color("desert")
-
-  require("gruvbox").setup({
-    undercurl = false,
-    underline = false,
-    bold = true,
-    italic = {},
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true,    -- invert background for search, diffs, statuslines and errors
-    contrast = "hard", -- can be "hard", "soft" or empty string
-    palette_overrides = {},
-    overrides = {},
-    dim_inactive = false,
-    transparent_mode = false,
-  })
-  utils.color("gruvbox")
-
-  utils.colorize("DiagnosticError", { fg = utils.rgb(4, 3, 1) })
-end
+vim.opt.termguicolors = true
+color_presets.gruvbox_dark()
 
 -- Defaults
 vim.opt.laststatus = 2
@@ -172,7 +140,7 @@ require('lspconfig').pylsp.setup {
 require('lspconfig').pyright.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require'lspconfig'.terraformls.setup{}
+require 'lspconfig'.terraformls.setup {}
 
 function coq_lsp()
   return {
