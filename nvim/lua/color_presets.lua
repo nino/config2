@@ -37,4 +37,9 @@ function mod.gruvbox_dark()
   utils.colorize("DiagnosticError", { fg = utils.rgb(4, 3, 1) })
 end
 
+function mod.pink_moon()
+  vim.o.background = "dark"
+  utils.color("pink-moon")
+end
+
 return mod
