@@ -1,13 +1,17 @@
+local color_presets = require("color_presets")
 local utils = require("utils")
 
 -- Colors
-local use_light_bg = false
 vim.opt.termguicolors = false
-if use_light_bg then
+color_presets.gruvbox_dark()
+
+function light_colors()
   vim.o.background = "light"
   -- utils.color("lucius")
   utils.color("zellner")
-else
+end
+
+function gruvbox_dark()
   vim.o.background = "dark"
 
   -- utils.color("thing")
@@ -172,7 +176,7 @@ require('lspconfig').pylsp.setup {
 require('lspconfig').pyright.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require'lspconfig'.terraformls.setup{}
+require 'lspconfig'.terraformls.setup {}
 
 function coq_lsp()
   return {
