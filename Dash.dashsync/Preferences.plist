@@ -456,7 +456,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-09T08:36:19Z</date>
+				<date>2023-05-09T18:53:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1661,6 +1661,11 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-09T19:47:11Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/C++.xml</key>
 			<dict>
 				<key>date</key>
@@ -1793,11 +1798,6 @@
 			<dict>
 				<key>date</key>
 				<date>2022-02-25T19:39:15Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:11Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Bash.xml</key>
 			<dict>
