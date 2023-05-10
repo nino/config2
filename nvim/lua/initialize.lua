@@ -2,7 +2,7 @@ local color_presets = require("color_presets")
 
 -- Colors
 vim.opt.termguicolors = true
-color_presets.gruvbox_dark()
+color_presets.everforest()
 
 -- Defaults
 vim.opt.laststatus = 2
@@ -10,6 +10,7 @@ vim.opt.ch = 1 -- command-height
 vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
+vim.opt.diffopt = vim.opt.diffopt + "linematch:40"
 vim.opt.signcolumn = "number" -- no extra column
 vim.opt.list = true
 vim.opt.number = true

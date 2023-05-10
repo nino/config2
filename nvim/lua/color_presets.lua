@@ -4,8 +4,18 @@ local mod = {}
 
 function mod.light_colors()
   vim.o.background = "light"
-  -- utils.color("lucius")
-  utils.color("zellner")
+  utils.color("catppuccin")
+  -- utils.color("zellner")
+end
+
+function mod.everforest()
+  vim.o.background = "light"
+  vim.cmd [[
+    let g:everforest_background = 'hard'
+    let g:everforest_enable_italic = 0
+    let g:everforest_disable_italic_comment = 1
+  ]]
+  utils.color("everforest")
 end
 
 function mod.gruvbox_dark()

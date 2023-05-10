@@ -70,6 +70,9 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 Plug 'github/copilot.vim'
 Plug 'https://github.com/slint-ui/vim-slint'
 Plug 'rhysd/git-messenger.vim'
+Plug 'https://github.com/catppuccin/nvim'
+Plug 'https://github.com/sainnhe/everforest'
+Plug 'https://github.com/rose-pine/neovim'
 
 call plug#end()
 
