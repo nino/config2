@@ -2,7 +2,7 @@ local color_presets = require("color_presets")
 
 -- Colors
 vim.opt.termguicolors = true
-color_presets.everforest()
+color_presets.gruvbox_dark()
 
 -- Defaults
 vim.opt.laststatus = 2
@@ -90,6 +90,8 @@ vim.env.FZF_DEFAULT_COMMAND =
 "fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
 
 -- LSP
+local nvim_lsp = require('lspconfig')
+
 local on_attach = function(_, _)
   vim.lsp.handlers["textDocument/publishDiagnostics"] =
       vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -102,12 +104,20 @@ local on_attach = function(_, _)
       })
 end
 
-require('lspconfig').tsserver.setup {
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
+nvim_lsp.tsserver.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     client.server_capabilities.document_formatting = false
-  end
+  end,
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  single_file_support = false
 }
+
 
 require('lspconfig').ocamllsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
