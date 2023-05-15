@@ -5,7 +5,7 @@ timelapse_root_path = File.join(Dir.home, 'Timelapse')
 
 day = ARGV[0] || Time.now.strftime('%Y-%m-%d')
 
-images_path = File.join(timelapse_root_path, day, '%d.jpg')
+images_path = File.join(timelapse_root_path, day, '%5d.jpg')
 
 time = Time.now.strftime('%H-%M-%S')
 out_path = File.join(timelapse_root_path, "#{day}--#{time}.mov")
