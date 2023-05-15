@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [[bin]]
+name = "git_experiments"
+path = "src/git_experiments/main.rs"
+
+[[bin]]
 name = "refresh_repos"
 path = "src/refresh_repos/main.rs"
 
@@ -17,4 +21,5 @@ path = "src/lib/mod.rs"
 [dependencies]
 chrono = "0.4.24"
 dirs = "5.0.1"
+git2 = "0.17.1"
 thiserror = "1.0.40"

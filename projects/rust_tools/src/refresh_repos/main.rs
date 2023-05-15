@@ -66,7 +66,7 @@ fn is_git_working_tree_clean() -> bool {
 
 fn main() {
     let mut unclean_repos = vec![];
-    let mut checked_out_branches: Vec<(String, String)> = vec![];
+    let mut checked_out_branches = vec![];
 
     for repo in list_directories() {
         cd(&repo);
