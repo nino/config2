@@ -73,6 +73,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'https://github.com/catppuccin/nvim'
 Plug 'https://github.com/sainnhe/everforest'
 Plug 'https://github.com/rose-pine/neovim'
+Plug 'https://github.com/uguu-org/vim-matrix-screensaver'
 
 call plug#end()
 
