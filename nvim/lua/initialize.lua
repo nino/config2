@@ -119,11 +119,11 @@ nvim_lsp.tsserver.setup {
 }
 
 
-require('lspconfig').ocamllsp.setup {
+nvim_lsp.ocamllsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require('lspconfig').tailwindcss.setup {}
-require('lspconfig').lua_ls.setup {
+nvim_lsp.tailwindcss.setup {}
+nvim_lsp.lua_ls.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     -- client.server_capabilities.document_formatting = false
@@ -137,27 +137,37 @@ require('lspconfig').lua_ls.setup {
     }
   }
 }
-require('lspconfig').rescriptls.setup {
+nvim_lsp.rescriptls.setup {
   cmd = {
     'node', '/Users/nino/code-friends/vim-rescript/server/out/server.js',
     '--stdio'
   },
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require('lspconfig').julials.setup {}
-require('lspconfig').pylsp.setup {
+nvim_lsp.julials.setup {}
+nvim_lsp.pylsp.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require('lspconfig').pyright.setup {
+nvim_lsp.pyright.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
-require 'lspconfig'.terraformls.setup {}
+nvim_lsp.terraformls.setup {}
 
 function coq_lsp()
   return {
     name = 'coq-lsp',
     cmd = { "coq-lsp" },
     filetypes = "coq",
+    root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
+    single_file_support = true,
+  }
+end
+
+function keyslsp()
+  return {
+    name = "keyslsp",
+    cmd = { "keys-lsp" },
+    filetypes = { "lua" },
     root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
     single_file_support = true,
   }
@@ -170,21 +180,21 @@ end
 -- ]]
 
 -- Ruby
-require('lspconfig').solargraph.setup {
+nvim_lsp.solargraph.setup {
   on_attach = function(client)
     client.server_capabilities.document_formatting = false
   end
 }
 
 -- Rust
-require('lspconfig').rust_analyzer.setup {
+nvim_lsp.rust_analyzer.setup {
   cmd = { "rustup", "run", "stable", "rust-analyzer" }
 }
-require('lspconfig').slint_lsp.setup {
+nvim_lsp.slint_lsp.setup {
 }
 
--- require('lspconfig').clangd.setup {}
-require('lspconfig').gopls.setup {}
+-- nvim_lsp.clangd.setup {}
+nvim_lsp.gopls.setup {}
 
 -- local function on_attach(client) print('Attached to ' .. client.name) end
 
@@ -193,8 +203,8 @@ local dlsconfig = require 'diagnosticls-configs'
 dlsconfig.init {}
 
 
-local eslint = require "diagnosticls-configs.linters.eslint_d"
-local eslint_fmt = require 'diagnosticls-configs.formatters.eslint_d_fmt'
+local eslint = require "diagnosticls-configs.linters.eslint"
+local eslint_fmt = require 'diagnosticls-configs.formatters.eslint_fmt'
 dlsconfig.setup {
   ['javascript'] = { linter = eslint },
   ['javascriptreact'] = { linter = eslint },
