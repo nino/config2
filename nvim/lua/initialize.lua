@@ -50,6 +50,7 @@ nnoremap gy mzggyG`z
 
 " tmp
 nnoremap ß :Gw<CR>
+nnoremap © :G<CR>
 
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 ]]
