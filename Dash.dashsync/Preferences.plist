@@ -470,7 +470,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-05T18:30:39Z</date>
+				<date>2023-05-19T12:43:51Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1081,6 +1081,28 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>Deno</key>
+			<dict>
+				<key>date</key>
+				<date>2023-05-19T11:54:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Deno API</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Deno#readme</string>
+					<key>authorLinkText</key>
+					<string>Yuto Oguchi</string>
+					<key>name</key>
+					<string>Deno</string>
+					<key>platform</key>
+					<string>usercontribDeno</string>
+					<key>uniqueIdentifier</key>
+					<string>Deno</string>
+				</dict>
+			</dict>
 			<key>Jest</key>
 			<dict>
 				<key>date</key>
@@ -1678,7 +1700,7 @@
 			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-09T19:47:11Z</date>
+				<date>2023-05-19T12:48:36Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/C++.xml</key>
 			<dict>
