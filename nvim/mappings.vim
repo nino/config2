@@ -187,6 +187,7 @@ cabbrev DEAL data/immo_etl/src/immo_etl/external_access_layer
 cabbrev DDAL data/immo_etl/src/immo_etl/data_ingestion/data_access_layer/oltp
 cabbrev WH web/hub
 cabbrev WHC web/hub/components
+cabbrev VMV ~/Documents/VaultyMcVaultFace/
 
 iabbrev constanst constants
 
