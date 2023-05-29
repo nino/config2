@@ -11,7 +11,7 @@ vim.opt.lazyredraw = true
 vim.opt.autoread = true
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
 vim.opt.diffopt = vim.opt.diffopt + "linematch:40"
-vim.opt.signcolumn = "number" -- no extra column
+vim.opt.signcolumn = "yes:1"
 vim.opt.list = true
 vim.opt.number = true
 vim.opt.numberwidth = 1
@@ -89,6 +89,8 @@ vim.cmd("command! Com G commit -a")
 -- Variables
 vim.env.FZF_DEFAULT_COMMAND =
 "fd --type f --hidden --exclude .git --exclude '*.cmi' --exclude '*.cma' --exclude '*.cmxa' --exclude '*.cmxs' --exclude '*.cmt' --exclude '*.cmti' --exclude '*.a' --exclude '*.cmx'"
+
+require('gitsigns').setup()
 
 -- LSP
 local nvim_lsp = require('lspconfig')

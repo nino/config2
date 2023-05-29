@@ -74,6 +74,7 @@ Plug 'https://github.com/catppuccin/nvim'
 Plug 'https://github.com/sainnhe/everforest'
 Plug 'https://github.com/rose-pine/neovim'
 Plug 'https://github.com/uguu-org/vim-matrix-screensaver'
+Plug 'https://github.com/lewis6991/gitsigns.nvim'
 
 call plug#end()
 
