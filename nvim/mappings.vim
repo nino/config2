@@ -62,6 +62,7 @@ nnoremap <silent> <Leader>T :tab split<CR>
 nnoremap <silent> <Leader>s :Gstatus<CR>
 nnoremap <silent> <Leader>S :tabe .git/index<CR>
 nnoremap <silent> <Leader>D :Gdiff<CR>
+nnoremap <Leader>/ :Ack ''<left>
 
 
 nnoremap zs v%zf
