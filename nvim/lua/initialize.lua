@@ -2,7 +2,7 @@ local color_presets = require("color_presets")
 
 -- Colors
 vim.opt.termguicolors = true
-color_presets.gruvbox_dark()
+color_presets.catppuccin()
 
 -- Defaults
 vim.opt.laststatus = 2
@@ -54,6 +54,13 @@ nnoremap © :G<CR>
 
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 ]]
+
+-- Cody
+require("cody").setup({
+  accessToken = os.getenv("CODY_ACCESS_TOKEN"),
+  -- OPTIONAL:
+  -- url = "https://your-sourcegraph-instance.com"
+})
 
 
 -- Digraphs
@@ -146,9 +153,9 @@ nvim_lsp.rescriptls.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
 nvim_lsp.julials.setup {}
-nvim_lsp.pylsp.setup {
-  on_attach = function(client, bufnr) on_attach(client, bufnr) end
-}
+-- nvim_lsp.pylsp.setup {
+--   on_attach = function(client, bufnr) on_attach(client, bufnr) end
+-- }
 nvim_lsp.pyright.setup {
   on_attach = function(client, bufnr) on_attach(client, bufnr) end
 }
@@ -168,8 +175,8 @@ function keyslsp()
   return {
     name = "keyslsp",
     cmd = { "keys-lsp" },
-    filetypes = { "lua" },
-    root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
+    -- filetypes = { "lua" },
+    -- root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
     single_file_support = true,
   }
 end
