@@ -2,7 +2,7 @@ local color_presets = require("color_presets")
 
 -- Colors
 vim.opt.termguicolors = true
-color_presets.catppuccin()
+color_presets.catppuccin_dark()
 
 -- Defaults
 vim.opt.laststatus = 2
