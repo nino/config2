@@ -326,3 +326,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH=$PATH:/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin
 export PATH=$PATH:/home/nino/.cargo/bin
+export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
