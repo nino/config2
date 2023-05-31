@@ -76,6 +76,7 @@ Plug 'https://github.com/rose-pine/neovim'
 Plug 'https://github.com/uguu-org/vim-matrix-screensaver'
 Plug 'https://github.com/sourcegraph/cody.nvim'
 Plug 'https://github.com/lewis6991/gitsigns.nvim'
+Plug 'https://github.com/rcarriga/nvim-dap-ui'
 
 call plug#end()
 
