@@ -51,6 +51,8 @@ nnoremap gy mzggyG`z
 " tmp
 nnoremap ß :Gw<CR>
 nnoremap © :G<CR>
+nnoremap <M-S> :Gw<CR>
+nnoremap <M-G> :G<CR>
 
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 ]]

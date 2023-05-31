@@ -92,9 +92,12 @@ nnoremap ˙ 5zh
 nnoremap <M-l> 5zl
 nnoremap <M-h> 5zh
 nnoremap ∑ <c-w><c-c>
+nnoremap <M-w> <c-w><c-c>
 nnoremap ø <c-w><c-o>
+nnoremap <M-o> <c-w><c-o>
 
 nnoremap ™ @@
+nnoremap <M-2> @@
 
 vnoremap <silent> ,a :Tabularize /^[^=]*\zs=<CR>
 vnoremap <silent> <C-a> :Tabularize /^[^:]*:\zs/l0l1<CR>
