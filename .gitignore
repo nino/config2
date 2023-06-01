@@ -48,3 +48,4 @@ iterm2/**
 github-copilot
 op/
 
+nvim/plugin/packer_compiled.lua
