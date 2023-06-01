@@ -18,7 +18,7 @@ vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.linebreak = true
-vim.opt.diffopt = vim.opt.diffopt + {"vertical" ,"followwrap"}
+vim.opt.diffopt = vim.opt.diffopt + { "vertical", "followwrap" }
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
 vim.opt.diffopt = vim.opt.diffopt + "linematch:40"
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
@@ -70,13 +70,12 @@ vim.keymap.set("n", "T", "gT")
 vim.keymap.set("n", "t", "gt")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\|>>>>>>><CR>") 
+vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\|>>>>>>><CR>")
 vim.keymap.set("n", "<Leader>w", ":set wrap!<CR>")
 vim.keymap.set("n", "<Leader>D", ":Gdiff<CR>")
 vim.keymap.set("n", "<Leader>s", ":G<CR>")
 vim.keymap.set("n", "zs", "v%zf")
 vim.keymap.set("n", "zS", "$v%zf")
-
 
 vim.keymap.set("n", "¬", "5zl")
 vim.keymap.set("n", "˙", "5zh")
@@ -87,7 +86,16 @@ vim.keymap.set("n", "<M-w>", "<c-w><c-c>")
 vim.keymap.set("n", "ø", "<c-w><c-o>")
 vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
+vim.keymap.set("n", "<M-n>", ":cnext<CR>")
+vim.keymap.set("n", "<M-p>", ":cprev<CR>")
+vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
+
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
+
+vim.keymap.set("n", "_", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
+vim.keymap.set("n", "<leader>p", ":!prettier --write %<cr>")
 
 -- TODO map cp to copy the current file's path
