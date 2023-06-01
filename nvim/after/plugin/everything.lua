@@ -24,6 +24,14 @@ lsp.configure('lua_ls', {
 })
 lsp.setup()
 
+require "telescope".setup {
+  defaults = {
+    preview = {
+      treesitter = false
+    }
+  }
+}
+
 -- LSP-zero-powered auto-completion
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
