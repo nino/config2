@@ -98,4 +98,7 @@ vim.keymap.set("n", "_", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", ":!prettier --write %<cr>")
 
--- TODO map cp to copy the current file's path
+vim.keymap.set("n", "cp", function()
+    local filepath = vim.fn.expand('%')
+    os.execute("echo '" .. filepath .. "' | pbcopy")
+end)
