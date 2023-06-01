@@ -35,5 +35,11 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
-use { 'https://github.com/nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+    use {
+        'https://github.com/nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use 'tpope/vim-repeat'
+    use 'christoomey/vim-tmux-navigator'
+    use 'https://github.com/ellisonleao/gruvbox.nvim'
 end)

@@ -66,3 +66,28 @@ vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
 
+vim.keymap.set("n", "T", "gT")
+vim.keymap.set("n", "t", "gt")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\|>>>>>>><CR>") 
+vim.keymap.set("n", "<Leader>w", ":set wrap!<CR>")
+vim.keymap.set("n", "<Leader>D", ":Gdiff<CR>")
+vim.keymap.set("n", "<Leader>s", ":G<CR>")
+vim.keymap.set("n", "zs", "v%zf")
+vim.keymap.set("n", "zS", "$v%zf")
+
+
+vim.keymap.set("n", "¬", "5zl")
+vim.keymap.set("n", "˙", "5zh")
+vim.keymap.set("n", "<M-l>", "5zl")
+vim.keymap.set("n", "<M-h>", "5zh")
+vim.keymap.set("n", "∑", "<c-w><c-c>")
+vim.keymap.set("n", "<M-w>", "<c-w><c-c>")
+vim.keymap.set("n", "ø", "<c-w><c-o>")
+vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
+
+vim.keymap.set("n", "™", "@@")
+vim.keymap.set("n", "<M-2>", "@@")
+
+-- TODO map cp to copy the current file's path
