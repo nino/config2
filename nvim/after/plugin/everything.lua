@@ -25,11 +25,11 @@ lsp.configure('lua_ls', {
 lsp.setup()
 
 require "telescope".setup {
-  defaults = {
-    preview = {
-      treesitter = false
+    defaults = {
+        preview = {
+            treesitter = false
+        }
     }
-  }
 }
 
 -- LSP-zero-powered auto-completion
@@ -78,3 +78,11 @@ require("catppuccin").setup({
     custom_highlights = {},
 })
 vim.cmd.colorscheme('lunaperche')
+
+-- Auto-complete
+local cmp = require("cmp")
+cmp.setup({
+    sources = {
+        { name = 'buffer' },
+    },
+})
