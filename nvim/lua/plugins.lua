@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/tpope/vim-commentary'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
+    use 'tpope/vim-rhubarb'
     use 'tpope/vim-surround'
     use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-characterize'
@@ -39,6 +40,7 @@ return require('packer').startup(function(use)
         'https://github.com/nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use 'https://github.com/nvim-telescope/telescope-live-grep-args.nvim'
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-navigator'
     use 'https://github.com/ellisonleao/gruvbox.nvim'
