@@ -50,8 +50,10 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 local telescope_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
+local telescope = require("telescope")
+vim.keymap.set('n', '<leader>ff', telescope_builtin.git_files, {})
+vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 
@@ -94,6 +96,7 @@ vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
 
+vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", ":!prettier --write %<cr>")
@@ -102,3 +105,28 @@ vim.keymap.set("n", "cp", function()
     local filepath = vim.fn.expand('%')
     os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
+
+
+
+vim.cmd [[
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" Visual @
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+]]
