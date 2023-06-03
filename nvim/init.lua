@@ -106,8 +106,6 @@ vim.keymap.set("n", "cp", function()
     os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
 
-
-
 vim.cmd [[
 function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
