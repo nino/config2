@@ -397,6 +397,7 @@ dependencies = [
  "chrono",
  "dirs",
  "git2",
+ "termcolor",
  "thiserror",
 ]
 
