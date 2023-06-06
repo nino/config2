@@ -1,7 +1,9 @@
 use rust_tools::cmd_helpers::OutputExt;
 use std::env;
 use std::fs;
+use std::io::Write;
 use std::process::Command;
+use termcolor::{Color, ColorChoice, ColorSpec, StandardStream, WriteColor};
 
 #[allow(dead_code)]
 fn trunk_branch_name() -> Result<String, String> {
@@ -95,7 +97,16 @@ fn main() {
     }
 
     println!("\nChecked-out branches:");
+    let mut stdout = StandardStream::stdout(ColorChoice::Always);
     for (repo, branch) in checked_out_branches {
-        println!("- {}: {}", repo, branch);
+        if branch == "master" || branch == "develop" || branch == "main" {
+            stdout.reset().unwrap();
+            writeln!(&mut stdout, "- {}: {}", repo, branch).unwrap();
+        } else {
+            stdout
+                .set_color(ColorSpec::new().set_fg(Some(Color::Red)))
+                .unwrap();
+            writeln!(&mut stdout, "- {}: {}", repo, branch).unwrap();
+        }
     }
 }
