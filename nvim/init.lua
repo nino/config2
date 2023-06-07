@@ -101,8 +101,6 @@ vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", ":!prettier --write %<cr>")
-vim.keymap.set("n", "<leader>nf", ":NERDTreeFind<CR>")
-vim.keymap.set("n", "<leader>nt", ":NERDTree<CR>")
 
 vim.keymap.set("n", "cp", function()
     local filepath = vim.fn.expand('%')
@@ -110,6 +108,8 @@ vim.keymap.set("n", "cp", function()
 end)
 
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
+vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
+vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTree") end, {})
 
 vim.cmd [[
 function! s:MkNonExDir(file, buf)
