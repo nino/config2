@@ -95,5 +95,7 @@ vim.cmd.colorscheme('catppuccin')
 
 -- Lean
 local lean = require("lean")
-lean.setup()
+lean.setup({
+  lsp = { on_attach = lsp.on_attach },
+})
 lean.use_suggested_mappings()

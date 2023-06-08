@@ -2077,6 +2077,16 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.33.tgz#8c29a0036771569662e4635790ffa9e057db379b"
   integrity sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==
 
+"@types/node@^16.6.1":
+  version "16.18.34"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.34.tgz#62d2099b30339dec4b1b04a14c96266459d7c8b2"
+  integrity sha512-VmVm7gXwhkUimRfBwVI1CHhwp86jDWR04B5FGebMMyxV90SlCmFujwUHrxTD4oO+SOYU86SoxvhgeRQJY7iXFg==
+
+"@types/node@^9.4.6":
+  version "9.6.61"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.61.tgz#29f124eddd41c4c74281bd0b455d689109fc2a2d"
+  integrity sha512-/aKAdg5c8n468cYLy2eQrcR5k6chlbNwZNGUj3TboyPa2hcO2QAJcfymlqPzMiRj8B6nYKXjzQz36minFE0RwQ==
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -5700,6 +5710,33 @@ lazystream@^1.0.0:
   integrity sha512-b94GiNHQNy6JNTrt5w6zNyffMrNkXZb3KTkCZJb2V1xaEGCk093vkZ2jk3tpaeP33/OiXC+WvK9AxUebnf5nbw==
   dependencies:
     readable-stream "^2.0.5"
+
+lean-client-js-core@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/lean-client-js-core/-/lean-client-js-core-3.3.1.tgz#da57b767bc0e202dbfd58148127b56e231116e86"
+  integrity sha512-Br1BHuLgPISE7EnC8Mn5uKZC2LLPoWyC4d6vhB7eXhgBWX+EUU6YaYD7zBWscXTEP2i2EwsFbiYuJtd/8/pnpw==
+  dependencies:
+    "@types/node" "^9.4.6"
+
+lean-client-js-node@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/lean-client-js-node/-/lean-client-js-node-3.3.1.tgz#cc5e284a7a1eee6b8ed66d745fd26fd26e654781"
+  integrity sha512-AAZN7Kvwp2+UDGZPjSC3WEkursgPB/4WNrgFlG+9CaOcaIhWXg1XYax/JmIDTkZVRCi1YgKi785AAU2QIqHCOQ==
+  dependencies:
+    "@types/node" "^9.4.6"
+    lean-client-js-core "^3.3.1"
+
+lean-language-server@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/lean-language-server/-/lean-language-server-3.4.0.tgz#f50710ca2abba80153a2c2573d6b2a6502e61190"
+  integrity sha512-Qb4+jCU2V06LfQVApyyzXlzG8H0KlKUO9HqJmWq8BMxSvfXpnGxGRyKRoQEcBHNJl6Y2+UXQCo0/mEVy13DwnA==
+  dependencies:
+    "@types/node" "^16.6.1"
+    lean-client-js-core "^3.3.1"
+    lean-client-js-node "^3.3.1"
+    vscode-languageserver "^7.0.0"
+    vscode-languageserver-textdocument "^1.0.1"
+    vscode-uri "^3.0.2"
 
 levn@^0.4.1:
   version "0.4.1"
