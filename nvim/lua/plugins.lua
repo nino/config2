@@ -46,4 +46,5 @@ return require('packer').startup(function(use)
     use 'christoomey/vim-tmux-navigator'
     use 'https://github.com/ellisonleao/gruvbox.nvim'
     use 'preservim/nerdtree'
+    use 'Julian/lean.nvim'
 end)

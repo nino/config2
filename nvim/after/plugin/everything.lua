@@ -92,3 +92,8 @@ require("catppuccin").setup({
     custom_highlights = {},
 })
 vim.cmd.colorscheme('catppuccin')
+
+-- Lean
+local lean = require("lean")
+lean.setup()
+lean.use_suggested_mappings()
