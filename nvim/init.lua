@@ -53,7 +53,7 @@ vim.g.maplocalleader = ","
 
 local telescope_builtin = require('telescope.builtin')
 local telescope = require("telescope")
-vim.keymap.set('n', '<leader>ff', telescope_builtin.git_files, {})
+vim.keymap.set('n', '<leader>ff', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
 vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
@@ -108,7 +108,7 @@ vim.keymap.set("n", "cp", function()
     os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
 
-vim.cmd[[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
+vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
 
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
