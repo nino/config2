@@ -44,6 +44,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 cmp.setup({
     sources = {
+        { name = 'nvim_lsp' },
         {
             name = 'buffer',
             option = {
@@ -52,7 +53,6 @@ cmp.setup({
                 end
             }
         },
-        { name = 'nvim_lsp' },
     },
 })
 
