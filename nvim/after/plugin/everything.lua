@@ -6,12 +6,14 @@ lsp.ensure_installed({
     'rust_analyzer',
     'lua_ls',
     'tailwindcss',
+    'julials',
 })
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 end)
 
+lsp.configure('julials', {})
 lsp.configure('lua_ls', {
     settings = {
         Lua = {
@@ -91,7 +93,7 @@ require("catppuccin").setup({
     color_overrides = {},
     custom_highlights = {},
 })
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('gruvbox')
 
 -- Lean
 local lean = require("lean")

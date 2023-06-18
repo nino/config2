@@ -62,7 +62,7 @@ vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 vim.keymap.set("x", "<leader>P", [["0p]])
 
 vim.keymap.set("n", "<c-s>", vim.cmd.w)
-vim.keymap.set("n", ",s", vim.cmd.wa)
+vim.keymap.set("n", "<localleader>s", vim.cmd.wa)
 vim.keymap.set("n", "<esc>", vim.cmd.nohlsearch)
 
 vim.keymap.set("n", "j", "gj")
@@ -94,6 +94,7 @@ vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
 
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")

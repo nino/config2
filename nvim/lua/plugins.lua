@@ -21,30 +21,32 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {
+                                       -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'hrsh7th/cmp-buffer'},
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },   -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'hrsh7th/cmp-buffer' },
+            { 'L3MON4D3/LuaSnip' },   -- Required
         }
     }
     use {
         'https://github.com/nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use 'https://github.com/nvim-telescope/telescope-live-grep-args.nvim'
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-navigator'
-    use 'https://github.com/ellisonleao/gruvbox.nvim'
     use 'preservim/nerdtree'
+    use 'https://github.com/morhetz/gruvbox'
     use 'Julian/lean.nvim'
+    use { 'mlochbaum/BQN', rtp = 'editors/vim' }
 end)
