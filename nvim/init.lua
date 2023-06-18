@@ -49,16 +49,17 @@ vim.opt.updatetime = 50
 
 -- Mappings
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 local telescope_builtin = require('telescope.builtin')
 local telescope = require("telescope")
-vim.keymap.set('n', '<leader>ff', telescope_builtin.git_files, {})
+vim.keymap.set('n', '<leader>ff', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
 vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>P", [["0p]])
 
 vim.keymap.set("n", "<c-s>", vim.cmd.w)
 vim.keymap.set("n", ",s", vim.cmd.wa)
@@ -101,15 +102,17 @@ vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", ":!prettier --write %<cr>")
-vim.keymap.set("n", "<leader>nf", ":NERDTreeFind<CR>")
-vim.keymap.set("n", "<leader>nt", ":NERDTree<CR>")
 
 vim.keymap.set("n", "cp", function()
     local filepath = vim.fn.expand('%')
     os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
 
+vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
+
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
+vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
+vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTree") end, {})
 
 vim.cmd [[
 function! s:MkNonExDir(file, buf)

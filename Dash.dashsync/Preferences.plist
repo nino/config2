@@ -456,7 +456,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-18T10:09:56Z</date>
+				<date>2023-06-13T08:14:57Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +484,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-18T10:09:59Z</date>
+				<date>2023-06-13T08:15:06Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1761,6 +1761,11 @@
 				<key>date</key>
 				<date>2019-04-24T13:49:11Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Julia.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-06-15T09:24:19Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Lua_5.4.xml</key>
 			<dict>
 				<key>date</key>
@@ -1880,11 +1885,6 @@
 				<date>2022-02-25T19:39:13Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Java_SE14.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:10Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Julia.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2023-05-04T19:04:10Z</date>

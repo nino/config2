@@ -51,4 +51,5 @@ return require('packer').startup(function(use)
     use {
         'https://github.com/mlochbaum/BQN', rtp = 'editors/vim'
     }
+    use 'Julian/lean.nvim'
 end)

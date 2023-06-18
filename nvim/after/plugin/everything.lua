@@ -44,8 +44,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 cmp.setup({
     sources = {
-        { name = 'buffer' },
         { name = 'nvim_lsp' },
+        {
+            name = 'buffer',
+            option = {
+                get_bufnrs = function()
+                    return vim.api.nvim_list_bufs()
+                end
+            }
+        },
     },
 })
 
@@ -85,3 +92,10 @@ require("catppuccin").setup({
     custom_highlights = {},
 })
 vim.cmd.colorscheme('catppuccin')
+
+-- Lean
+local lean = require("lean")
+lean.setup({
+  lsp = { on_attach = lsp.on_attach },
+})
+lean.use_suggested_mappings()
