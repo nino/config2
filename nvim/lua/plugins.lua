@@ -47,6 +47,10 @@ return require('packer').startup(function(use)
     use 'christoomey/vim-tmux-navigator'
     use 'preservim/nerdtree'
     use 'https://github.com/morhetz/gruvbox'
+    use 'https://github.com/justin2004/vim-apl'
+    use {
+        'https://github.com/mlochbaum/BQN', rtp = 'editors/vim'
+    }
     use 'Julian/lean.nvim'
     use { 'mlochbaum/BQN', rtp = 'editors/vim' }
 end)
