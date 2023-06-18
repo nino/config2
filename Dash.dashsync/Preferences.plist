@@ -456,7 +456,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-06T15:47:20Z</date>
+				<date>2023-06-18T10:09:56Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -467,10 +467,24 @@
 					<string>googlemaps/google-maps-services-js</string>
 				</dict>
 			</dict>
+			<key>janestreet/base</key>
+			<dict>
+				<key>date</key>
+				<date>2023-06-18T10:10:00Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>janestreet/base</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>janestreet/base</string>
+				</dict>
+			</dict>
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-19T12:43:51Z</date>
+				<date>2023-06-18T10:09:59Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
