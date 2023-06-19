@@ -61,6 +61,9 @@ vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
 
+vim.keymap.set("n", "<leader>d", function() vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>') end, {})
+
+
 vim.keymap.set("n", "<c-s>", vim.cmd.w)
 vim.keymap.set("n", "<localleader>s", vim.cmd.wa)
 vim.keymap.set("n", "<esc>", vim.cmd.nohlsearch)
