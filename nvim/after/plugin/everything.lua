@@ -11,6 +11,15 @@ lsp.ensure_installed({
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+    vim.lsp.handlers["textDocument/publishDiagnostics"] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            -- disable virtual text
+            virtual_text = false,
+            -- show signs
+            signs = true,
+            -- delay update diagnostics
+            update_in_insert = false
+        })
 end)
 
 lsp.configure('julials', {})
@@ -60,7 +69,7 @@ cmp.setup({
 
 -- Colors
 require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "latte", -- latte, frappe, macchiato, mocha
     background = {
         -- :h background
         light = "latte",
@@ -93,11 +102,12 @@ require("catppuccin").setup({
     color_overrides = {},
     custom_highlights = {},
 })
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('catppuccin')
 
--- Lean
-local lean = require("lean")
-lean.setup({
-  lsp = { on_attach = lsp.on_attach },
-})
-lean.use_suggested_mappings()
+-- Autocommands
+vim.cmd [[
+  augroup BQNFileType
+    autocmd!
+    autocmd BufRead,BufNewFile *.bqn set filetype=bqn
+  augroup END
+]]
