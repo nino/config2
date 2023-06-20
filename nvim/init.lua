@@ -61,7 +61,10 @@ vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
 
-vim.keymap.set("n", "<leader>d", function() vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>') end, {})
+vim.keymap.set("n", "<leader>d",
+    function()
+        vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>'); vim.cmd "set hls"
+    end, {})
 
 
 vim.keymap.set("n", "<c-s>", vim.cmd.w)
@@ -75,6 +78,7 @@ vim.keymap.set("n", "gk", "k")
 
 vim.keymap.set("n", "T", "gT")
 vim.keymap.set("n", "t", "gt")
+vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\|>>>>>>><CR>")
@@ -114,9 +118,10 @@ end)
 
 vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
 
+vim.cmd [[command! -range=% DP :<line1>,<line2>diffput]]
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
-vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTree") end, {})
+vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 
 vim.cmd [[
 function! s:MkNonExDir(file, buf)
