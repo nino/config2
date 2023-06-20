@@ -53,4 +53,5 @@ return require('packer').startup(function(use)
     }
     use 'Julian/lean.nvim'
     use { 'mlochbaum/BQN', rtp = 'editors/vim' }
+    use 'https://github.com/vantaboard/sqlfluff.nvim'
 end)
