@@ -69,7 +69,7 @@ cmp.setup({
 
 -- Colors
 require("catppuccin").setup({
-    flavour = "latte", -- latte, frappe, macchiato, mocha
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
     background = {
         -- :h background
         light = "latte",
@@ -102,7 +102,7 @@ require("catppuccin").setup({
     color_overrides = {},
     custom_highlights = {},
 })
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('lunaperche')
 
 -- Autocommands
 vim.cmd [[
