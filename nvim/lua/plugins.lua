@@ -54,4 +54,5 @@ return require('packer').startup(function(use)
     use 'Julian/lean.nvim'
     use 'https://github.com/vantaboard/sqlfluff.nvim'
     use 'https://github.com/dreyks/ir_black'
+    use 'bdesham/biogoo'
 end)
