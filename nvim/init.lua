@@ -66,7 +66,8 @@ vim.keymap.set("n", "<leader>d",
         vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>'); vim.cmd "set hls"
     end, {})
 
-vim.keymap.set("n", "<M-c>", "F_x~", {})
+vim.keymap.set("n", "<M-c>", "F_x~", {}) -- Convert to camels
+-- Convert to snakes
 vim.keymap.set("n", "<M-C>", "?[A-Z]\\|\\([0-9]\\+\\)<CR>~hi_<ESC>", {})
 
 vim.keymap.set("n", "<c-s>", vim.cmd.w)
