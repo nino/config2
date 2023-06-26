@@ -1095,6 +1095,30 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>Beautiful_Soup</key>
+			<dict>
+				<key>date</key>
+				<date>2023-06-23T14:13:53Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>bs4</string>
+						<string>Python Library</string>
+						<string>Beautiful Soup</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Beautiful_Soup#readme</string>
+					<key>authorLinkText</key>
+					<string>Aziz Alto</string>
+					<key>name</key>
+					<string>Beautiful Soup</string>
+					<key>platform</key>
+					<string>usercontribBeautiful_Soup</string>
+					<key>uniqueIdentifier</key>
+					<string>Beautiful_Soup</string>
+				</dict>
+			</dict>
 			<key>Deno</key>
 			<dict>
 				<key>date</key>
