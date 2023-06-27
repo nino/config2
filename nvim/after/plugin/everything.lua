@@ -22,6 +22,7 @@ lsp.on_attach(function(client, bufnr)
         })
 end)
 
+lsp.configure('sourcekit', {})
 lsp.configure('julials', {})
 lsp.configure('lua_ls', {
     settings = {
