@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
             {
-                                       -- Optional
+                -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -32,10 +32,10 @@ return require('packer').startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },   -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'hrsh7th/cmp-buffer' },
-            { 'L3MON4D3/LuaSnip' },   -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
     use {
@@ -49,7 +49,6 @@ return require('packer').startup(function(use)
     use 'https://github.com/morhetz/gruvbox'
     use 'https://github.com/justin2004/vim-apl'
     use 'Julian/lean.nvim'
-    use { 'mlochbaum/BQN', rtp = 'editors/vim' }
     use 'https://github.com/vantaboard/sqlfluff.nvim'
     use 'https://github.com/JuliaEditorSupport/julia-vim'
 end)
