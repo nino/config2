@@ -55,4 +55,5 @@ return require('packer').startup(function(use)
     use 'https://github.com/vantaboard/sqlfluff.nvim'
     use 'https://github.com/dreyks/ir_black'
     use 'bdesham/biogoo'
+    use 'https://github.com/Shatur/neovim-ayu'
 end)

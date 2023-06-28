@@ -102,7 +102,17 @@ require("catppuccin").setup({
     color_overrides = {},
     custom_highlights = {},
 })
-vim.cmd.colorscheme('lunaperche')
+
+local colors = require('ayu.colors')
+colors.generate()   -- Pass `true` to enable mirage
+require('ayu').setup({
+    mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+    overrides = function()
+        return { Comment = { fg = colors.comment } }
+    end
+})
+
+vim.cmd.colorscheme('ayu')
 
 -- Autocommands
 vim.cmd [[

@@ -91,6 +91,9 @@ vim.keymap.set("n", "<Leader>s", ":G<CR>")
 vim.keymap.set("n", "zs", "v%zf")
 vim.keymap.set("n", "zS", "$v%zf")
 
+vim.keymap.set("n", "<M-/>", "gcc")
+vim.keymap.set("v", "<M-/>", "gc")
+
 vim.keymap.set("n", "¬", "5zl")
 vim.keymap.set("n", "˙", "5zh")
 vim.keymap.set("n", "<M-l>", "5zl")
