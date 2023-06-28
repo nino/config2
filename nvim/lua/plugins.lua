@@ -48,12 +48,9 @@ return require('packer').startup(function(use)
     use 'preservim/nerdtree'
     use 'https://github.com/morhetz/gruvbox'
     use 'https://github.com/justin2004/vim-apl'
-    use {
-        'https://github.com/mlochbaum/BQN', rtp = 'editors/vim'
-    }
     use 'Julian/lean.nvim'
     use 'https://github.com/vantaboard/sqlfluff.nvim'
-    use 'https://github.com/dreyks/ir_black'
     use 'bdesham/biogoo'
     use 'https://github.com/Shatur/neovim-ayu'
+    use 'https://github.com/JuliaEditorSupport/julia-vim'
 end)
