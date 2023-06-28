@@ -24,23 +24,6 @@ fn trunk_branch_name() -> Result<String, String> {
     }
 }
 
-fn current_branch() -> Result<String, String> {
-    let full_branch_name: String = Command::new("git")
-        .args(&["symbolic-ref", "HEAD"])
-        .output()
-        .map_err(|_| "Failed to get full branch name from `git symbolic-ref HEAD`")?
-        .stdout_as_string();
-
-    match full_branch_name.split('/').last() {
-        Some(x) => Ok(x.trim().to_string()),
-        None => Err("Unable to get branch name from `git symbolic-ref HEAD`".to_string()),
-    }
-}
-
-fn cd(path: &str) {
-    env::set_current_dir(path).unwrap();
-}
-
 fn list_directories() -> Vec<String> {
     let current_dir = env::current_dir().unwrap();
     fs::read_dir(current_dir)
@@ -56,14 +39,29 @@ fn list_directories() -> Vec<String> {
         .collect()
 }
 
-fn is_git_working_tree_clean() -> bool {
-    match Command::new("git")
-        .args(&["status", "--porcelain"])
-        .output()
-    {
-        Ok(output) => output.status.success() && output.stdout.is_empty(),
-        Err(_) => false,
+fn process_repo(
+    path: &str,
+    unclean_repos: &mut Vec<String>,
+    checked_out_branches: &mut Vec<(String, String)>,
+) -> Result<(), git2::Error> {
+    let repo = git2::Repository::open(path)?;
+    let mut remote = repo.find_remote("origin")?;
+    let _ = remote.fetch(&[], None, None)?;
+
+    let index = repo.index()?;
+    if !index.is_empty() {
+        unclean_repos.push(path.to_string());
+    } else {
     }
+
+    match repo.head()?.name() {
+        Some(branch) => checked_out_branches.push((
+            path.to_string(),
+            branch.replace("refs/heads/", "").to_string(),
+        )),
+        None => {}
+    }
+    Ok(())
 }
 
 fn main() {
@@ -71,22 +69,7 @@ fn main() {
     let mut checked_out_branches = vec![];
 
     for repo in list_directories() {
-        cd(&repo);
-        println!("Entering {}...", repo);
-        let _ = Command::new("git").arg("status").status().unwrap();
-
-        checked_out_branches.push((repo.clone(), current_branch().unwrap()));
-
-        if is_git_working_tree_clean() {
-            println!("!!! {} is clean, pulling!", repo);
-            let _ = Command::new("git").arg("pull").status().unwrap();
-        } else {
-            println!("!!! {} is not clean, skipping!", repo);
-            unclean_repos.push(repo);
-        }
-
-        cd("..");
-        println!("");
+        let _ = process_repo(&repo, &mut unclean_repos, &mut checked_out_branches);
     }
 
     if !unclean_repos.is_empty() {
