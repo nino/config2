@@ -52,10 +52,20 @@ lsp.configure('lua_ls', {
 })
 lsp.setup()
 
+
+local actions = require("telescope.actions")
 require "telescope".setup {
     defaults = {
         preview = {
             treesitter = false
+        },
+        mappings = {
+            i = {
+                ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
+            },
+            n = {
+                ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
+            }
         }
     }
 }
@@ -134,7 +144,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('ayu')
+vim.cmd.colorscheme('gruvbox')
 
 -- Autocommands
 vim.cmd [[
