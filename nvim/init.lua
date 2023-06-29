@@ -124,6 +124,14 @@ end)
 
 vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
 
+-- Digraphs
+local utils = require("utils")
+-- I don't really care about these specific digraphs, but it's nice to have the
+-- convenience function for defining them
+utils.set_digraph("((", "«")
+utils.set_digraph("))", "»")
+
+-- Commands
 vim.cmd [[command! -range=% DP :<line1>,<line2>diffput]]
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
