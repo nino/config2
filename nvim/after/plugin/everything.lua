@@ -109,7 +109,12 @@ colors.generate()   -- Pass `true` to enable mirage
 require('ayu').setup({
     mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
     overrides = function()
-        return { Comment = { fg = colors.comment } }
+        return {
+            Comment = { fg = colors.comment },
+            NonText = { fg = colors.comment },
+            LineNr = { fg = colors.comment },
+            SpecialKey = { fg = colors.comment },
+        }
     end
 })
 
