@@ -1,5 +1,6 @@
 -- LSP-zero
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
@@ -7,10 +8,12 @@ lsp.ensure_installed({
     'lua_ls',
     'tailwindcss',
     'julials',
+    'denols',
 })
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+    client.config.flags.allow_incremental_sync = true
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
         vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             -- disable virtual text
@@ -23,6 +26,19 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.configure('sourcekit', {})
+lsp.configure('denols', {
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+lsp.configure('tsserver', {
+    on_attach = function(client, bufnr)
+        client.server_capabilities.document_formatting = false
+    end,
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    single_file_support = false
+})
+
+
 lsp.configure('julials', {})
 lsp.configure('lua_ls', {
     settings = {
