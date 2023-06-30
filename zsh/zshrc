@@ -65,7 +65,7 @@ alias uuid='uuidgen | tr -d "\n" | pbcopy'
 alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.lock'
 alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"
 alias com="git add . && git commit -m"
-alias mik="yarn mikro-orm"
+alias awk='gawk'
 
 if [ -f ~/.config/secret-config2/secret_zsh ]; then
   source ~/.config/secret-config2/secret_zsh
