@@ -470,7 +470,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-18T17:36:05Z</date>
+				<date>2023-06-29T18:16:51Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +484,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-16T09:41:46Z</date>
+				<date>2023-06-29T18:16:51Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1098,7 +1098,7 @@
 			<key>Beautiful_Soup</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-23T14:13:53Z</date>
+				<date>2023-06-27T19:48:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1788,7 +1788,7 @@
 			<key>http://kapeli.com/feeds/Julia.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-06-15T09:24:19Z</date>
+				<date>2023-06-27T19:48:58Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Lua_5.4.xml</key>
 			<dict>
