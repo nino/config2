@@ -50,5 +50,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/justin2004/vim-apl'
     use 'Julian/lean.nvim'
     use 'https://github.com/vantaboard/sqlfluff.nvim'
+    use 'bdesham/biogoo'
+    use 'https://github.com/Shatur/neovim-ayu'
     use 'https://github.com/JuliaEditorSupport/julia-vim'
 end)

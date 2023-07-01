@@ -1,5 +1,6 @@
 -- LSP-zero
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
@@ -7,10 +8,12 @@ lsp.ensure_installed({
     'lua_ls',
     'tailwindcss',
     'julials',
+    'denols',
 })
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+    client.config.flags.allow_incremental_sync = true
     vim.lsp.handlers["textDocument/publishDiagnostics"] =
         vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             -- disable virtual text
@@ -23,6 +26,19 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.configure('sourcekit', {})
+lsp.configure('denols', {
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+lsp.configure('tsserver', {
+    on_attach = function(client, bufnr)
+        client.server_capabilities.document_formatting = false
+    end,
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    single_file_support = false
+})
+
+
 lsp.configure('julials', {})
 lsp.configure('lua_ls', {
     settings = {
@@ -36,10 +52,20 @@ lsp.configure('lua_ls', {
 })
 lsp.setup()
 
+
+local actions = require("telescope.actions")
 require "telescope".setup {
     defaults = {
         preview = {
             treesitter = false
+        },
+        mappings = {
+            i = {
+                ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
+            },
+            n = {
+                ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
+            }
         }
     }
 }
@@ -103,7 +129,22 @@ require("catppuccin").setup({
     color_overrides = {},
     custom_highlights = {},
 })
-vim.cmd.colorscheme('lunaperche')
+
+local colors = require('ayu.colors')
+colors.generate()   -- Pass `true` to enable mirage
+require('ayu').setup({
+    mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+    overrides = function()
+        return {
+            Comment = { fg = colors.comment },
+            NonText = { fg = colors.comment },
+            LineNr = { fg = colors.comment },
+            SpecialKey = { fg = colors.comment },
+        }
+    end
+})
+
+vim.cmd.colorscheme('gruvbox')
 
 -- Autocommands
 vim.cmd [[

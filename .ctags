@@ -16,3 +16,4 @@
 --exclude=.yarn
 --exclude=storybook-static
 --exclude=build
+--exclude=.build
