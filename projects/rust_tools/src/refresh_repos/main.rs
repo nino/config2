@@ -1,9 +1,23 @@
+use anyhow::anyhow;
 use rust_tools::cmd_helpers::OutputExt;
 use std::env;
 use std::fs;
 use std::io::Write;
 use std::process::Command;
 use termcolor::{Color, ColorChoice, ColorSpec, StandardStream, WriteColor};
+
+trait LogErr {
+    fn log_err(self, msg: String) -> Self;
+}
+
+impl<T, E: std::fmt::Debug> LogErr for Result<T, E> {
+    fn log_err(self, msg: String) -> Self {
+        if let Err(e) = &self {
+            println!("{}: {:?}", msg, e);
+        }
+        self
+    }
+}
 
 #[allow(dead_code)]
 fn trunk_branch_name() -> Result<String, String> {
@@ -39,19 +53,44 @@ fn list_directories() -> Vec<String> {
         .collect()
 }
 
+fn fetch(path: &str) -> anyhow::Result<()> {
+    println!("Fetching {}…", path);
+    Command::new("git")
+        .current_dir(path)
+        .args(&["fetch"])
+        .output()
+        .map_err(|_| anyhow!("Failed to fetch {}", path))?;
+    Ok(())
+}
+
+fn update(path: &str) -> anyhow::Result<()> {
+    Command::new("git")
+        .current_dir(path)
+        .args(&["pull"])
+        .output()
+        .map_err(|_| anyhow!("Failed to fetch {}", path))?;
+    Ok(())
+}
+
+struct ProcessResult {
+    path: String,
+    unclean: bool,
+    current_branch: String,
+}
+
 fn process_repo(
     path: &str,
     unclean_repos: &mut Vec<String>,
     checked_out_branches: &mut Vec<(String, String)>,
-) -> Result<(), git2::Error> {
+) -> anyhow::Result<()> {
     let repo = git2::Repository::open(path)?;
-    let mut remote = repo.find_remote("origin")?;
-    let _ = remote.fetch(&[], None, None)?;
+    fetch(path).log_err(format!("Failed to fetch {}", path))?;
 
     let index = repo.index()?;
     if !index.is_empty() {
         unclean_repos.push(path.to_string());
     } else {
+        update(path).log_err(format!("Failed to update {}", path))?;
     }
 
     match repo.head()?.name() {
