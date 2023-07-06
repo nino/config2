@@ -122,7 +122,20 @@ vim.keymap.set("n", "cp", function()
     os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
 
-vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
+vim.cmd [[
+    imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+
+    function! s:ToggleHere()
+        let cursorcolumn = getcurpos()[2]
+        if &colorcolumn == cursorcolumn
+            let &colorcolumn = ''
+        else
+            let &colorcolumn = cursorcolumn
+        endif
+    endfunction
+    command! Here call s:ToggleHere()
+    nnoremap Q :Here<CR>
+]]
 
 -- Digraphs
 local utils = require("utils")
