@@ -145,8 +145,11 @@ utils.set_digraph("((", "«")
 utils.set_digraph("))", "»")
 
 -- Commands
+vim.cmd("command! Q :mksession! ~/Prevsession.vim | qa")
 vim.cmd [[command! -range=% DP :<line1>,<line2>diffput]]
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
+vim.api.nvim_create_user_command("GC", function() vim.cmd(":Git commit") end, {})
+vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 
