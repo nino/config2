@@ -9,6 +9,7 @@ lsp.ensure_installed({
     'tailwindcss',
     'julials',
     'denols',
+    'zls',
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -96,7 +97,7 @@ cmp.setup({
 
 -- Colors
 require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = {
         -- :h background
         light = "latte",
@@ -144,7 +145,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('ayu')
 
 -- Autocommands
 vim.cmd [[
