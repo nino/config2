@@ -10,7 +10,11 @@ lsp.ensure_installed({
     'julials',
     'denols',
     'zls',
+    'ocamllsp',
+    'gopls'
 })
+
+vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
