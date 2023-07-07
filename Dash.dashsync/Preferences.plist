@@ -1775,6 +1775,11 @@
 				<key>date</key>
 				<date>2019-04-24T10:58:55Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Go.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-07-07T13:32:37Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/HTML.xml</key>
 			<dict>
 				<key>date</key>
@@ -1894,11 +1899,6 @@
 				<date>2022-02-25T19:39:14Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/EmberJS.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:10Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Go.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2023-05-04T19:04:10Z</date>
