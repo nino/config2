@@ -11,10 +11,12 @@ lsp.ensure_installed({
     'denols',
     'zls',
     'ocamllsp',
-    'gopls'
+    'gopls',
+    'eslint',
+    'clangd'
 })
 
-vim.cmd ":Copilot disable"
+-- vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
@@ -43,8 +45,15 @@ lsp.configure('tsserver', {
     single_file_support = false
 })
 
+lsp.configure('eslint', {
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    single_file_support = false
+})
+
+
 
 lsp.configure('julials', {})
+lsp.configure('clangd', {})
 lsp.configure('lua_ls', {
     settings = {
         Lua = {
@@ -149,7 +158,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('ayu')
+vim.cmd.colorscheme('gruvbox')
 
 -- Autocommands
 vim.cmd [[
