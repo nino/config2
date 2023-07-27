@@ -456,7 +456,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-24T03:18:32Z</date>
+				<date>2023-07-25T08:01:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1117,6 +1117,29 @@
 					<string>usercontribBeautiful_Soup</string>
 					<key>uniqueIdentifier</key>
 					<string>Beautiful_Soup</string>
+				</dict>
+			</dict>
+			<key>Crystal</key>
+			<dict>
+				<key>date</key>
+				<date>2023-07-26T08:10:21Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Crystal Language</string>
+						<string>crystal-lang</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Crystal#readme</string>
+					<key>authorLinkText</key>
+					<string>Sijawusz Pur Rahnama</string>
+					<key>name</key>
+					<string>Crystal</string>
+					<key>platform</key>
+					<string>usercontribCrystal</string>
+					<key>uniqueIdentifier</key>
+					<string>Crystal</string>
 				</dict>
 			</dict>
 			<key>Deno</key>
