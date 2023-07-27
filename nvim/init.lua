@@ -138,11 +138,11 @@ vim.cmd [[
 ]]
 
 -- Digraphs
-local utils = require("utils")
+-- local utils = require("utils")
 -- I don't really care about these specific digraphs, but it's nice to have the
 -- convenience function for defining them
-utils.set_digraph("((", "«")
-utils.set_digraph("))", "»")
+-- utils.set_digraph("((", "«")
+-- utils.set_digraph("))", "»")
 
 -- Commands
 vim.cmd("command! Q :mksession! ~/Prevsession.vim | qa")
@@ -152,6 +152,7 @@ vim.api.nvim_create_user_command("GC", function() vim.cmd(":Git commit") end, {}
 vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
+vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 
 vim.cmd [[
 function! s:MkNonExDir(file, buf)
@@ -174,4 +175,7 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+aunmenu PopUp.How-to\ disable\ mouse
+aunmenu PopUp.-1-
 ]]
