@@ -13,7 +13,7 @@ lsp.ensure_installed({
     'ocamllsp',
     'gopls',
     'eslint',
-    'clangd'
+    'clangd',
 })
 
 -- vim.cmd ":Copilot disable"
@@ -158,7 +158,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('lunaperche')
 
 -- Autocommands
 vim.cmd [[
