@@ -14,6 +14,7 @@ lsp.ensure_installed({
     'gopls',
     'eslint',
     'clangd',
+    'svelte',
 })
 
 -- vim.cmd ":Copilot disable"
@@ -44,6 +45,7 @@ lsp.configure('tsserver', {
     root_dir = lspconfig.util.root_pattern("package.json"),
     single_file_support = false
 })
+lsp.configure('svelte', {})
 
 lsp.configure('eslint', {
     root_dir = lspconfig.util.root_pattern("package.json"),
@@ -158,7 +160,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('lunaperche')
+vim.cmd.colorscheme('gruvbox')
 
 -- Autocommands
 vim.cmd [[
