@@ -9,7 +9,15 @@ lsp.ensure_installed({
     'tailwindcss',
     'julials',
     'denols',
+    'zls',
+    'ocamllsp',
+    'gopls',
+    'eslint',
+    'clangd',
+    'svelte',
 })
+
+-- vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
@@ -37,9 +45,17 @@ lsp.configure('tsserver', {
     root_dir = lspconfig.util.root_pattern("package.json"),
     single_file_support = false
 })
+lsp.configure('svelte', {})
+
+lsp.configure('eslint', {
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    single_file_support = false
+})
+
 
 
 lsp.configure('julials', {})
+lsp.configure('clangd', {})
 lsp.configure('lua_ls', {
     settings = {
         Lua = {
@@ -96,7 +112,7 @@ cmp.setup({
 
 -- Colors
 require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = {
         -- :h background
         light = "latte",

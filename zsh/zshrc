@@ -330,3 +330,5 @@ export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
 # For rm-improved
 export GRAVEYARD=~/.Trash
+
+export AWS_VAULT_BACKEND=keychain

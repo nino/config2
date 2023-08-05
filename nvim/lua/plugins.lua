@@ -2,8 +2,14 @@
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
+local packer = require('packer')
+packer.init({
+    git = {
+        clone_timeout = 600, -- Timeout, in seconds, for git clones
+    },
+})
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'https://github.com/tpope/vim-commentary'
@@ -54,4 +60,9 @@ return require('packer').startup(function(use)
     use 'https://github.com/Shatur/neovim-ayu'
     use 'https://github.com/JuliaEditorSupport/julia-vim'
     use { 'https://github.com/mlochbaum/BQN', rtp = 'editors/vim' }
+    use 'https://github.com/leafOfTree/vim-svelte-plugin'
+    use 'https://github.com/agude/vim-eldar'
+    use 'https://github.com/RRethy/nvim-base16'
+    use 'https://github.com/ishan9299/modus-theme-vim'
+    use { 'unisonweb/unison', branch = 'trunk', rtp = 'editor-support/vim' }
 end)

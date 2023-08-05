@@ -1,9 +1,24 @@
+use anyhow::anyhow;
+use rayon::prelude::*;
 use rust_tools::cmd_helpers::OutputExt;
 use std::env;
 use std::fs;
 use std::io::Write;
 use std::process::Command;
 use termcolor::{Color, ColorChoice, ColorSpec, StandardStream, WriteColor};
+
+trait LogErr {
+    fn log_err(self, msg: String) -> Self;
+}
+
+impl<T, E: std::fmt::Debug> LogErr for Result<T, E> {
+    fn log_err(self, msg: String) -> Self {
+        if let Err(e) = &self {
+            println!("{}: {:?}", msg, e);
+        }
+        self
+    }
+}
 
 #[allow(dead_code)]
 fn trunk_branch_name() -> Result<String, String> {
@@ -39,37 +54,72 @@ fn list_directories() -> Vec<String> {
         .collect()
 }
 
-fn process_repo(
-    path: &str,
-    unclean_repos: &mut Vec<String>,
-    checked_out_branches: &mut Vec<(String, String)>,
-) -> Result<(), git2::Error> {
+fn fetch(path: &str) -> anyhow::Result<()> {
+    println!("Fetching {}…", path);
+    Command::new("git")
+        .current_dir(path)
+        .args(&["fetch"])
+        .output()
+        .map_err(|_| anyhow!("Failed to fetch {}", path))?;
+    Ok(())
+}
+
+fn update(path: &str) -> anyhow::Result<()> {
+    Command::new("git")
+        .current_dir(path)
+        .args(&["pull"])
+        .output()
+        .map_err(|_| anyhow!("Failed to update {}", path))?;
+    Ok(())
+}
+
+struct ProcessResult {
+    path: String,
+    unclean: bool,
+    current_branch: String,
+}
+
+fn process_repo(path: &str) -> anyhow::Result<ProcessResult> {
+    let mut result = ProcessResult {
+        path: String::from(path),
+        unclean: false,
+        current_branch: String::from("HEAD"),
+    };
     let repo = git2::Repository::open(path)?;
-    let mut remote = repo.find_remote("origin")?;
-    let _ = remote.fetch(&[], None, None)?;
+    fetch(path).log_err(format!("Failed to fetch {}", path))?;
 
     let index = repo.index()?;
     if !index.is_empty() {
-        unclean_repos.push(path.to_string());
+        result.unclean = true;
     } else {
+        update(path).log_err(format!("Failed to update {}", path))?;
     }
 
     match repo.head()?.name() {
-        Some(branch) => checked_out_branches.push((
-            path.to_string(),
-            branch.replace("refs/heads/", "").to_string(),
-        )),
+        Some(branch) => result.current_branch = branch.replace("refs/heads/", "").to_string(),
         None => {}
     }
-    Ok(())
+    Ok(result)
 }
 
 fn main() {
     let mut unclean_repos = vec![];
     let mut checked_out_branches = vec![];
 
-    for repo in list_directories() {
-        let _ = process_repo(&repo, &mut unclean_repos, &mut checked_out_branches);
+    let dirs = list_directories();
+    let results: Vec<anyhow::Result<ProcessResult>> =
+        dirs.par_iter().map(|path| process_repo(&path)).collect();
+
+    for result in results.iter() {
+        match result {
+            Ok(res) => {
+                if res.unclean {
+                    unclean_repos.push(res.path.clone());
+                }
+                checked_out_branches.push((res.path.clone(), res.current_branch.clone()));
+            }
+            Err(_) => {}
+        }
     }
 
     if !unclean_repos.is_empty() {

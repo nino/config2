@@ -122,20 +122,37 @@ vim.keymap.set("n", "cp", function()
     os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
 
-vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")]]
+vim.cmd [[
+    imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+
+    function! s:ToggleHere()
+        let cursorcolumn = getcurpos()[2]
+        if &colorcolumn == cursorcolumn
+            let &colorcolumn = ''
+        else
+            let &colorcolumn = cursorcolumn
+        endif
+    endfunction
+    command! Here call s:ToggleHere()
+    nnoremap Q :Here<CR>
+]]
 
 -- Digraphs
-local utils = require("utils")
+-- local utils = require("utils")
 -- I don't really care about these specific digraphs, but it's nice to have the
 -- convenience function for defining them
-utils.set_digraph("((", "«")
-utils.set_digraph("))", "»")
+-- utils.set_digraph("((", "«")
+-- utils.set_digraph("))", "»")
 
 -- Commands
+vim.cmd("command! Q :mksession! ~/Prevsession.vim | qa")
 vim.cmd [[command! -range=% DP :<line1>,<line2>diffput]]
 vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
+vim.api.nvim_create_user_command("GC", function() vim.cmd(":Git commit") end, {})
+vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
+vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 
 vim.cmd [[
 function! s:MkNonExDir(file, buf)
@@ -158,4 +175,7 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+aunmenu PopUp.How-to\ disable\ mouse
+aunmenu PopUp.-1-
 ]]
