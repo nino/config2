@@ -53,4 +53,5 @@ return require('packer').startup(function(use)
     use 'bdesham/biogoo'
     use 'https://github.com/Shatur/neovim-ayu'
     use 'https://github.com/JuliaEditorSupport/julia-vim'
+    use { 'https://github.com/mlochbaum/BQN', rtp = 'editors/vim' }
 end)
