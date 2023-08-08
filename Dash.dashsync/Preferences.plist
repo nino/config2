@@ -425,6 +425,20 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>Phrogz/context-blender</key>
+			<dict>
+				<key>date</key>
+				<date>2023-07-15T00:23:03Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>Phrogz/context-blender</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>Phrogz/context-blender</string>
+				</dict>
+			</dict>
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
@@ -470,7 +484,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-24T03:18:42Z</date>
+				<date>2023-07-26T21:25:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +498,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-24T03:18:42Z</date>
+				<date>2023-07-26T21:25:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -526,7 +540,7 @@
 			<key>tauri-apps/tauri-docs</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-05T10:42:47Z</date>
+				<date>2023-07-15T00:31:14Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -568,7 +582,7 @@
 			<key>testing-library/user-event</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T12:54:21Z</date>
+				<date>2023-07-15T00:22:58Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -577,6 +591,20 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>testing-library/user-event</string>
+				</dict>
+			</dict>
+			<key>uhlik/bpy</key>
+			<dict>
+				<key>date</key>
+				<date>2023-07-15T00:22:51Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>uhlik/bpy</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>uhlik/bpy</string>
 				</dict>
 			</dict>
 		</dict>
@@ -1005,7 +1033,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-06T08:32:30Z</date>
+				<date>2023-07-05T15:25:06Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1195,6 +1223,26 @@
 					<string>Jest</string>
 				</dict>
 			</dict>
+			<key>Kotlin</key>
+			<dict>
+				<key>date</key>
+				<date>2023-07-26T21:26:02Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Kotlin#readme</string>
+					<key>authorLinkText</key>
+					<string>Xm798</string>
+					<key>name</key>
+					<string>Kotlin</string>
+					<key>platform</key>
+					<string>usercontribKotlin</string>
+					<key>uniqueIdentifier</key>
+					<string>Kotlin</string>
+				</dict>
+			</dict>
 			<key>LLVM</key>
 			<dict>
 				<key>date</key>
@@ -1238,6 +1286,24 @@
 					<string>usercontribNeovim</string>
 					<key>uniqueIdentifier</key>
 					<string>Neovim</string>
+				</dict>
+			</dict>
+			<key>Perl6</key>
+			<dict>
+				<key>date</key>
+				<date>2023-07-26T21:23:51Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Perl6#readme</string>
+					<key>authorLinkText</key>
+					<string>Hans-J. Schmid</string>
+					<key>name</key>
+					<string>Perl 6</string>
+					<key>platform</key>
+					<string>usercontribPerl6</string>
+					<key>uniqueIdentifier</key>
+					<string>Perl6</string>
 				</dict>
 			</dict>
 			<key>PostGIS</key>
@@ -1801,7 +1867,7 @@
 			<key>http://kapeli.com/feeds/Go.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-07T13:32:37Z</date>
+				<date>2023-07-26T21:24:03Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/HTML.xml</key>
 			<dict>
