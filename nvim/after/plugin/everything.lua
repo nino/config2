@@ -15,6 +15,7 @@ lsp.ensure_installed({
     'eslint',
     'clangd',
     'svelte',
+    'gleam',
 })
 
 -- vim.cmd ":Copilot disable"
