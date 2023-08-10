@@ -161,7 +161,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('ayu')
 
 -- Autocommands
 vim.cmd [[
