@@ -1,10 +1,10 @@
 local mod = {}
 
--- @param {string} c
--- @return {number} codepoint
+--- @param c string
+--- @return integer
 function mod.utf8_to_unicode_codepoint(c)
     local b1, b2, b3, b4 = c:byte(1, -1)
-    local codepoint
+    local codepoint --- @type integer
     if b1 < 0x80 then
         codepoint = b1
     elseif b1 < 0xE0 then
@@ -17,9 +17,9 @@ function mod.utf8_to_unicode_codepoint(c)
     return codepoint
 end
 
--- @param {string} keys
--- @param {string} char
--- @return {void}
+--- @param keys string
+--- @param char string
+--- @return nil
 function mod.set_digraph(keys, char)
     vim.cmd("digraph " .. keys .. " " .. mod.utf8_to_unicode_codepoint(char))
 end

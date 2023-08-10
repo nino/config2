@@ -15,6 +15,7 @@ lsp.ensure_installed({
     'eslint',
     'clangd',
     'svelte',
+    'gleam',
 })
 
 -- vim.cmd ":Copilot disable"
@@ -160,7 +161,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('ayu')
 
 -- Autocommands
 vim.cmd [[

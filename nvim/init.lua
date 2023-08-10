@@ -115,7 +115,7 @@ vim.keymap.set("n", "<M-2>", "@@")
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
-vim.keymap.set("n", "<leader>p", ":!prettier --write %<cr>")
+vim.keymap.set("n", "<leader>p", ":!prettier --write '%'<cr>")
 
 vim.keymap.set("n", "cp", function()
     local filepath = vim.fn.expand('%')
