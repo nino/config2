@@ -26,7 +26,7 @@
 			<key>text</key>
 			<string>SourceGraph for {query} in local instance</string>
 			<key>url</key>
-			<string>http://127.0.0.1:3080/search?q={query}</string>
+			<string>http://localhost:3080/search?q={query}</string>
 		</dict>
 		<key>3967A3BE-64E8-4240-B904-6FD44DB99040</key>
 		<dict>
