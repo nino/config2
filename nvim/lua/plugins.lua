@@ -66,4 +66,5 @@ return packer.startup(function(use)
     use 'https://github.com/ishan9299/modus-theme-vim'
     use { 'unisonweb/unison', branch = 'trunk', rtp = 'editor-support/vim' }
     use 'https://github.com/gleam-lang/gleam.vim'
+    use 'https://github.com/godlygeek/tabular'
 end)
