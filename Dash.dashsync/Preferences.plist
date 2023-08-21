@@ -428,7 +428,7 @@
 			<key>Phrogz/context-blender</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-15T00:23:03Z</date>
+				<date>2023-08-16T07:59:14Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -596,7 +596,7 @@
 			<key>uhlik/bpy</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-15T00:22:51Z</date>
+				<date>2023-08-16T07:58:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1339,7 +1339,7 @@
 			<key>Kotlin</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-26T21:26:02Z</date>
+				<date>2023-08-15T14:53:00Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1404,7 +1404,7 @@
 			<key>Perl6</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-26T21:23:51Z</date>
+				<date>2023-08-15T14:52:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -2099,6 +2099,11 @@
 			<dict>
 				<key>date</key>
 				<date>2023-05-04T19:04:10Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Elixir.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-15T14:52:39Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/EmberJS.xml</key>
 			<dict>

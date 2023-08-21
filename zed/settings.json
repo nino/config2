@@ -7,9 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "show_copilot_suggestions": true,
   "theme": "Ayu Dark",
   "base_keymap": "SublimeText",
-  "buffer_font_size": 14,
-  "vim_mode": true,
-  "buffer_font_family": "JuliaMono"
+  "buffer_font_size": 13,
+  "vim_mode": false,
+  "buffer_font_family": "JuliaMono",
+  "soft_wrap": "editor_width",
+  "remove_trailing_whitespace_on_save": true,
+  "show_wrap_guides": true
 }

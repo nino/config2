@@ -69,4 +69,6 @@ return packer.startup(function(use)
     use 'https://github.com/gleam-lang/gleam.vim'
     use 'https://github.com/MrcJkb/haskell-tools.nvim'
     use 'https://github.com/kblin/vim-fountain'
+    use 'https://github.com/godlygeek/tabular'
+    -- use 'https://github.com/sourcegraph/sg.nvim'
 end)
