@@ -1972,11 +1972,6 @@
 				<key>date</key>
 				<date>2023-05-04T13:21:47Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/Elixir.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-08-10T19:22:57Z</date>
-			</dict>
 			<key>http://kapeli.com/feeds/Font_Awesome.xml</key>
 			<dict>
 				<key>date</key>
@@ -2103,7 +2098,7 @@
 			<key>http://kapeli.com/feeds/Elixir.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-15T14:52:39Z</date>
+				<date>2023-08-21T18:40:37Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/EmberJS.xml</key>
 			<dict>
