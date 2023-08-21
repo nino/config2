@@ -67,4 +67,5 @@ return packer.startup(function(use)
     use { 'unisonweb/unison', branch = 'trunk', rtp = 'editor-support/vim' }
     use 'https://github.com/gleam-lang/gleam.vim'
     use 'https://github.com/godlygeek/tabular'
+    -- use 'https://github.com/sourcegraph/sg.nvim'
 end)
