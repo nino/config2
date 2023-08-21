@@ -335,3 +335,5 @@ export AWS_VAULT_BACKEND=keychain
 
 export PATH=$PATH:/Users/nino/code-friends/roc-release
 export PATH=$PATH:/Users/nino/code-friends/odin-release
+
+[ -f "/Users/Nino/.ghcup/env" ] && source "/Users/Nino/.ghcup/env" # ghcup-env
