@@ -161,7 +161,7 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('ayu')
+vim.cmd.colorscheme('catppuccin')
 
 -- Autocommands
 vim.cmd [[
