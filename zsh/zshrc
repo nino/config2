@@ -332,3 +332,6 @@ export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 export GRAVEYARD=~/.Trash
 
 export AWS_VAULT_BACKEND=keychain
+
+export PATH=$PATH:/Users/nino/code-friends/roc-release
+export PATH=$PATH:/Users/nino/code-friends/odin-release
