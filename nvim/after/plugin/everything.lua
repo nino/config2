@@ -10,7 +10,7 @@ lsp.ensure_installed({
     'julials',
     'denols',
     'zls',
-    'ocamllsp',
+    -- 'ocamllsp',
     'gopls',
     'eslint',
     'clangd',
@@ -53,8 +53,6 @@ lsp.configure('eslint', {
     single_file_support = false
 })
 
-
-
 lsp.configure('julials', {})
 lsp.configure('clangd', {})
 lsp.configure('lua_ls', {
@@ -67,6 +65,19 @@ lsp.configure('lua_ls', {
         }
     }
 })
+
+
+function gleam_test_lsp()
+  return {
+    name = 'gleam-test-lsp',
+    cmd = { "/Users/Nino/code-friends/gleam/target/debug/gleam", "lsp" },
+    filetypes = "gleam",
+    -- root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
+    single_file_support = true,
+  }
+end
+
+
 lsp.setup()
 
 

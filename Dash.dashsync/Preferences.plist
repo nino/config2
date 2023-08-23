@@ -484,7 +484,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-26T21:25:47Z</date>
+				<date>2023-08-10T19:24:41Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -994,7 +994,106 @@
 	<key>DHHexRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>gleam</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:23:14Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam</string>
+				</dict>
+			</dict>
+			<key>gleam_elli</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:23:23Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_elli</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_elli</string>
+				</dict>
+			</dict>
+			<key>gleam_http</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:23:28Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_http</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_http</string>
+				</dict>
+			</dict>
+			<key>gleam_javascript</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-13T10:53:41Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_javascript</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_javascript</string>
+				</dict>
+			</dict>
+			<key>gleam_nodejs</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:23:33Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_nodejs</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_nodejs</string>
+				</dict>
+			</dict>
+			<key>gleam_stdlib</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:23:37Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_stdlib</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_stdlib</string>
+				</dict>
+			</dict>
+			<key>react_gleam</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:23:47Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>react_gleam</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>react_gleam</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
@@ -1033,7 +1132,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-05T15:25:06Z</date>
+				<date>2023-08-13T10:54:05Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1042,6 +1141,20 @@
 					<string>rubyGems</string>
 					<key>uniqueIdentifier</key>
 					<string>nokogiri</string>
+				</dict>
+			</dict>
+			<key>sinatra</key>
+			<dict>
+				<key>date</key>
+				<date>2023-08-10T19:24:24Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sinatra</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>sinatra</string>
 				</dict>
 			</dict>
 		</dict>
@@ -1150,7 +1263,7 @@
 			<key>Crystal</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-26T08:10:21Z</date>
+				<date>2023-08-10T19:22:50Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1985,7 +2098,7 @@
 			<key>http://kapeli.com/feeds/Elixir.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-15T14:52:39Z</date>
+				<date>2023-08-21T18:40:37Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/EmberJS.xml</key>
 			<dict>
@@ -2260,7 +2373,7 @@
 	<key>shouldShowStatusIcon</key>
 	<false/>
 	<key>shouldStartAtLogin</key>
-	<true/>
+	<false/>
 	<key>shouldSyncBookmarks</key>
 	<true/>
 	<key>shouldSyncDocsets</key>
