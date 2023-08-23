@@ -72,7 +72,6 @@ function gleam_test_lsp()
     name = 'gleam-test-lsp',
     cmd = { "/Users/Nino/code-friends/gleam/target/debug/gleam", "lsp" },
     filetypes = "gleam",
-    -- root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
     single_file_support = true,
   }
 end
