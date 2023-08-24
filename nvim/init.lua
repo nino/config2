@@ -13,7 +13,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
-vim.opt.bg = 'light'
+vim.opt.bg = 'dark'
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
@@ -54,6 +54,7 @@ vim.g.maplocalleader = ","
 local telescope_builtin = require('telescope.builtin')
 local telescope = require("telescope")
 vim.keymap.set('n', '<leader>ff', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
+vim.keymap.set('n', '<c-f>', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
 vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
