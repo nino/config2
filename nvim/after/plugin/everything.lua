@@ -16,6 +16,7 @@ lsp.ensure_installed({
     'clangd',
     'svelte',
     'gleam',
+    'pylsp'
 })
 
 -- vim.cmd ":Copilot disable"
@@ -68,15 +69,14 @@ lsp.configure('lua_ls', {
 
 
 function gleam_test_lsp()
-  return {
-    name = 'gleam-test-lsp',
-    cmd = { "/Users/Nino/code-friends/gleam/target/debug/gleam", "lsp" },
-    filetypes = "gleam",
-    -- root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
-    single_file_support = true,
-  }
+    return {
+        name = 'gleam-test-lsp',
+        cmd = { "/Users/Nino/immo/gleam/target/debug/gleam", "lsp" },
+        filetypes = "gleam",
+        -- root_dir = vim.fs.dirname(vim.fs.find({ '_CoqProject' }, { upward = true })[1]),
+        single_file_support = true,
+    }
 end
-
 
 lsp.setup()
 
@@ -125,7 +125,6 @@ cmp.setup({
 -- Colors
 require("catppuccin").setup({
     background = {
-        -- :h background
         light = "latte",
         dark = "mocha",
     },
@@ -137,8 +136,9 @@ require("catppuccin").setup({
         shade = "dark",
         percentage = 0.15,
     },
-    no_italic = true, -- Force no italic
-    no_bold = false,  -- Force no bold
+    no_italic = false, -- Force no italic
+    no_bold = false,   -- Force no bold
+    no_underline = true,
     styles = {
         comments = {},
         conditionals = {},
@@ -154,7 +154,16 @@ require("catppuccin").setup({
         operators = {},
     },
     color_overrides = {},
-    custom_highlights = {},
+    custom_highlights = function(colors)
+        return {
+            DiagnosticUnderlineError = { bg = colors.surface1 },
+            DiagnosticUnderlineWarn = { bg = colors.surface0 },
+            -- Comment = { fg = colors.flamingo },
+            -- TabLineSel = { bg = colors.pink },
+            -- CmpBorder = { fg = colors.surface2 },
+            -- Pmenu = { bg = colors.none },
+        }
+    end
 })
 
 local colors = require('ayu.colors')
