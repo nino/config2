@@ -15,7 +15,7 @@ lsp.ensure_installed({
     'eslint',
     'clangd',
     'svelte',
-    'gleam',
+    -- 'gleam',
     'pylsp'
 })
 
@@ -67,15 +67,10 @@ lsp.configure('lua_ls', {
     }
 })
 
-
-function gleam_test_lsp()
-  return {
-    name = 'gleam-test-lsp',
-    cmd = { "/Users/Nino/code-friends/gleam/target/debug/gleam", "lsp" },
-    filetypes = "gleam",
-    single_file_support = true,
-  }
-end
+lsp.configure('gleam', {
+    -- set custom executable path
+    cmd = { "/Users/nino/.cargo/bin/gleam", "lsp" },
+})
 
 lsp.setup()
 
