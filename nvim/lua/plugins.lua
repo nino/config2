@@ -71,4 +71,6 @@ return packer.startup(function(use)
     use 'https://github.com/kblin/vim-fountain'
     use 'https://github.com/godlygeek/tabular'
     -- use 'https://github.com/sourcegraph/sg.nvim'
+    use 'https://github.com/elixir-tools/elixir-tools.nvim'
+    use 'elixir-editors/vim-elixir'
 end)

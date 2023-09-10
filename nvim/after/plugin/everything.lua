@@ -16,7 +16,10 @@ lsp.ensure_installed({
     'clangd',
     'svelte',
     'gleam',
-    'pylsp'
+    'pylsp',
+    'erlangls',
+    'elixirls',
+    'terraformls',
 })
 
 -- vim.cmd ":Copilot disable"
@@ -34,6 +37,22 @@ lsp.on_attach(function(client, bufnr)
             update_in_insert = false
         })
 end)
+
+lsp.skip_server_setup({'pyright'})
+lsp.configure('pylsp', {
+    settings = {
+        pylsp = {
+            configurationSources = { 'flake8' },
+            plugins = {
+                pycodestyle = { enabled = false },
+                flake8 = {
+                    enabled = true,
+                    ignore = {},
+                }
+            }
+        }
+    }
+})
 
 lsp.configure('sourcekit', {})
 lsp.configure('denols', {
@@ -188,3 +207,7 @@ vim.cmd [[
     autocmd BufRead,BufNewFile *.bqn set filetype=bqn
   augroup END
 ]]
+
+
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.ex]])
+vim.cmd([[autocmd BufRead,BufNewFile *.ex set filetype=elixir]])
