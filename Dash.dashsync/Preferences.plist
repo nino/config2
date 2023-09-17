@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-29T07:46:31Z</date>
+				<date>2023-09-13T09:56:26Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +484,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-30T07:46:34Z</date>
+				<date>2023-09-11T20:23:05Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -498,7 +498,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-30T07:46:34Z</date>
+				<date>2023-09-11T20:23:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1009,6 +1009,20 @@
 					<string>gleam</string>
 				</dict>
 			</dict>
+			<key>gleam_bitwise</key>
+			<dict>
+				<key>date</key>
+				<date>2023-09-14T12:41:02Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_bitwise</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_bitwise</string>
+				</dict>
+			</dict>
 			<key>gleam_elli</key>
 			<dict>
 				<key>date</key>
@@ -1040,7 +1054,7 @@
 			<key>gleam_javascript</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:29Z</date>
+				<date>2023-09-11T20:22:43Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1068,7 +1082,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:29Z</date>
+				<date>2023-09-11T20:22:43Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1228,7 +1242,24 @@
 	<key>DHStackOverflowRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>OCaml_Online</key>
+			<dict>
+				<key>date</key>
+				<date>2023-09-14T12:40:18Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>name</key>
+					<string>OCaml (Online)</string>
+					<key>platform</key>
+					<string>soonline</string>
+					<key>uniqueIdentifier</key>
+					<string>OCaml_Online</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
