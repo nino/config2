@@ -23,6 +23,7 @@ vim.opt.diffopt = vim.opt.diffopt + { "vertical", "followwrap" }
 vim.opt.diffopt = vim.opt.diffopt + "iwhite"
 vim.opt.diffopt = vim.opt.diffopt + "linematch:40"
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
+vim.opt.list = true
 vim.opt.numberwidth = 1
 vim.opt.rulerformat = '♥︎ %l/%L %P %c'
 
