@@ -74,4 +74,6 @@ return packer.startup(function(use)
     use 'https://github.com/elixir-tools/elixir-tools.nvim'
     use 'elixir-editors/vim-elixir'
     use 'https://github.com/ellisonleao/gruvbox.nvim'
+    use 'https://github.com/guns/vim-sexp'
+    use 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
 end)
