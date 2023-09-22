@@ -66,6 +66,7 @@ alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.
 alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"
 alias com="git add . && git commit -m"
 alias awk='gawk'
+alias docker='podman'
 
 npma() {
     fd 'package.json' | parallel --gnu 'cd $(dirname {}); npm i'
