@@ -38,7 +38,7 @@ lsp.on_attach(function(client, bufnr)
         })
 end)
 
-lsp.skip_server_setup({'pyright'})
+lsp.skip_server_setup({ 'pyright' })
 lsp.configure('pylsp', {
     settings = {
         pylsp = {
@@ -193,13 +193,47 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('catppuccin')
+require("gruvbox").setup({
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "",  -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
+})
+
+vim.cmd.colorscheme('base16-ayu-dark')
+
+vim.cmd[[
+nmap <F6> <Plug>ColorstepPrev
+nmap <F7> <Plug>ColorstepNext
+nmap <S-F7> <Plug>ColorstepReload
+]]
 
 -- Autocommands
 vim.cmd [[
   augroup BQNFileType
     autocmd!
     autocmd BufRead,BufNewFile *.bqn set filetype=bqn
+  augroup END
+
+  augroup direnv
+    autocmd!
+    autocmd BufRead,BufNewFile .envrc set filetype=bash
   augroup END
 ]]
 

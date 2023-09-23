@@ -10,7 +10,7 @@
   "show_copilot_suggestions": true,
   "theme": "Ayu Dark",
   "base_keymap": "SublimeText",
-  "buffer_font_size": 13,
+  "buffer_font_size": 14,
   "vim_mode": false,
   "buffer_font_family": "JuliaMono",
   "soft_wrap": "editor_width",

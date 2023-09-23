@@ -53,3 +53,5 @@ ghc/ghci_history
 .unisonHistory
 zed/conversations
 
+scripts/compiled
+containers
