@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-09-13T09:56:26Z</date>
+				<date>2023-09-19T16:54:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +484,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-09-11T20:23:05Z</date>
+				<date>2023-09-18T13:57:04Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -498,7 +498,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-09-11T20:23:03Z</date>
+				<date>2023-09-18T13:57:04Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1492,6 +1492,30 @@
 					<string>Tailwind_CSS</string>
 				</dict>
 			</dict>
+			<key>ggplot2</key>
+			<dict>
+				<key>date</key>
+				<date>2023-09-23T13:15:13Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>ggplot</string>
+						<string>r</string>
+						<string>rlang</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/ggplot2#readme</string>
+					<key>authorLinkText</key>
+					<string>Michael Peteuil</string>
+					<key>name</key>
+					<string>ggplot2</string>
+					<key>platform</key>
+					<string>usercontribggplot2</string>
+					<key>uniqueIdentifier</key>
+					<string>ggplot2</string>
+				</dict>
+			</dict>
 		</dict>
 		<key>uninstalled</key>
 		<dict>
@@ -1914,6 +1938,10 @@
 			<string>gmaps:</string>
 			<key>~/Library/Application Support/Dash/GitHub/gotk3gotk3/gotk3-gotk3.docset</key>
 			<string>gotk3:</string>
+			<key>~/Library/Application Support/Dash/GitHub/janestreetbase/janestreet-base.docset</key>
+			<string>base:</string>
+			<key>~/Library/Application Support/Dash/GitHub/janestreetcore/janestreet-core.docset</key>
+			<string>core:</string>
 			<key>~/Library/Application Support/Dash/GitHub/mapboxnodesqlite3/mapbox-node-sqlite3.docset</key>
 			<string>node-sqlite:</string>
 			<key>~/Library/Application Support/Dash/GitHub/momentluxon/moment-luxon.docset</key>
@@ -1958,8 +1986,12 @@
 			<string>nvim:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Nextjs/nextjs.docset</key>
 			<string>next:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/R5RS/R5RS.docset</key>
+			<string>scheme:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Tailwind CSS/tailwindcss.docset</key>
 			<string>tw:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/ggplot2/ggplot2.docset</key>
+			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
 			<string>seaborn:</string>
 		</dict>
