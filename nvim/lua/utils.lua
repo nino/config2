@@ -24,4 +24,15 @@ function mod.set_digraph(keys, char)
     vim.cmd("digraph " .. keys .. " " .. mod.utf8_to_unicode_codepoint(char))
 end
 
+--- Toggle an option
+--- @param option string
+--- @return nil
+function mod.toggle_option(option)
+    if vim.o[option] then
+        vim.o[option] = false
+    else
+        vim.o[option] = true
+    end
+end
+
 return mod
