@@ -14,7 +14,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
-vim.opt.bg = 'dark'
+vim.opt.bg = 'light'
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
