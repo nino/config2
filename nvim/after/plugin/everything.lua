@@ -216,9 +216,9 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 
-vim.cmd.colorscheme('biogoo')
+-- vim.cmd.colorscheme('base16-catppuccin-latte')
 
-vim.cmd[[
+vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
 nmap <F7> <Plug>ColorstepNext
 nmap <S-F7> <Plug>ColorstepReload
