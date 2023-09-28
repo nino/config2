@@ -216,7 +216,7 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 
--- vim.cmd.colorscheme('base16-catppuccin-latte')
+vim.cmd.colorscheme('base16-catppuccin-latte')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
