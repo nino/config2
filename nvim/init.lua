@@ -1,5 +1,6 @@
 require("plugins")
 require("abbreviations")
+local utils = require("utils")
 
 -- Defaults
 vim.opt.tabstop = 4
@@ -13,7 +14,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
-vim.opt.bg = 'dark'
+vim.opt.bg = 'light'
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
@@ -60,6 +61,8 @@ vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
+
+vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
 

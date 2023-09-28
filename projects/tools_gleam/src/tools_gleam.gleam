@@ -10,6 +10,11 @@ type ProcessResult {
   ProcessResult(name: String, is_clean: Bool, head_branch: String)
 }
 
+fn is_trunk(branch: String) -> Bool {
+  let trunk_branches = ["master", "main", "trunk", "develop"]
+  list.any(trunk_branches, fn(trunk) { trunk == branch })
+}
+
 fn get_directories(parent: String) -> List(String) {
   let assert Ok(entries) = simplifile.list_contents(parent)
   let full_paths =
@@ -81,8 +86,12 @@ pub fn main() {
   list.each(
     results,
     fn(result) {
+      let annotation = case is_trunk(result.head_branch) {
+        True -> ""
+        False -> "!!!"
+      }
       io.println(
-        "- " <> path.basename(result.name) <> ": " <> result.head_branch,
+        "- " <> path.basename(result.name) <> ": " <> result.head_branch <> " " <> annotation,
       )
     },
   )
