@@ -88,7 +88,7 @@ lsp.configure('lua_ls', {
 
 lsp.configure('gleam', {
     -- set custom executable path
-    cmd = { "/Users/nino/.cargo/bin/gleam", "lsp" },
+    -- cmd = { "/Users/nino/.cargo/bin/gleam", "lsp" },
 })
 
 lsp.setup()
@@ -216,7 +216,7 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 
-vim.cmd.colorscheme('base16-catppuccin-latte')
+vim.cmd.colorscheme('base16-ayu-dark')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
