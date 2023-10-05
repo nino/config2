@@ -216,7 +216,7 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 
-vim.cmd.colorscheme('base16-ayu-dark')
+vim.cmd.colorscheme('aurora')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
