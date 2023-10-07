@@ -89,4 +89,5 @@ return packer.startup(function(use)
     use 'https://github.com/sainnhe/sonokai'
     use 'https://github.com/jaredgorski/SpaceCamp'
     use 'https://github.com/qualiabyte/vim-colorstepper'
+    use 'https://github.com/duane9/nvim-rg'
 end)
