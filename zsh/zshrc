@@ -71,6 +71,10 @@ npma() {
     fd 'package.json' | parallel --gnu 'cd $(dirname {}); npm i'
 }
 
+pipa() {
+    fd 'requirements.txt' | parallel --gnu 'cd $(dirname {}); pip install -r requirements.txt'
+}
+
 if [ -f ~/.config/secret-config2/secret_zsh ]; then
   source ~/.config/secret-config2/secret_zsh
 fi
