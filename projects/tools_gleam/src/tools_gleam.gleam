@@ -77,6 +77,9 @@ pub fn main() {
   let results =
     list.map(entries, fn(entry) { task.async(fn() { process_repo(entry) }) })
     |> list.map(task.await_forever)
+    |> list.sort(fn(a, b) {
+      string.compare(string.lowercase(a.name), string.lowercase(b.name))
+    })
 
   io.println("\n\nUnclean repos:")
   list.filter(results, fn(result) { !result.is_clean })

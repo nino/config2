@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-10-17T13:36:53Z</date>
+				<date>2023-10-20T08:13:29Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -498,7 +498,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-10-04T17:10:11Z</date>
+				<date>2023-10-20T08:13:39Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -512,7 +512,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-10-12T15:43:58Z</date>
+				<date>2023-10-20T08:13:39Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1342,7 +1342,7 @@
 			<key>Blender</key>
 			<dict>
 				<key>date</key>
-				<date>2023-10-10T15:25:08Z</date>
+				<date>2023-10-16T07:44:35Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
