@@ -231,6 +231,11 @@ vim.cmd [[
     autocmd BufRead,BufNewFile *.bqn set filetype=bqn
   augroup END
 
+  augroup HCL
+    autocmd!
+    autocmd BufRead,BufNewFile *.hcl set filetype=tf
+  augroup END
+
   augroup direnv
     autocmd!
     autocmd BufRead,BufNewFile .envrc set filetype=bash
