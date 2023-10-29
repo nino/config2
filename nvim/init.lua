@@ -14,7 +14,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
-vim.opt.bg = 'dark'
+vim.opt.bg = 'light'
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
@@ -158,6 +158,14 @@ vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
+
+vim.api.nvim_create_user_command("Re", function(info)
+    local new_name = info.args
+    if #new_name == 0 then
+        new_name = nil
+    end
+    vim.lsp.buf.rename(new_name)
+end, { nargs = "?" })
 
 vim.cmd [[
 function! s:MkNonExDir(file, buf)

@@ -216,7 +216,7 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('lunaperche')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
