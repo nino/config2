@@ -42,13 +42,14 @@ lsp.skip_server_setup({ 'pyright' })
 lsp.configure('pylsp', {
     settings = {
         pylsp = {
-            configurationSources = { 'flake8' },
+            configurationSources = { 'flake8', 'black' },
             plugins = {
                 pycodestyle = { enabled = false },
                 flake8 = {
                     enabled = true,
                     ignore = {},
-                }
+                },
+                black = { enabled = true },
             }
         }
     }
@@ -216,7 +217,7 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('lunaperche')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
