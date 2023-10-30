@@ -318,6 +318,9 @@ export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 
 eval "$(pyenv init -)"
 
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # eval $(opam env)
 [[ ! -r /Users/Nino/.opam/opam-init/init.zsh ]] || source /Users/Nino/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
@@ -327,8 +330,6 @@ fi
 if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
 
