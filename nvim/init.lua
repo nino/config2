@@ -159,6 +159,14 @@ vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, 
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 
+vim.api.nvim_create_user_command("Re", function(info)
+    local new_name = info.args
+    if #new_name == 0 then
+        new_name = nil
+    end
+    vim.lsp.buf.rename(new_name)
+end, { nargs = "?" })
+
 vim.cmd [[
 function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
