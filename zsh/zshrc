@@ -65,6 +65,7 @@ alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.
 alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"
 alias com="git add . && git commit -m"
 alias awk='gawk'
+alias dockre='docker'
 # alias docker='podman'
 
 npma() {
@@ -346,3 +347,6 @@ export PATH=$PATH:/Users/nino/code-friends/roc-release
 export PATH=$PATH:/Users/nino/code-friends/odin-release
 
 [ -f "/Users/Nino/.ghcup/env" ] && source "/Users/Nino/.ghcup/env" # ghcup-env
+
+# https://github.com/keybase/keybase-issues/issues/2798
+export GPG_TTY=$(tty)
