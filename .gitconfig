@@ -23,7 +23,7 @@
 [alias]
 	lb = !git reflog show --pretty=format:'%gs' | grep 'checkout:' | grep -oE ' to (.+)' | perl -pe 's/ to //'
 [gpg]
-	program = /opt/homebrew/bin/gpg
+	program = gpg2
 [diff "plist"]
 	defaulttextconv = plutil -convert xml1 -o -
 
