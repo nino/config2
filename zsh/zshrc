@@ -349,4 +349,4 @@ export PATH=$PATH:/Users/nino/code-friends/odin-release
 [ -f "/Users/Nino/.ghcup/env" ] && source "/Users/Nino/.ghcup/env" # ghcup-env
 
 # https://github.com/keybase/keybase-issues/issues/2798
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
