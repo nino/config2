@@ -159,6 +159,13 @@ vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, 
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 
+utils.new_cmd("Min", function()
+    vim.o.number = false
+    vim.o.cmdheight = 0
+    vim.o.laststatus = 1
+    vim.o.signcolumn = "no"
+end, {})
+
 vim.api.nvim_create_user_command("Re", function(info)
     local new_name = info.args
     if #new_name == 0 then
