@@ -164,6 +164,8 @@ utils.new_cmd("Min", function()
     vim.o.cmdheight = 0
     vim.o.laststatus = 1
     vim.o.signcolumn = "no"
+    vim.cmd("syntax off")
+    vim.cmd("Copilot disable")
 end, {})
 
 vim.api.nvim_create_user_command("Re", function(info)
