@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "show_copilot_suggestions": true,
-  "theme": "Atelier Cave Light",
+  "theme": "Ayu Dark",
   "base_keymap": "SublimeText",
   "buffer_font_size": 13,
   "vim_mode": false,

@@ -225,6 +225,15 @@ nmap <F7> <Plug>ColorstepNext
 nmap <S-F7> <Plug>ColorstepReload
 ]]
 
+-- Diagnostics
+function diagnostic_sign()
+    if #vim.diagnostic.get(0) == 0 then
+        return '♥︎'
+    else
+        return '×'
+    end
+end
+
 -- Autocommands
 vim.cmd [[
   augroup BQNFileType

@@ -8,9 +8,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.textwidth = 80
 vim.opt.expandtab = true
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 vim.opt.scrolloff = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
@@ -26,7 +26,7 @@ vim.opt.diffopt = vim.opt.diffopt + "linematch:40"
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
 vim.opt.list = true
 vim.opt.numberwidth = 1
-vim.opt.rulerformat = '♥︎ %l/%L %P %c'
+vim.opt.rulerformat = '%{v:lua.diagnostic_sign()} %l/%L %P %c'
 
 vim.opt.clipboard = "unnamed"
 
@@ -158,6 +158,15 @@ vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
+
+utils.new_cmd("Min", function()
+    vim.o.number = false
+    vim.o.cmdheight = 0
+    vim.o.laststatus = 1
+    vim.o.signcolumn = "no"
+    vim.cmd("syntax off")
+    vim.cmd("Copilot disable")
+end, {})
 
 vim.api.nvim_create_user_command("Re", function(info)
     local new_name = info.args

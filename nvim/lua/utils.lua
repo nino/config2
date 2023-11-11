@@ -35,4 +35,12 @@ function mod.toggle_option(option)
     end
 end
 
+--- Create a new command.
+--- @param name string
+--- @param fun function
+--- @param info table
+function mod.new_cmd(name, fun, info)
+    vim.api.nvim_create_user_command(name, fun, info)
+end
+
 return mod
