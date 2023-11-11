@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-02T09:25:34Z</date>
+				<date>2023-11-07T15:19:21Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1026,7 +1026,7 @@
 			<key>gleam_bitwise</key>
 			<dict>
 				<key>date</key>
-				<date>2023-09-18T08:42:24Z</date>
+				<date>2023-11-07T15:18:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1040,7 +1040,7 @@
 			<key>gleam_elli</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:28Z</date>
+				<date>2023-11-07T15:18:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1082,7 +1082,7 @@
 			<key>gleam_javascript</key>
 			<dict>
 				<key>date</key>
-				<date>2023-09-11T20:22:43Z</date>
+				<date>2023-11-07T15:18:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1537,7 +1537,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2023-10-20T17:02:42Z</date>
+				<date>2023-11-07T15:18:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1549,7 +1549,7 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Tailwind_CSS#readme</string>
 					<key>authorLinkText</key>
-					<string>Ben Booth, Guill Lo</string>
+					<string>Ben Booth, Guill Lo, Akinori Musha</string>
 					<key>name</key>
 					<string>Tailwind CSS</string>
 					<key>platform</key>
