@@ -12,7 +12,7 @@
   "base_keymap": "SublimeText",
   "buffer_font_size": 13,
   "vim_mode": false,
-  "buffer_font_family": "JuliaMono",
+  "buffer_font_family": "MonaSpace Krypton",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
