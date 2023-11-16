@@ -91,4 +91,12 @@ return packer.startup(function(use)
     use 'https://github.com/qualiabyte/vim-colorstepper'
     use 'https://github.com/duane9/nvim-rg'
     use 'https://github.com/kaarmu/typst.vim'
+    -- use 'https://github.com/mfussenegger/nvim-dap'
+    -- use 'https://github.com/mxsdev/nvim-dap-vscode-js'
+    -- use {
+    --     "microsoft/vscode-js-debug",
+    --     opt = true,
+    --     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+    -- }
+    use 'https://github.com/wsdjeg/vim-fetch'
 end)

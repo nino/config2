@@ -8,13 +8,13 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.textwidth = 80
 vim.opt.expandtab = true
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.termguicolors = true
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 4
 vim.opt.smartindent = true
 vim.opt.autoread = true
-vim.opt.bg = 'dark'
+vim.opt.bg = 'light'
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
@@ -120,7 +120,25 @@ vim.keymap.set("n", "<M-2>", "@@")
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
-vim.keymap.set("n", "<leader>p", ":!prettier --write '%'<cr>")
+vim.keymap.set("n", "<leader>p", function()
+    if vim.bo.filetype == "python" then
+        exec("black --quiet '" .. vim.fn.expand('%') .. "'")
+    else
+        exec("prettier --write '" .. vim.fn.expand('%') .. "'")
+    end
+    vim.cmd "e"
+end
+
+)
+
+--- @param command string
+--- @return string
+function exec(command)
+    local handle = io.popen(command)
+    local result = handle:read("*a")
+    handle:close()
+    return result
+end
 
 vim.keymap.set("n", "cp", function()
     local filepath = vim.fn.expand('%')
