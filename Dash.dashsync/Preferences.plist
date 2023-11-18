@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-07T15:19:21Z</date>
+				<date>2023-11-13T23:06:40Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -498,7 +498,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-02T09:25:48Z</date>
+				<date>2023-11-16T19:53:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -512,7 +512,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-02T09:25:43Z</date>
+				<date>2023-11-16T19:53:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1054,7 +1054,7 @@
 			<key>gleam_erlang</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-03T09:25:30Z</date>
+				<date>2023-11-16T19:53:38Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1068,7 +1068,7 @@
 			<key>gleam_http</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-03T09:25:30Z</date>
+				<date>2023-11-13T23:06:24Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1110,7 +1110,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-02T09:25:30Z</date>
+				<date>2023-11-12T18:39:58Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1174,7 +1174,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-13T10:54:05Z</date>
+				<date>2023-11-17T19:54:07Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
