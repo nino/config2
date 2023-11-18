@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-13T23:06:40Z</date>
+				<date>2023-11-14T09:32:17Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1026,7 +1026,7 @@
 			<key>gleam_bitwise</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-07T15:18:54Z</date>
+				<date>2023-11-08T09:30:57Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1040,7 +1040,7 @@
 			<key>gleam_elli</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-07T15:18:53Z</date>
+				<date>2023-11-08T09:30:57Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1068,7 +1068,7 @@
 			<key>gleam_http</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-13T23:06:24Z</date>
+				<date>2023-11-14T09:32:12Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
