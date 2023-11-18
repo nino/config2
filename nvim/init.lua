@@ -8,7 +8,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.textwidth = 80
 vim.opt.expandtab = true
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "no"
 vim.opt.scrolloff = 4
@@ -200,4 +200,9 @@ endfunction
 
 aunmenu PopUp.How-to\ disable\ mouse
 aunmenu PopUp.-1-
+]]
+
+vim.cmd[[
+    luafile $HOME/.config/nvim/lua/screenreader.lua
+    command! -range -nargs=* P lua Psay(<line1>, <line2>, 'p<args>')
 ]]
