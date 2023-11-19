@@ -23,7 +23,7 @@ lsp.ensure_installed({
     'terraformls',
 })
 
--- vim.cmd ":Copilot disable"
+vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
@@ -111,11 +111,13 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-f>'] = cmp.mapping.confirm({ select = true }),
     ["<C-space>"] = cmp.mapping.complete(),
 })
 
 cmp.setup({
+    mapping = cmp_mappings,
     sources = {
         { name = 'nvim_lsp' },
         {
