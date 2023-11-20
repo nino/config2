@@ -498,7 +498,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-16T09:32:28Z</date>
+				<date>2023-11-16T19:53:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -512,7 +512,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-16T09:32:27Z</date>
+				<date>2023-11-16T19:53:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1054,7 +1054,7 @@
 			<key>gleam_erlang</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-16T09:32:13Z</date>
+				<date>2023-11-16T19:53:38Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1110,7 +1110,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-13T09:26:32Z</date>
+				<date>2023-11-12T18:39:58Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1928,7 +1928,7 @@
 		</dict>
 	</dict>
 	<key>DHWKWebViewTextSizeMultiplier</key>
-	<real>0.84999996423721313</real>
+	<real>1.1499998569488525</real>
 	<key>actuallyDarkWebView</key>
 	<true/>
 	<key>annotationsAreShown</key>

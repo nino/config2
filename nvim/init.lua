@@ -222,3 +222,8 @@ endfunction
 aunmenu PopUp.How-to\ disable\ mouse
 aunmenu PopUp.-1-
 ]]
+
+vim.cmd[[
+    luafile $HOME/.config/nvim/lua/screenreader.lua
+    command! -range -nargs=* P lua Psay(<line1>, <line2>, 'p<args>')
+]]
