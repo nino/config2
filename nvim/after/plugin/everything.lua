@@ -16,10 +16,14 @@ lsp.ensure_installed({
     'clangd',
     'svelte',
     'gleam',
-    'pylsp'
+    'pylsp',
+    'pyright',
+    'erlangls',
+    'elixirls',
+    'terraformls',
 })
 
--- vim.cmd ":Copilot disable"
+vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
@@ -34,6 +38,15 @@ lsp.on_attach(function(client, bufnr)
             update_in_insert = false
         })
 end)
+
+lsp.configure("pyright", {
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+    end
+})
+lsp.skip_server_setup({ 'pylsp' })
+
+lsp.configure('dartls', {})
 
 lsp.configure('sourcekit', {})
 lsp.configure('denols', {
@@ -67,15 +80,10 @@ lsp.configure('lua_ls', {
     }
 })
 
-
-function gleam_test_lsp()
-  return {
-    name = 'gleam-test-lsp',
-    cmd = { "/Users/Nino/code-friends/gleam/target/debug/gleam", "lsp" },
-    filetypes = "gleam",
-    single_file_support = true,
-  }
-end
+lsp.configure('gleam', {
+    -- set custom executable path
+    -- cmd = { "/Users/nino/.cargo/bin/gleam", "lsp" },
+})
 
 lsp.setup()
 
@@ -103,11 +111,13 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-f>'] = cmp.mapping.confirm({ select = true }),
     ["<C-space>"] = cmp.mapping.complete(),
 })
 
 cmp.setup({
+    mapping = cmp_mappings,
     sources = {
         { name = 'nvim_lsp' },
         {
@@ -120,6 +130,24 @@ cmp.setup({
         },
     },
 })
+
+
+-- DAP
+-- require("dap-vscode-js").setup({
+--   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+--   -- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
+--   -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+--   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+--   -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
+--   -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
+--   -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
+-- })
+
+-- for _, language in ipairs({ "typescript", "javascript" }) do
+--   require("dap").configurations[language] = {
+--     ... -- see below
+--   }
+-- end
 
 -- Colors
 require("catppuccin").setup({
@@ -179,7 +207,45 @@ require('ayu').setup({
     end
 })
 
-vim.cmd.colorscheme('catppuccin')
+-- require("gruvbox").setup({
+--     undercurl = true,
+--     underline = true,
+--     bold = true,
+--     italic = {
+--         strings = true,
+--         comments = true,
+--         operators = false,
+--         folds = true,
+--     },
+--     strikethrough = true,
+--     invert_selection = false,
+--     invert_signs = false,
+--     invert_tabline = false,
+--     invert_intend_guides = false,
+--     inverse = true, -- invert background for search, diffs, statuslines and errors
+--     contrast = "",  -- can be "hard", "soft" or empty string
+--     palette_overrides = {},
+--     overrides = {},
+--     dim_inactive = false,
+--     transparent_mode = false,
+-- })
+
+vim.cmd.colorscheme('lunaperche')
+
+vim.cmd [[
+nmap <F6> <Plug>ColorstepPrev
+nmap <F7> <Plug>ColorstepNext
+nmap <S-F7> <Plug>ColorstepReload
+]]
+
+-- Diagnostics
+function diagnostic_sign()
+    if #vim.diagnostic.get(0) == 0 then
+        return '♥︎'
+    else
+        return '×'
+    end
+end
 
 -- Autocommands
 vim.cmd [[
@@ -187,4 +253,18 @@ vim.cmd [[
     autocmd!
     autocmd BufRead,BufNewFile *.bqn set filetype=bqn
   augroup END
+
+  augroup HCL
+    autocmd!
+    autocmd BufRead,BufNewFile *.hcl set filetype=tf
+  augroup END
+
+  augroup direnv
+    autocmd!
+    autocmd BufRead,BufNewFile .envrc set filetype=bash
+  augroup END
 ]]
+
+
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.ex]])
+vim.cmd([[autocmd BufRead,BufNewFile *.ex set filetype=elixir]])

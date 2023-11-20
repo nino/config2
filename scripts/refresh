@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/Users/nino/.config/projects/tools_gleam/build/erlang-shipment/entrypoint.sh run

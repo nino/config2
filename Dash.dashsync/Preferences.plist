@@ -439,6 +439,20 @@
 					<string>Phrogz/context-blender</string>
 				</dict>
 			</dict>
+			<key>PostgREST/postgrest</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-02T09:24:29Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>PostgREST/postgrest</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>PostgREST/postgrest</string>
+				</dict>
+			</dict>
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
@@ -470,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-29T07:46:31Z</date>
+				<date>2023-11-14T09:32:17Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -484,7 +498,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-30T07:46:34Z</date>
+				<date>2023-11-16T19:53:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -498,7 +512,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-30T07:46:34Z</date>
+				<date>2023-11-16T19:53:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1009,10 +1023,24 @@
 					<string>gleam</string>
 				</dict>
 			</dict>
+			<key>gleam_bitwise</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-08T09:30:57Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_bitwise</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_bitwise</string>
+				</dict>
+			</dict>
 			<key>gleam_elli</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:28Z</date>
+				<date>2023-11-08T09:30:57Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1023,10 +1051,24 @@
 					<string>gleam_elli</string>
 				</dict>
 			</dict>
+			<key>gleam_erlang</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-16T19:53:38Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gleam_erlang</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gleam_erlang</string>
+				</dict>
+			</dict>
 			<key>gleam_http</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:27Z</date>
+				<date>2023-11-14T09:32:12Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1040,7 +1082,7 @@
 			<key>gleam_javascript</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:29Z</date>
+				<date>2023-11-07T15:18:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1068,7 +1110,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:29Z</date>
+				<date>2023-11-12T18:39:58Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1132,7 +1174,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-13T10:54:05Z</date>
+				<date>2023-11-18T15:54:18Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1228,7 +1270,24 @@
 	<key>DHStackOverflowRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>OCaml_Online</key>
+			<dict>
+				<key>date</key>
+				<date>2023-09-18T08:42:23Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>name</key>
+					<string>OCaml (Online)</string>
+					<key>platform</key>
+					<string>soonline</string>
+					<key>uniqueIdentifier</key>
+					<string>OCaml_Online</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
@@ -1236,6 +1295,26 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>AWS_CloudFormation_Template_Reference</key>
+			<dict>
+				<key>date</key>
+				<date>2023-09-23T16:29:04Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/AWS_CloudFormation_Template_Reference#readme</string>
+					<key>authorLinkText</key>
+					<string>Peter Hodgkinson</string>
+					<key>name</key>
+					<string>AWS CloudFormation Template Reference</string>
+					<key>platform</key>
+					<string>usercontribAWS_CloudFormation_Template_Reference</string>
+					<key>uniqueIdentifier</key>
+					<string>AWS_CloudFormation_Template_Reference</string>
+				</dict>
+			</dict>
 			<key>Beautiful_Soup</key>
 			<dict>
 				<key>date</key>
@@ -1258,6 +1337,24 @@
 					<string>usercontribBeautiful_Soup</string>
 					<key>uniqueIdentifier</key>
 					<string>Beautiful_Soup</string>
+				</dict>
+			</dict>
+			<key>Blender</key>
+			<dict>
+				<key>date</key>
+				<date>2023-10-16T07:44:35Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Blender#readme</string>
+					<key>authorLinkText</key>
+					<string>Alex Widener</string>
+					<key>name</key>
+					<string>Blender</string>
+					<key>platform</key>
+					<string>usercontribBlender</string>
+					<key>uniqueIdentifier</key>
+					<string>Blender</string>
 				</dict>
 			</dict>
 			<key>Crystal</key>
@@ -1440,7 +1537,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2022-06-19T18:15:19Z</date>
+				<date>2023-11-07T15:18:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1452,13 +1549,37 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Tailwind_CSS#readme</string>
 					<key>authorLinkText</key>
-					<string>Ben Booth, Guill Lo</string>
+					<string>Ben Booth, Guill Lo, Akinori Musha</string>
 					<key>name</key>
 					<string>Tailwind CSS</string>
 					<key>platform</key>
 					<string>usercontribTailwind_CSS</string>
 					<key>uniqueIdentifier</key>
 					<string>Tailwind_CSS</string>
+				</dict>
+			</dict>
+			<key>ggplot2</key>
+			<dict>
+				<key>date</key>
+				<date>2023-09-23T13:15:13Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>ggplot</string>
+						<string>r</string>
+						<string>rlang</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/ggplot2#readme</string>
+					<key>authorLinkText</key>
+					<string>Michael Peteuil</string>
+					<key>name</key>
+					<string>ggplot2</string>
+					<key>platform</key>
+					<string>usercontribggplot2</string>
+					<key>uniqueIdentifier</key>
+					<string>ggplot2</string>
 				</dict>
 			</dict>
 		</dict>
@@ -1807,7 +1928,7 @@
 		</dict>
 	</dict>
 	<key>DHWKWebViewTextSizeMultiplier</key>
-	<real>0.84999996423721313</real>
+	<real>1.1499998569488525</real>
 	<key>actuallyDarkWebView</key>
 	<true/>
 	<key>annotationsAreShown</key>
@@ -1883,6 +2004,10 @@
 			<string>gmaps:</string>
 			<key>~/Library/Application Support/Dash/GitHub/gotk3gotk3/gotk3-gotk3.docset</key>
 			<string>gotk3:</string>
+			<key>~/Library/Application Support/Dash/GitHub/janestreetbase/janestreet-base.docset</key>
+			<string>base:</string>
+			<key>~/Library/Application Support/Dash/GitHub/janestreetcore/janestreet-core.docset</key>
+			<string>core:</string>
 			<key>~/Library/Application Support/Dash/GitHub/mapboxnodesqlite3/mapbox-node-sqlite3.docset</key>
 			<string>node-sqlite:</string>
 			<key>~/Library/Application Support/Dash/GitHub/momentluxon/moment-luxon.docset</key>
@@ -1915,20 +2040,32 @@
 			<string>lub:</string>
 			<key>~/Library/Application Support/Dash/GitHub/zeitmicro/zeit-micro.docset</key>
 			<string>micro:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/gleamstdlib/gleam_stdlib.docset</key>
+			<string>gleam:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/bcrypt/bcrypt.docset</key>
 			<string>bcrypt:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/mechanize/mechanize.docset</key>
 			<string>mechanize:</string>
+			<key>~/Library/Application Support/Dash/Ruby DocSets/nokogiri/nokogiri.docset</key>
+			<string>noko:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/restclient/rest-client.docset</key>
 			<string>restclient:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/rugged/rugged.docset</key>
 			<string>rugged:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/AWS CloudFormation Template Reference/AWS_CloudFormation_Template_Reference.docset</key>
+			<string>cf:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Neovim/Neovim.docset</key>
 			<string>nvim:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Nextjs/nextjs.docset</key>
 			<string>next:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/Perl 6/Perl6.docset</key>
+			<string>raku:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/R5RS/R5RS.docset</key>
+			<string>scheme:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Tailwind CSS/tailwindcss.docset</key>
 			<string>tw:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/ggplot2/ggplot2.docset</key>
+			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
 			<string>seaborn:</string>
 		</dict>

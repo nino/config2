@@ -51,3 +51,9 @@ op/
 nvim/plugin/packer_compiled.lua
 ghc/ghci_history
 .unisonHistory
+zed/conversations
+
+scripts/compiled
+containers
+zed/embeddings
+flutter

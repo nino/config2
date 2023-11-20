@@ -68,4 +68,32 @@ return packer.startup(function(use)
     use 'https://github.com/kblin/vim-fountain'
     use 'https://github.com/godlygeek/tabular'
     -- use 'https://github.com/sourcegraph/sg.nvim'
+    use 'https://github.com/elixir-tools/elixir-tools.nvim'
+    use 'elixir-editors/vim-elixir'
+    -- use 'https://github.com/ellisonleao/gruvbox.nvim'
+    use 'https://github.com/guns/vim-sexp'
+    use 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
+    -- use 'https://github.com/folke/tokyonight.nvim'
+    -- use 'https://github.com/rebelot/kanagawa.nvim'
+    -- use 'https://github.com/jacoborus/tender.vim'
+    -- use 'https://github.com/AlexvZyl/nordic.nvim'
+    -- use 'https://github.com/ray-x/aurora'
+    -- use 'https://github.com/uloco/bluloco.nvim'
+    -- use 'https://github.com/kartikp10/noctis.nvim'
+    -- use 'https://github.com/lalitmee/cobalt2.nvim'
+    -- use 'https://github.com/rktjmp/lush.nvim'
+    -- use 'https://github.com/metalelf0/jellybeans-nvim'
+    -- use 'https://github.com/sainnhe/sonokai'
+    -- use 'https://github.com/jaredgorski/SpaceCamp'
+    -- use 'https://github.com/qualiabyte/vim-colorstepper'
+    use 'https://github.com/duane9/nvim-rg'
+    use 'https://github.com/kaarmu/typst.vim'
+    use 'https://github.com/mfussenegger/nvim-dap'
+    use 'https://github.com/mxsdev/nvim-dap-vscode-js'
+    -- use {
+    --     "microsoft/vscode-js-debug",
+    --     opt = true,
+    --     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+    -- }
+    use 'https://github.com/wsdjeg/vim-fetch'
 end)
