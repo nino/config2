@@ -53,8 +53,6 @@ return packer.startup(function(use)
     use 'christoomey/vim-tmux-navigator'
     use 'preservim/nerdtree'
     use 'https://github.com/morhetz/gruvbox'
-    use 'https://github.com/justin2004/vim-apl'
-    use 'Julian/lean.nvim'
     use 'https://github.com/vantaboard/sqlfluff.nvim'
     use 'bdesham/biogoo'
     use 'https://github.com/Shatur/neovim-ayu'
@@ -64,7 +62,6 @@ return packer.startup(function(use)
     use 'https://github.com/agude/vim-eldar'
     use 'https://github.com/RRethy/nvim-base16'
     use 'https://github.com/ishan9299/modus-theme-vim'
-    use { 'unisonweb/unison', branch = 'trunk', rtp = 'editor-support/vim' }
     use 'https://github.com/ChrisWellsWood/roc.vim'
     use 'https://github.com/gleam-lang/gleam.vim'
     use 'https://github.com/MrcJkb/haskell-tools.nvim'
