@@ -135,9 +135,12 @@ end
 --- @return string
 function exec(command)
     local handle = io.popen(command)
-    local result = handle:read("*a")
-    handle:close()
-    return result
+    if handle then
+        local result = handle:read("*a")
+        handle:close()
+        return result
+    end
+    return ""
 end
 
 vim.keymap.set("n", "cp", function()
