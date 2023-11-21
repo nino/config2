@@ -111,7 +111,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<C-f>'] = cmp.mapping.confirm({ select = true }),
     ["<C-space>"] = cmp.mapping.complete(),
 })
@@ -268,3 +268,36 @@ vim.cmd [[
 
 vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.ex]])
 vim.cmd([[autocmd BufRead,BufNewFile *.ex set filetype=elixir]])
+
+
+-- REPLs
+local iron = require "iron.core"
+iron.setup {
+    config = {
+        repl_definition = {
+            lua = { command = "lua" },
+            ruby = { command = "pry" },
+        },
+        keymaps = {
+            send_motion = "<leader>ic",
+            visual_send = "<c-l>",
+            send_file = "<leader>sf",
+            send_line = "`ll",
+            send_until_cursor = "<leader>su",
+            send_mark = "<leader>sm",
+            mark_motion = "<leader>mc",
+            mark_visual = "<space>mc",
+            remove_mark = "<leader>md",
+            cr = "<leader>s<cr>",
+            interrupt = "<leader>s<leader>",
+            exit = "<leader>sq",
+            clear = "<leader>cl",
+        },
+    }
+}
+
+vim.keymap.set('n', '<leader>rs', '<cmd>IronRepl<cr>')
+vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
+vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
+vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
+vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})

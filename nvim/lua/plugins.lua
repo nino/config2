@@ -99,4 +99,5 @@ return packer.startup(function(use)
     --     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
     -- }
     use 'https://github.com/wsdjeg/vim-fetch'
+    use 'https://github.com/Vigemus/iron.nvim'
 end)
