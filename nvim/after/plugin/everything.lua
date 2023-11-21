@@ -277,9 +277,10 @@ iron.setup {
         repl_definition = {
             lua = { command = "lua" },
             ruby = { command = "pry" },
+            python = { command = "python" },
         },
         keymaps = {
-            send_motion = "<leader>ic",
+            send_motion = "<m-i>",
             visual_send = "<c-l>",
             send_file = "<leader>sf",
             send_line = "`ll",
@@ -301,3 +302,6 @@ vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
 vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
 vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
 vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})
+-- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
+
+
