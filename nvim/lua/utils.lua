@@ -43,4 +43,13 @@ function mod.new_cmd(name, fun, info)
     vim.api.nvim_create_user_command(name, fun, info)
 end
 
+local run_once_functions = {}
+
+function mod.run_once(description, fun)
+   if not run_once_functions[description] then
+      fun()
+   end
+   run_once_functions[description] = true
+end
+
 return mod
