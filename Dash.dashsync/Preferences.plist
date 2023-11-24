@@ -1199,6 +1199,20 @@
 					<string>sinatra</string>
 				</dict>
 			</dict>
+			<key>sorbet</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-23T09:28:51Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sorbet</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>sorbet</string>
+				</dict>
+			</dict>
 		</dict>
 		<key>uninstalled</key>
 		<dict>
@@ -1928,7 +1942,7 @@
 		</dict>
 	</dict>
 	<key>DHWKWebViewTextSizeMultiplier</key>
-	<real>1.1499998569488525</real>
+	<real>1</real>
 	<key>actuallyDarkWebView</key>
 	<true/>
 	<key>annotationsAreShown</key>
