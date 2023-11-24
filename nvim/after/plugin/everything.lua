@@ -111,7 +111,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-   ['<CR>'] = cmp.mapping.confirm({ select = false }),  -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+   ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
    ['<C-f>'] = cmp.mapping.confirm({ select = true }),
    ["<C-space>"] = cmp.mapping.complete(),
 })
@@ -156,15 +156,15 @@ require("catppuccin").setup({
       dark = "mocha",
    },
    transparent_background = false,
-   show_end_of_buffer = false,  -- show the '~' characters after the end of buffers
+   show_end_of_buffer = false, -- show the '~' characters after the end of buffers
    term_colors = false,
    dim_inactive = {
       enabled = false,
       shade = "dark",
       percentage = 0.15,
    },
-   no_italic = false,  -- Force no italic
-   no_bold = false,    -- Force no bold
+   no_italic = false, -- Force no italic
+   no_bold = false,   -- Force no bold
    no_underline = true,
    styles = {
       comments = {},
@@ -194,9 +194,9 @@ require("catppuccin").setup({
 })
 
 local colors = require('ayu.colors')
-colors.generate()   -- Pass `true` to enable mirage
+colors.generate()  -- Pass `true` to enable mirage
 require('ayu').setup({
-   mirage = false,  -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+   mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
    overrides = function()
       return {
          Comment = { fg = colors.comment },
@@ -230,7 +230,7 @@ require('ayu').setup({
 --     transparent_mode = false,
 -- })
 
-vim.cmd.colorscheme('lunaperche')
+vim.cmd.colorscheme('catppuccin-frappe')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev
@@ -303,3 +303,28 @@ vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
 vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
 vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})
 -- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
+
+vim.keymap.set(
+   { "n", "o", "x" },
+   "w",
+   "<cmd>lua require('spider').motion('w')<CR>",
+   { desc = "Spider-w" }
+)
+vim.keymap.set(
+   { "n", "o", "x" },
+   "e",
+   "<cmd>lua require('spider').motion('e')<CR>",
+   { desc = "Spider-e" }
+)
+vim.keymap.set(
+   { "n", "o", "x" },
+   "b",
+   "<cmd>lua require('spider').motion('b')<CR>",
+   { desc = "Spider-b" }
+)
+vim.keymap.set(
+   { "n", "o", "x" },
+   "ge",
+   "<cmd>lua require('spider').motion('ge')<CR>",
+   { desc = "Spider-ge" }
+)
