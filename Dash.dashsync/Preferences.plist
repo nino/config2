@@ -1202,7 +1202,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-23T09:28:51Z</date>
+				<date>2023-11-25T15:30:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -2113,6 +2113,11 @@
 				<key>date</key>
 				<date>2023-05-04T12:53:59Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Clojure.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-24T19:23:51Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/D3JS.xml</key>
 			<dict>
 				<key>date</key>
@@ -2240,11 +2245,6 @@
 			<dict>
 				<key>date</key>
 				<date>2023-05-04T19:04:13Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Clojure.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:10Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Elixir.xml</key>
 			<dict>
