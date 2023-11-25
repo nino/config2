@@ -3,15 +3,15 @@ require("abbreviations")
 local utils = require("utils")
 
 -- Defaults
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 3
+vim.opt.softtabstop = 3
+vim.opt.shiftwidth = 3
 vim.opt.textwidth = 80
 vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 3
 vim.opt.smartindent = true
 vim.opt.autoread = true
 vim.opt.bg = 'dark'
