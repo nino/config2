@@ -123,6 +123,8 @@ vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", function()
    if vim.bo.filetype == "python" then
       exec("black --quiet '" .. vim.fn.expand('%') .. "'")
+   elseif vim.bo.filetype == "prisma" then
+      exec("prisma format --schema '" .. vim.fn.expand('%') .. "'")
    else
       exec("prettier --write '" .. vim.fn.expand('%') .. "'")
    end
