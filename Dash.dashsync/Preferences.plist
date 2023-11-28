@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-24T19:03:47Z</date>
+				<date>2023-11-28T09:27:23Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -2116,7 +2116,7 @@
 			<key>http://kapeli.com/feeds/Clojure.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-24T19:23:51Z</date>
+				<date>2023-11-27T10:10:41Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/D3JS.xml</key>
 			<dict>
