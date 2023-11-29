@@ -230,7 +230,7 @@ require('ayu').setup({
 --     transparent_mode = false,
 -- })
 
-vim.cmd.colorscheme('catppuccin-frappe')
+vim.cmd.colorscheme('ayu-mirage')
 
 vim.cmd [[
 nmap <F6> <Plug>ColorstepPrev

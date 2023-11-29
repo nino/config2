@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "show_copilot_suggestions": true,
-  "theme": "Atelier Cave Dark",
+  "theme": "Ayu Mirage",
   "base_keymap": "SublimeText",
   "buffer_font_size": 13,
   "vim_mode": false,
@@ -16,5 +16,6 @@
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
-  "indent_size": 3
+  "indent_size": 3,
+  "show_completion_documentation": true,
 }
