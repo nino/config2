@@ -1371,6 +1371,24 @@
 					<string>Blender</string>
 				</dict>
 			</dict>
+			<key>Boto3</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-29T17:53:31Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Boto3#readme</string>
+					<key>authorLinkText</key>
+					<string>James Seward</string>
+					<key>name</key>
+					<string>boto3</string>
+					<key>platform</key>
+					<string>usercontribBoto3</string>
+					<key>uniqueIdentifier</key>
+					<string>Boto3</string>
+				</dict>
+			</dict>
 			<key>Crystal</key>
 			<dict>
 				<key>date</key>
@@ -2002,6 +2020,8 @@
 			<string>plots:</string>
 			<key>~/Library/Application Support/Dash/GitHub/LeonidasfromXIVnodexml2js/Leonidas-from-XIV-node-xml2js.docset</key>
 			<string>xml2js:</string>
+			<key>~/Library/Application Support/Dash/GitHub/PostgRESTpostgrest/PostgREST-postgrest.docset</key>
+			<string>postgrest:</string>
 			<key>~/Library/Application Support/Dash/GitHub/SwiftyJSONSwiftyJSON/SwiftyJSON-SwiftyJSON.docset</key>
 			<string>swiftyjson:</string>
 			<key>~/Library/Application Support/Dash/GitHub/abronteBigQuery/abronte-BigQuery.docset</key>
@@ -2054,6 +2074,8 @@
 			<string>lub:</string>
 			<key>~/Library/Application Support/Dash/GitHub/zeitmicro/zeit-micro.docset</key>
 			<string>micro:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/gleamerlang/gleam_erlang.docset</key>
+			<string>gleam_erlang:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/gleamstdlib/gleam_stdlib.docset</key>
 			<string>gleam:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/bcrypt/bcrypt.docset</key>
@@ -2066,6 +2088,10 @@
 			<string>restclient:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/rugged/rugged.docset</key>
 			<string>rugged:</string>
+			<key>~/Library/Application Support/Dash/Ruby DocSets/sinatra/sinatra.docset</key>
+			<string>sinatra:</string>
+			<key>~/Library/Application Support/Dash/Ruby DocSets/sorbet/sorbet.docset</key>
+			<string>sorbet:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/AWS CloudFormation Template Reference/AWS_CloudFormation_Template_Reference.docset</key>
 			<string>cf:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Neovim/Neovim.docset</key>
@@ -2076,8 +2102,12 @@
 			<string>raku:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/R5RS/R5RS.docset</key>
 			<string>scheme:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/Tailwind CSS/Tailwind_CSS.docset</key>
+			<string>tw:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Tailwind CSS/tailwindcss.docset</key>
 			<string>tw:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/boto3/boto3.docset</key>
+			<string>boto:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/ggplot2/ggplot2.docset</key>
 			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
@@ -2142,6 +2172,11 @@
 			<dict>
 				<key>date</key>
 				<date>2019-04-24T13:45:08Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Java.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-28T16:15:40Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/JavaScript.xml</key>
 			<dict>
