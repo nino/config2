@@ -98,4 +98,5 @@ return packer.startup(function(use)
     use 'https://github.com/wsdjeg/vim-fetch'
     use 'https://github.com/Vigemus/iron.nvim'
     use 'https://github.com/chrisgrieser/nvim-spider'
+    use 'https://github.com/prisma/vim-prisma'
 end)
