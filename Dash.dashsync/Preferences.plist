@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-24T19:03:47Z</date>
+				<date>2023-11-30T12:26:31Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1110,7 +1110,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-12T18:39:58Z</date>
+				<date>2023-12-01T18:18:43Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1202,7 +1202,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-25T15:30:03Z</date>
+				<date>2023-11-30T12:26:22Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -2142,6 +2142,11 @@
 			<dict>
 				<key>date</key>
 				<date>2019-04-24T13:45:08Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Java.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-11-27T18:08:33Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/JavaScript.xml</key>
 			<dict>
