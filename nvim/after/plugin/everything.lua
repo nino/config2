@@ -21,6 +21,7 @@ lsp.ensure_installed({
    'erlangls',
    'elixirls',
    'terraformls',
+   'kotlin_language_server'
 })
 
 vim.cmd ":Copilot disable"
@@ -45,6 +46,8 @@ lsp.configure("pyright", {
    end
 })
 lsp.skip_server_setup({ 'pylsp' })
+
+lsp.configure('kotlin_language_server', {})
 
 lsp.configure('dartls', {})
 
