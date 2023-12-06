@@ -19,7 +19,7 @@ return packer.startup(function(use)
     use 'tpope/vim-surround'
     use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-characterize'
-    use 'github/copilot.vim'
+    -- use 'github/copilot.vim'
     use 'rhysd/git-messenger.vim'
     use 'https://github.com/catppuccin/nvim'
     use {
