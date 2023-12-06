@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-28T09:27:23Z</date>
+				<date>2023-12-05T09:10:48Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -834,6 +834,20 @@
 					<string>moment/luxon</string>
 				</dict>
 			</dict>
+			<key>pytoolz/toolz</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-04T08:32:03Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>pytoolz/toolz</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>pytoolz/toolz</string>
+				</dict>
+			</dict>
 			<key>qunitjs/qunit</key>
 			<dict>
 				<key>date</key>
@@ -1110,7 +1124,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-12T18:39:58Z</date>
+				<date>2023-12-04T08:21:42Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1202,7 +1216,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-25T15:30:03Z</date>
+				<date>2023-12-06T09:28:01Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -2046,6 +2060,8 @@
 			<string>node-sqlite:</string>
 			<key>~/Library/Application Support/Dash/GitHub/momentluxon/moment-luxon.docset</key>
 			<string>luxon:</string>
+			<key>~/Library/Application Support/Dash/GitHub/pytoolztoolz/pytoolz-toolz.docset</key>
+			<string>toolz:</string>
 			<key>~/Library/Application Support/Dash/GitHub/qunitjsqunit/qunitjs-qunit.docset</key>
 			<string>qunit:</string>
 			<key>~/Library/Application Support/Dash/GitHub/samselikoffemberclimirage/samselikoff-ember-cli-mirage.docset</key>
@@ -2112,6 +2128,8 @@
 			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
 			<string>seaborn:</string>
+			<key>~/Library/Application Support/Dash/Versioned DocSets/Qt for Python PySide 2PySide 6 - DHUserRepo/6-2-2/Qt_for_Python.docset</key>
+			<string>pyside:</string>
 		</dict>
 	</dict>
 	<key>feeds</key>
@@ -2659,7 +2677,34 @@
 	<key>versionedDHUserRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>Qt_for_Python</key>
+			<dict>
+				<key>6.2.2</key>
+				<dict>
+					<key>date</key>
+					<date>2023-12-01T17:21:50Z</date>
+					<key>entry</key>
+					<dict>
+						<key>aliases</key>
+						<array>
+							<string>PySide2</string>
+							<string>PySide6</string>
+						</array>
+						<key>authorLinkHref</key>
+						<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Qt_for_Python#readme</string>
+						<key>authorLinkText</key>
+						<string>AC Better</string>
+						<key>name</key>
+						<string>Qt for Python (PySide 2/PySide 6)</string>
+						<key>platform</key>
+						<string>usercontribQt_for_Python</string>
+						<key>uniqueIdentifier</key>
+						<string>Qt_for_Python</string>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
