@@ -181,6 +181,11 @@ vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
+vim.api.nvim_create_user_command("Indent", function(info)
+   vim.b.shiftwidth = info.args
+   vim.b.softtabstop = info.args
+   vim.b.tabstop = info.args
+end, { nargs = 1 })
 
 utils.new_cmd("Min", function()
    vim.o.number = false
@@ -231,7 +236,7 @@ utils.run_once("Remove context-menu items about mouse stuff", function()
    ]]
 end)
 
-vim.cmd [[
-    luafile $HOME/.config/nvim/lua/screenreader.lua
-    command! -range -nargs=* P lua Psay(<line1>, <line2>, 'p<args>')
-]]
+-- vim.cmd [[
+--     luafile $HOME/.config/nvim/lua/screenreader.lua
+--     command! -range -nargs=* P lua Psay(<line1>, <line2>, 'p<args>')
+-- ]]
