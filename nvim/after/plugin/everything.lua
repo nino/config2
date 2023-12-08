@@ -27,8 +27,8 @@ lsp.ensure_installed({
 -- vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
-   -- lsp.default_keymaps({ buffer = bufnr })
-   client.config.flags.allow_incremental_sync = false
+   lsp.default_keymaps({ buffer = bufnr })
+   client.config.flags.allow_incremental_sync = true
    vim.lsp.handlers["textDocument/publishDiagnostics"] =
        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
           -- disable virtual text
@@ -59,6 +59,7 @@ lsp.configure('denols', {
 lsp.configure('tsserver', {
    on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = false
+      client.config.flags.allow_incremental_sync = false
    end,
    root_dir = lspconfig.util.root_pattern("package.json"),
    single_file_support = false
