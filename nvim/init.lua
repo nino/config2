@@ -129,9 +129,9 @@ vim.keymap.set("n", "<leader>p", function()
       exec("prettier --write '" .. vim.fn.expand('%') .. "'")
    end
    vim.cmd "e"
-end
+end)
 
-)
+vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
 
 --- @param command string
 --- @return string
