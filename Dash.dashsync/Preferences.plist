@@ -484,7 +484,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-30T12:26:31Z</date>
+				<date>2023-12-05T18:28:13Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1110,7 +1110,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-01T18:18:43Z</date>
+				<date>2023-12-03T18:27:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1202,7 +1202,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-30T12:26:22Z</date>
+				<date>2023-12-08T16:05:28Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1374,7 +1374,7 @@
 			<key>Boto3</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-29T17:53:31Z</date>
+				<date>2023-12-02T18:26:52Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -1569,7 +1569,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-07T15:18:54Z</date>
+				<date>2023-12-08T16:05:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1588,6 +1588,28 @@
 					<string>usercontribTailwind_CSS</string>
 					<key>uniqueIdentifier</key>
 					<string>Tailwind_CSS</string>
+				</dict>
+			</dict>
+			<key>Zig</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-04T19:32:14Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Zig</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Zig#readme</string>
+					<key>authorLinkText</key>
+					<string>puqeko</string>
+					<key>name</key>
+					<string>Zig</string>
+					<key>platform</key>
+					<string>usercontribZig</string>
+					<key>uniqueIdentifier</key>
+					<string>Zig</string>
 				</dict>
 			</dict>
 			<key>ggplot2</key>
@@ -1612,6 +1634,36 @@
 					<string>usercontribggplot2</string>
 					<key>uniqueIdentifier</key>
 					<string>ggplot2</string>
+				</dict>
+			</dict>
+			<key>glibc</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-04T19:31:57Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>glibc</string>
+						<string>GNU C Library</string>
+						<string>POSIX</string>
+						<string>ISO C Library</string>
+						<string>ANSI C</string>
+						<string>C Runtime Library</string>
+						<string>GNU Project</string>
+						<string>libc</string>
+						<string>C Standard Library</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/glibc#readme</string>
+					<key>authorLinkText</key>
+					<string>David Wedderwille</string>
+					<key>name</key>
+					<string>glibc</string>
+					<key>platform</key>
+					<string>usercontribglibc</string>
+					<key>uniqueIdentifier</key>
+					<string>glibc</string>
 				</dict>
 			</dict>
 		</dict>
@@ -1842,28 +1894,6 @@
 					<string>usercontribTerraform</string>
 					<key>uniqueIdentifier</key>
 					<string>Terraform</string>
-				</dict>
-			</dict>
-			<key>Zig</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:11Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>Zig</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Zig#readme</string>
-					<key>authorLinkText</key>
-					<string>puqeko</string>
-					<key>name</key>
-					<string>Zig</string>
-					<key>platform</key>
-					<string>usercontribZig</string>
-					<key>uniqueIdentifier</key>
-					<string>Zig</string>
 				</dict>
 			</dict>
 			<key>electron</key>
