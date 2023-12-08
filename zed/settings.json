@@ -9,8 +9,10 @@
 {
   "show_copilot_suggestions": true,
   "theme": "Ayu Mirage",
-  "base_keymap": "SublimeText",
-  "buffer_font_size": 13,
+  "buffer_font_size": 11,
+  "project_panel": {
+    "dock": "right"
+  },
   "vim_mode": false,
   "buffer_font_family": "MonaSpace Argon",
   "soft_wrap": "editor_width",

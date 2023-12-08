@@ -439,20 +439,6 @@
 					<string>Phrogz/context-blender</string>
 				</dict>
 			</dict>
-			<key>PostgREST/postgrest</key>
-			<dict>
-				<key>date</key>
-				<date>2023-11-02T09:24:29Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>PostgREST/postgrest</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>PostgREST/postgrest</string>
-				</dict>
-			</dict>
 			<key>blender/blender</key>
 			<dict>
 				<key>date</key>
@@ -493,48 +479,6 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>googlemaps/google-maps-services-js</string>
-				</dict>
-			</dict>
-			<key>janestreet/base</key>
-			<dict>
-				<key>date</key>
-				<date>2023-11-24T19:03:54Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>janestreet/base</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>janestreet/base</string>
-				</dict>
-			</dict>
-			<key>janestreet/core</key>
-			<dict>
-				<key>date</key>
-				<date>2023-11-24T19:03:55Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>janestreet/core</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>janestreet/core</string>
-				</dict>
-			</dict>
-			<key>mapbox/mapbox-gl-js</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-05T10:40:46Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>mapbox/mapbox-gl-js</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>mapbox/mapbox-gl-js</string>
 				</dict>
 			</dict>
 			<key>tannerlinsley/react-query</key>
@@ -708,6 +652,20 @@
 					<string>MikeMcl/bignumber.js</string>
 				</dict>
 			</dict>
+			<key>PostgREST/postgrest</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:28:44Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>PostgREST/postgrest</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>PostgREST/postgrest</string>
+				</dict>
+			</dict>
 			<key>SwiftyJSON/SwiftyJSON</key>
 			<dict>
 				<key>date</key>
@@ -806,6 +764,48 @@
 					<string>gotk3/gotk3</string>
 				</dict>
 			</dict>
+			<key>janestreet/base</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>janestreet/base</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>janestreet/base</string>
+				</dict>
+			</dict>
+			<key>janestreet/core</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>janestreet/core</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>janestreet/core</string>
+				</dict>
+			</dict>
+			<key>mapbox/mapbox-gl-js</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>mapbox/mapbox-gl-js</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>mapbox/mapbox-gl-js</string>
+				</dict>
+			</dict>
 			<key>mapbox/node-sqlite3</key>
 			<dict>
 				<key>date</key>
@@ -832,6 +832,20 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>moment/luxon</string>
+				</dict>
+			</dict>
+			<key>pytoolz/toolz</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-04T08:32:03Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>pytoolz/toolz</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>pytoolz/toolz</string>
 				</dict>
 			</dict>
 			<key>qunitjs/qunit</key>
@@ -1008,11 +1022,13 @@
 	<key>DHHexRepo</key>
 	<dict>
 		<key>installed</key>
+		<dict/>
+		<key>uninstalled</key>
 		<dict>
 			<key>gleam</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:27Z</date>
+				<date>2023-12-07T12:29:08Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1026,7 +1042,7 @@
 			<key>gleam_bitwise</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-08T09:30:57Z</date>
+				<date>2023-12-07T12:28:44Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1040,7 +1056,7 @@
 			<key>gleam_elli</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-08T09:30:57Z</date>
+				<date>2023-12-07T12:29:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1054,7 +1070,7 @@
 			<key>gleam_erlang</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-16T19:53:38Z</date>
+				<date>2023-12-07T12:28:44Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1068,7 +1084,7 @@
 			<key>gleam_http</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-14T09:32:12Z</date>
+				<date>2023-12-07T12:29:08Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1082,7 +1098,7 @@
 			<key>gleam_javascript</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-07T15:18:53Z</date>
+				<date>2023-12-07T12:29:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1096,7 +1112,7 @@
 			<key>gleam_nodejs</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:27Z</date>
+				<date>2023-12-07T12:29:08Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1110,7 +1126,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-03T18:27:55Z</date>
+				<date>2023-12-07T12:28:44Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1124,7 +1140,7 @@
 			<key>react_gleam</key>
 			<dict>
 				<key>date</key>
-				<date>2023-08-24T08:44:29Z</date>
+				<date>2023-12-07T12:29:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1136,8 +1152,6 @@
 				</dict>
 			</dict>
 		</dict>
-		<key>uninstalled</key>
-		<dict/>
 	</dict>
 	<key>DHJavaRepo</key>
 	<dict>
@@ -1256,6 +1270,34 @@
 					<string>rubyGems</string>
 					<key>uniqueIdentifier</key>
 					<string>rugged</string>
+				</dict>
+			</dict>
+			<key>sinatra</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:28:44Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sinatra</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>sinatra</string>
+				</dict>
+			</dict>
+			<key>sorbet</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:28:44Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sorbet</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>sorbet</string>
 				</dict>
 			</dict>
 			<key>xgboost</key>
@@ -1389,29 +1431,6 @@
 					<string>Boto3</string>
 				</dict>
 			</dict>
-			<key>Crystal</key>
-			<dict>
-				<key>date</key>
-				<date>2023-08-10T19:22:50Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>Crystal Language</string>
-						<string>crystal-lang</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Crystal#readme</string>
-					<key>authorLinkText</key>
-					<string>Sijawusz Pur Rahnama</string>
-					<key>name</key>
-					<string>Crystal</string>
-					<key>platform</key>
-					<string>usercontribCrystal</string>
-					<key>uniqueIdentifier</key>
-					<string>Crystal</string>
-				</dict>
-			</dict>
 			<key>Deno</key>
 			<dict>
 				<key>date</key>
@@ -1465,26 +1484,6 @@
 					<string>Jest</string>
 				</dict>
 			</dict>
-			<key>Kotlin</key>
-			<dict>
-				<key>date</key>
-				<date>2023-08-15T14:53:00Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array/>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Kotlin#readme</string>
-					<key>authorLinkText</key>
-					<string>Xm798</string>
-					<key>name</key>
-					<string>Kotlin</string>
-					<key>platform</key>
-					<string>usercontribKotlin</string>
-					<key>uniqueIdentifier</key>
-					<string>Kotlin</string>
-				</dict>
-			</dict>
 			<key>LLVM</key>
 			<dict>
 				<key>date</key>
@@ -1528,42 +1527,6 @@
 					<string>usercontribNeovim</string>
 					<key>uniqueIdentifier</key>
 					<string>Neovim</string>
-				</dict>
-			</dict>
-			<key>Perl6</key>
-			<dict>
-				<key>date</key>
-				<date>2023-08-15T14:52:54Z</date>
-				<key>entry</key>
-				<dict>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Perl6#readme</string>
-					<key>authorLinkText</key>
-					<string>Hans-J. Schmid</string>
-					<key>name</key>
-					<string>Perl 6</string>
-					<key>platform</key>
-					<string>usercontribPerl6</string>
-					<key>uniqueIdentifier</key>
-					<string>Perl6</string>
-				</dict>
-			</dict>
-			<key>PostGIS</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:05Z</date>
-				<key>entry</key>
-				<dict>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/PostGIS#readme</string>
-					<key>authorLinkText</key>
-					<string>Drew Dara-Abrams</string>
-					<key>name</key>
-					<string>PostGIS</string>
-					<key>platform</key>
-					<string>usercontribPostGIS</string>
-					<key>uniqueIdentifier</key>
-					<string>PostGIS</string>
 				</dict>
 			</dict>
 			<key>Tailwind_CSS</key>
@@ -1759,6 +1722,29 @@
 					<string>Coq</string>
 				</dict>
 			</dict>
+			<key>Crystal</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Crystal Language</string>
+						<string>crystal-lang</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Crystal#readme</string>
+					<key>authorLinkText</key>
+					<string>Sijawusz Pur Rahnama</string>
+					<key>name</key>
+					<string>Crystal</string>
+					<key>platform</key>
+					<string>usercontribCrystal</string>
+					<key>uniqueIdentifier</key>
+					<string>Crystal</string>
+				</dict>
+			</dict>
 			<key>Faker</key>
 			<dict>
 				<key>date</key>
@@ -1780,6 +1766,62 @@
 					<string>usercontribFaker</string>
 					<key>uniqueIdentifier</key>
 					<string>Faker</string>
+				</dict>
+			</dict>
+			<key>Kotlin</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Kotlin#readme</string>
+					<key>authorLinkText</key>
+					<string>Xm798</string>
+					<key>name</key>
+					<string>Kotlin</string>
+					<key>platform</key>
+					<string>usercontribKotlin</string>
+					<key>uniqueIdentifier</key>
+					<string>Kotlin</string>
+				</dict>
+			</dict>
+			<key>Perl6</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Perl6#readme</string>
+					<key>authorLinkText</key>
+					<string>Hans-J. Schmid</string>
+					<key>name</key>
+					<string>Perl 6</string>
+					<key>platform</key>
+					<string>usercontribPerl6</string>
+					<key>uniqueIdentifier</key>
+					<string>Perl6</string>
+				</dict>
+			</dict>
+			<key>PostGIS</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:23Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/PostGIS#readme</string>
+					<key>authorLinkText</key>
+					<string>Drew Dara-Abrams</string>
+					<key>name</key>
+					<string>PostGIS</string>
+					<key>platform</key>
+					<string>usercontribPostGIS</string>
+					<key>uniqueIdentifier</key>
+					<string>PostGIS</string>
 				</dict>
 			</dict>
 			<key>PySide2</key>
@@ -2076,6 +2118,8 @@
 			<string>node-sqlite:</string>
 			<key>~/Library/Application Support/Dash/GitHub/momentluxon/moment-luxon.docset</key>
 			<string>luxon:</string>
+			<key>~/Library/Application Support/Dash/GitHub/pytoolztoolz/pytoolz-toolz.docset</key>
+			<string>toolz:</string>
 			<key>~/Library/Application Support/Dash/GitHub/qunitjsqunit/qunitjs-qunit.docset</key>
 			<string>qunit:</string>
 			<key>~/Library/Application Support/Dash/GitHub/samselikoffemberclimirage/samselikoff-ember-cli-mirage.docset</key>
@@ -2142,6 +2186,8 @@
 			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
 			<string>seaborn:</string>
+			<key>~/Library/Application Support/Dash/Versioned DocSets/Qt for Python PySide 2PySide 6 - DHUserRepo/6-2-2/Qt_for_Python.docset</key>
+			<string>pyside:</string>
 		</dict>
 	</dict>
 	<key>feeds</key>
@@ -2162,6 +2208,11 @@
 			<dict>
 				<key>date</key>
 				<date>2023-05-04T13:14:00Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/CMake.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:28:11Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
@@ -2258,20 +2309,10 @@
 				<key>date</key>
 				<date>2019-04-24T11:00:30Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/Racket.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-05T10:40:49Z</date>
-			</dict>
 			<key>http://kapeli.com/feeds/React.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2019-12-02T15:57:26Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-05T10:40:14Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby_3.xml</key>
 			<dict>
@@ -2321,6 +2362,11 @@
 				<key>date</key>
 				<date>2023-05-04T19:04:10Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Erlang.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:28:44Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Handlebars.xml</key>
 			<dict>
 				<key>date</key>
@@ -2366,10 +2412,20 @@
 				<key>date</key>
 				<date>2022-02-25T19:39:12Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Racket.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Ruby.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2019-04-29T11:47:14Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-07T12:29:08Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/SQLAlchemy.xml</key>
 			<dict>
@@ -2689,7 +2745,34 @@
 	<key>versionedDHUserRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>Qt_for_Python</key>
+			<dict>
+				<key>6.2.2</key>
+				<dict>
+					<key>date</key>
+					<date>2023-12-01T17:21:50Z</date>
+					<key>entry</key>
+					<dict>
+						<key>aliases</key>
+						<array>
+							<string>PySide2</string>
+							<string>PySide6</string>
+						</array>
+						<key>authorLinkHref</key>
+						<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Qt_for_Python#readme</string>
+						<key>authorLinkText</key>
+						<string>AC Better</string>
+						<key>name</key>
+						<string>Qt for Python (PySide 2/PySide 6)</string>
+						<key>platform</key>
+						<string>usercontribQt_for_Python</string>
+						<key>uniqueIdentifier</key>
+						<string>Qt_for_Python</string>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
