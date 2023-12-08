@@ -27,8 +27,8 @@ lsp.ensure_installed({
 -- vim.cmd ":Copilot disable"
 
 lsp.on_attach(function(client, bufnr)
-   lsp.default_keymaps({ buffer = bufnr })
-   client.config.flags.allow_incremental_sync = true
+   -- lsp.default_keymaps({ buffer = bufnr })
+   client.config.flags.allow_incremental_sync = false
    vim.lsp.handlers["textDocument/publishDiagnostics"] =
        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
           -- disable virtual text
