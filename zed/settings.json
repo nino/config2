@@ -18,6 +18,6 @@
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
-  "indent_size": 3,
+  "indent_size": 2,
   "show_completion_documentation": true,
 }
