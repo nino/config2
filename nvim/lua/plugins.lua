@@ -77,4 +77,6 @@ return packer.startup(function(use)
     use 'https://github.com/Vigemus/iron.nvim'
     use 'https://github.com/chrisgrieser/nvim-spider'
     use 'https://github.com/prisma/vim-prisma'
+    use 'https://github.com/simrat39/symbols-outline.nvim'
+    use 'https://github.com/nvimtools/none-ls.nvim'
 end)
