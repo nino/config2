@@ -62,6 +62,9 @@ vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 
+local symbols_outline = require('symbols-outline')
+vim.keymap.set('n', '<M-s>', symbols_outline.toggle_outline, {})
+
 vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
@@ -113,6 +116,7 @@ vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
 
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
