@@ -28,6 +28,7 @@ lsp.ensure_installed({
 nonels.setup({
   sources = {
     nonels.builtins.diagnostics.eslint,
+    nonels.builtins.formatting.eslint,
     nonels.builtins.formatting.black,
   }
 })
@@ -54,6 +55,7 @@ lsp.configure("pyright", {
   end
 })
 lsp.skip_server_setup({ 'pylsp' })
+lsp.skip_server_setup({ 'eslint' })
 
 
 lsp.configure('kotlin_language_server', {})
