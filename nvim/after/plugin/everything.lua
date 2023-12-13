@@ -30,6 +30,7 @@ nonels.setup({
     nonels.builtins.diagnostics.eslint,
     nonels.builtins.formatting.eslint,
     nonels.builtins.formatting.black,
+    nonels.builtins.diagnostics.flake8,
   }
 })
 
