@@ -122,7 +122,7 @@ vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
 
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
-vim.keymap.set("n", "_", vim.lsp.buf.format)
+vim.keymap.set("n", "_", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", function()
   if vim.bo.filetype == "python" then
