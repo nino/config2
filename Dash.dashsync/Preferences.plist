@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-12T09:28:31Z</date>
+				<date>2023-12-13T09:28:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1171,6 +1171,20 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>concurrent-ruby</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-12T15:17:37Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>concurrent-ruby</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>concurrent-ruby</string>
+				</dict>
+			</dict>
 			<key>mechanize</key>
 			<dict>
 				<key>date</key>
@@ -1216,7 +1230,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-09T13:43:16Z</date>
+				<date>2023-12-13T09:28:28Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -2130,6 +2144,8 @@
 			<string>gleam:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/bcrypt/bcrypt.docset</key>
 			<string>bcrypt:</string>
+			<key>~/Library/Application Support/Dash/Ruby DocSets/concurrentruby/concurrent-ruby.docset</key>
+			<string>cru:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/mechanize/mechanize.docset</key>
 			<string>mechanize:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/nokogiri/nokogiri.docset</key>
