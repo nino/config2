@@ -67,6 +67,7 @@ alias com="git add . && git commit -m"
 alias awk='gawk'
 alias dockre='docker'
 # alias docker='podman'
+alias arst='asdf'
 
 npma() {
     fd 'package.json' | parallel --gnu 'cd $(dirname {}); npm i'
