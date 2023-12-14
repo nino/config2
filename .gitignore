@@ -57,3 +57,4 @@ scripts/compiled
 containers
 zed/embeddings
 flutter
+micro/buffers/history
