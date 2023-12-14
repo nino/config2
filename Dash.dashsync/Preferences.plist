@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-13T09:28:34Z</date>
+				<date>2023-12-14T09:28:31Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1230,7 +1230,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-13T09:28:28Z</date>
+				<date>2023-12-14T09:28:28Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1513,6 +1513,30 @@
 					<string>usercontribNeovim</string>
 					<key>uniqueIdentifier</key>
 					<string>Neovim</string>
+				</dict>
+			</dict>
+			<key>Seaborn</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-14T11:21:58Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Python</string>
+						<string>Statistical data visualization</string>
+						<string>matplotlib</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Seaborn#readme</string>
+					<key>authorLinkText</key>
+					<string>Paulo S. Costa, Xavier Yang</string>
+					<key>name</key>
+					<string>seaborn</string>
+					<key>platform</key>
+					<string>usercontribSeaborn</string>
+					<key>uniqueIdentifier</key>
+					<string>Seaborn</string>
 				</dict>
 			</dict>
 			<key>Tailwind_CSS</key>
@@ -1852,32 +1876,6 @@
 					<string>Ramda</string>
 				</dict>
 			</dict>
-			<key>Seaborn</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:11Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>python</string>
-						<string>graph</string>
-						<string>matplotlib</string>
-						<string>visualization</string>
-						<string>data</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Seaborn#readme</string>
-					<key>authorLinkText</key>
-					<string>Paulo S. Costa</string>
-					<key>name</key>
-					<string>seaborn</string>
-					<key>platform</key>
-					<string>usercontribSeaborn</string>
-					<key>uniqueIdentifier</key>
-					<string>Seaborn</string>
-				</dict>
-			</dict>
 			<key>TensorFlow_2</key>
 			<dict>
 				<key>date</key>
@@ -2178,6 +2176,8 @@
 			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
 			<string>seaborn:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn.docset</key>
+			<string>sns:</string>
 			<key>~/Library/Application Support/Dash/Versioned DocSets/Qt for Python PySide 2PySide 6 - DHUserRepo/6-2-2/Qt_for_Python.docset</key>
 			<string>pyside:</string>
 		</dict>
