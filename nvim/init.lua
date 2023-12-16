@@ -62,14 +62,17 @@ vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 
+local symbols_outline = require('symbols-outline')
+vim.keymap.set('n', '<M-s>', symbols_outline.toggle_outline, {})
+
 vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
 
 vim.keymap.set("n", "<leader>d",
-   function()
-      vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>'); vim.cmd "set hls"
-   end, {})
+  function()
+    vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>'); vim.cmd "set hls"
+  end, {})
 
 vim.keymap.set("n", "<M-c>", "F_x~", {}) -- Convert to camels
 -- Convert to snakes
@@ -113,22 +116,23 @@ vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
 
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
 
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
-vim.keymap.set("n", "_", vim.lsp.buf.format)
+vim.keymap.set("n", "_", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end)
 vim.keymap.set("n", "<leader>-", ":!eslint --fix %<cr>")
 vim.keymap.set("n", "<leader>p", function()
-   if vim.bo.filetype == "python" then
-      exec("black --quiet '" .. vim.fn.expand('%') .. "'")
-   elseif vim.bo.filetype == "prisma" then
-      exec("prisma format --schema '" .. vim.fn.expand('%') .. "'")
-   else
-      exec("prettier --write '" .. vim.fn.expand('%') .. "'")
-   end
-   vim.cmd "e"
+  if vim.bo.filetype == "python" then
+    exec("black --quiet '" .. vim.fn.expand('%') .. "'")
+  elseif vim.bo.filetype == "prisma" then
+    exec("prisma format --schema '" .. vim.fn.expand('%') .. "'")
+  else
+    exec("prettier --write '" .. vim.fn.expand('%') .. "'")
+  end
+  vim.cmd "e"
 end)
 
 vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
@@ -136,18 +140,18 @@ vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
 --- @param command string
 --- @return string
 function exec(command)
-   local handle = io.popen(command)
-   if handle then
-      local result = handle:read("*a")
-      handle:close()
-      return result
-   end
-   return ""
+  local handle = io.popen(command)
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    return result
+  end
+  return ""
 end
 
 vim.keymap.set("n", "cp", function()
-   local filepath = vim.fn.expand('%')
-   os.execute("echo '" .. filepath .. "' | pbcopy")
+  local filepath = vim.fn.expand('%')
+  os.execute("echo '" .. filepath .. "' | pbcopy")
 end)
 
 vim.cmd [[
@@ -182,26 +186,26 @@ vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, 
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 vim.api.nvim_create_user_command("Indent", function(info)
-   vim.b.shiftwidth = info.args
-   vim.b.softtabstop = info.args
-   vim.b.tabstop = info.args
+  vim.b.shiftwidth = info.args
+  vim.b.softtabstop = info.args
+  vim.b.tabstop = info.args
 end, { nargs = 1 })
 
 utils.new_cmd("Min", function()
-   vim.o.number = false
-   vim.o.cmdheight = 0
-   vim.o.laststatus = 1
-   vim.o.signcolumn = "no"
-   vim.cmd("syntax off")
-   -- vim.cmd("Copilot disable")
+  vim.o.number = false
+  vim.o.cmdheight = 0
+  vim.o.laststatus = 1
+  vim.o.signcolumn = "no"
+  vim.cmd("syntax off")
+  -- vim.cmd("Copilot disable")
 end, {})
 
 vim.api.nvim_create_user_command("Re", function(info)
-   local new_name = info.args
-   if #new_name == 0 then
-      new_name = nil
-   end
-   vim.lsp.buf.rename(new_name)
+  local new_name = info.args
+  if #new_name == 0 then
+    new_name = nil
+  end
+  vim.lsp.buf.rename(new_name)
 end, { nargs = "?" })
 
 vim.cmd [[
@@ -230,7 +234,7 @@ endfunction
 
 
 utils.run_once("Remove context-menu items about mouse stuff", function()
-   vim.cmd [[
+  vim.cmd [[
       aunmenu PopUp.How-to\ disable\ mouse
       aunmenu PopUp.-1-
    ]]

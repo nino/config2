@@ -19,7 +19,7 @@ return packer.startup(function(use)
     use 'tpope/vim-surround'
     use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-characterize'
-    -- use 'github/copilot.vim'
+    use 'github/copilot.vim'
     use 'rhysd/git-messenger.vim'
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -77,4 +77,7 @@ return packer.startup(function(use)
     use 'https://github.com/Vigemus/iron.nvim'
     use 'https://github.com/chrisgrieser/nvim-spider'
     use 'https://github.com/prisma/vim-prisma'
+    use 'https://github.com/simrat39/symbols-outline.nvim'
+    use 'https://github.com/nvimtools/none-ls.nvim'
+    use 'https://github.com/NoahTheDuke/vim-just'
 end)

@@ -1185,6 +1185,20 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>concurrent-ruby</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-12T15:17:37Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>concurrent-ruby</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>concurrent-ruby</string>
+				</dict>
+			</dict>
 			<key>mechanize</key>
 			<dict>
 				<key>date</key>
@@ -1538,6 +1552,30 @@
 					<string>Neovim</string>
 				</dict>
 			</dict>
+			<key>Seaborn</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-14T11:21:58Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Python</string>
+						<string>Statistical data visualization</string>
+						<string>matplotlib</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Seaborn#readme</string>
+					<key>authorLinkText</key>
+					<string>Paulo S. Costa, Xavier Yang</string>
+					<key>name</key>
+					<string>seaborn</string>
+					<key>platform</key>
+					<string>usercontribSeaborn</string>
+					<key>uniqueIdentifier</key>
+					<string>Seaborn</string>
+				</dict>
+			</dict>
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
@@ -1875,32 +1913,6 @@
 					<string>Ramda</string>
 				</dict>
 			</dict>
-			<key>Seaborn</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-04T19:04:11Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>python</string>
-						<string>graph</string>
-						<string>matplotlib</string>
-						<string>visualization</string>
-						<string>data</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Seaborn#readme</string>
-					<key>authorLinkText</key>
-					<string>Paulo S. Costa</string>
-					<key>name</key>
-					<string>seaborn</string>
-					<key>platform</key>
-					<string>usercontribSeaborn</string>
-					<key>uniqueIdentifier</key>
-					<string>Seaborn</string>
-				</dict>
-			</dict>
 			<key>TensorFlow_2</key>
 			<dict>
 				<key>date</key>
@@ -2077,12 +2089,16 @@
 	<dict>
 		<key>keywords</key>
 		<dict>
+			<key>~/Library/Application Support/Dash/Cheat Sheets/HTML Entities/HTML_Entities.docset</key>
+			<string>html:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Font_Awesome/Font_Awesome.docset</key>
 			<string>fa:</string>
 			<key>~/Library/Application Support/Dash/DocSets/JavaScript/JavaScript.docset</key>
 			<string>js:</string>
+			<key>~/Library/Application Support/Dash/DocSets/Man_Pages/Man Pages.docset</key>
+			<string>man:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Python_3/Python 3.docset</key>
-			<string>python:</string>
+			<string>py:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_5/Qt.docset</key>
 			<string>qt5:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Qt_6/Qt.docset</key>
@@ -2163,6 +2179,8 @@
 			<string>gleam:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/bcrypt/bcrypt.docset</key>
 			<string>bcrypt:</string>
+			<key>~/Library/Application Support/Dash/Ruby DocSets/concurrentruby/concurrent-ruby.docset</key>
+			<string>cru:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/mechanize/mechanize.docset</key>
 			<string>mechanize:</string>
 			<key>~/Library/Application Support/Dash/Ruby DocSets/nokogiri/nokogiri.docset</key>
@@ -2197,6 +2215,8 @@
 			<string>gg:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn 0.11.0.docset</key>
 			<string>seaborn:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/seaborn/seaborn.docset</key>
+			<string>sns:</string>
 			<key>~/Library/Application Support/Dash/Versioned DocSets/Qt for Python PySide 2PySide 6 - DHUserRepo/6-2-2/Qt_for_Python.docset</key>
 			<string>pyside:</string>
 		</dict>
