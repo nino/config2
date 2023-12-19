@@ -339,6 +339,9 @@ export PATH=$PATH:/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources
 export PATH=$PATH:/home/nino/.cargo/bin
 export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
+RUST_VERSION=$(awk '/rust/ {print $2}' ~/.tool-versions)
+export PATH=$HOME/.asdf/installs/rust/$RUST_VERSION/bin:$PATH
+
 # For rm-improved
 export GRAVEYARD=~/.Trash
 
