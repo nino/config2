@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-19T09:39:50Z</date>
+				<date>2023-12-16T09:40:59Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -655,7 +655,7 @@
 			<key>PostgREST/postgrest</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:28:44Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -767,7 +767,7 @@
 			<key>janestreet/base</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -781,7 +781,7 @@
 			<key>janestreet/core</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -795,7 +795,7 @@
 			<key>mapbox/mapbox-gl-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -832,6 +832,20 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>moment/luxon</string>
+				</dict>
+			</dict>
+			<key>ocaml/ocaml</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-16T09:41:20Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>ocaml/ocaml</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>ocaml/ocaml</string>
 				</dict>
 			</dict>
 			<key>pytoolz/toolz</key>
@@ -1028,7 +1042,7 @@
 			<key>gleam</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1042,7 +1056,7 @@
 			<key>gleam_bitwise</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:28:44Z</date>
+				<date>2023-12-09T18:21:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1056,7 +1070,7 @@
 			<key>gleam_elli</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:09Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1070,7 +1084,7 @@
 			<key>gleam_erlang</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:28:44Z</date>
+				<date>2023-12-09T18:21:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1084,7 +1098,7 @@
 			<key>gleam_http</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1098,7 +1112,7 @@
 			<key>gleam_javascript</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:09Z</date>
+				<date>2023-12-09T18:21:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1112,7 +1126,7 @@
 			<key>gleam_nodejs</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1126,7 +1140,7 @@
 			<key>gleam_stdlib</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:28:44Z</date>
+				<date>2023-12-09T18:21:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1140,7 +1154,7 @@
 			<key>react_gleam</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:09Z</date>
+				<date>2023-12-09T18:21:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1174,7 +1188,7 @@
 			<key>concurrent-ruby</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-12T15:17:37Z</date>
+				<date>2023-12-16T09:43:08Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1230,7 +1244,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-19T09:39:48Z</date>
+				<date>2023-12-16T09:40:58Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1312,11 +1326,13 @@
 	<key>DHStackOverflowRepo</key>
 	<dict>
 		<key>installed</key>
+		<dict/>
+		<key>uninstalled</key>
 		<dict>
 			<key>OCaml_Online</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-12T09:28:25Z</date>
+				<date>2023-12-16T09:41:17Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1330,8 +1346,6 @@
 				</dict>
 			</dict>
 		</dict>
-		<key>uninstalled</key>
-		<dict/>
 	</dict>
 	<key>DHUserRepo</key>
 	<dict>
@@ -1402,7 +1416,7 @@
 			<key>Boto3</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-12T09:28:50Z</date>
+				<date>2023-12-16T09:41:23Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -1437,6 +1451,29 @@
 					<string>usercontribDeno</string>
 					<key>uniqueIdentifier</key>
 					<string>Deno</string>
+				</dict>
+			</dict>
+			<key>Gforth</key>
+			<dict>
+				<key>date</key>
+				<date>2023-12-16T09:39:26Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Forth</string>
+						<string>GNU Forth</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Gforth#readme</string>
+					<key>authorLinkText</key>
+					<string>Darren Stone</string>
+					<key>name</key>
+					<string>Gforth</string>
+					<key>platform</key>
+					<string>usercontribGforth</string>
+					<key>uniqueIdentifier</key>
+					<string>Gforth</string>
 				</dict>
 			</dict>
 			<key>Jest</key>
@@ -1518,7 +1555,7 @@
 			<key>Seaborn</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-14T11:21:58Z</date>
+				<date>2023-12-16T09:42:59Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1542,7 +1579,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-12T09:28:25Z</date>
+				<date>2023-12-16T09:40:45Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1735,7 +1772,7 @@
 			<key>Crystal</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1781,7 +1818,7 @@
 			<key>Kotlin</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1801,7 +1838,7 @@
 			<key>Perl6</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -1819,7 +1856,7 @@
 			<key>PostGIS</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:23Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -2158,6 +2195,8 @@
 			<string>sorbet:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/AWS CloudFormation Template Reference/AWS_CloudFormation_Template_Reference.docset</key>
 			<string>cf:</string>
+			<key>~/Library/Application Support/Dash/User Contributed/Gforth/Gforth.docset</key>
+			<string>4:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Neovim/Neovim.docset</key>
 			<string>nvim:</string>
 			<key>~/Library/Application Support/Dash/User Contributed/Nextjs/nextjs.docset</key>
@@ -2204,7 +2243,7 @@
 			<key>http://kapeli.com/feeds/CMake.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:28:11Z</date>
+				<date>2023-12-09T18:21:56Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
@@ -2357,7 +2396,7 @@
 			<key>http://kapeli.com/feeds/Erlang.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:28:44Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Handlebars.xml</key>
 			<dict>
@@ -2407,7 +2446,7 @@
 			<key>http://kapeli.com/feeds/Racket.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby.xml</key>
 			<dict>
@@ -2417,7 +2456,7 @@
 			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-07T12:29:08Z</date>
+				<date>2023-12-09T18:21:53Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/SQLAlchemy.xml</key>
 			<dict>
@@ -2743,7 +2782,7 @@
 				<key>6.2.2</key>
 				<dict>
 					<key>date</key>
-					<date>2023-12-01T17:21:50Z</date>
+					<date>2023-12-09T18:21:55Z</date>
 					<key>entry</key>
 					<dict>
 						<key>aliases</key>

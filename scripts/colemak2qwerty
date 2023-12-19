@@ -1,0 +1,57 @@
+#!/usr/local/bin/lua
+
+function mapchars(s, fun)
+  local t = {}
+  for c in s:gmatch('.') do
+    t[#t + 1] = fun(c)
+  end
+  return table.concat(t)
+end
+
+-- left is what it says on the keyboard, right is the letter in the string
+local mapping = {
+  e = 'f',
+  r = 'p',
+  t = 'g',
+  y = 'j',
+  u = 'l',
+  i = 'u',
+  o = 'y',
+  p = ';',
+  ["E"] = 'F',
+  ["R"] = 'P',
+  ["T"] = 'G',
+  ["Y"] = 'J',
+  ["U"] = 'L',
+  ["I"] = 'U',
+  ["O"] = 'Y',
+  ["P"] = ':',
+  ["s"] = 'r',
+  ["d"] = 's',
+  ["f"] = 't',
+  ["g"] = 'd',
+  ["j"] = 'n',
+  ["k"] = 'e',
+  ["l"] = 'i',
+  [";"] = 'o',
+  ["S"] = 'R',
+  ["D"] = 'S',
+  ["F"] = 'T',
+  ["G"] = 'D',
+  ["H"] = 'H',
+  ["J"] = 'N',
+  ["K"] = 'E',
+  ["L"] = 'I',
+  [":"] = "O",
+  ["z"] = 'z',
+  ["n"] = 'k',
+  ["N"] = 'K',
+}
+
+local input = io.read()
+io.stdout:write(
+  mapchars(
+    input,
+    function(c) return mapping[c] or c end
+  )
+)
