@@ -1,5 +1,6 @@
 use anyhow::anyhow;
 use rayon::prelude::*;
+use rayon::ThreadPoolBuilder;
 use rust_tools::cmd_helpers::OutputExt;
 use std::env;
 use std::fs;
@@ -103,6 +104,12 @@ fn process_repo(path: &str) -> anyhow::Result<ProcessResult> {
 }
 
 fn main() {
+    // This doesn't actually seem to work, but 🤷
+    ThreadPoolBuilder::new()
+        .num_threads(48)
+        .build_global()
+        .expect("Failed to build thread pool");
+
     let mut unclean_repos = vec![];
     let mut checked_out_branches = vec![];
 
