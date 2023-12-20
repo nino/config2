@@ -80,4 +80,5 @@ return packer.startup(function(use)
     use 'https://github.com/simrat39/symbols-outline.nvim'
     use 'https://github.com/nvimtools/none-ls.nvim'
     use 'https://github.com/NoahTheDuke/vim-just'
+    use 'https://github.com/lukas-reineke/indent-blankline.nvim'
 end)

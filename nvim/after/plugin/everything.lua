@@ -229,3 +229,4 @@ vim.keymap.set(
 )
 
 require("symbols-outline").setup()
+require("ibl").setup()
