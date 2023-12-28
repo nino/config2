@@ -1,3 +1,5 @@
+vim.diagnostic.config{virtual_text=false}
+
 -- LSP-zero
 local nonels = require("null-ls")
 local lsp = require('lsp-zero')
