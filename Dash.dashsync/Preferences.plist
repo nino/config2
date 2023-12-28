@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-27T15:02:49Z</date>
+				<date>2023-12-28T15:45:16Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1216,7 +1216,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2023-11-18T15:54:18Z</date>
+				<date>2023-12-28T15:45:20Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1244,7 +1244,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-24T13:55:23Z</date>
+				<date>2023-12-28T15:45:14Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1579,7 +1579,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-21T19:01:15Z</date>
+				<date>2023-12-28T15:45:11Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
