@@ -1,4 +1,4 @@
-vim.diagnostic.config{virtual_text=false}
+vim.diagnostic.config { virtual_text = false }
 
 -- LSP-zero
 local nonels = require("null-ls")
