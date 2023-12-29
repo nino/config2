@@ -4,7 +4,7 @@ local mod = {}
 --- @return integer
 function mod.utf8_to_unicode_codepoint(c)
   local b1, b2, b3, b4 = c:byte(1, -1)
-  local codepoint   --- @type integer
+  local codepoint --- @type integer
   if b1 < 0x80 then
     codepoint = b1
   elseif b1 < 0xE0 then
@@ -17,6 +17,7 @@ function mod.utf8_to_unicode_codepoint(c)
   return codepoint
 end
 
+--- Define a new digraph.
 --- @param keys string
 --- @param char string
 --- @return nil
@@ -28,11 +29,7 @@ end
 --- @param option string
 --- @return nil
 function mod.toggle_option(option)
-  if vim.o[option] then
-    vim.o[option] = false
-  else
-    vim.o[option] = true
-  end
+  vim.o[option] = not vim.o[option]
 end
 
 --- Create a new command.
