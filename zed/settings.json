@@ -9,7 +9,7 @@
 {
   "show_copilot_suggestions": true,
   "theme": "Sandcastle",
-  "buffer_font_size": 11,
+  "buffer_font_size": 12,
   "project_panel": {
     "dock": "right"
   },
@@ -19,5 +19,5 @@
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
   "indent_size": 2,
-  "show_completion_documentation": true,
+  "show_completion_documentation": true
 }
