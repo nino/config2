@@ -12,7 +12,7 @@ vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 3
-vim.opt.smartindent = true
+vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.bg = 'dark'
 
