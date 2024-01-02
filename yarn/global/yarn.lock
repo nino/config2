@@ -3769,7 +3769,7 @@ dezalgo@^1.0.0, dezalgo@^1.0.4:
     asap "^2.0.0"
     wrappy "1"
 
-diagnostic-languageserver@^1.14.2:
+diagnostic-languageserver@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/diagnostic-languageserver/-/diagnostic-languageserver-1.15.0.tgz#b89ab9c10bf53116a8850a84bcfd7942ca6a2976"
   integrity sha512-B1kH0j0jOd106t5E14xItYazxFAYOsAvhK+e0+eYW3nOzG3saKFXfkoeJ86T8g2U40lIwo0Jt8xusn8gd34Swg==
