@@ -14,6 +14,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 3
 vim.opt.smartindent = false
 vim.opt.autoread = true
+vim.opt.cursorline = true
 vim.opt.bg = 'light'
 vim.cmd "colorscheme lunaperche"
 
