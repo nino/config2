@@ -12,6 +12,7 @@ lsp.ensure_installed({
   'tailwindcss',
   'gopls',
   'pyright',
+  'diagnosticls',
   'terraformls',
 })
 
@@ -69,6 +70,18 @@ lsp.configure('svelte', {})
 -- lsp.configure('eslint', {
 --    root_dir = lspconfig.util.root_pattern("package.json"),
 --    single_file_support = false
+-- })
+
+-- lsp.configure('diagnosticls', {
+--   settings = {
+--     linters = {
+--       {
+--         eslint = {
+--           command = "eslint"
+--         }
+--       }
+--     }
+--   }
 -- })
 
 lsp.configure('julials', {})
