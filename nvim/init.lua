@@ -15,6 +15,7 @@ vim.opt.scrolloff = 3
 vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.bg = 'dark'
+vim.cmd "colorscheme lunaperche"
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
