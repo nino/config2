@@ -66,16 +66,19 @@ return packer.startup(function(use)
   use 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
   use 'https://github.com/duane9/nvim-rg'
   use 'https://github.com/kaarmu/typst.vim'
+
+  -- DAP
   use 'https://github.com/mfussenegger/nvim-dap'
   use 'https://github.com/mxsdev/nvim-dap-vscode-js'
-  -- use {
-  --     "microsoft/vscode-js-debug",
-  --     opt = true,
-  --     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-  -- }
-  use 'https://github.com/wsdjeg/vim-fetch'
-  use 'https://github.com/Vigemus/iron.nvim'
-  use 'https://github.com/chrisgrieser/nvim-spider'
+  use 'https://github.com/leoluz/nvim-dap-go'
+  use 'https://github.com/rcarriga/nvim-dap-ui'
+  use 'https://github.com/theHamsta/nvim-dap-virtual-text'
+  use 'https://github.com/nvim-telescope/telescope-dap.nvim'
+  use 'https://github.com/mfussenegger/nvim-dap-python'
+
+  use 'https://github.com/wsdjeg/vim-fetch' -- Allow opening `path:linenr`
+  use 'https://github.com/Vigemus/iron.nvim' -- REPLs
+  use 'https://github.com/chrisgrieser/nvim-spider' -- w/b for camel-case and snake-case
   use 'https://github.com/prisma/vim-prisma'
   use 'https://github.com/simrat39/symbols-outline.nvim'
   use 'https://github.com/nvimtools/none-ls.nvim'
