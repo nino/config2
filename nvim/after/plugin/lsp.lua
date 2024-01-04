@@ -96,6 +96,8 @@ lsp.configure('lua_ls', {
   }
 })
 
+lsp.skip_server_setup({ 'sourcekit' })
+
 lsp.setup()
 
 -- LSP-zero-powered auto-completion
