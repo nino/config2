@@ -8,7 +8,20 @@ vim.keymap.set("n", "<m-4>", function() dap.continue() end, { noremap = true, si
 
 require("dap-go").setup()
 require("dap-python").setup()
+
 local dapui = require("dapui")
 dapui.setup()
+
+if vim.o.bg == 'light' then
+  vim.cmd[[
+    hi DapUIScope guifg=#000000 guibg=#ffffff gui=bold
+    hi DapUIStoppedThread guifg=#000000 guibg=#ffffff gui=bold
+    hi DapUIBreakpointsCurrentLine guifg=#000000 guibg=#ffffff gui=bold
+    hi DapUIBreakpointsPath guifg=#000000 guibg=#ffffff gui=bold
+    hi DapUILineNumber guifg=#000000 guibg=#ffffff
+    hi DapUIDecoration guifg=##10b981
+  ]]
+end
+
 
 vim.api.nvim_create_user_command("DUI", function() dapui.toggle() end, {})
