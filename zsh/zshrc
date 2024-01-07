@@ -214,23 +214,13 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-
-# Rust path
-# export PATH="$PATH:/Users/Nino/.cargo/bin"
+export CMAKE_EXPORT_COMPILE_COMMANDS=true
 
 # Set NVM dir if nvm is installed
 if hash nvm 2>/dev/null; then
   NVM_DIR="/Users/Nino/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 fi
-# export PATH="/usr/local/opt/qt/bin:$PATH"
-# export LDFLAGS="-L/usr/local/opt/qt/lib"
-# export CPPFLAGS="-I/usr/local/opt/qt/include"
-
-# if hash opam 2>/dev/null; then
-#   eval `opam config env`
-#   . /Users/Nino/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-# fi
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
