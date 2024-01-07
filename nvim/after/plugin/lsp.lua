@@ -112,6 +112,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 cmp.setup({
+  completion = { autocomplete = false },
   mapping = cmp_mappings,
   sources = {
     { name = 'nvim_lsp' },
