@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-02T08:13:26Z</date>
+				<date>2024-01-04T17:26:44Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1244,7 +1244,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-04T09:16:23Z</date>
+				<date>2024-01-06T17:40:00Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1674,6 +1674,24 @@
 					<string>usercontribglibc</string>
 					<key>uniqueIdentifier</key>
 					<string>glibc</string>
+				</dict>
+			</dict>
+			<key>libxml2</key>
+			<dict>
+				<key>date</key>
+				<date>2024-01-04T17:44:18Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/libxml2#readme</string>
+					<key>authorLinkText</key>
+					<string>Scott Talbot</string>
+					<key>name</key>
+					<string>libxml2</string>
+					<key>platform</key>
+					<string>usercontriblibxml2</string>
+					<key>uniqueIdentifier</key>
+					<string>libxml2</string>
 				</dict>
 			</dict>
 		</dict>
@@ -2340,6 +2358,11 @@
 				<key>date</key>
 				<date>2019-04-24T11:00:30Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Qt_6.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-01-05T23:01:07Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/React.xml</key>
 			<dict>
 				<key>date</key>
@@ -2433,10 +2456,10 @@
 				<key>date</key>
 				<date>2022-02-25T19:39:15Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/Qt_6.xml</key>
+			<key>http://kapeli.com/feeds/Qt_5.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T19:04:12Z</date>
+				<date>2024-01-05T23:01:00Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/R.xml</key>
 			<dict>
