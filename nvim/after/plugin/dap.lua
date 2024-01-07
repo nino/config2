@@ -8,12 +8,34 @@ vim.keymap.set("n", "<m-4>", function() dap.continue() end, { noremap = true, si
 
 require("dap-go").setup()
 require("dap-python").setup()
+require("dap-vscode-js").setup({
+  adapters = { 'pwa-node' },
+})
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+  require("dap").configurations[language] = {
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch file",
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+    },
+    {
+      type = "pwa-node",
+      request = "attach",
+      name = "Attach",
+      processId = require 'dap.utils'.pick_process,
+      cwd = "${workspaceFolder}",
+    }
+  }
+end
 
 local dapui = require("dapui")
 dapui.setup()
 
 if vim.o.bg == 'light' then
-  vim.cmd[[
+  vim.cmd [[
     hi DapUIScope guifg=#000000 guibg=#ffffff gui=bold
     hi DapUIStoppedThread guifg=#000000 guibg=#ffffff gui=bold
     hi DapUIBreakpointsCurrentLine guifg=#000000 guibg=#ffffff gui=bold
