@@ -19,7 +19,7 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
   use 'editorconfig/editorconfig-vim'
   use 'tpope/vim-characterize'
-  use 'github/copilot.vim'
+  -- use 'github/copilot.vim'
   use 'rhysd/git-messenger.vim'
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -76,8 +76,8 @@ return packer.startup(function(use)
   use 'https://github.com/nvim-telescope/telescope-dap.nvim'
   use 'https://github.com/mfussenegger/nvim-dap-python'
 
-  use 'https://github.com/wsdjeg/vim-fetch' -- Allow opening `path:linenr`
-  use 'https://github.com/Vigemus/iron.nvim' -- REPLs
+  use 'https://github.com/wsdjeg/vim-fetch'         -- Allow opening `path:linenr`
+  use 'https://github.com/Vigemus/iron.nvim'        -- REPLs
   use 'https://github.com/chrisgrieser/nvim-spider' -- w/b for camel-case and snake-case
   use 'https://github.com/prisma/vim-prisma'
   use 'https://github.com/simrat39/symbols-outline.nvim'
@@ -86,4 +86,8 @@ return packer.startup(function(use)
   use 'https://github.com/lukas-reineke/indent-blankline.nvim'
   use 'https://github.com/morhetz/gruvbox'
   use 'https://github.com/chrisbra/vim-diff-enhanced'
+  use { 'https://github.com/chomosuke/typst-preview.nvim',
+    tag = 'v0.1.*',
+    run = function() require 'typst-preview'.update() end,
+  }
 end)

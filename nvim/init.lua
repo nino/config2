@@ -157,7 +157,7 @@ vim.keymap.set("n", "cp", function()
 end)
 
 vim.cmd [[
-    imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+    " imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 
     function! s:ToggleHere()
         let cursorcolumn = getcurpos()[2]
