@@ -210,29 +210,29 @@ vim.api.nvim_create_user_command("Re", function(info)
   vim.lsp.buf.rename(new_name)
 end, { nargs = "?" })
 
-vim.cmd [[
-function! s:MkNonExDir(file, buf)
-    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-        let dir=fnamemodify(a:file, ':h')
-        if !isdirectory(dir)
-            call mkdir(dir, 'p')
-        endif
-    endif
-endfunction
-augroup BWCCreateDir
-    autocmd!
-    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-augroup END
+-- vim.cmd [[
+-- function! s:MkNonExDir(file, buf)
+--     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+--         let dir=fnamemodify(a:file, ':h')
+--         if !isdirectory(dir)
+--             call mkdir(dir, 'p')
+--         endif
+--     endif
+-- endfunction
+-- augroup BWCCreateDir
+--     autocmd!
+--     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+-- augroup END
 
-" Visual @
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+-- " Visual @
+-- xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
+-- function! ExecuteMacroOverVisualRange()
+--   echo "@".getcmdline()
+--   execute ":'<,'>normal @".nr2char(getchar())
+-- endfunction
 
-]]
+-- ]]
 
 
 utils.run_once("Remove context-menu items about mouse stuff", function()
