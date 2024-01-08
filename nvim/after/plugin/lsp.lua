@@ -60,7 +60,6 @@ lsp.configure('denols', {
 lsp.configure('tsserver', {
   on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = false
-    client.config.flags.allow_incremental_sync = false
   end,
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false
