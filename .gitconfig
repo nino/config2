@@ -38,6 +38,7 @@
 	true-color = never
 
 [merge]
+	conflictStyle = zdiff3
 	# conflictstyle = diff3
 
 [diff]
