@@ -9,7 +9,7 @@
 {
   "show_copilot_suggestions": true,
   "theme": "Atelier Forest Light",
-  "buffer_font_size": 12,
+  "buffer_font_size": 13,
   "project_panel": {
     "dock": "right"
   },
@@ -21,4 +21,10 @@
   "indent_size": 2,
   "show_completion_documentation": true,
   "auto_update": true,
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  }
 }
