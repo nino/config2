@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "show_copilot_suggestions": true,
+  "show_copilot_suggestions": false,
   "theme": "Atelier Forest Light",
   "buffer_font_size": 13,
   "project_panel": {
