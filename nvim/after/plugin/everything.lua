@@ -101,4 +101,3 @@ vim.keymap.set(
   { desc = "Spider-ge" }
 )
 
-require("symbols-outline").setup()
