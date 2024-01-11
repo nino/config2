@@ -78,7 +78,6 @@ return packer.startup(function(use)
 
   use 'https://github.com/wsdjeg/vim-fetch'         -- Allow opening `path:linenr`
   use 'https://github.com/Vigemus/iron.nvim'        -- REPLs
-  use 'https://github.com/chrisgrieser/nvim-spider' -- w/b for camel-case and snake-case
   use 'https://github.com/prisma/vim-prisma'
   use 'https://github.com/simrat39/symbols-outline.nvim'
   -- use 'https://github.com/nvimtools/none-ls.nvim'
