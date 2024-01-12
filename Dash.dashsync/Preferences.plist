@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-09T09:10:46Z</date>
+				<date>2024-01-11T09:23:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1244,7 +1244,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-10T09:10:42Z</date>
+				<date>2024-01-11T09:23:42Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1579,7 +1579,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-28T15:45:11Z</date>
+				<date>2024-01-11T09:23:39Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
