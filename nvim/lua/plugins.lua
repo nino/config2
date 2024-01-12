@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use 'https://github.com/tpope/vim-sexp-mappings-for-regular-people'
   use 'https://github.com/duane9/nvim-rg'
   use 'https://github.com/kaarmu/typst.vim'
+  use 'https://github.com/dstein64/nvim-scrollview'
 
   -- DAP
   use 'https://github.com/mfussenegger/nvim-dap'
@@ -80,7 +81,7 @@ return packer.startup(function(use)
   use 'https://github.com/Vigemus/iron.nvim'        -- REPLs
   use 'https://github.com/prisma/vim-prisma'
   use 'https://github.com/simrat39/symbols-outline.nvim'
-  -- use 'https://github.com/nvimtools/none-ls.nvim'
+  use 'https://github.com/nvimtools/none-ls.nvim'
   use 'https://github.com/NoahTheDuke/vim-just'
   use 'https://github.com/lukas-reineke/indent-blankline.nvim'
   use 'https://github.com/morhetz/gruvbox'

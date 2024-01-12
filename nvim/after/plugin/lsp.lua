@@ -1,7 +1,7 @@
 vim.diagnostic.config { virtual_text = false }
 
 -- LSP-zero
--- local nonels = require("null-ls")
+local nonels = require("null-ls")
 local lsp = require('lsp-zero')
 local lspconfig = require('lspconfig')
 lsp.preset("recommended")
@@ -16,14 +16,14 @@ lsp.ensure_installed({
   'terraformls',
 })
 
--- nonels.setup({
---   sources = {
---     nonels.builtins.diagnostics.eslint,
---     nonels.builtins.formatting.eslint,
---     nonels.builtins.formatting.black,
---     nonels.builtins.diagnostics.flake8,
---   }
--- })
+nonels.setup({
+  sources = {
+    nonels.builtins.diagnostics.eslint,
+    nonels.builtins.formatting.eslint,
+    nonels.builtins.formatting.black,
+    nonels.builtins.diagnostics.flake8,
+  }
+})
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
