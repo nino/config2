@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 fish_add_path /usr/local/bin
+fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
 
 alias l='ls -l -h'
@@ -46,4 +47,13 @@ end
 
 direnv hook fish | source
 
-source /usr/local/opt/asdf/libexec/asdf.fish
+function maybe_source
+  if test -f $argv
+    source $argv
+  end
+end
+
+maybe_source /usr/local/opt/asdf/libexec/asdf.fish
+maybe_source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+source ~/.config/secret-config2/fish/secret.fish
