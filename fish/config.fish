@@ -56,4 +56,5 @@ end
 maybe_source /usr/local/opt/asdf/libexec/asdf.fish
 maybe_source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
+source ~/.config/fish/git.fish
 source ~/.config/secret-config2/fish/secret.fish
