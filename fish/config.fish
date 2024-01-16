@@ -59,3 +59,24 @@ maybe_source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 source ~/.config/fish/git.fish
 source ~/.config/secret-config2/fish/secret.fish
+
+
+function co
+  set -l branch (git lb | uniquelines | fzf)
+  if [ -z "$1" ];
+    gco $branch
+  else if [ "$1" = "merge" ];
+    eval "git merge \"$branch\""
+  end
+  # local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
+  # if [ ! -z $branch ]; then
+  #   if [ -z $1 ]; then
+  #     git checkout "$branch"
+  #   elif [ "$1" = "tig" ]; then
+  #     eval "tig \"$branch\""
+  #   else
+  #     local command="git $1 \"$branch\""
+  #     eval $command
+  #   fi
+  # fi
+end
