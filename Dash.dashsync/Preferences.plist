@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-16T09:32:40Z</date>
+				<date>2024-01-17T13:05:07Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1188,7 +1188,7 @@
 			<key>concurrent-ruby</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-16T09:43:08Z</date>
+				<date>2024-01-17T13:05:09Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1202,7 +1202,7 @@
 			<key>mechanize</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-16T09:32:38Z</date>
+				<date>2024-01-17T13:05:05Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1230,7 +1230,7 @@
 			<key>rom-sql</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-15T09:24:52Z</date>
+				<date>2024-01-17T13:03:39Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1258,7 +1258,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-15T09:03:25Z</date>
+				<date>2024-01-17T13:05:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
