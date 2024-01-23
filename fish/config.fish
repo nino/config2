@@ -60,6 +60,7 @@ maybe_source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source ~/.config/fish/git.fish
 source ~/.config/secret-config2/fish/secret.fish
 
+export CMAKE_EXPORT_COMPILE_COMMANDS=true
 
 function co
   set -l branch (git lb | uniquelines | fzf)
