@@ -60,6 +60,9 @@ maybe_source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source ~/.config/fish/git.fish
 source ~/.config/secret-config2/fish/secret.fish
 
+if [ -e /usr/local/bin/nvim ];
+  export EDITOR=/usr/local/bin/nvim
+end
 
 function co
   set -l branch (git lb | uniquelines | fzf)
