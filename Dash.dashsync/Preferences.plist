@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:05:07Z</date>
+				<date>2024-01-23T14:27:46Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1188,7 +1188,7 @@
 			<key>concurrent-ruby</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:05:09Z</date>
+				<date>2024-01-17T01:11:31Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1202,7 +1202,7 @@
 			<key>mechanize</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:05:05Z</date>
+				<date>2024-01-23T14:27:48Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1227,10 +1227,24 @@
 					<string>nokogiri</string>
 				</dict>
 			</dict>
+			<key>rom-factory</key>
+			<dict>
+				<key>date</key>
+				<date>2024-01-19T18:13:29Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rom-factory</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rom-factory</string>
+				</dict>
+			</dict>
 			<key>rom-sql</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:03:39Z</date>
+				<date>2024-01-15T09:24:52Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1244,7 +1258,7 @@
 			<key>sinatra</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-02T08:13:25Z</date>
+				<date>2024-01-19T18:13:28Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1258,7 +1272,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-18T17:27:32Z</date>
+				<date>2024-01-23T14:27:45Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
