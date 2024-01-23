@@ -202,6 +202,14 @@ utils.new_cmd("Min", function()
   -- vim.cmd("Copilot disable")
 end, {})
 
+vim.api.nvim_create_user_command("D", function(info)
+  local main_branch = info.args
+  if #main_branch == 0 then
+    main_branch = "main"
+  end
+  vim.cmd("Gvdiffsplit " .. main_branch .. ":%")
+end, { nargs = "?" })
+
 vim.api.nvim_create_user_command("Re", function(info)
   local new_name = info.args
   if #new_name == 0 then
