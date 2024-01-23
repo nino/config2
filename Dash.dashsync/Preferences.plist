@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:05:07Z</date>
+				<date>2024-01-23T11:22:25Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1202,7 +1202,7 @@
 			<key>mechanize</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:05:05Z</date>
+				<date>2024-01-23T11:22:23Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1244,7 +1244,7 @@
 			<key>sinatra</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-02T08:13:25Z</date>
+				<date>2024-01-19T14:50:56Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1258,7 +1258,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-17T13:05:03Z</date>
+				<date>2024-01-23T11:22:22Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1663,7 +1663,7 @@
 			<key>glibc</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-08T18:18:40Z</date>
+				<date>2024-01-18T14:50:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
