@@ -64,6 +64,8 @@ if [ -e /usr/local/bin/nvim ];
   export EDITOR=/usr/local/bin/nvim
 end
 
+export CMAKE_EXPORT_COMPILE_COMMANDS=true
+
 function co
   set -l branch (git lb | uniquelines | fzf)
   if [ -z "$1" ];
