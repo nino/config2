@@ -55,6 +55,16 @@ fn list_directories() -> Vec<String> {
         .collect()
 }
 
+fn is_clean(path: &str) -> anyhow::Result<bool> {
+    let output = Command::new("git")
+        .current_dir(path)
+        .args(&["status", "--porcelain=v1"])
+        .output()
+        .map_err(|_| anyhow!("Failed to get status for {}", path))?
+        .stdout;
+    Ok(output.len() == 0)
+}
+
 fn fetch(path: &str) -> anyhow::Result<()> {
     println!("Fetching {}…", path);
     Command::new("git")
@@ -89,8 +99,7 @@ fn process_repo(path: &str) -> anyhow::Result<ProcessResult> {
     let repo = git2::Repository::open(path)?;
     fetch(path).log_err(format!("Failed to fetch {}", path))?;
 
-    let index = repo.index()?;
-    if !index.is_empty() {
+    if !is_clean(path)? {
         result.unclean = true;
     } else {
         update(path).log_err(format!("Failed to update {}", path))?;
