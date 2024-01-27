@@ -85,3 +85,6 @@ function co
   #   fi
   # fi
 end
+
+# opam configuration
+source /Users/Nino/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
