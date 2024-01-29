@@ -456,7 +456,7 @@
 			<key>denoland/deno</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T14:11:04Z</date>
+				<date>2024-01-26T11:55:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1272,7 +1272,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-24T11:22:21Z</date>
+				<date>2024-01-26T11:22:22Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1444,7 +1444,7 @@
 			<key>Boto3</key>
 			<dict>
 				<key>date</key>
-				<date>2023-12-16T09:41:23Z</date>
+				<date>2024-01-26T11:22:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
