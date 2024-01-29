@@ -2,6 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+source ~/.asdf/asdf.fish
+fish_add_path ~/.asdf/shims
+fish_add_path ~/.asdf/bin
 fish_add_path /usr/local/bin
 fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
@@ -53,9 +56,6 @@ function maybe_source
     source $argv
   end
 end
-
-maybe_source /usr/local/opt/asdf/libexec/asdf.fish
-maybe_source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 source ~/.config/fish/git.fish
 source ~/.config/secret-config2/fish/secret.fish
