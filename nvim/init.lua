@@ -16,7 +16,7 @@ vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.cursorline = true
 vim.opt.bg = 'light'
-vim.cmd "colorscheme lunaperche"
+-- vim.cmd "colorscheme lunaperche"
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
@@ -45,6 +45,8 @@ vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
 vim.opt.inccommand = "nosplit"
+
+vim.cmd[[ let NERDTreeIgnore=['\.pyc$'] ]]
 
 -- Keep the visual textwidth but don't add new line in insert mode:
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
