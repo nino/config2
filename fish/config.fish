@@ -64,6 +64,8 @@ if [ -e /usr/local/bin/nvim ];
   export EDITOR=/usr/local/bin/nvim
 end
 
+export EDITOR='nvim'
+export VISUAL='nvim'
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
 
 function co
