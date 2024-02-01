@@ -32,7 +32,7 @@ alias vc='nvim -S `ls | grep .vim | fzf`'
 alias ydl="youtube-dl -f 'best[ext=mp4]' "
 alias yda="youtube-dl -x --audio-format mp3 "
 alias ct='ctags -R .'
-alias uuid='uuidgen | tr -d "\n" | pbcopy'
+alias uuid='uuidgen | tr -d "\n" | tr "[:upper:]" "[:lower:]" | pbcopy'
 alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.lock'
 alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"
 alias com="git add . && git commit -m"
