@@ -16,7 +16,7 @@ vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.cursorline = true
 vim.opt.bg = 'light'
--- vim.cmd "colorscheme lunaperche"
+vim.cmd "colorscheme lunaperche"
 
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
@@ -96,7 +96,7 @@ vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\|>>>>>>><CR>")
+vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\||||||||\\|>>>>>>><CR>")
 vim.keymap.set("n", "<Leader>w", ":set wrap!<CR>")
 vim.keymap.set("n", "<Leader>D", ":Gdiff<CR>")
 vim.keymap.set("n", "<Leader>s", ":G<CR>")
