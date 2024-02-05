@@ -481,6 +481,20 @@
 					<string>googlemaps/google-maps-services-js</string>
 				</dict>
 			</dict>
+			<key>sparklemotion/nokogiri</key>
+			<dict>
+				<key>date</key>
+				<date>2024-02-04T17:38:05Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sparklemotion/nokogiri</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>sparklemotion/nokogiri</string>
+				</dict>
+			</dict>
 			<key>tannerlinsley/react-query</key>
 			<dict>
 				<key>date</key>
@@ -1216,7 +1230,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2024-02-03T17:37:54Z</date>
+				<date>2024-02-04T17:37:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
