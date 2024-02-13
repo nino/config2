@@ -8,7 +8,7 @@
     "create-tauri-app": "^3.11.1",
     "diagnostic-languageserver": "^1.15.0",
     "eslint": "^8.39.0",
-    "eslint_d": "^12.2.1",
+    "eslint_d": "^13.1.2",
     "grammar.js": "^1.0.0",
     "lean-language-server": "^3.4.0",
     "neovim": "^4.10.1",
