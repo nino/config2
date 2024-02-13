@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-30T18:14:24Z</date>
+				<date>2024-02-06T16:04:26Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1286,7 +1286,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-02-01T09:23:09Z</date>
+				<date>2024-02-11T01:21:05Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1572,6 +1572,32 @@
 					<string>LLVM</string>
 				</dict>
 			</dict>
+			<key>Linux_Man_Pages</key>
+			<dict>
+				<key>date</key>
+				<date>2024-02-10T15:25:57Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Linux</string>
+						<string>Posix</string>
+						<string>Man pages</string>
+						<string>Unix</string>
+						<string>BSD</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Linux_Man_Pages#readme</string>
+					<key>authorLinkText</key>
+					<string>Yan Pashkovsky</string>
+					<key>name</key>
+					<string>Linux Man Pages</string>
+					<key>platform</key>
+					<string>usercontribLinux_Man_Pages</string>
+					<key>uniqueIdentifier</key>
+					<string>Linux_Man_Pages</string>
+				</dict>
+			</dict>
 			<key>Neovim</key>
 			<dict>
 				<key>date</key>
@@ -1621,7 +1647,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-11T09:23:39Z</date>
+				<date>2024-02-09T23:14:10Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
