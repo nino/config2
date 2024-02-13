@@ -9,3 +9,7 @@ updates:
     directory: "/projects/rust_tools"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/yarn/global"
+    schedule:
+      interval: "weekly"
