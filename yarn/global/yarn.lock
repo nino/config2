@@ -1751,71 +1751,71 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-create-tauri-app-darwin-arm64@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-arm64/-/create-tauri-app-darwin-arm64-3.11.1.tgz#74e020288ea51295907522dde7ee813897b99349"
-  integrity sha512-CrnodpAwf45ErruzKJcqeGZHkiMljbSNcYI2B9xLicUpSYmVmrcA9VOcYP8yYMyCpCA+q4T5uYitloL+aji12g==
+create-tauri-app-darwin-arm64@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-arm64/-/create-tauri-app-darwin-arm64-3.13.3.tgz#15dc5a40c4518e04f8dbd9d1eb05538151845141"
+  integrity sha512-gyHwsg0KAMR1gUBDRSnbQGUcXfikDzELuLklpgrTkHVObJKSZXbXyycNQg3rLmMSzFcletb2GBzRc6nB/PXDYg==
 
-create-tauri-app-darwin-x64@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-x64/-/create-tauri-app-darwin-x64-3.11.1.tgz#9d2d58848698a7a291a02c049cb53565c0550650"
-  integrity sha512-0Fo/lC+3N7mlIglcSLjxXbGikcQb/9aUcmvfB/NCEB/oAkwA2p7nkWatNaBNXeTuENxzvSFa+MkJgPx+z9IR3A==
+create-tauri-app-darwin-x64@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-x64/-/create-tauri-app-darwin-x64-3.13.3.tgz#1dd4614d8100ab3a7c84a1f5e36968463ace0b51"
+  integrity sha512-oTTK0HESHHPbpE+56gpByxsizR+ct9GfdYYsjXpHtaT3bmazl5f9BgSGuqIUQezrTKHJzXvcaqvnWYNZqsHfZQ==
 
-create-tauri-app-linux-arm-gnueabihf@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm-gnueabihf/-/create-tauri-app-linux-arm-gnueabihf-3.11.1.tgz#273d836c0a98ac2cc1ec320bcfa668e31eb22dd6"
-  integrity sha512-nsogs3GdBD+XQEhjv0oJCczKphU/VN27GnHTuqvvHR2QnQIX0YsJ3iTCYXNsja5sLJ+FpELs0362peDcZRwuHQ==
+create-tauri-app-linux-arm-gnueabihf@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm-gnueabihf/-/create-tauri-app-linux-arm-gnueabihf-3.13.3.tgz#a66e7be6f03c31d2377212b7e6d57731f24d08c9"
+  integrity sha512-QnlrwyX+Og83sqLhs07kxWAOCTN39QchXC+39OhTSo9b5t+A7zzrkiNuRk4pqyZDFVG9LVpvm8pGI0q5WDBG9A==
 
-create-tauri-app-linux-arm64-gnu@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-gnu/-/create-tauri-app-linux-arm64-gnu-3.11.1.tgz#a8ddbda9c5f7f4baceaed6849f2f58a5b233841f"
-  integrity sha512-ZZVhcjLDpB3tGxJXW2mpbgm70PdKiJlKVUgMjysUD3BWUXP4B2TD+3y6TBsIEPPSsBeNcxX0W4emB5HYQ89gvQ==
+create-tauri-app-linux-arm64-gnu@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-gnu/-/create-tauri-app-linux-arm64-gnu-3.13.3.tgz#5a95c6ef570a92e09921e97abfe75e88eb6abcc9"
+  integrity sha512-FrU87pOkdbnNmBcR5PWIt6xls24u58LjQVwiu84b9ufeN7QjlXX6nwQU6ClItapTcddQYzaCumms1EZP2NqOAQ==
 
-create-tauri-app-linux-arm64-musl@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-musl/-/create-tauri-app-linux-arm64-musl-3.11.1.tgz#4dc3e8b7e6cc5845ce55be4495391dd4816eb828"
-  integrity sha512-i/KCS3xfQDZdwHPkUCY2caxsThJsC8H1TYG30830/1V3pPqivDthZ/niL7M0A4Zf5sn8aW+zG+BMVwLred3rjQ==
+create-tauri-app-linux-arm64-musl@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-musl/-/create-tauri-app-linux-arm64-musl-3.13.3.tgz#2c5a53c435da32c4b86f9abfa1227b7245f6e7f4"
+  integrity sha512-/PukWfBQca/FWDE+A7a3JkeybXSD0OLvJ5iC6Gu4S4ZMiR2WvCPhRsuVZEQfbevGhGKpimZhu79Yx/ObY8Zf1w==
 
-create-tauri-app-linux-x64-gnu@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-gnu/-/create-tauri-app-linux-x64-gnu-3.11.1.tgz#d666ccde16a61fe21b8a68c6f276b77d572378b1"
-  integrity sha512-cfzLidF7LLmuFXR2wh01BfUz5v2yXnaIKusAmvlRiP+HiFYmp+fEwMW9OAKbSS5CxMUACA1oVcqQukaA32pUNw==
+create-tauri-app-linux-x64-gnu@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-gnu/-/create-tauri-app-linux-x64-gnu-3.13.3.tgz#c50c44d8a2215c753336aeba342ee0bf66aac8c5"
+  integrity sha512-TrSWae0PYPnlQG3jjoT2DCyX90FHOpsNwkhlMj+bV+CM3hqCn12bh1nrtMphMFap8qUzGm6SUWtu4DF6uR/9Lw==
 
-create-tauri-app-linux-x64-musl@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-musl/-/create-tauri-app-linux-x64-musl-3.11.1.tgz#c545479bb377dcbf97316815cae8c61b5704e425"
-  integrity sha512-PDhAAdUtVb61VNh3pAfZfGZs8Mqqe1iboJTBWi4XAVWvsJ/Y2r7VokPtaUL6iWS2g1w300KegU97cqgF8bR6Vw==
+create-tauri-app-linux-x64-musl@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-musl/-/create-tauri-app-linux-x64-musl-3.13.3.tgz#b6eb2878decda999e50478b754e32655ec8199be"
+  integrity sha512-6cO0OLyhmFIUZKCk7OBdDYweWUL44UviXtQBxQNNURvsR0rELi2GMClBo2iItBkdiP5mfpvy5CHlJBYPFkJoBA==
 
-create-tauri-app-win32-arm64-msvc@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-arm64-msvc/-/create-tauri-app-win32-arm64-msvc-3.11.1.tgz#054b4a296bd621f6303fa5978a5b8b23041dd709"
-  integrity sha512-keRkv7byPl5hGGo3W1mVJOe3MJRM15MU+TbWh/Xman1+ePI3EOXSVcfjYLAIyQY9xupQF4jI6CH+tVN3NRBoNg==
+create-tauri-app-win32-arm64-msvc@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-arm64-msvc/-/create-tauri-app-win32-arm64-msvc-3.13.3.tgz#0f177e7cc2eac5780b27fce70ac84e432e2f36fd"
+  integrity sha512-8ZM8NHkeT218+3lI+742mML5On4iIbxnyuJjKTNezx7LiBMUyiqusZbdBu62gWOKoQn7lcVSs2QeWOZlwLyl0g==
 
-create-tauri-app-win32-ia32-msvc@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-ia32-msvc/-/create-tauri-app-win32-ia32-msvc-3.11.1.tgz#9d05eadde7fecd1f5168a628ed2ff69ad2c22c92"
-  integrity sha512-7zYe9QDCSs592myIbPf46C/TXqWWM5iFtl4sulxyQudLBVMZskcWQrwIlKCuENhQuaCh23kHJXKhpw5Ep3VzdQ==
+create-tauri-app-win32-ia32-msvc@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-ia32-msvc/-/create-tauri-app-win32-ia32-msvc-3.13.3.tgz#fff75dbf79a17a7f65e3e7e8c07cec7d09995fe6"
+  integrity sha512-y8pdcdXseM5FO/kCIe6UobHgXoXB8OgtKw3FYMqXGT9yoRfb43z4YJtg9z6V4rfr4xwG0NUicIIa0AY8XzSg+g==
 
-create-tauri-app-win32-x64-msvc@3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-x64-msvc/-/create-tauri-app-win32-x64-msvc-3.11.1.tgz#75111b0d1502bf7d0c79554f0c1efdbdc75b5543"
-  integrity sha512-BQ2aMZVZKKbO/2SSE0uHDd5F9eOqcFNFYLTPicKW1ZfnJzKIYViDW2XeQ9SbESSsfLc7Rk6Uocp/6MUoXAP1tA==
+create-tauri-app-win32-x64-msvc@3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-x64-msvc/-/create-tauri-app-win32-x64-msvc-3.13.3.tgz#0801557e17d6f9386d69634351a8b2eae08a10ad"
+  integrity sha512-noIogLKcxmO+rh/THH+g6p1kPRm400bkgAMz2sUgTKBdiq0gI98RlqpNMlk2lYEaKgMoIXAu9ursvbD2rB6P3w==
 
-create-tauri-app@^3.11.1:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app/-/create-tauri-app-3.11.1.tgz#682ada894afeb244b569ba2b66cb5cb2a34af6f7"
-  integrity sha512-USpSc8IlG0NxYpbCjXNcrr5AlSrPUHtPnqpUvX6IAQcRBnwiSMEYQv4a1407aOekag7kL0mEExnNpdGDwpk43w==
+create-tauri-app@^3.13.3:
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/create-tauri-app/-/create-tauri-app-3.13.3.tgz#cfd1b3bf4d1a099d6dce038b93f4dd4bd2f24567"
+  integrity sha512-cJ8sChM8CmoqPD+6UHJQWHydLPxugY4Lo8CPaJ20mpEZALZ6g/Fqy/oEu6ZqzRAl7J4cdMTeoA0UW0FE70iMMw==
   optionalDependencies:
-    create-tauri-app-darwin-arm64 "3.11.1"
-    create-tauri-app-darwin-x64 "3.11.1"
-    create-tauri-app-linux-arm-gnueabihf "3.11.1"
-    create-tauri-app-linux-arm64-gnu "3.11.1"
-    create-tauri-app-linux-arm64-musl "3.11.1"
-    create-tauri-app-linux-x64-gnu "3.11.1"
-    create-tauri-app-linux-x64-musl "3.11.1"
-    create-tauri-app-win32-arm64-msvc "3.11.1"
-    create-tauri-app-win32-ia32-msvc "3.11.1"
-    create-tauri-app-win32-x64-msvc "3.11.1"
+    create-tauri-app-darwin-arm64 "3.13.3"
+    create-tauri-app-darwin-x64 "3.13.3"
+    create-tauri-app-linux-arm-gnueabihf "3.13.3"
+    create-tauri-app-linux-arm64-gnu "3.13.3"
+    create-tauri-app-linux-arm64-musl "3.13.3"
+    create-tauri-app-linux-x64-gnu "3.13.3"
+    create-tauri-app-linux-x64-musl "3.13.3"
+    create-tauri-app-win32-arm64-msvc "3.13.3"
+    create-tauri-app-win32-ia32-msvc "3.13.3"
+    create-tauri-app-win32-x64-msvc "3.13.3"
 
 cross-spawn@^6.0.5:
   version "6.0.5"
