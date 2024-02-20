@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+words = File.open(File.expand_path "~/.config/scripts/words_alpha.txt").readlines
+
+puts [words.sample.strip, words.sample.strip, words.sample.strip].join(".")
