@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@prettier/plugin-ruby": "^2.1.0",
+    "@prettier/plugin-ruby": "^4.0.4",
     "@tailwindcss/language-server": "^0.0.7",
     "aws-cdk": "^2.96.2",
     "create-next-app": "^14.1.0",
