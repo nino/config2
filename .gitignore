@@ -57,3 +57,4 @@ containers
 zed/embeddings
 flutter
 micro/buffers/history
+zed/.tmp*
