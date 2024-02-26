@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "@prettier/plugin-ruby": "^4.0.4",
     "@tailwindcss/language-server": "^0.0.7",
-    "aws-cdk": "^2.130.0",
     "create-next-app": "^14.1.0",
     "create-react-app": "^5.0.1",
     "create-tauri-app": "^3.13.3",
@@ -10,7 +8,6 @@
     "eslint": "^8.57.0",
     "eslint_d": "^13.1.2",
     "grammar.js": "^1.0.0",
-    "lean-language-server": "^3.4.0",
     "neovim": "^4.10.1",
     "npm": "^10.4.0",
     "prettier": "^3.2.5",
