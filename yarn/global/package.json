@@ -2,7 +2,7 @@
   "dependencies": {
     "@prettier/plugin-ruby": "^4.0.4",
     "@tailwindcss/language-server": "^0.0.7",
-    "aws-cdk": "^2.96.2",
+    "aws-cdk": "^2.130.0",
     "create-next-app": "^14.1.0",
     "create-react-app": "^5.0.1",
     "create-tauri-app": "^3.13.3",
