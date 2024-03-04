@@ -50,7 +50,7 @@ vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
 vim.opt.inccommand = "nosplit"
 
-vim.cmd[[ let NERDTreeIgnore=['\.pyc$'] ]]
+vim.cmd[[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
 
 -- Keep the visual textwidth but don't add new line in insert mode:
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
