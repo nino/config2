@@ -57,3 +57,6 @@ containers
 zed/embeddings
 flutter
 micro/buffers/history
+.keentools
+Unreal Engine
+zed/.tmp*
