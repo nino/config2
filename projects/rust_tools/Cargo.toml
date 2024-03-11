@@ -20,7 +20,7 @@ path = "src/lib/mod.rs"
 
 [dependencies]
 anyhow = "1.0.80"
-chrono = "0.4.34"
+chrono = "0.4.35"
 dirs = "5.0.1"
 git2 = "0.18.2"
 termcolor = "1.4.1"
