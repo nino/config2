@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@tailwindcss/language-server": "^0.0.7",
+    "@tailwindcss/language-server": "^0.0.16",
     "create-next-app": "^14.1.0",
     "create-react-app": "^5.0.1",
     "create-tauri-app": "^3.13.3",
@@ -9,15 +9,15 @@
     "eslint_d": "^13.1.2",
     "grammar.js": "^1.0.0",
     "neovim": "^4.10.1",
-    "npm": "^10.4.0",
+    "npm": "^10.5.0",
     "prettier": "^3.2.5",
     "serverless": "^3.30.1",
     "svelte-language-server": "^0.16.3",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.25.8",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.25.12",
     "typescript": "^5.1.6",
     "typescript-language-server": "^4.3.3",
-    "vercel": "^33.5.0",
+    "vercel": "^33.5.5",
     "vscode-langservers-extracted": "^4.6.0"
   }
 }
