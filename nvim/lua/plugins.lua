@@ -77,11 +77,11 @@ return packer.startup(function(use)
   use 'https://github.com/nvim-telescope/telescope-dap.nvim'
   use 'https://github.com/mfussenegger/nvim-dap-python'
 
-  use 'https://github.com/wsdjeg/vim-fetch'         -- Allow opening `path:linenr`
-  use 'https://github.com/Vigemus/iron.nvim'        -- REPLs
+  use 'https://github.com/wsdjeg/vim-fetch'  -- Allow opening `path:linenr`
+  use 'https://github.com/Vigemus/iron.nvim' -- REPLs
   use 'https://github.com/prisma/vim-prisma'
   use 'https://github.com/simrat39/symbols-outline.nvim'
-  use 'https://github.com/nvimtools/none-ls.nvim'
+  use 'https://github.com/mfussenegger/nvim-lint'
   use 'https://github.com/NoahTheDuke/vim-just'
   use 'https://github.com/lukas-reineke/indent-blankline.nvim'
   use 'https://github.com/morhetz/gruvbox'
@@ -90,4 +90,10 @@ return packer.startup(function(use)
     tag = 'v0.1.*',
     run = function() require 'typst-preview'.update() end,
   }
+  use({
+    "https://github.com/stevearc/conform.nvim",
+    config = function()
+      require("conform").setup()
+    end,
+  })
 end)

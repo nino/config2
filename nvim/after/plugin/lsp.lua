@@ -1,7 +1,6 @@
 vim.diagnostic.config { virtual_text = false }
 
 -- LSP-zero
-local nonels = require("null-ls")
 local lsp = require('lsp-zero')
 local lspconfig = require('lspconfig')
 lsp.preset("recommended")
@@ -16,13 +15,31 @@ lsp.ensure_installed({
   'terraformls',
 })
 
-nonels.setup({
-  sources = {
-    nonels.builtins.diagnostics.eslint,
-    nonels.builtins.formatting.eslint,
-    nonels.builtins.formatting.black,
-    nonels.builtins.diagnostics.flake8,
-  }
+require('lint').linters_by_ft = {
+  typescript = { 'eslint', },
+  typescriptreact = { 'eslint', },
+  javascript = { 'eslint', },
+  javascriptreact = { 'eslint', },
+  python = { 'flake8' },
+}
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
+local javascript_formatters = { { "eslint_d" }}
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    -- Conform will run multiple formatters sequentially
+    python = { "isort", "black" },
+    -- Use a sub-list to run only the first available formatter
+    javascript = javascript_formatters,
+    javascriptreact = javascript_formatters,
+    typescript = javascript_formatters,
+    typescriptreact = javascript_formatters,
+  },
 })
 
 lsp.on_attach(function(client, bufnr)
