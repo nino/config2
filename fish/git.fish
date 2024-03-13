@@ -17,6 +17,9 @@ alias gp='git push'
 #compdef _git gp=git-push
 alias gd='git diff'
 
+alias gf='git fetch'
+alias gfa='git fetch --all'
+
 function gdv
   git diff -w $argv | view -
 end
