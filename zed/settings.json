@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "theme": "Gruvbox Dark",
-  "show_copilot_suggestions": false,
+  "show_copilot_suggestions": true,
   "buffer_font_size": 13,
   "project_panel": {
     "dock": "right"
