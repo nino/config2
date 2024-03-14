@@ -22,7 +22,7 @@ require('lint').linters_by_ft = {
   javascriptreact = { 'eslint', },
   python = { 'flake8' },
 }
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   callback = function()
     require("lint").try_lint()
   end,
