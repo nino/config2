@@ -72,7 +72,7 @@ return packer.startup(function(use)
   use 'https://github.com/mfussenegger/nvim-dap'
   use 'https://github.com/mxsdev/nvim-dap-vscode-js'
   use 'https://github.com/leoluz/nvim-dap-go'
-  use 'https://github.com/rcarriga/nvim-dap-ui'
+  use { 'https://github.com/rcarriga/nvim-dap-ui', requires = { "nvim-neotest/nvim-nio" } }
   use 'https://github.com/theHamsta/nvim-dap-virtual-text'
   use 'https://github.com/nvim-telescope/telescope-dap.nvim'
   use 'https://github.com/mfussenegger/nvim-dap-python'
