@@ -56,6 +56,7 @@ lsp.on_attach(function(client, bufnr)
       })
 end)
 
+lsp.configure("gleam", {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
