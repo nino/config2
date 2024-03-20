@@ -470,7 +470,7 @@
 			<key>googlemaps/google-maps-services-js</key>
 			<dict>
 				<key>date</key>
-				<date>2024-03-12T18:55:26Z</date>
+				<date>2024-03-19T20:54:55Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1230,7 +1230,7 @@
 			<key>nokogiri</key>
 			<dict>
 				<key>date</key>
-				<date>2024-02-04T17:37:53Z</date>
+				<date>2024-03-18T18:00:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1239,6 +1239,20 @@
 					<string>rubyGems</string>
 					<key>uniqueIdentifier</key>
 					<string>nokogiri</string>
+				</dict>
+			</dict>
+			<key>rom-core</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-18T18:00:46Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rom-core</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rom-core</string>
 				</dict>
 			</dict>
 			<key>rom-factory</key>
@@ -1286,7 +1300,7 @@
 			<key>sorbet</key>
 			<dict>
 				<key>date</key>
-				<date>2024-03-12T18:55:23Z</date>
+				<date>2024-03-19T20:54:56Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
