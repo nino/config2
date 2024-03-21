@@ -139,22 +139,6 @@
 					<string>HTTP_Status_Codes</string>
 				</dict>
 			</dict>
-			<key>LLDB_Commands</key>
-			<dict>
-				<key>date</key>
-				<date>2022-04-01T10:08:36Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array/>
-					<key>name</key>
-					<string>LLDB Commands</string>
-					<key>platform</key>
-					<string>cheatsheet</string>
-					<key>uniqueIdentifier</key>
-					<string>LLDB_Commands</string>
-				</dict>
-			</dict>
 			<key>MIME_Types</key>
 			<dict>
 				<key>date</key>
@@ -261,6 +245,22 @@
 					<string>cheatsheet</string>
 					<key>uniqueIdentifier</key>
 					<string>Hub</string>
+				</dict>
+			</dict>
+			<key>LLDB_Commands</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>name</key>
+					<string>LLDB Commands</string>
+					<key>platform</key>
+					<string>cheatsheet</string>
+					<key>uniqueIdentifier</key>
+					<string>LLDB_Commands</string>
 				</dict>
 			</dict>
 			<key>Mercurial</key>
@@ -437,90 +437,6 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>Phrogz/context-blender</string>
-				</dict>
-			</dict>
-			<key>blender/blender</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-05T10:40:55Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>blender/blender</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>blender/blender</string>
-				</dict>
-			</dict>
-			<key>denoland/deno</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-26T11:55:32Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>denoland/deno</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>denoland/deno</string>
-				</dict>
-			</dict>
-			<key>googlemaps/google-maps-services-js</key>
-			<dict>
-				<key>date</key>
-				<date>2024-03-19T20:54:55Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>googlemaps/google-maps-services-js</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>googlemaps/google-maps-services-js</string>
-				</dict>
-			</dict>
-			<key>sparklemotion/nokogiri</key>
-			<dict>
-				<key>date</key>
-				<date>2024-02-27T15:04:46Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>sparklemotion/nokogiri</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>sparklemotion/nokogiri</string>
-				</dict>
-			</dict>
-			<key>tannerlinsley/react-query</key>
-			<dict>
-				<key>date</key>
-				<date>2023-05-05T10:41:16Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>tannerlinsley/react-query</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>tannerlinsley/react-query</string>
-				</dict>
-			</dict>
-			<key>tauri-apps/tauri-docs</key>
-			<dict>
-				<key>date</key>
-				<date>2023-07-15T00:31:14Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>tauri-apps/tauri-docs</string>
-					<key>platform</key>
-					<string>github</string>
-					<key>uniqueIdentifier</key>
-					<string>tauri-apps/tauri-docs</string>
 				</dict>
 			</dict>
 			<key>testing-library/jest-dom</key>
@@ -708,6 +624,34 @@
 					<string>abronte/BigQuery</string>
 				</dict>
 			</dict>
+			<key>blender/blender</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>blender/blender</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>blender/blender</string>
+				</dict>
+			</dict>
+			<key>denoland/deno</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>denoland/deno</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>denoland/deno</string>
+				</dict>
+			</dict>
 			<key>dmlc/xgboost</key>
 			<dict>
 				<key>date</key>
@@ -762,6 +706,20 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>facebook/react-native</string>
+				</dict>
+			</dict>
+			<key>googlemaps/google-maps-services-js</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>googlemaps/google-maps-services-js</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>googlemaps/google-maps-services-js</string>
 				</dict>
 			</dict>
 			<key>gotk3/gotk3</key>
@@ -958,6 +916,48 @@
 					<string>github</string>
 					<key>uniqueIdentifier</key>
 					<string>solidjs/solid</string>
+				</dict>
+			</dict>
+			<key>sparklemotion/nokogiri</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sparklemotion/nokogiri</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>sparklemotion/nokogiri</string>
+				</dict>
+			</dict>
+			<key>tannerlinsley/react-query</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:43Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>tannerlinsley/react-query</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>tannerlinsley/react-query</string>
+				</dict>
+			</dict>
+			<key>tauri-apps/tauri-docs</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:43Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>tauri-apps/tauri-docs</string>
+					<key>platform</key>
+					<string>github</string>
+					<key>uniqueIdentifier</key>
+					<string>tauri-apps/tauri-docs</string>
 				</dict>
 			</dict>
 			<key>tidyverse/dplyr</key>
@@ -1198,120 +1198,7 @@
 	<key>DHRubyRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict>
-			<key>concurrent-ruby</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-17T01:11:31Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>concurrent-ruby</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>concurrent-ruby</string>
-				</dict>
-			</dict>
-			<key>mechanize</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-23T14:27:48Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>mechanize</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>mechanize</string>
-				</dict>
-			</dict>
-			<key>nokogiri</key>
-			<dict>
-				<key>date</key>
-				<date>2024-03-18T18:00:53Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>nokogiri</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>nokogiri</string>
-				</dict>
-			</dict>
-			<key>rom-core</key>
-			<dict>
-				<key>date</key>
-				<date>2024-03-18T18:00:46Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>rom-core</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>rom-core</string>
-				</dict>
-			</dict>
-			<key>rom-factory</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-24T10:09:02Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>rom-factory</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>rom-factory</string>
-				</dict>
-			</dict>
-			<key>rom-sql</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-15T09:24:52Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>rom-sql</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>rom-sql</string>
-				</dict>
-			</dict>
-			<key>sinatra</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-19T18:13:28Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>sinatra</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>sinatra</string>
-				</dict>
-			</dict>
-			<key>sorbet</key>
-			<dict>
-				<key>date</key>
-				<date>2024-03-19T20:54:56Z</date>
-				<key>entry</key>
-				<dict>
-					<key>name</key>
-					<string>sorbet</string>
-					<key>platform</key>
-					<string>rubyGems</string>
-					<key>uniqueIdentifier</key>
-					<string>sorbet</string>
-				</dict>
-			</dict>
-		</dict>
+		<dict/>
 		<key>uninstalled</key>
 		<dict>
 			<key>bcrypt</key>
@@ -1328,6 +1215,20 @@
 					<string>bcrypt</string>
 				</dict>
 			</dict>
+			<key>concurrent-ruby</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>concurrent-ruby</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>concurrent-ruby</string>
+				</dict>
+			</dict>
 			<key>geojson</key>
 			<dict>
 				<key>date</key>
@@ -1342,6 +1243,76 @@
 					<string>geojson</string>
 				</dict>
 			</dict>
+			<key>mechanize</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>mechanize</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>mechanize</string>
+				</dict>
+			</dict>
+			<key>nokogiri</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>nokogiri</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>nokogiri</string>
+				</dict>
+			</dict>
+			<key>rom-core</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:13Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rom-core</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rom-core</string>
+				</dict>
+			</dict>
+			<key>rom-factory</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:13Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rom-factory</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rom-factory</string>
+				</dict>
+			</dict>
+			<key>rom-sql</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:13Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rom-sql</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rom-sql</string>
+				</dict>
+			</dict>
 			<key>rugged</key>
 			<dict>
 				<key>date</key>
@@ -1354,6 +1325,34 @@
 					<string>rubyGems</string>
 					<key>uniqueIdentifier</key>
 					<string>rugged</string>
+				</dict>
+			</dict>
+			<key>sinatra</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sinatra</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>sinatra</string>
+				</dict>
+			</dict>
+			<key>sorbet</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>sorbet</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>sorbet</string>
 				</dict>
 			</dict>
 			<key>xgboost</key>
@@ -1407,26 +1406,6 @@
 	<dict>
 		<key>installed</key>
 		<dict>
-			<key>AWS_CloudFormation_Template_Reference</key>
-			<dict>
-				<key>date</key>
-				<date>2023-09-23T16:29:04Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array/>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/AWS_CloudFormation_Template_Reference#readme</string>
-					<key>authorLinkText</key>
-					<string>Peter Hodgkinson</string>
-					<key>name</key>
-					<string>AWS CloudFormation Template Reference</string>
-					<key>platform</key>
-					<string>usercontribAWS_CloudFormation_Template_Reference</string>
-					<key>uniqueIdentifier</key>
-					<string>AWS_CloudFormation_Template_Reference</string>
-				</dict>
-			</dict>
 			<key>Beautiful_Soup</key>
 			<dict>
 				<key>date</key>
@@ -1509,29 +1488,6 @@
 					<string>Deno</string>
 				</dict>
 			</dict>
-			<key>Gforth</key>
-			<dict>
-				<key>date</key>
-				<date>2023-12-19T12:45:15Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>Forth</string>
-						<string>GNU Forth</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Gforth#readme</string>
-					<key>authorLinkText</key>
-					<string>Darren Stone</string>
-					<key>name</key>
-					<string>Gforth</string>
-					<key>platform</key>
-					<string>usercontribGforth</string>
-					<key>uniqueIdentifier</key>
-					<string>Gforth</string>
-				</dict>
-			</dict>
 			<key>Jest</key>
 			<dict>
 				<key>date</key>
@@ -1563,29 +1519,6 @@
 					<string>Jest</string>
 				</dict>
 			</dict>
-			<key>LLVM</key>
-			<dict>
-				<key>date</key>
-				<date>2022-03-15T07:41:58Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>Compiler Infrastrcture</string>
-						<string>Compilers</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/LLVM#readme</string>
-					<key>authorLinkText</key>
-					<string>Aziz Alto</string>
-					<key>name</key>
-					<string>LLVM</string>
-					<key>platform</key>
-					<string>usercontribLLVM</string>
-					<key>uniqueIdentifier</key>
-					<string>LLVM</string>
-				</dict>
-			</dict>
 			<key>Linux_Man_Pages</key>
 			<dict>
 				<key>date</key>
@@ -1610,28 +1543,6 @@
 					<string>usercontribLinux_Man_Pages</string>
 					<key>uniqueIdentifier</key>
 					<string>Linux_Man_Pages</string>
-				</dict>
-			</dict>
-			<key>Neovim</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:04Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>Nvim</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Neovim#readme</string>
-					<key>authorLinkText</key>
-					<string>ianding1</string>
-					<key>name</key>
-					<string>Neovim</string>
-					<key>platform</key>
-					<string>usercontribNeovim</string>
-					<key>uniqueIdentifier</key>
-					<string>Neovim</string>
 				</dict>
 			</dict>
 			<key>Seaborn</key>
@@ -1704,30 +1615,6 @@
 					<string>Zig</string>
 				</dict>
 			</dict>
-			<key>ggplot2</key>
-			<dict>
-				<key>date</key>
-				<date>2023-09-23T13:15:13Z</date>
-				<key>entry</key>
-				<dict>
-					<key>aliases</key>
-					<array>
-						<string>ggplot</string>
-						<string>r</string>
-						<string>rlang</string>
-					</array>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/ggplot2#readme</string>
-					<key>authorLinkText</key>
-					<string>Michael Peteuil</string>
-					<key>name</key>
-					<string>ggplot2</string>
-					<key>platform</key>
-					<string>usercontribggplot2</string>
-					<key>uniqueIdentifier</key>
-					<string>ggplot2</string>
-				</dict>
-			</dict>
 			<key>glibc</key>
 			<dict>
 				<key>date</key>
@@ -1758,27 +1645,29 @@
 					<string>glibc</string>
 				</dict>
 			</dict>
-			<key>libxml2</key>
-			<dict>
-				<key>date</key>
-				<date>2024-01-08T08:59:24Z</date>
-				<key>entry</key>
-				<dict>
-					<key>authorLinkHref</key>
-					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/libxml2#readme</string>
-					<key>authorLinkText</key>
-					<string>Scott Talbot</string>
-					<key>name</key>
-					<string>libxml2</string>
-					<key>platform</key>
-					<string>usercontriblibxml2</string>
-					<key>uniqueIdentifier</key>
-					<string>libxml2</string>
-				</dict>
-			</dict>
 		</dict>
 		<key>uninstalled</key>
 		<dict>
+			<key>AWS_CloudFormation_Template_Reference</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array/>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/AWS_CloudFormation_Template_Reference#readme</string>
+					<key>authorLinkText</key>
+					<string>Peter Hodgkinson</string>
+					<key>name</key>
+					<string>AWS CloudFormation Template Reference</string>
+					<key>platform</key>
+					<string>usercontribAWS_CloudFormation_Template_Reference</string>
+					<key>uniqueIdentifier</key>
+					<string>AWS_CloudFormation_Template_Reference</string>
+				</dict>
+			</dict>
 			<key>Airflow</key>
 			<dict>
 				<key>date</key>
@@ -1915,6 +1804,29 @@
 					<string>Faker</string>
 				</dict>
 			</dict>
+			<key>Gforth</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Forth</string>
+						<string>GNU Forth</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Gforth#readme</string>
+					<key>authorLinkText</key>
+					<string>Darren Stone</string>
+					<key>name</key>
+					<string>Gforth</string>
+					<key>platform</key>
+					<string>usercontribGforth</string>
+					<key>uniqueIdentifier</key>
+					<string>Gforth</string>
+				</dict>
+			</dict>
 			<key>Kotlin</key>
 			<dict>
 				<key>date</key>
@@ -1933,6 +1845,52 @@
 					<string>usercontribKotlin</string>
 					<key>uniqueIdentifier</key>
 					<string>Kotlin</string>
+				</dict>
+			</dict>
+			<key>LLVM</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:09Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Compiler Infrastrcture</string>
+						<string>Compilers</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/LLVM#readme</string>
+					<key>authorLinkText</key>
+					<string>Aziz Alto</string>
+					<key>name</key>
+					<string>LLVM</string>
+					<key>platform</key>
+					<string>usercontribLLVM</string>
+					<key>uniqueIdentifier</key>
+					<string>LLVM</string>
+				</dict>
+			</dict>
+			<key>Neovim</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Nvim</string>
+						<string>Neovim</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Neovim#readme</string>
+					<key>authorLinkText</key>
+					<string>h-hg</string>
+					<key>name</key>
+					<string>Neovim</string>
+					<key>platform</key>
+					<string>usercontribNeovim</string>
+					<key>uniqueIdentifier</key>
+					<string>Neovim</string>
 				</dict>
 			</dict>
 			<key>Perl6</key>
@@ -2081,6 +2039,30 @@
 					<string>electron</string>
 				</dict>
 			</dict>
+			<key>ggplot2</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>ggplot</string>
+						<string>r</string>
+						<string>rlang</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/ggplot2#readme</string>
+					<key>authorLinkText</key>
+					<string>Michael Peteuil</string>
+					<key>name</key>
+					<string>ggplot2</string>
+					<key>platform</key>
+					<string>usercontribggplot2</string>
+					<key>uniqueIdentifier</key>
+					<string>ggplot2</string>
+				</dict>
+			</dict>
 			<key>gtkmm</key>
 			<dict>
 				<key>date</key>
@@ -2101,6 +2083,24 @@
 					<string>usercontribgtkmm</string>
 					<key>uniqueIdentifier</key>
 					<string>gtkmm</string>
+				</dict>
+			</dict>
+			<key>libxml2</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+				<key>entry</key>
+				<dict>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/libxml2#readme</string>
+					<key>authorLinkText</key>
+					<string>Scott Talbot</string>
+					<key>name</key>
+					<string>libxml2</string>
+					<key>platform</key>
+					<string>usercontriblibxml2</string>
+					<key>uniqueIdentifier</key>
+					<string>libxml2</string>
 				</dict>
 			</dict>
 			<key>next.js</key>
@@ -2342,11 +2342,6 @@
 				<key>date</key>
 				<date>2023-05-04T13:14:00Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/CMake.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-12-09T18:21:56Z</date>
-			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
 				<key>date</key>
@@ -2356,16 +2351,6 @@
 			<dict>
 				<key>date</key>
 				<date>2023-05-04T12:53:59Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Clojure.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-11-27T10:10:41Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/D3JS.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:13Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Docker.xml</key>
 			<dict>
@@ -2396,11 +2381,6 @@
 			<dict>
 				<key>date</key>
 				<date>2019-04-24T13:45:08Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Java.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2023-11-28T16:15:40Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/JavaScript.xml</key>
 			<dict>
@@ -2505,6 +2485,21 @@
 				<key>date</key>
 				<date>2023-05-04T19:04:13Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/CMake.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Clojure.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/D3JS.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:49:42Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/EmberJS.xml</key>
 			<dict>
 				<key>date</key>
@@ -2514,6 +2509,11 @@
 			<dict>
 				<key>date</key>
 				<date>2022-02-25T19:39:13Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Java.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-03-21T11:50:12Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Java_SE14.xml</key>
 			<dict>
