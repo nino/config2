@@ -96,4 +96,7 @@ return packer.startup(function(use)
       require("conform").setup()
     end,
   })
+  -- use 'https://github.com/folke/tokyonight.nvim'
+  -- use 'https://github.com/Shatur/neovim-ayu'
+  -- use 'https://github.com/RRethy/base16-nvim'
 end)
