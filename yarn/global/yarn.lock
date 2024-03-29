@@ -480,6 +480,11 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
+"@colors/colors@1.6.0", "@colors/colors@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.6.0.tgz#ec6cd237440700bc23ca23087f513c75508958b0"
+  integrity sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==
+
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz#00629c35a688e05a88b1cda684fb9d5e73f000a1"
@@ -678,7 +683,7 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@msgpack/msgpack@^2.7.1":
+"@msgpack/msgpack@^2.8.0":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@msgpack/msgpack/-/msgpack-2.8.0.tgz#4210deb771ee3912964f14a15ddfb5ff877e70b9"
   integrity sha512-h9u4u/jiIRKbq25PM+zymTyW6bhTzELvOoUd+AvYriWOAKpLGnIamaET3pnHYoI5iYphAHBI4ayx0MehR+VVPQ==
@@ -2021,7 +2026,7 @@ async-sema@^3.1.1:
   resolved "https://registry.yarnpkg.com/async-sema/-/async-sema-3.1.1.tgz#e527c08758a0f8f6f9f15f799a173ff3c40ea808"
   integrity sha512-tLRNUXati5MFePdAk8dw7Qt7DpxPB60ofAgn8WRhW6a2rcimZnYBP9oxHiv0OHy+Wz7kPMG+t4LGdt31+4EmGg==
 
-async@^3.1.0, async@^3.2.3:
+async@^3.2.3:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.4.tgz#2d22e00f8cddeb5fde5dd33522b56d1cf569a81c"
   integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
@@ -2646,10 +2651,10 @@ crc32-stream@^4.0.2:
     crc-32 "^1.2.0"
     readable-stream "^3.4.0"
 
-create-next-app@^14.1.3:
-  version "14.1.3"
-  resolved "https://registry.yarnpkg.com/create-next-app/-/create-next-app-14.1.3.tgz#62332a71132013d0667670a03e98dfaae56594a5"
-  integrity sha512-DWgGhNiG5oHmkWgN/q68T0A0+oDnlk5T3xABq+9k927LGOnpGAAt6eSq1TbPdcp6j+cMkti6P9diS0+XFH3mVA==
+create-next-app@^14.1.4:
+  version "14.1.4"
+  resolved "https://registry.yarnpkg.com/create-next-app/-/create-next-app-14.1.4.tgz#85a1ffd16528f6661ce7a166984a513da57667b5"
+  integrity sha512-2yA3CmLxlS/g4jhashg5mMdyIwCw7xuutYnh80nDEHUGoQk5IM1CQAg3fXSkpzIfPDrvTn1gebFj7InQqrrbRA==
 
 create-react-app@^5.0.1:
   version "5.0.1"
@@ -2673,71 +2678,71 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-create-tauri-app-darwin-arm64@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-arm64/-/create-tauri-app-darwin-arm64-3.13.14.tgz#7547f97669920200a0634cda15bc716485436b85"
-  integrity sha512-FGZYJ15fHjdB+10MpMkxRlAZIqI+4yg64z48F+2iaMMOxMgOc5oJaW4KUALco68BRrcbJrLJ12cHhZ2JO6hVCw==
+create-tauri-app-darwin-arm64@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-arm64/-/create-tauri-app-darwin-arm64-3.13.15.tgz#30bae6241ea425075d595793223ea4ea9615dcc7"
+  integrity sha512-q7EXuGmRTc6at2eMpsN3qRTpwaWO5GzMER8Z/F0E/TAqAkH34MwiOe0X2hd/GSFKkH9StSXn24+h6g2EA4vHwg==
 
-create-tauri-app-darwin-x64@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-x64/-/create-tauri-app-darwin-x64-3.13.14.tgz#53d8671e404adefef096a24eaa9088985e2d6842"
-  integrity sha512-/HXHGy2J3wsHyWRfL49IVMO1k3zpr2TcCIQ5VY9OqvDx6CpLw/ch2yOmel4VyGS/l9PVJxRznqhZLO7T0GCpCw==
+create-tauri-app-darwin-x64@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-x64/-/create-tauri-app-darwin-x64-3.13.15.tgz#3dedab1894087f5c6225c803d1356845ddc1bcc0"
+  integrity sha512-JCzfS1hUCjSU2CkhSnD8g3obYCgAGYEGd5CaNctjYMjJ1HoE2tmqa4LwZSx+JwhD0h48fKjPAx30MAsVwN9j+g==
 
-create-tauri-app-linux-arm-gnueabihf@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm-gnueabihf/-/create-tauri-app-linux-arm-gnueabihf-3.13.14.tgz#b3d077ee767dab45ee2eb0ac12450333c4d55db9"
-  integrity sha512-cs9E4v0gSAzEP5O8TFDn1YeYkwuQJVyFciDdpXrzbW/iEfuoTzE3yhnH9yTb5+dvEauXvzDgQbzGwEcE/4Do7w==
+create-tauri-app-linux-arm-gnueabihf@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm-gnueabihf/-/create-tauri-app-linux-arm-gnueabihf-3.13.15.tgz#9054128c633d440659b1cdd238744cd2a91e6eb6"
+  integrity sha512-7FeYa6eshitvlqMdQ4lpqdR1ETOc2mcUUo+0ZQ6oPkA7qBVEtES1TLiSDHi1QhqMZIrnwDlmeWZMLCFGMGakkQ==
 
-create-tauri-app-linux-arm64-gnu@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-gnu/-/create-tauri-app-linux-arm64-gnu-3.13.14.tgz#c684d6b1d0a63f38d9108c0a7672ff541a0ee7b9"
-  integrity sha512-i9ahgovTNwFE57mbhOvmLukP46dQkRUO6wRlZSaSh7hXUl0HMgbpN4ZlbBUei9JXL/mES8G7RNHcW1+tjJDH7Q==
+create-tauri-app-linux-arm64-gnu@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-gnu/-/create-tauri-app-linux-arm64-gnu-3.13.15.tgz#fa2a47199b64d55fa0bc8ee446ede79e16f683c3"
+  integrity sha512-2Vuw9/ruebMIIVB9EO8fXBvHcYMw67f5Z5tIZm6TOiVp3dIglHA4GHJB93w5J3WqIYS3SLHe+HaNBbEVjwr0sQ==
 
-create-tauri-app-linux-arm64-musl@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-musl/-/create-tauri-app-linux-arm64-musl-3.13.14.tgz#61b88503ec5e0fdec130cc2b37c5a6f294a6554f"
-  integrity sha512-edbcZYTdYCzc2sgQi3SxuNRUI4ub/T68F6LUVmbBNEM5nUR6NCD8hJH3w+zm7wmTNL9H/cLU4ROEel+CpsGvnA==
+create-tauri-app-linux-arm64-musl@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-musl/-/create-tauri-app-linux-arm64-musl-3.13.15.tgz#d7d3c38433d0e759d04bfaed3fb0183ad081eace"
+  integrity sha512-idVn+azm/rCSt7i6Jlxa7Dwr/tfb8CHr0fUO2VEbOUdhGcOUqjH7QuqSGRSJrp4E9tbClvf2Y8EkDdhBXY2Zfw==
 
-create-tauri-app-linux-x64-gnu@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-gnu/-/create-tauri-app-linux-x64-gnu-3.13.14.tgz#52232d802790cb69049a8a8ed70b327653fef5cf"
-  integrity sha512-YSbUqaXzkiwLsyPfHFfaCURPgkgzG597LaEgpHKBmf9rfQRn91FtHLRL3BMOHyExYyITAJfVvHw9Fs8w3wYPEg==
+create-tauri-app-linux-x64-gnu@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-gnu/-/create-tauri-app-linux-x64-gnu-3.13.15.tgz#e813cd8de7aba6786eb2c422b2daddba41f38734"
+  integrity sha512-L4kTLD2STZ1aF5+TcB18bFeB1AVh9ROJUVg6U+r1XHRhN/zpRPb5sETC2H6K1r/Y/I3TwQ5Nsa1+/0Kv/Y8dwA==
 
-create-tauri-app-linux-x64-musl@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-musl/-/create-tauri-app-linux-x64-musl-3.13.14.tgz#82f11c25ad15577f7a4ca973efcebd5650268d6e"
-  integrity sha512-2ilZKKqjYCHLipDjfhm+/Okbt3/kHbNlo86AuVXGAYjTh1hzGoZQ0GuTGM6tI6o03mSDvevZghfUIybKRs6E3Q==
+create-tauri-app-linux-x64-musl@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-musl/-/create-tauri-app-linux-x64-musl-3.13.15.tgz#bd75790b7ab18d191af8dad9ed9ad914b8a22f7d"
+  integrity sha512-unVRYD1ngo5wHAIgYZdBgL1uLHyQZEGJbpq+UlQ6dihD8q+PKRh4zSbCWdRgeWRNL+Belmwt9c/wiw4TcpDN/A==
 
-create-tauri-app-win32-arm64-msvc@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-arm64-msvc/-/create-tauri-app-win32-arm64-msvc-3.13.14.tgz#9e240ecd3ec09d3971e3ce61973a1afb1dc15133"
-  integrity sha512-AfUh3Ae3h5DyRL+qLUsAlVkyPw1iPLAuzoeWCJjuL/OQXcsxnO0t0qX+rCHVbHUB+Hanu8AGl1ECy0egWV8veg==
+create-tauri-app-win32-arm64-msvc@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-arm64-msvc/-/create-tauri-app-win32-arm64-msvc-3.13.15.tgz#0b551123700c61a5b622968e5981b61d612843e3"
+  integrity sha512-Wmw5bHWCKD5RsVzhHrBNkWx/DVnFTwoVzU8RbJgVmc9Bu5l5CkbbCSFJSyXN2l7mditDLVFYH+SvkBGsP7ALiA==
 
-create-tauri-app-win32-ia32-msvc@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-ia32-msvc/-/create-tauri-app-win32-ia32-msvc-3.13.14.tgz#68b57bc2f54f2cfe155a00c90667d51fc353f6b8"
-  integrity sha512-wj7+cXrXbCwPv+DrI4rD6OAkVd/M6cHSC/OTVYfwb5GX1HZj3Syq/nwGi9rNJFw2mgcxYLa7GgE9Y7fs4lQ7Ug==
+create-tauri-app-win32-ia32-msvc@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-ia32-msvc/-/create-tauri-app-win32-ia32-msvc-3.13.15.tgz#11006b24ae9c82a14450ac0b87cc396b8fd5b552"
+  integrity sha512-Hq8M8OpFDtnreio75GHN4EAqzCd1CyCB1ovdUgNn2JIs8tZ74xocjmBWEJzq+LNBtFQZcJFyX1le86GSYWNfgw==
 
-create-tauri-app-win32-x64-msvc@3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-x64-msvc/-/create-tauri-app-win32-x64-msvc-3.13.14.tgz#17a1fa9bc68d7ed923e3a8be2bc22bfca8ace499"
-  integrity sha512-asg+WgYsZ519TYseFREzk/bDZqfrmO+lM7YN/kfEEOVXqd+3O8k+6NLhth6OsFu3t5ANbPxT0Ul/V08N0nd80g==
+create-tauri-app-win32-x64-msvc@3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-x64-msvc/-/create-tauri-app-win32-x64-msvc-3.13.15.tgz#86b368858f21527457f85c8b3be7bff939870f7d"
+  integrity sha512-s+BwavOLM8maXBn1yuqkBc2a2dSpm/Ud+Kf7eWpjAZdmjG3fMdlQapykeZ8R0BvZN7AUZOdv2+JfUGIR7Zr0lw==
 
-create-tauri-app@^3.13.14:
-  version "3.13.14"
-  resolved "https://registry.yarnpkg.com/create-tauri-app/-/create-tauri-app-3.13.14.tgz#5310fd0a0b26aab0e85bf0cb9af56074d85557da"
-  integrity sha512-SvwjbfAL2TIbAsBpBCTgkqEjJc8e2/n/mxRV90VQ4mvDzYljtFfrWIYfp29PgZcRhbuYzVkthjU+lFBU4lSxPA==
+create-tauri-app@^3.13.15:
+  version "3.13.15"
+  resolved "https://registry.yarnpkg.com/create-tauri-app/-/create-tauri-app-3.13.15.tgz#fad581267b4c06a0e12bd718fb25056cbe8e5f97"
+  integrity sha512-dBwfzHgUcyXuSiD+u+xpuh1/HPiKUwhzHs4bIDMSPJaMZ2N8RTmNY/SoWos5LfXr0y0mF004O1Y4vokqQOuUjg==
   optionalDependencies:
-    create-tauri-app-darwin-arm64 "3.13.14"
-    create-tauri-app-darwin-x64 "3.13.14"
-    create-tauri-app-linux-arm-gnueabihf "3.13.14"
-    create-tauri-app-linux-arm64-gnu "3.13.14"
-    create-tauri-app-linux-arm64-musl "3.13.14"
-    create-tauri-app-linux-x64-gnu "3.13.14"
-    create-tauri-app-linux-x64-musl "3.13.14"
-    create-tauri-app-win32-arm64-msvc "3.13.14"
-    create-tauri-app-win32-ia32-msvc "3.13.14"
-    create-tauri-app-win32-x64-msvc "3.13.14"
+    create-tauri-app-darwin-arm64 "3.13.15"
+    create-tauri-app-darwin-x64 "3.13.15"
+    create-tauri-app-linux-arm-gnueabihf "3.13.15"
+    create-tauri-app-linux-arm64-gnu "3.13.15"
+    create-tauri-app-linux-arm64-musl "3.13.15"
+    create-tauri-app-linux-x64-gnu "3.13.15"
+    create-tauri-app-linux-x64-musl "3.13.15"
+    create-tauri-app-win32-arm64-msvc "3.13.15"
+    create-tauri-app-win32-ia32-msvc "3.13.15"
+    create-tauri-app-win32-x64-msvc "3.13.15"
 
 cross-spawn@^6.0.5:
   version "6.0.5"
@@ -4815,12 +4820,24 @@ log@^6.0.0, log@^6.3.1:
     type "^2.5.0"
     uni-global "^1.0.0"
 
-logform@^2.2.0, logform@^2.3.2:
+logform@^2.3.2:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/logform/-/logform-2.5.1.tgz#44c77c34becd71b3a42a3970c77929e52c6ed48b"
   integrity sha512-9FyqAm9o9NKKfiAKfZoYo9bGXXuwMkxQiQttkT4YjjVtQVIQtK6LmVtlxmCaFswo6N4AfEkHqZTV0taDtPotNg==
   dependencies:
     "@colors/colors" "1.5.0"
+    "@types/triple-beam" "^1.3.2"
+    fecha "^4.2.0"
+    ms "^2.1.1"
+    safe-stable-stringify "^2.3.1"
+    triple-beam "^1.3.0"
+
+logform@^2.4.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/logform/-/logform-2.6.0.tgz#8c82a983f05d6eaeb2d75e3decae7a768b2bf9b5"
+  integrity sha512-1ulHeNPp6k/LD8H91o7VYFBng5i1BDE7HoKxVbZiGFidS1Rj65qcywLxX+pVfAPoQJEjRdvKcusKwOupHCVOVQ==
+  dependencies:
+    "@colors/colors" "1.6.0"
     "@types/triple-beam" "^1.3.2"
     fecha "^4.2.0"
     ms "^2.1.1"
@@ -5195,14 +5212,13 @@ negotiator@^0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-neovim@^4.10.1:
-  version "4.10.1"
-  resolved "https://registry.yarnpkg.com/neovim/-/neovim-4.10.1.tgz#ff8655fdcac9bbb9dabea58847ae0644bafbad2c"
-  integrity sha512-H46Jl2bh/LAFJsitv2MiIK3oCxvQnEK9t3efNMUUkKzsTYlLIikVxGWVk/vJnHzvxoHYBIRB/KHwPAOm+9UStg==
+neovim@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/neovim/-/neovim-5.1.0.tgz#cffddd293c16b0b386596c8c50bbc5f4a5b0a246"
+  integrity sha512-9eTxqknziWkN8CBOx1SKdK+0Dfp1NHKHKyJaeOYu+x6qjaV9z3hB211wKhLaFGtyYmGZxVaIe1aLtvuTHmuZTA==
   dependencies:
-    "@msgpack/msgpack" "^2.7.1"
-    semver "^7.3.5"
-    winston "3.3.3"
+    "@msgpack/msgpack" "^2.8.0"
+    winston "3.11.0"
 
 next-tick@1, next-tick@^1.0.0, next-tick@^1.1.0:
   version "1.1.0"
@@ -7142,10 +7158,10 @@ typescript@4.9.5, typescript@^4.0.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
-typescript@^5.1.6, typescript@^5.3.2:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
-  integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
+typescript@^5.3.2, typescript@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.3.tgz#5c6fedd4c87bee01cd7a528a30145521f8e0feff"
+  integrity sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==
 
 uid-number@^0.0.6:
   version "0.0.6"
@@ -7551,29 +7567,31 @@ wide-align@^1.1.2, wide-align@^1.1.5:
   dependencies:
     string-width "^1.0.2 || 2 || 3 || 4"
 
-winston-transport@^4.4.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/winston-transport/-/winston-transport-4.5.0.tgz#6e7b0dd04d393171ed5e4e4905db265f7ab384fa"
-  integrity sha512-YpZzcUzBedhlTAfJg6vJDlyEai/IFMIVcaEZZyl3UXIl4gmqRpU7AE89AHLkbzLUsv0NVmw7ts+iztqKxxPW1Q==
+winston-transport@^4.5.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/winston-transport/-/winston-transport-4.7.0.tgz#e302e6889e6ccb7f383b926df6936a5b781bd1f0"
+  integrity sha512-ajBj65K5I7denzer2IYW6+2bNIVqLGDHqDw3Ow8Ohh+vdW+rv4MZ6eiDvHoKhfJFZ2auyN8byXieDDJ96ViONg==
   dependencies:
     logform "^2.3.2"
     readable-stream "^3.6.0"
     triple-beam "^1.3.0"
 
-winston@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/winston/-/winston-3.3.3.tgz#ae6172042cafb29786afa3d09c8ff833ab7c9170"
-  integrity sha512-oEXTISQnC8VlSAKf1KYSSd7J6IWuRPQqDdo8eoRNaYKLvwSb5+79Z3Yi1lrl6KDpU6/VWaxpakDAtb1oQ4n9aw==
+winston@3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/winston/-/winston-3.11.0.tgz#2d50b0a695a2758bb1c95279f0a88e858163ed91"
+  integrity sha512-L3yR6/MzZAOl0DsysUXHVjOwv8mKZ71TrA/41EIduGpOOV5LQVodqN+QdQ6BS6PJ/RdIshZhq84P/fStEZkk7g==
   dependencies:
+    "@colors/colors" "^1.6.0"
     "@dabh/diagnostics" "^2.0.2"
-    async "^3.1.0"
+    async "^3.2.3"
     is-stream "^2.0.0"
-    logform "^2.2.0"
+    logform "^2.4.0"
     one-time "^1.0.0"
     readable-stream "^3.4.0"
+    safe-stable-stringify "^2.3.1"
     stack-trace "0.0.x"
     triple-beam "^1.3.0"
-    winston-transport "^4.4.0"
+    winston-transport "^4.5.0"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
   name wrap-ansi-cjs
