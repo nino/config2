@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   end,
 })
 
-local javascript_formatters = { { "eslint_d" }}
+local javascript_formatters = { { "eslint_d" } }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
@@ -39,6 +39,7 @@ require("conform").setup({
     javascriptreact = javascript_formatters,
     typescript = javascript_formatters,
     typescriptreact = javascript_formatters,
+    swift = { "swiftformat" },
   },
 })
 
@@ -117,7 +118,8 @@ lsp.configure('lua_ls', {
   }
 })
 
-lsp.skip_server_setup({ 'sourcekit' })
+-- lsp.skip_server_setup({ 'sourcekit' })
+lsp.configure("sourcekit", {})
 
 lsp.setup()
 
