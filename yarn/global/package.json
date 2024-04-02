@@ -18,6 +18,6 @@
     "typescript": "^5.4.3",
     "typescript-language-server": "^4.3.3",
     "vercel": "^33.6.2",
-    "vscode-langservers-extracted": "^4.6.0"
+    "vscode-langservers-extracted": "^4.8.0"
   }
 }
