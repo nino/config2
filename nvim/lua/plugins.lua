@@ -95,4 +95,5 @@ return packer.startup(function(use)
   -- use 'https://github.com/folke/tokyonight.nvim'
   -- use 'https://github.com/Shatur/neovim-ayu'
   -- use 'https://github.com/RRethy/base16-nvim'
+  use 'https://github.com/blumaa/ohne-accidents.nvim'
 end)
