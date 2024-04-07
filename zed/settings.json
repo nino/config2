@@ -9,16 +9,17 @@
 {
   "theme": "Ayu Dark",
   "show_copilot_suggestions": true,
-  "buffer_font_size": 13,
+  "buffer_font_size": 14,
   "project_panel": {
-    "dock": "right"
+    "dock": "left"
   },
-  "vim_mode": false,
+  "vim_mode": true,
   "buffer_font_family": "IBM Plex Mono",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
   "indent_size": 2,
+  "cursor_blink": false,
   "show_completion_documentation": true,
   "auto_update": true,
   "inlay_hints": {
