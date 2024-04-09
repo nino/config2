@@ -193,9 +193,10 @@ vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, 
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 vim.api.nvim_create_user_command("Indent", function(info)
-  vim.b.shiftwidth = info.args
-  vim.b.softtabstop = info.args
-  vim.b.tabstop = info.args
+  local val = tonumber(info.args)
+  vim.b.shiftwidth = val
+  vim.b.softtabstop = val
+  vim.b.tabstop = val
 end, { nargs = 1 })
 
 utils.new_cmd("Min", function()
