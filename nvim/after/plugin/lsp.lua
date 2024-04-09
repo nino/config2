@@ -70,6 +70,7 @@ lsp.skip_server_setup({ 'eslint' })
 lsp.configure('kotlin_language_server', {})
 
 lsp.configure('dartls', {})
+lsp.configure('solargraph', {})
 
 lsp.configure('clangd', {
   capabilities = {
@@ -118,7 +119,6 @@ lsp.configure('lua_ls', {
   }
 })
 
--- lsp.skip_server_setup({ 'sourcekit' })
 lsp.configure("sourcekit", {})
 
 lsp.setup()
