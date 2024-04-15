@@ -119,7 +119,8 @@ lsp.configure('lua_ls', {
   }
 })
 
-lsp.configure("sourcekit", {})
+lsp.skip_server_setup('sourcekit')
+-- lsp.configure("sourcekit", {})
 
 lsp.setup()
 

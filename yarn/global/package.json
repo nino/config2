@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@tailwindcss/language-server": "^0.0.16",
-    "create-next-app": "^14.1.4",
+    "create-next-app": "^14.2.1",
     "create-react-app": "^5.0.1",
     "create-tauri-app": "^3.13.17",
     "diagnostic-languageserver": "^1.15.0",
@@ -9,15 +9,15 @@
     "eslint_d": "^13.1.2",
     "grammar.js": "^1.0.0",
     "neovim": "^5.1.0",
-    "npm": "^10.5.1",
+    "npm": "^10.5.2",
     "prettier": "^3.2.5",
     "serverless": "^3.38.0",
     "svelte-language-server": "^0.16.7",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.25.12",
-    "typescript": "^5.4.4",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.4.5",
     "typescript-language-server": "^4.3.3",
-    "vercel": "^33.7.0",
+    "vercel": "^34.0.0",
     "vscode-langservers-extracted": "^4.8.0"
   }
 }
