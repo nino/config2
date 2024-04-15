@@ -15,7 +15,7 @@
     "svelte-language-server": "^0.16.7",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.12",
-    "typescript": "^5.4.4",
+    "typescript": "^5.4.5",
     "typescript-language-server": "^4.3.3",
     "vercel": "^33.7.0",
     "vscode-langservers-extracted": "^4.8.0"
