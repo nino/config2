@@ -67,6 +67,7 @@ end
 export EDITOR='nvim'
 export VISUAL='nvim'
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
+export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 
 function co
   set -l branch (git lb | uniquelines | fzf)
