@@ -1421,6 +1421,28 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>Arc_Lisp</key>
+			<dict>
+				<key>date</key>
+				<date>2024-04-18T20:22:53Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Arc</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Arc_Lisp#readme</string>
+					<key>authorLinkText</key>
+					<string>Alexander Artemenko</string>
+					<key>name</key>
+					<string>Arc Lisp</string>
+					<key>platform</key>
+					<string>usercontribArc_Lisp</string>
+					<key>uniqueIdentifier</key>
+					<string>Arc_Lisp</string>
+				</dict>
+			</dict>
 			<key>Beautiful_Soup</key>
 			<dict>
 				<key>date</key>
@@ -2210,6 +2232,8 @@
 			<string>dart_http:</string>
 			<key>~/Library/Application Support/Dash/Dart DocSets/provider/provider.docset</key>
 			<string>provider:</string>
+			<key>~/Library/Application Support/Dash/DocSets/Clojure/Clojure.docset</key>
+			<string>clj:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Dart/Dart.docset</key>
 			<string>dart:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Elixir/Elixir.docset</key>
@@ -2377,6 +2401,16 @@
 				<key>date</key>
 				<date>2023-05-04T12:53:59Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Clojure.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-04-18T20:34:22Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Common_Lisp.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-04-18T20:22:44Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Docker.xml</key>
 			<dict>
 				<key>date</key>
@@ -2516,11 +2550,6 @@
 				<date>2023-05-04T19:04:13Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CMake.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2024-03-21T11:50:12Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Clojure.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2024-03-21T11:50:12Z</date>
