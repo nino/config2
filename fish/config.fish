@@ -10,7 +10,8 @@ fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
 
-alias l='eza -l -h'
+alias l='eza -lh'
+alias la='eza -lha'
 alias ls='ls'
 alias dum='diskutil unmount'
 alias js='jekyll serve --watch'
