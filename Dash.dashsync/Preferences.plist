@@ -1424,7 +1424,7 @@
 			<key>Arc_Lisp</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-18T20:22:53Z</date>
+				<date>2024-04-22T15:06:42Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1650,6 +1650,28 @@
 					<string>usercontribZig</string>
 					<key>uniqueIdentifier</key>
 					<string>Zig</string>
+				</dict>
+			</dict>
+			<key>fish</key>
+			<dict>
+				<key>date</key>
+				<date>2024-04-22T16:54:00Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>fishshell</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/fish#readme</string>
+					<key>authorLinkText</key>
+					<string>Andrei Borisov</string>
+					<key>name</key>
+					<string>fish</string>
+					<key>platform</key>
+					<string>usercontribfish</string>
+					<key>uniqueIdentifier</key>
+					<string>fish</string>
 				</dict>
 			</dict>
 			<key>glibc</key>
@@ -2404,12 +2426,12 @@
 			<key>http://kapeli.com/feeds/Clojure.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-18T20:34:22Z</date>
+				<date>2024-04-22T15:06:45Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Common_Lisp.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-18T20:22:44Z</date>
+				<date>2024-04-22T15:06:44Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Docker.xml</key>
 			<dict>
