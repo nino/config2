@@ -1655,7 +1655,7 @@
 			<key>fish</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-22T16:54:00Z</date>
+				<date>2024-04-23T15:44:10Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -2398,6 +2398,11 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>http://kapeli.com/feeds/AppleScript.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-04-23T16:25:30Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
 			<dict>
 				<key>date</key>
@@ -2560,11 +2565,6 @@
 			<dict>
 				<key>date</key>
 				<date>2020-09-01T14:01:13Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/AppleScript.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2022-02-25T19:39:15Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Bash.xml</key>
 			<dict>
