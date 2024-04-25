@@ -80,7 +80,7 @@ return packer.startup(function(use)
   use 'https://github.com/mfussenegger/nvim-lint'
   use 'https://github.com/NoahTheDuke/vim-just'
   use 'https://github.com/lukas-reineke/indent-blankline.nvim'
-  use 'https://github.com/morhetz/gruvbox'
+  use 'https://github.com/ellisonleao/gruvbox.nvim'
   use 'https://github.com/chrisbra/vim-diff-enhanced'
   use { 'https://github.com/chomosuke/typst-preview.nvim',
     tag = 'v0.1.*',
