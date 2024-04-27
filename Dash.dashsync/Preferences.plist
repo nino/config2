@@ -2401,7 +2401,7 @@
 			<key>http://kapeli.com/feeds/AppleScript.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-24T14:02:52Z</date>
+				<date>2024-04-23T16:25:30Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
 			<dict>
@@ -2467,6 +2467,11 @@
 			<dict>
 				<key>date</key>
 				<date>2019-04-24T13:45:08Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Java.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2024-04-25T21:23:09Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/JavaScript.xml</key>
 			<dict>
@@ -2590,11 +2595,6 @@
 			<dict>
 				<key>date</key>
 				<date>2022-02-25T19:39:13Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Java.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2024-03-21T11:50:12Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Java_SE14.xml</key>
 			<dict>
