@@ -50,7 +50,7 @@ vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
 vim.opt.inccommand = "nosplit"
 
-vim.cmd[[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
+vim.cmd [[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
 
 -- Keep the visual textwidth but don't add new line in insert mode:
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
@@ -223,6 +223,19 @@ vim.api.nvim_create_user_command("Re", function(info)
     new_name = nil
   end
   vim.lsp.buf.rename(new_name)
+end, { nargs = "?" })
+
+vim.api.nvim_create_user_command("CC", function(info)
+  local msg = info.args
+  if #msg == 0 then
+    vim.cmd("G commit")
+  else
+    vim.cmd("G commit -m \"" .. msg .. '"')
+  end
+end, { nargs = "?" })
+
+vim.api.nvim_create_user_command("PP", function()
+  vim.cmd("G push")
 end, { nargs = "?" })
 
 -- vim.cmd [[
