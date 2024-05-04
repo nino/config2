@@ -7,9 +7,8 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Ayu Dark",
-  "show_copilot_suggestions": true,
-  "buffer_font_size": 14,
+  "theme": "Gruvbox Dark",
+  "buffer_font_size": 12,
   "project_panel": {
     "dock": "left"
   },
@@ -27,5 +26,6 @@
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true
-  }
+  },
+  "ui_font_family": "IBM Plex Sans"
 }
