@@ -191,6 +191,7 @@ vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {
 vim.api.nvim_create_user_command("GC", function() vim.cmd(":Git commit") end, {})
 vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
+vim.api.nvim_create_user_command("OF", function() require('oil').open_float() end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 vim.api.nvim_create_user_command("Indent", function(info)
