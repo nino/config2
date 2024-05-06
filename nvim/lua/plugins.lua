@@ -98,4 +98,8 @@ return packer.startup(function(use)
   use 'https://github.com/blumaa/ohne-accidents.nvim'
   use 'https://github.com/sputnick1124/uiua.vim'
   use 'https://github.com/Olical/nfnl'
+  use { 'https://github.com/stevearc/oil.nvim',
+    config = function()
+      require('oil').setup()
+    end }
 end)
