@@ -102,4 +102,8 @@ return packer.startup(function(use)
     config = function()
       require('oil').setup()
     end }
+  use { 'https://github.com/lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end }
 end)
