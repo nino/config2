@@ -69,6 +69,7 @@ vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
 
 local symbols_outline = require('symbols-outline')
 vim.keymap.set('n', '<M-s>', symbols_outline.toggle_outline, {})
@@ -144,6 +145,7 @@ vim.keymap.set("n", "<leader>p", function()
 end)
 
 vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
+vim.keymap.set("n", "X", "dd")
 
 --- @param command string
 --- @return string
