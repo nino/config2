@@ -1488,7 +1488,7 @@
 			<key>Boto3</key>
 			<dict>
 				<key>date</key>
-				<date>2024-05-05T14:13:47Z</date>
+				<date>2024-05-10T13:57:35Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -1677,7 +1677,7 @@
 			<key>glibc</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-18T17:27:24Z</date>
+				<date>2024-05-13T07:23:45Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1695,7 +1695,7 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/glibc#readme</string>
 					<key>authorLinkText</key>
-					<string>David Wedderwille</string>
+					<string>Louie Shprung</string>
 					<key>name</key>
 					<string>glibc</string>
 					<key>platform</key>
@@ -2836,6 +2836,32 @@
 			<string>Search python stuff</string>
 			<key>searchSnippets</key>
 			<true/>
+		</dict>
+		<dict>
+			<key>docsets</key>
+			<array>
+				<string>~/Library/Application Support/Dash/DocSets/C/C.docset</string>
+				<string>~/Library/Application Support/Dash/User Contributed/glibc/glibc.docset</string>
+				<string>~/Library/Application Support/Dash/DocSets/Man_Pages/Man Pages.docset</string>
+				<string>~/Library/Application Support/Dash/User Contributed/Linux Man Pages/Linux.docset</string>
+			</array>
+			<key>name</key>
+			<string>C</string>
+			<key>searchSnippets</key>
+			<true/>
+			<key>triggers</key>
+			<array>
+				<dict>
+					<key>description</key>
+					<string>“cc:” is typed in the main search field</string>
+					<key>image</key>
+					<string>searchKeywordIcon</string>
+					<key>isKeywordTrigger</key>
+					<true/>
+					<key>keyword</key>
+					<string>cc:</string>
+				</dict>
+			</array>
 		</dict>
 	</array>
 	<key>searchAndFocusKey</key>
