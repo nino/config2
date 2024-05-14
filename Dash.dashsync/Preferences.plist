@@ -1213,7 +1213,22 @@
 	<key>DHRubyRepo</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>rom</key>
+			<dict>
+				<key>date</key>
+				<date>2024-05-09T21:32:53Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>rom</string>
+					<key>platform</key>
+					<string>rubyGems</string>
+					<key>uniqueIdentifier</key>
+					<string>rom</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict>
 			<key>bcrypt</key>
@@ -1677,7 +1692,7 @@
 			<key>glibc</key>
 			<dict>
 				<key>date</key>
-				<date>2024-01-18T17:27:24Z</date>
+				<date>2024-05-11T18:11:30Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1695,7 +1710,7 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/glibc#readme</string>
 					<key>authorLinkText</key>
-					<string>David Wedderwille</string>
+					<string>Louie Shprung</string>
 					<key>name</key>
 					<string>glibc</string>
 					<key>platform</key>
