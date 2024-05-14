@@ -57,6 +57,7 @@ lsp.on_attach(function(client, bufnr)
       })
 end)
 
+lsp.configure("terraformls", {})
 lsp.configure("gleam", {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
