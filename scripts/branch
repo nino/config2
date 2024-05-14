@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-branch = `pbpaste`.strip.gsub(/[^a-zA-Z0-9]+/m, '-')
+input = ARGV[0] || `pbpaste`
+branch = input.strip.gsub(/[^a-zA-Z0-9]+/m, '-')
 # puts branch
 system "git checkout -b #{branch}"
-

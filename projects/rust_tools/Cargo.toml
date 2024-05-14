@@ -19,10 +19,10 @@ path = "src/timelapse/main.rs"
 path = "src/lib/mod.rs"
 
 [dependencies]
-anyhow = "1.0.82"
+anyhow = "1.0.83"
 chrono = "0.4.38"
 dirs = "5.0.1"
 git2 = "0.18.3"
 termcolor = "1.4.1"
-thiserror = "1.0.59"
+thiserror = "1.0.60"
 rayon = "1.10.0"
