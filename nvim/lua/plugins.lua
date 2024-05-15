@@ -102,5 +102,7 @@ return packer.startup(function(use)
   use { 'https://github.com/lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
-    end }
+    end
+  }
+  use 'https://github.com/nvim-pack/nvim-spectre'
 end)
