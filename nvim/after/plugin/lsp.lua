@@ -60,7 +60,7 @@ lsp.configure("terraformls", {})
 lsp.configure("gleam", {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end
 })
 lsp.skip_server_setup({ 'pylsp' })
@@ -83,7 +83,7 @@ lsp.configure('denols', {
 
 lsp.configure('tsserver', {
   on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end,
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false
