@@ -1232,7 +1232,7 @@
 			<key>rom</key>
 			<dict>
 				<key>date</key>
-				<date>2024-05-09T21:32:53Z</date>
+				<date>2024-05-14T11:24:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -2874,6 +2874,7 @@
 				<string>~/Library/Application Support/Dash/User Contributed/glibc/glibc.docset</string>
 				<string>~/Library/Application Support/Dash/DocSets/Man_Pages/Man Pages.docset</string>
 				<string>~/Library/Application Support/Dash/User Contributed/Linux Man Pages/Linux.docset</string>
+				<string>~/Library/Application Support/Dash/Ruby DocSets/rom/rom.docset</string>
 			</array>
 			<key>name</key>
 			<string>C</string>

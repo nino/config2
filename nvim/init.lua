@@ -241,6 +241,11 @@ vim.api.nvim_create_user_command("PP", function()
   vim.cmd("G push")
 end, { nargs = "?" })
 
+--- Add current line to the loclist. Might be nicer than using marks.
+vim.api.nvim_create_user_command("L", function()
+  vim.cmd[[ ladd expand("%") .. ":" .. line(".") .. ":" .. getline(".") ]]
+end, {})
+
 -- vim.cmd [[
 -- function! s:MkNonExDir(file, buf)
 --     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
