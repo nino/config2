@@ -11,7 +11,7 @@
     "neovim": "^5.1.0",
     "npm": "^10.8.0",
     "prettier": "^3.2.5",
-    "serverless": "^3.38.0",
+    "serverless": "^4.0.24",
     "svelte-language-server": "^0.16.9",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",
