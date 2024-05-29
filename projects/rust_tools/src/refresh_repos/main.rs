@@ -121,6 +121,7 @@ fn main() {
 
     let mut unclean_repos = vec![];
     let mut checked_out_branches = vec![];
+    let mut errors = vec![];
 
     let dirs = list_directories();
     let results: Vec<anyhow::Result<ProcessResult>> =
@@ -134,7 +135,16 @@ fn main() {
                 }
                 checked_out_branches.push((res.path.clone(), res.current_branch.clone()));
             }
-            Err(_) => {}
+            Err(err) => {
+              errors.push(format!("{:?}", err));
+            }
+        }
+    }
+
+    if !errors.is_empty() {
+        println!("\nErrors:");
+        for error in errors {
+            println!("- {}", error);
         }
     }
 
