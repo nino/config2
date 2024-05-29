@@ -19,7 +19,6 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
   use 'editorconfig/editorconfig-vim'
   use 'tpope/vim-characterize'
-  -- use 'github/copilot.vim'
   use 'rhysd/git-messenger.vim'
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -51,7 +50,6 @@ return packer.startup(function(use)
   use 'tpope/vim-repeat'
   use 'christoomey/vim-tmux-navigator'
   use 'preservim/nerdtree'
-  -- use 'https://github.com/vantaboard/sqlfluff.nvim'
   use 'https://github.com/JuliaEditorSupport/julia-vim'
   use 'https://github.com/leafOfTree/vim-svelte-plugin'
   use 'https://github.com/gleam-lang/gleam.vim'
@@ -72,6 +70,7 @@ return packer.startup(function(use)
   use 'https://github.com/theHamsta/nvim-dap-virtual-text'
   use 'https://github.com/nvim-telescope/telescope-dap.nvim'
   use 'https://github.com/mfussenegger/nvim-dap-python'
+  use 'https://github.com/julianolf/nvim-dap-lldb'
 
   use 'https://github.com/wsdjeg/vim-fetch'  -- Allow opening `path:linenr`
   use 'https://github.com/Vigemus/iron.nvim' -- REPLs
@@ -80,7 +79,6 @@ return packer.startup(function(use)
   use 'https://github.com/mfussenegger/nvim-lint'
   use 'https://github.com/NoahTheDuke/vim-just'
   use 'https://github.com/lukas-reineke/indent-blankline.nvim'
-  use 'https://github.com/ellisonleao/gruvbox.nvim'
   use 'https://github.com/chrisbra/vim-diff-enhanced'
   use { 'https://github.com/chomosuke/typst-preview.nvim',
     tag = 'v0.1.*',

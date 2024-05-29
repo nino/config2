@@ -11,6 +11,7 @@ require("dap-python").setup()
 require("dap-vscode-js").setup({
   adapters = { 'pwa-node' },
 })
+-- require('dap-lldb').setup({})
 
 for _, language in ipairs({ "typescript", "javascript" }) do
   require("dap").configurations[language] = {
@@ -30,6 +31,83 @@ for _, language in ipairs({ "typescript", "javascript" }) do
     }
   }
 end
+
+-- require('dap').adapters.codelldb = {
+--   type = 'executable',
+--   attach = {
+--     pidProperty = "pid",
+--     pidSelect = "ask"
+--   },
+--   command = '/Users/Nino/.vscode/extensions/lanza.lldb-vscode-0.2.3/bin/darwin/bin/lldb-vscode', -- my binary was called 'lldb-vscode-11'
+--   -- env = {
+--   --   LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
+--   -- },
+--   -- executable = {
+--   --   command =  '/Users/Nino/.vscode/extensions/lanza.lldb-vscode-0.2.3/bin/darwin/bin/lldb-vscode',
+--   --   args = { "--liblldb", '/Users/Nino/.vscode/extensions/lanza.lldb-vscode-0.2.3/bin/darwin/lib/liblldb.9.0.0svn.dylib' },
+--   -- },
+--   name = "lldb"
+-- }
+-- require('dap').configurations.c = {
+--   {
+--     name = "lldb",
+--     type = "codelldb",
+--     request = "launch",
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     externalTerminal = true,
+--     stopOnEntry = false,
+--     args = {}
+--   },
+-- }
+
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  args = { "-i", "dap" }
+}
+
+dap.configurations.c = {
+  {
+    name = "Launch",
+    type = "gdb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = "${workspaceFolder}",
+    stopAtBeginningOfMainSubprogram = false,
+  },
+}
+
+dap.adapters.lldb = {
+	type = "executable",
+	command = "/Users/Nino/.vscode/extensions/lanza.lldb-vscode-0.2.3/bin/darwin/bin/lldb-vscode", -- adjust as needed
+	name = "lldb",
+}
+
+local lldb = {
+	name = "Launch lldb",
+	type = "lldb", -- matches the adapter
+	request = "launch", -- could also attach to a currently running process
+	program = function()
+		return vim.fn.input(
+			"Path to executable: ",
+			vim.fn.getcwd() .. "/",
+			"file"
+		)
+	end,
+	cwd = "${workspaceFolder}",
+	stopOnEntry = false,
+	args = {},
+	runInTerminal = false,
+}
+
+-- require('dap').configurations.rust = {
+-- 	lldb -- different debuggers or more configurations can be used here
+-- }
 
 local dapui = require("dapui")
 dapui.setup()
