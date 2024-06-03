@@ -12,7 +12,7 @@
     "npm": "^10.8.1",
     "prettier": "^3.2.5",
     "serverless": "^4.0.24",
-    "svelte-language-server": "^0.16.9",
+    "svelte-language-server": "^0.16.10",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",
     "typescript": "^5.4.5",
