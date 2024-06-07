@@ -421,7 +421,7 @@
 			<key>provider</key>
 			<dict>
 				<key>date</key>
-				<date>2024-05-15T18:14:15Z</date>
+				<date>2024-06-06T13:41:07Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -471,7 +471,7 @@
 			<key>testing-library/react-testing-library</key>
 			<dict>
 				<key>date</key>
-				<date>2023-05-04T12:54:54Z</date>
+				<date>2024-06-05T08:24:03Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -485,7 +485,7 @@
 			<key>testing-library/user-event</key>
 			<dict>
 				<key>date</key>
-				<date>2023-07-15T00:22:58Z</date>
+				<date>2024-06-03T08:34:15Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
