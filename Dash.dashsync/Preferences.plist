@@ -1734,6 +1734,32 @@
 					<string>glibc</string>
 				</dict>
 			</dict>
+			<key>polars</key>
+			<dict>
+				<key>date</key>
+				<date>2024-06-05T16:15:02Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>python</string>
+						<string>graph</string>
+						<string>matplotlib</string>
+						<string>visualization</string>
+						<string>data</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/polars#readme</string>
+					<key>authorLinkText</key>
+					<string>Paulo S. Costa</string>
+					<key>name</key>
+					<string>polars</string>
+					<key>platform</key>
+					<string>usercontribpolars</string>
+					<key>uniqueIdentifier</key>
+					<string>polars</string>
+				</dict>
+			</dict>
 		</dict>
 		<key>uninstalled</key>
 		<dict>
@@ -2875,6 +2901,7 @@
 				<string>~/Library/Application Support/Dash/DocSets/Man_Pages/Man Pages.docset</string>
 				<string>~/Library/Application Support/Dash/User Contributed/Linux Man Pages/Linux.docset</string>
 				<string>~/Library/Application Support/Dash/Ruby DocSets/rom/rom.docset</string>
+				<string>~/Library/Application Support/Dash/User Contributed/polars/Polars.docset</string>
 			</array>
 			<key>name</key>
 			<string>C</string>
