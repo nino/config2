@@ -436,6 +436,91 @@
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
+	<key>DHDocsetGeneratorRepo</key>
+	<dict>
+		<key>installed</key>
+		<dict>
+			<key>Build Your Own Redis</key>
+			<dict>
+				<key>date</key>
+				<date>2024-06-11T14:58:54Z</date>
+				<key>entry</key>
+				<dict>
+					<key>docsetGeneratorSettings</key>
+					<dict>
+						<key>allowFilters</key>
+						<string></string>
+						<key>basicIndexEnabled</key>
+						<false/>
+						<key>cssToInject</key>
+						<string>footer {
+    display: none !important;
+}</string>
+						<key>denyFilters</key>
+						<string></string>
+						<key>docsetKeyword</key>
+						<string>byor</string>
+						<key>docsetName</key>
+						<string>Build Your Own Redis</string>
+						<key>extraInfoPlist</key>
+						<string></string>
+						<key>isFromLocalFolder</key>
+						<true/>
+						<key>isFromWebsite</key>
+						<false/>
+						<key>javaScriptIndexEnabled</key>
+						<true/>
+						<key>javaScriptUsedToIndex</key>
+						<string>const pageTitle = $("title").text();
+dashDoc.addEntry({name: pageTitle, type: "Guide"});
+
+$("h1").each(function() {
+    const entryName = $(this).text();
+    var entryHash = $(this).attr('id');
+    if(!entryHash)
+    {
+        entryHash = entryName.replace(/\W/g, '');
+        $(this).attr('id', entryHash);
+    }
+    dashDoc.addEntry({name: entryName, type: "Section", hash: entryHash});
+});
+
+$("#module-functions ~ .member h2").each(function() {
+    const entryName = $(this).text();
+    var entryHash = $(this).attr('id');
+    if(!entryHash)
+    {
+        entryHash = entryName.replace(/\W/g, '');
+        $(this).attr('id', entryHash);
+    }
+    dashDoc.addEntry({name: entryName, type: "Function", hash: entryHash});
+});
+
+$("#module-types ~ .member h2").each(function() {
+    const entryName = $(this).text();
+    var entryHash = $(this).attr('id');
+    if(!entryHash)
+    {
+        entryHash = entryName.replace(/\W/g, '');
+        $(this).attr('id', entryHash);
+    }
+    dashDoc.addEntry({name: entryName, type: "Type", hash: entryHash});
+});</string>
+						<key>localFolderPath</key>
+						<string>/Users/Nino/code-friends/codecrafters-redis-gleam/build/dev/docs/redis</string>
+					</dict>
+					<key>name</key>
+					<string>Build Your Own Redis</string>
+					<key>platform</key>
+					<string>Other</string>
+					<key>uniqueIdentifier</key>
+					<string>Build Your Own Redis</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>uninstalled</key>
+		<dict/>
+	</dict>
 	<key>DHGitHubRepo</key>
 	<dict>
 		<key>installed</key>
@@ -1083,7 +1168,7 @@
 			<key>phoenix</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-15T10:14:12Z</date>
+				<date>2024-06-19T11:50:49Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -1639,7 +1724,7 @@
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2024-04-03T08:37:52Z</date>
+				<date>2024-06-11T14:46:27Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -2902,6 +2987,7 @@
 				<string>~/Library/Application Support/Dash/User Contributed/Linux Man Pages/Linux.docset</string>
 				<string>~/Library/Application Support/Dash/Ruby DocSets/rom/rom.docset</string>
 				<string>~/Library/Application Support/Dash/User Contributed/polars/Polars.docset</string>
+				<string>~/Library/Application Support/Dash/Docset Generator/Build Your Own Redis/Build Your Own Redis.docset</string>
 			</array>
 			<key>name</key>
 			<string>C</string>
