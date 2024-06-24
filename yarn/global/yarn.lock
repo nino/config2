@@ -4338,10 +4338,10 @@ supports-color@^9.4.0:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.4.0.tgz#17bfcf686288f531db3dea3215510621ccb55954"
   integrity sha512-VL+lNrEoIXww1coLPOmiEmK/0sGigko5COxI09KzHc2VJXJsQ37UaQ+8quuxjDeA7+KnLGTWRyOXSLLR2Wb4jw==
 
-svelte-language-server@^0.16.10:
-  version "0.16.10"
-  resolved "https://registry.yarnpkg.com/svelte-language-server/-/svelte-language-server-0.16.10.tgz#05a73087c4cc2028527b3e9351f79764da6091be"
-  integrity sha512-+198ryDKOU20qeGOdHN/tHeSK4d3pT0hywjMlBzLqnEGlmk6ojuhJTN/uq16OMokMkxaX1xA6VdZdmldkLWgbA==
+svelte-language-server@^0.16.11:
+  version "0.16.11"
+  resolved "https://registry.yarnpkg.com/svelte-language-server/-/svelte-language-server-0.16.11.tgz#cfe2f7e22c2a26abbdff78a57052be12cdebe204"
+  integrity sha512-BtmIzGVlu8dr4xgccaTUczdPMAqjfbTjjeLf0Zyc0rx7b1RqyVyEtPKjtDrGR73hksUAwKfSRGp/ma/YKPA8iQ==
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.17"
     "@vscode/emmet-helper" "2.8.4"
