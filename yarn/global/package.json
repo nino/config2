@@ -17,7 +17,7 @@
     "typedoc": "^0.26.2",
     "typescript": "^5.4.5",
     "typescript-language-server": "^4.3.3",
-    "vercel": "^34.2.7",
+    "vercel": "^34.2.8",
     "vscode-langservers-extracted": "^4.10.0"
   }
 }
