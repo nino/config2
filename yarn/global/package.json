@@ -14,7 +14,7 @@
     "serverless": "^4.1.5",
     "svelte-language-server": "^0.16.11",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.26.2",
+    "typedoc": "^0.26.3",
     "typescript": "^5.4.5",
     "typescript-language-server": "^4.3.3",
     "vercel": "^34.2.7",
