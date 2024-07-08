@@ -527,10 +527,10 @@
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.24.tgz#8c7688559979f7079aacaf31aa881c3aa410b718"
   integrity sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==
 
-"@tailwindcss/language-server@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/language-server/-/language-server-0.0.16.tgz#d4151230f32413dfc30833cf029022350d48015b"
-  integrity sha512-9zmvTppvma6WaA8L1VLwa+YeVgpEhsUOuslDFNzHt5lJ04SdHTc9VwF9EeOximFohXyts8Q3qSn3PWbFVBDNVg==
+"@tailwindcss/language-server@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/language-server/-/language-server-0.0.20.tgz#0f91695bc1698634a82df6f1f3055ef9c4ddf8f7"
+  integrity sha512-T8ZkTj8CXgpdtR4bQ6c1UAKv1EvO1WmT8HCNxidCfNczYR+T4my0hiqMbnTyyGV1cBzsMxdAdZtiopRsaG7+hA==
 
 "@tootallnate/once@2.0.0":
   version "2.0.0"
