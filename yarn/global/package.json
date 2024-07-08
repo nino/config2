@@ -3,7 +3,7 @@
     "@tailwindcss/language-server": "^0.0.16",
     "create-next-app": "^14.2.4",
     "create-react-app": "^5.0.1",
-    "create-tauri-app": "^4.0.1",
+    "create-tauri-app": "^4.0.2",
     "diagnostic-languageserver": "^1.15.0",
     "eslint": "^9.6.0",
     "eslint_d": "^13.1.2",
