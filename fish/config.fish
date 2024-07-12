@@ -70,6 +70,7 @@ export VISUAL='nvim'
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 export HOMEBREW_AUTO_UPDATE_SECS=600
+export CMAKE_GENERATOR=Ninja
 
 function co
   set -l branch (git lb | uniquelines | fzf)
