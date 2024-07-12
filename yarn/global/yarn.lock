@@ -527,10 +527,10 @@
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.24.tgz#8c7688559979f7079aacaf31aa881c3aa410b718"
   integrity sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==
 
-"@tailwindcss/language-server@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/language-server/-/language-server-0.0.16.tgz#d4151230f32413dfc30833cf029022350d48015b"
-  integrity sha512-9zmvTppvma6WaA8L1VLwa+YeVgpEhsUOuslDFNzHt5lJ04SdHTc9VwF9EeOximFohXyts8Q3qSn3PWbFVBDNVg==
+"@tailwindcss/language-server@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/language-server/-/language-server-0.0.20.tgz#0f91695bc1698634a82df6f1f3055ef9c4ddf8f7"
+  integrity sha512-T8ZkTj8CXgpdtR4bQ6c1UAKv1EvO1WmT8HCNxidCfNczYR+T4my0hiqMbnTyyGV1cBzsMxdAdZtiopRsaG7+hA==
 
 "@tootallnate/once@2.0.0":
   version "2.0.0"
@@ -605,10 +605,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@vercel/build-utils@8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.2.2.tgz#9c8d9db6b8906b6e12026caca642bf57b414825a"
-  integrity sha512-+Nf/Yk3GeMI47L/g5KYEvsj7yqVkhb6vZqjxavUBRVPSsgJ7fuNVfYvvpFj/Y0BYysEF8XNUxKFuwGROiop/ow==
+"@vercel/build-utils@8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.3.0.tgz#202b8c44fd86011ab5d024fd94d13c48c1c76f51"
+  integrity sha512-/Vdr4ZqPOoEfLk739DbxwtvzOdj1F37AmxGJE4Ds9tbhS0RSyYpkDFdZZ/VOWpl2GhC0L+RGdKt84IVKzgyZKA==
 
 "@vercel/error-utils@2.0.2":
   version "2.0.2"
@@ -648,13 +648,13 @@
   dependencies:
     web-vitals "0.2.4"
 
-"@vercel/gatsby-plugin-vercel-builder@2.0.33":
-  version "2.0.33"
-  resolved "https://registry.yarnpkg.com/@vercel/gatsby-plugin-vercel-builder/-/gatsby-plugin-vercel-builder-2.0.33.tgz#fcc2d1ecb8c23a4de209e9b678fd4f4d626914fc"
-  integrity sha512-fJFRZaQfaaNdun8u/QepzKVrGnTW/9pXls322la5pP5xHAbaWPTTNoFtG/odZUXiv0oNV1qVWnTI4bnqFh6Icw==
+"@vercel/gatsby-plugin-vercel-builder@2.0.34":
+  version "2.0.34"
+  resolved "https://registry.yarnpkg.com/@vercel/gatsby-plugin-vercel-builder/-/gatsby-plugin-vercel-builder-2.0.34.tgz#9839375ab75d527b172199685b284a84266855fa"
+  integrity sha512-oVst2IGKddAyf3E2C/yJZH5qOv+ZJfMMCEVvxvhA1bvFz4tqKBmDqiLgRa2cCXqDrkebLetDGMhK3oXglUuiWw==
   dependencies:
     "@sinclair/typebox" "0.25.24"
-    "@vercel/build-utils" "8.2.2"
+    "@vercel/build-utils" "8.3.0"
     "@vercel/routing-utils" "3.1.0"
     esbuild "0.14.47"
     etag "1.8.1"
@@ -673,10 +673,10 @@
     "@vercel/static-config" "3.0.0"
     ts-morph "12.0.0"
 
-"@vercel/next@4.2.18":
-  version "4.2.18"
-  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-4.2.18.tgz#0e173ccc8c0780788c1341c280f1134e0259bec7"
-  integrity sha512-sxm2/lHsM7ZuMPMzo5wIGuVe3bEk9GN4sKJcfe2RfI139Vfl++40sQTTDJ44UYixbulRM5FBQ7zwnVFHgwaAIQ==
+"@vercel/next@4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-4.3.0.tgz#bdb2fb0266ba3473c271cf2eb65318ff24898739"
+  integrity sha512-z7eV+vXJDwNCUn8lZGkLWI+g48tKLhqaDpnVsc8w4+6BETs0fRuC7mWMqExry9/ZRPFkj9TEMN+xTmSvxURn6Q==
   dependencies:
     "@vercel/nft" "0.27.2"
 
@@ -698,16 +698,16 @@
     node-gyp-build "^4.2.2"
     resolve-from "^5.0.0"
 
-"@vercel/node@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.0.tgz#f45a9d959d0fa1a81eaca0e75bed23e8372e3be3"
-  integrity sha512-AZ/xcH5/llJ9SHaW5+TLOQmNzMeKgDafAC9fSdPOW8TUkhFLM+D2CPz6OUnRXDnGE21EvTEIqtDY+Z96dnf8Xw==
+"@vercel/node@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.1.tgz#cab37914ac3d0539d2a88d3da89691fb706f549d"
+  integrity sha512-45tksqpGhCv4IMwFWz+44ByypnG2UsBvpjRdII/ouwFKvYzDM86O6D8FeWNTrfUx/hSP8ld9OdmP7GFX9IRYOQ==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "8.2.2"
+    "@vercel/build-utils" "8.3.0"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.27.2"
     "@vercel/static-config" "3.0.0"
@@ -729,19 +729,21 @@
   resolved "https://registry.yarnpkg.com/@vercel/python/-/python-4.3.0.tgz#1f749909ea0f9cbb75a59a613aea57df77aca0ec"
   integrity sha512-tj6ffEh+ligmQoo/ONOg7DNX0VGKJt9FyswyOIIp6lZufs5oGzHAfan4+5QzF/2INxvXobN0aMYgcbFHJ81ZKg==
 
-"@vercel/redwood@2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@vercel/redwood/-/redwood-2.0.10.tgz#9f3c99ca3184d999281fb469c32a6bc7afbededb"
-  integrity sha512-vZmjOtiUQOdQHVIRrlPY/pSVuwn5GSuq5ihg530Rq51pYIHf0PSP/BnF6zventlG0bKe53MarxE+mmBUb0LDxw==
+"@vercel/redwood@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@vercel/redwood/-/redwood-2.1.0.tgz#e96926d1c8a9aab2610b5e641096a1cdc83b3a43"
+  integrity sha512-kwlAJSA0qHrq3eG5k4+xiOXUfPNQ5mUm3Zs+2FUweEhyhIBRlue862H55A5w1kZBPDSTtnlQZrkrwCOMpz0pHg==
   dependencies:
     "@vercel/nft" "0.27.2"
     "@vercel/routing-utils" "3.1.0"
+    "@vercel/static-config" "3.0.0"
     semver "6.3.1"
+    ts-morph "12.0.0"
 
-"@vercel/remix-builder@2.1.8":
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/@vercel/remix-builder/-/remix-builder-2.1.8.tgz#c5ebac2f15b38c4fb82ea1139664c167a61d2680"
-  integrity sha512-8SyVgKwtIGgxb5w2VLt9tilDmOg6k8KFeqUYL2D6i6z4Ju7qT3OVXqpWG7b6a334lkSvkyqvvMPnPLRhNW/sUg==
+"@vercel/remix-builder@2.1.9":
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/@vercel/remix-builder/-/remix-builder-2.1.9.tgz#00a006e2164c4ea6e122c57d39fa87af85bb941d"
+  integrity sha512-WDnz9pNltBeF5awyRB/zWRrhr4srkZfgtHWIp9AVFysbamwq7AmIvwcu6qZEgy3m42B5DDhHiThsWW8Cra08wg==
   dependencies:
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.27.2"
@@ -762,13 +764,13 @@
   resolved "https://registry.yarnpkg.com/@vercel/ruby/-/ruby-2.1.0.tgz#431400276bcb131ef0b9f6cad2e4242557b921a4"
   integrity sha512-UZYwlSEEfVnfzTmgkD+kxex9/gkZGt7unOWNyWFN7V/ZnZSsGBUgv6hXLnwejdRi3EztgRQEBd1kUKlXdIeC0Q==
 
-"@vercel/static-build@2.5.11":
-  version "2.5.11"
-  resolved "https://registry.yarnpkg.com/@vercel/static-build/-/static-build-2.5.11.tgz#82f026726c04e039695b255c1faf18a8d8e65be6"
-  integrity sha512-CUZInKro8CqNH4ZyNccRSfy8cF4KBklIiGOwWVjjjVQLtIGdC55iVADIHAsCmA5yEJVsjenIi+943/JcR0bw2Q==
+"@vercel/static-build@2.5.12":
+  version "2.5.12"
+  resolved "https://registry.yarnpkg.com/@vercel/static-build/-/static-build-2.5.12.tgz#4ae013ccc7306df96b7d381ef4b70606321a5b7c"
+  integrity sha512-Icp6lmgnfFpJCR/qVb/b5P4dB62FSRwREH7d6Im/0YzeTWdppc3Q7LfIQBpKdqjCT1cENc94pMh4spEU6wwaKQ==
   dependencies:
     "@vercel/gatsby-plugin-vercel-analytics" "1.0.11"
-    "@vercel/gatsby-plugin-vercel-builder" "2.0.33"
+    "@vercel/gatsby-plugin-vercel-builder" "2.0.34"
     "@vercel/static-config" "3.0.0"
     ts-morph "12.0.0"
 
@@ -1340,77 +1342,77 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-create-tauri-app-darwin-arm64@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-arm64/-/create-tauri-app-darwin-arm64-4.0.1.tgz#f24dcdfed015dac8fc2d80b1a67a371a7e1312f1"
-  integrity sha512-+AeHXsHplT+x9KRAuU3jJAQnxj6GNzpBO5WmWTJ96wL/p0wW2htut7djuLGqi1aMkjBdXm5sc4OkZKZ5FqE0RQ==
+create-tauri-app-darwin-arm64@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-arm64/-/create-tauri-app-darwin-arm64-4.0.2.tgz#f722b8169c453060f0401d7fb4903a6e05be3f06"
+  integrity sha512-MSpIZfTan2Xfk+kHJoMEYqn1qKM87ZQj0VLVEqPpvNKt0cizQBjOYl7dmPqOqQd6kVKVaIFM073gbYrKerqLJQ==
 
-create-tauri-app-darwin-universal@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-universal/-/create-tauri-app-darwin-universal-4.0.1.tgz#73ffe0f041d9e73e4d408e52dbbd1783ff4040a6"
-  integrity sha512-JbmNTS5EszqVMN35j9r5oDhEU7g3GyFiEJd03rq2S3nLc3jqlF9kkr+515nU8/gTIN2tpakyIS4PMMRKlmv1xQ==
+create-tauri-app-darwin-universal@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-universal/-/create-tauri-app-darwin-universal-4.0.2.tgz#9b691deb1b72be6f50e7328d733b4b415af824ba"
+  integrity sha512-AFpkg0x4rp6ncZ4AgFCi2Tcf6gyz+HMcv0vYU71IGbbAlcIvTtkwWtD4BcQVys0HWWAhMSQGfcKElf+1dLMAlw==
 
-create-tauri-app-darwin-x64@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-x64/-/create-tauri-app-darwin-x64-4.0.1.tgz#a3ea207f9868c73b0bfc725f6d697db833c1e93a"
-  integrity sha512-bDaYZhsNTyKRwJ22ve1MVZGiuV5LgAxVQMZvY22YhsJ7HgmA4F647n+bICF3anpgtAJtKOvHo56cpa7dPCNa7A==
+create-tauri-app-darwin-x64@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-darwin-x64/-/create-tauri-app-darwin-x64-4.0.2.tgz#57ef07843034c0c10f7f70890b7a3a85a04667dd"
+  integrity sha512-mgvRknLCSCR+85QH6Mo9XfRWzjFbftyVEFIRYW0JtXbS0XPiONxMQjkYxnexllA3b0hKa8g5nDE6+3BvTCkE/A==
 
-create-tauri-app-linux-arm-gnueabihf@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm-gnueabihf/-/create-tauri-app-linux-arm-gnueabihf-4.0.1.tgz#fa75b53d2c4f249944033db02d3b4dab58d29919"
-  integrity sha512-fo8FGJ/2MxXqHEWvpG+60ehAXHnOCmPBI62obSRFZJZh2f5NuXpgO8k0DzWIrh0w+2sQGQf2WbHuif6iScZ9NA==
+create-tauri-app-linux-arm-gnueabihf@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm-gnueabihf/-/create-tauri-app-linux-arm-gnueabihf-4.0.2.tgz#404e2e55cbaa3a21eb6d7d5dc6be477156499cbe"
+  integrity sha512-8foyBxeUhcig4r0jVVEMflSwtdKBR9CvzriggXAQIrt0xDfr9Tb/zwcQP1dCFb7ttkUW0fzzaJFEDTEBWY7RyQ==
 
-create-tauri-app-linux-arm64-gnu@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-gnu/-/create-tauri-app-linux-arm64-gnu-4.0.1.tgz#fbe24d29fd4bbc9c01f0fbe9d95c73a545455c2f"
-  integrity sha512-OYaqWqP2NB7/ABtr1LPbmdyCOmdN1N1+k98CTue2Uv5HXY/2wNKVNXeISuj8e0K8NlMAmouWdyKQKKmTSgfp/Q==
+create-tauri-app-linux-arm64-gnu@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-gnu/-/create-tauri-app-linux-arm64-gnu-4.0.2.tgz#6554eaec3e9b7c3c3bd06a3c9d1b9b6e1dd06b8a"
+  integrity sha512-3TFBrS2yKgcMDoinXVhsajTDibGU+57rxprZRa5/N+TTGDloPIm99hTYgY2uHjTdAsBz7aI1Q8s1975Z3OEoAQ==
 
-create-tauri-app-linux-arm64-musl@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-musl/-/create-tauri-app-linux-arm64-musl-4.0.1.tgz#2516e6bf5c363396f8bfe97db0e2197cb98e128a"
-  integrity sha512-K8FRf7ULtHSWSCtmCJ7bhCJOcboijqpqJqcyEtxZg3+rEUblJvBsYdZdKj07QwjBfRow/b908jm39ah6Q9PPMQ==
+create-tauri-app-linux-arm64-musl@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-arm64-musl/-/create-tauri-app-linux-arm64-musl-4.0.2.tgz#e91fdfee311ffb0e6ff4bcc129b80409110ba292"
+  integrity sha512-tpYY5hwnyp32rrNdeqGoXNVK/EUQTkNn4vCYxbUbsJ12qL3NGjacgoMu7Zq2aaLxT/+GDwUmSFp02955PYqJZA==
 
-create-tauri-app-linux-x64-gnu@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-gnu/-/create-tauri-app-linux-x64-gnu-4.0.1.tgz#bfee186e49ba5ae4d3e9802cb1d97e5325a4f4d9"
-  integrity sha512-I+PUDYJT/nmRXsDEXnCHPo8Q0mc1jKEX5ETOAvLc7vmOY9kd0u8RHoGs9YU3Bk3DwynG225+buugzlEO+Ukseg==
+create-tauri-app-linux-x64-gnu@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-gnu/-/create-tauri-app-linux-x64-gnu-4.0.2.tgz#f21fef7f9f31f65a4cdfa6f98ebb462d71b7c791"
+  integrity sha512-tVRH0ruXOOMvuz+ysjFWp4NRatd+JqzKsaY783el/yJQwKGu1pQgCEA8NMyswR+XCDwbP+4Td2vykmhWDdHK2Q==
 
-create-tauri-app-linux-x64-musl@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-musl/-/create-tauri-app-linux-x64-musl-4.0.1.tgz#08c14903cfc8232aaf4891d055797eaf1bc02e47"
-  integrity sha512-g0fJQg4KdC2c5EHIpW+XQqWK1yls+YxN89jDEnAGhPRT7B+zZ2x0twROxvmxi/xhHmsAwJFEn8iXXX+mbjyYmQ==
+create-tauri-app-linux-x64-musl@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-linux-x64-musl/-/create-tauri-app-linux-x64-musl-4.0.2.tgz#0225ccbffc50c9276f109ffcf73e1d7744622750"
+  integrity sha512-fYaGraGTBp+QgeCDKH84W/ncWyTvo/H/BOylcM6LChygkXXL3KIN80z3o9wb4cWJYIYlgum2+yzcYsbR9tAzHw==
 
-create-tauri-app-win32-arm64-msvc@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-arm64-msvc/-/create-tauri-app-win32-arm64-msvc-4.0.1.tgz#7e10065fc2f98ec1835f13a9458d98b58ae9efb8"
-  integrity sha512-ULqjhHe70I8AdYElh0EIkskADX18vteSt5SV+O0FH27rAQ+IWCm+S73zGBJkmUArvlAGjEq4KdceWAwwgKw2xA==
+create-tauri-app-win32-arm64-msvc@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-arm64-msvc/-/create-tauri-app-win32-arm64-msvc-4.0.2.tgz#a5912b4bd05dc61f8c3e2f5b24b186b422318970"
+  integrity sha512-uQMfMlc/3C3aC7JGl+hH1FN7uGBiPZG0kOgimqqh08LZYCuqVywmV0A8KHHuMPuEsNuQV7SDe1danmxGS1F1JQ==
 
-create-tauri-app-win32-ia32-msvc@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-ia32-msvc/-/create-tauri-app-win32-ia32-msvc-4.0.1.tgz#483a0b79364f5cd08bc07a414aef7445941b1950"
-  integrity sha512-+b4MI8A284QtMDMVKZJmwyErHlY/LH+X0sHWra4Ka9HXG6mVhpdRGSGVlNtrukTxLn4cusl6VajoSo/a+LKzng==
+create-tauri-app-win32-ia32-msvc@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-ia32-msvc/-/create-tauri-app-win32-ia32-msvc-4.0.2.tgz#0da76bdfdf7d9cea081bab6cc3966526fc42a814"
+  integrity sha512-R4iiSkIICjNIwAOshGYPoQTIxQCm475dfUOLBzSnsq34p9fi8Ru/XQ1KeRKCBWjRk+WCCoO6nSeAnq6MyoOCzA==
 
-create-tauri-app-win32-x64-msvc@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-x64-msvc/-/create-tauri-app-win32-x64-msvc-4.0.1.tgz#6925c626e3c1b4d319adfcb6b0c86117653500b6"
-  integrity sha512-o+Y/xb6XbLQKTgGS3GfmOgyspEnTFK9V1HHH8OAr1rbnXjrbIrRlkTIsSRRN6GamKevsGMmBxRp81taJI2vyRQ==
+create-tauri-app-win32-x64-msvc@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app-win32-x64-msvc/-/create-tauri-app-win32-x64-msvc-4.0.2.tgz#664bfa883a9efc59df440c72749bed869c489d00"
+  integrity sha512-U/z+p2LbQPd4cHtAcbO00d9/ICW3mKF6olnYz5WA6r79Vz6D4In2+hLO4WAa1gch61h1D4t1fKLIMro1R46AhA==
 
-create-tauri-app@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/create-tauri-app/-/create-tauri-app-4.0.1.tgz#fbdfed7125399961eb1708de5dcd50cd8751a0d1"
-  integrity sha512-OPowexJW51zZSqvuTl53WFQ0eu2l20dkyUrgAYgw2xBGPqoDXvVjoz1dI/PjYvzOHYM4/TRLW5iLxBQtg6/YXQ==
+create-tauri-app@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/create-tauri-app/-/create-tauri-app-4.0.2.tgz#479b2492c5197154f196bc6ffcc5675a502703c8"
+  integrity sha512-QBozHmiNTR0RYzu7Bo/DPwc9yxXwZvUJHgPMcU+e7SQ2WZg2KWdp2UzldMBBodOoow3slwCQKWd0N2QPj0n1ag==
   optionalDependencies:
-    create-tauri-app-darwin-arm64 "4.0.1"
-    create-tauri-app-darwin-universal "4.0.1"
-    create-tauri-app-darwin-x64 "4.0.1"
-    create-tauri-app-linux-arm-gnueabihf "4.0.1"
-    create-tauri-app-linux-arm64-gnu "4.0.1"
-    create-tauri-app-linux-arm64-musl "4.0.1"
-    create-tauri-app-linux-x64-gnu "4.0.1"
-    create-tauri-app-linux-x64-musl "4.0.1"
-    create-tauri-app-win32-arm64-msvc "4.0.1"
-    create-tauri-app-win32-ia32-msvc "4.0.1"
-    create-tauri-app-win32-x64-msvc "4.0.1"
+    create-tauri-app-darwin-arm64 "4.0.2"
+    create-tauri-app-darwin-universal "4.0.2"
+    create-tauri-app-darwin-x64 "4.0.2"
+    create-tauri-app-linux-arm-gnueabihf "4.0.2"
+    create-tauri-app-linux-arm64-gnu "4.0.2"
+    create-tauri-app-linux-arm64-musl "4.0.2"
+    create-tauri-app-linux-x64-gnu "4.0.2"
+    create-tauri-app-linux-x64-musl "4.0.2"
+    create-tauri-app-win32-arm64-msvc "4.0.2"
+    create-tauri-app-win32-ia32-msvc "4.0.2"
+    create-tauri-app-win32-x64-msvc "4.0.2"
 
 cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -4331,10 +4333,10 @@ supports-color@^9.4.0:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.4.0.tgz#17bfcf686288f531db3dea3215510621ccb55954"
   integrity sha512-VL+lNrEoIXww1coLPOmiEmK/0sGigko5COxI09KzHc2VJXJsQ37UaQ+8quuxjDeA7+KnLGTWRyOXSLLR2Wb4jw==
 
-svelte-language-server@^0.16.11:
-  version "0.16.11"
-  resolved "https://registry.yarnpkg.com/svelte-language-server/-/svelte-language-server-0.16.11.tgz#cfe2f7e22c2a26abbdff78a57052be12cdebe204"
-  integrity sha512-BtmIzGVlu8dr4xgccaTUczdPMAqjfbTjjeLf0Zyc0rx7b1RqyVyEtPKjtDrGR73hksUAwKfSRGp/ma/YKPA8iQ==
+svelte-language-server@^0.16.13:
+  version "0.16.13"
+  resolved "https://registry.yarnpkg.com/svelte-language-server/-/svelte-language-server-0.16.13.tgz#dd9eccaaf1a5a556f36e4ab743a912a88e42f7de"
+  integrity sha512-Fpl6NSjdcg9kLh1NmsaX4mFmaPMjQZZaNvGxTODfvogs3Y2wwpzH/N3Eixqmpv4O1FenDTgmv87Hle4GUGPcfg==
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.17"
     "@vscode/emmet-helper" "2.8.4"
@@ -4347,8 +4349,8 @@ svelte-language-server@^0.16.11:
     svelte "^3.57.0"
     svelte-preprocess "^5.1.3"
     svelte2tsx "~0.7.0"
-    typescript "^5.3.2"
-    typescript-auto-import-cache "^0.3.2"
+    typescript "^5.5.2"
+    typescript-auto-import-cache "^0.3.3"
     vscode-css-languageservice "~6.2.10"
     vscode-html-languageservice "~5.1.1"
     vscode-languageserver "8.0.2"
@@ -4616,10 +4618,10 @@ typedoc@^0.26.3:
     shiki "^1.9.1"
     yaml "^2.4.5"
 
-typescript-auto-import-cache@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/typescript-auto-import-cache/-/typescript-auto-import-cache-0.3.2.tgz#89b1ab7cb6786b8e18dda735a30ec1e7d48a2679"
-  integrity sha512-+laqe5SFL1vN62FPOOJSUDTZxtgsoOXjneYOXIpx5rQ4UMiN89NAtJLpqLqyebv9fgQ/IMeeTX+mQyRnwvJzvg==
+typescript-auto-import-cache@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/typescript-auto-import-cache/-/typescript-auto-import-cache-0.3.3.tgz#45f376313d1eb0929ce47ef1d1aae5a353d060a3"
+  integrity sha512-ojEC7+Ci1ij9eE6hp8Jl9VUNnsEKzztktP5gtYNRMrTmfXVwA1PITYYAkpxCvvupdSYa/Re51B6KMcv1CTZEUA==
   dependencies:
     semver "^7.3.8"
 
@@ -4633,10 +4635,10 @@ typescript@4.9.5, typescript@^4.0.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
-typescript@^5.3.2, typescript@^5.4.5:
-  version "5.4.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.5.tgz#42ccef2c571fdbd0f6718b1d1f5e6e5ef006f611"
-  integrity sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==
+typescript@^5.5.2, typescript@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.3.tgz#e1b0a3c394190838a0b168e771b0ad56a0af0faa"
+  integrity sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==
 
 uc.micro@^2.0.0, uc.micro@^2.1.0:
   version "2.1.0"
@@ -4738,22 +4740,22 @@ validate-npm-package-name@^5.0.0, validate-npm-package-name@^5.0.1:
   resolved "https://registry.yarnpkg.com/validate-npm-package-name/-/validate-npm-package-name-5.0.1.tgz#a316573e9b49f3ccd90dbb6eb52b3f06c6d604e8"
   integrity sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==
 
-vercel@^34.2.8:
-  version "34.2.8"
-  resolved "https://registry.yarnpkg.com/vercel/-/vercel-34.2.8.tgz#a5f2bb18e11949c4196edfe07944787fc2bb2fd7"
-  integrity sha512-wz02u/GdG+XyUd09edvTSzVBaph71qRlbMq8zb23J0lPhCm5RJCXEJJcbakseTiHuuQ1KZyETu74AYKyXDOIRA==
+vercel@^34.3.0:
+  version "34.3.0"
+  resolved "https://registry.yarnpkg.com/vercel/-/vercel-34.3.0.tgz#193ffc2aa24a20d6022f550a0d42f8e5df66e4a0"
+  integrity sha512-16JtKhgSB7IRuCBBuKMBSwYrIHLVcIEfoEaPjMjVZQPo6UqQJbAwClYt7A4xUiSnxUBmLgfHGZpriTQ010As+w==
   dependencies:
-    "@vercel/build-utils" "8.2.2"
+    "@vercel/build-utils" "8.3.0"
     "@vercel/fun" "1.1.0"
     "@vercel/go" "3.1.1"
     "@vercel/hydrogen" "1.0.2"
-    "@vercel/next" "4.2.18"
-    "@vercel/node" "3.2.0"
+    "@vercel/next" "4.3.0"
+    "@vercel/node" "3.2.1"
     "@vercel/python" "4.3.0"
-    "@vercel/redwood" "2.0.10"
-    "@vercel/remix-builder" "2.1.8"
+    "@vercel/redwood" "2.1.0"
+    "@vercel/remix-builder" "2.1.9"
     "@vercel/ruby" "2.1.0"
-    "@vercel/static-build" "2.5.11"
+    "@vercel/static-build" "2.5.12"
     chokidar "3.3.1"
 
 vscode-css-languageservice@^6.2.14, vscode-css-languageservice@~6.2.10:
