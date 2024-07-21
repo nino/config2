@@ -17,3 +17,4 @@
 --exclude=storybook-static
 --exclude=build
 --exclude=.build
+--exclude=.conda
