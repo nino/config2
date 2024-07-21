@@ -418,6 +418,20 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>http</key>
+			<dict>
+				<key>date</key>
+				<date>2024-07-19T13:23:58Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>http</string>
+					<key>platform</key>
+					<string>dartdocs</string>
+					<key>uniqueIdentifier</key>
+					<string>http</string>
+				</dict>
+			</dict>
 			<key>provider</key>
 			<dict>
 				<key>date</key>
@@ -1638,6 +1652,29 @@ $("#module-types ~ .member h2").each(function() {
 					<string>usercontribDeno</string>
 					<key>uniqueIdentifier</key>
 					<string>Deno</string>
+				</dict>
+			</dict>
+			<key>ICU</key>
+			<dict>
+				<key>date</key>
+				<date>2024-07-18T18:16:02Z</date>
+				<key>entry</key>
+				<dict>
+					<key>aliases</key>
+					<array>
+						<string>ICU4c</string>
+						<string>International Component for Unicode</string>
+					</array>
+					<key>authorLinkHref</key>
+					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/ICU#readme</string>
+					<key>authorLinkText</key>
+					<string>Erick Guan</string>
+					<key>name</key>
+					<string>ICU</string>
+					<key>platform</key>
+					<string>usercontribICU</string>
+					<key>uniqueIdentifier</key>
+					<string>ICU</string>
 				</dict>
 			</dict>
 			<key>Jest</key>

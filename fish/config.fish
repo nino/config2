@@ -71,6 +71,10 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 export HOMEBREW_AUTO_UPDATE_SECS=600
 export CMAKE_GENERATOR=Ninja
+export MAKEFLAGS="-j16"
+export VCPKG_ROOT=$HOME/code-friends/vcpkg
+fish_add_path $VCPKG_ROOT
+# export VCPKG_TARGET_ARCHITECTURE=x64
 
 function co
   set -l branch (git lb | uniquelines | fzf)
@@ -104,3 +108,17 @@ end
 
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /usr/local/Caskroom/miniconda/base/bin/conda
+    eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
+        . "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/usr/local/Caskroom/miniconda/base/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
