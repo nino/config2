@@ -4017,10 +4017,10 @@ semver@^7.1.1, semver@^7.3.5, semver@^7.3.7, semver@^7.3.8, semver@^7.5.3, semve
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
   integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
 
-serverless@^4.1.12:
-  version "4.1.12"
-  resolved "https://registry.yarnpkg.com/serverless/-/serverless-4.1.12.tgz#35e37206ca604a1cc329dd1493bd86fe0a211177"
-  integrity sha512-2PLNRei9a0kqK3caV6M8lgUAd0w36MpVvA3PFHhkbOdznSw7fk5QWdm8j6OcigWMS2EPKpxUuTESk8wsIGcxYw==
+serverless@^4.1.15:
+  version "4.1.15"
+  resolved "https://registry.yarnpkg.com/serverless/-/serverless-4.1.15.tgz#920751bf32348b9107324ae100b7cd6a0e7d85ca"
+  integrity sha512-5MRx784UK/p9HMV7Rulil77mU/XFyIShb0xgSUyXO+PSNRX7uMaVpgV3BjI6Ss9jbT6Ez5zHBwuNcBOSwuEd1w==
   dependencies:
     axios "^1.6.0"
     axios-proxy-builder "^0.1.2"
