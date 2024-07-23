@@ -316,21 +316,21 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # eval $(opam env)
 [[ ! -r /Users/Nino/.opam/opam-init/init.zsh ]] || source /Users/Nino/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
-  . /usr/local/opt/asdf/libexec/asdf.sh
-fi
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
-
+# if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
+#   . /usr/local/opt/asdf/libexec/asdf.sh
+# fi
+# if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+#   . /opt/homebrew/opt/asdf/libexec/asdf.sh
+# fi
+# . "$HOME/.asdf/asdf.sh"
 
 
 export PATH=$PATH:/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin
 export PATH=$PATH:/home/nino/.cargo/bin
 export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
-RUST_VERSION=$(awk '/rust/ {print $2}' ~/.tool-versions)
-export PATH=$HOME/.asdf/installs/rust/$RUST_VERSION/bin:$PATH
+# RUST_VERSION=$(awk '/rust/ {print $2}' ~/.tool-versions)
+# export PATH=$HOME/.asdf/installs/rust/$RUST_VERSION/bin:$PATH
 
 # For rm-improved
 export GRAVEYARD=~/.Trash
@@ -346,3 +346,4 @@ export PATH=/Applications/factor:"$PATH"
 
 # https://github.com/keybase/keybase-issues/issues/2798
 # export GPG_TTY=$(tty)
+eval "$(~/.local/bin/mise activate zsh)"
