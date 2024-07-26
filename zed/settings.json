@@ -14,7 +14,7 @@
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "IBM Plex Mono",
+  "buffer_font_family": "Fira Code",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
@@ -28,5 +28,6 @@
     "show_parameter_hints": true,
     "show_other_hints": true
   },
-  "ui_font_family": "IBM Plex Sans"
+  "ui_font_family": "Fira Sans",
+  "format_on_save": "off"
 }
