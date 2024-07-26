@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+require("config.lazy")
 require("plugins")
 require("abbreviations")
 local utils = require("utils")
@@ -58,8 +61,6 @@ vim.opt.formatoptions = vim.opt.formatoptions - "t"
 vim.opt.updatetime = 50
 
 -- Mappings
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
 
 local telescope_builtin = require('telescope.builtin')
 local telescope = require("telescope")
@@ -132,7 +133,7 @@ vim.keymap.set("n", "<M-2>", "@@")
 
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end)
-vim.keymap.set("n", "<leader>-", function() require('conform').format({ bufnr = 0 }) end)
+vim.keymap.set("n", "<leader>-", function() require('conform').format() end)
 vim.keymap.set("n", "<leader>p", function()
   if vim.bo.filetype == "python" then
     exec("black --quiet '" .. vim.fn.expand('%') .. "'")
@@ -165,7 +166,7 @@ vim.keymap.set("n", "cp", function()
 end)
 
 vim.cmd [[
-    " imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+    imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 
     function! s:ToggleHere()
         let cursorcolumn = getcurpos()[2]

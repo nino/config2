@@ -9,7 +9,7 @@ lsp.ensure_installed({
   'rust_analyzer',
   'lua_ls',
   'tailwindcss',
-  'gopls',
+  -- 'gopls',
   'pyright',
   'diagnosticls',
   'terraformls',
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   end,
 })
 
-local javascript_formatters = { { "eslint_d" } }
+local javascript_formatters = { "eslint_d" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
