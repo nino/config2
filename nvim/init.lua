@@ -18,7 +18,7 @@ vim.opt.scrolloff = 1
 vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.cursorline = true
-vim.opt.bg = 'light'
+-- vim.opt.bg = 'light'
 vim.cmd [[
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
@@ -100,7 +100,7 @@ vim.keymap.set("n", "gk", "k")
 vim.keymap.set("n", "T", "gT")
 vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
-vim.keymap.set("n", "<Leader>T", function() vim.cmd("tabe % | norm <c-o>")  end)
+vim.keymap.set("n", "<Leader>T", function() vim.cmd("tabe % | norm <c-o>") end)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\||||||||\\|>>>>>>><CR>")
@@ -197,6 +197,12 @@ vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("OF", function() require('oil').open_float() end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
+vim.keymap.set('n', '<m-e>', '<cmd>NERDTreeToggle<CR>', {
+  desc = "Toggle NERDTree"
+})
+vim.keymap.set('n', '<m-E>', '<cmd>NERDTreeFind<CR>', {
+  desc = "Find current file in NERDTree"
+})
 vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
 vim.api.nvim_create_user_command("Indent", function(info)
   local val = tonumber(info.args)
@@ -245,7 +251,7 @@ end, { nargs = "?" })
 
 --- Add current line to the loclist. Might be nicer than using marks.
 vim.api.nvim_create_user_command("L", function()
-  vim.cmd[[ ladd expand("%") .. ":" .. line(".") .. ":" .. getline(".") ]]
+  vim.cmd [[ ladd expand("%") .. ":" .. line(".") .. ":" .. getline(".") ]]
 end, {})
 
 -- vim.cmd [[
@@ -284,3 +290,8 @@ end)
 --     luafile $HOME/.config/nvim/lua/screenreader.lua
 --     command! -range -nargs=* P lua Psay(<line1>, <line2>, 'p<args>')
 -- ]]
+--
+
+vim.cmd [[
+  let g:rg_command = 'rg --vimgrep --sort-files'
+]]

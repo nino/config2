@@ -56,6 +56,8 @@ lsp.on_attach(function(client, bufnr)
       })
 end)
 
+lsp.configure('tailwindcss', {})
+
 lsp.configure("terraformls", {})
 lsp.configure("gleam", {})
 lsp.configure("pyright", {
@@ -150,3 +152,5 @@ cmp.setup({
     },
   },
 })
+
+require('sg').setup{}

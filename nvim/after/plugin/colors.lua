@@ -1,4 +1,4 @@
-vim.cmd [[ colorscheme lunaperche ]]
+vim.cmd [[ colorscheme sorbet ]]
 vim.cmd [[
   hi Comment cterm=italic gui=italic
 ]]

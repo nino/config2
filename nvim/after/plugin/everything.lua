@@ -85,12 +85,15 @@ require("nfnl").setup()
 require('spectre').setup({
   default = {
     replace = {
-      cmd = "sd"
+      cmd = "oxi"
     }
   }
 })
 
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
+  desc = "Toggle Spectre"
+})
+vim.keymap.set('n', '<m-f>', '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre"
 })
 vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
