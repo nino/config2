@@ -57,6 +57,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.configure('tailwindcss', {})
+lsp.configure('rust_analyzer', {})
 
 lsp.configure("terraformls", {})
 lsp.configure("gleam", {})
