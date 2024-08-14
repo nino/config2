@@ -1599,13 +1599,17 @@ $("#module-types ~ .member h2").each(function() {
 			<key>Blender</key>
 			<dict>
 				<key>date</key>
-				<date>2023-10-16T07:44:35Z</date>
+				<date>2024-08-13T18:35:41Z</date>
 				<key>entry</key>
 				<dict>
+					<key>aliases</key>
+					<array>
+						<string>Blender</string>
+					</array>
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Blender#readme</string>
 					<key>authorLinkText</key>
-					<string>Alex Widener</string>
+					<string>Yue Gao</string>
 					<key>name</key>
 					<string>Blender</string>
 					<key>platform</key>
@@ -1617,7 +1621,7 @@ $("#module-types ~ .member h2").each(function() {
 			<key>Boto3</key>
 			<dict>
 				<key>date</key>
-				<date>2024-06-30T08:00:58Z</date>
+				<date>2024-08-11T18:55:15Z</date>
 				<key>entry</key>
 				<dict>
 					<key>authorLinkHref</key>
@@ -1761,7 +1765,7 @@ $("#module-types ~ .member h2").each(function() {
 			<key>Tailwind_CSS</key>
 			<dict>
 				<key>date</key>
-				<date>2024-06-11T14:46:27Z</date>
+				<date>2024-08-11T18:53:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -1859,7 +1863,7 @@ $("#module-types ~ .member h2").each(function() {
 			<key>polars</key>
 			<dict>
 				<key>date</key>
-				<date>2024-06-05T16:15:02Z</date>
+				<date>2024-08-11T18:54:30Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
