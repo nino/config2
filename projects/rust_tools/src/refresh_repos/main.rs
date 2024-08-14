@@ -136,7 +136,7 @@ fn main() {
                 checked_out_branches.push((res.path.clone(), res.current_branch.clone()));
             }
             Err(err) => {
-              errors.push(format!("{:?}", err));
+                errors.push(format!("{:?}", err));
             }
         }
     }
@@ -158,7 +158,11 @@ fn main() {
     println!("\nChecked-out branches:");
     let mut stdout = StandardStream::stdout(ColorChoice::Always);
     for (repo, branch) in checked_out_branches {
-        if branch == "master" || branch == "develop" || branch == "main" {
+        if branch == "master"
+            || branch == "develop"
+            || branch == "main"
+            || branch == "environment/develop"
+        {
             stdout.reset().unwrap();
             writeln!(&mut stdout, "- {}: {}", repo, branch).unwrap();
         } else {
