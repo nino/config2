@@ -14,7 +14,7 @@
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "Fira Code",
+  "buffer_font_family": "Iosevka Custom2",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
