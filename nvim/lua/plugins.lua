@@ -25,13 +25,13 @@ return {
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
-  'L3MON4D3/LuaSnip',             -- Required
+  'L3MON4D3/LuaSnip', -- Required
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     requires = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' },       -- Required
+      { 'neovim/nvim-lspconfig' }, -- Required
       {
         -- Optional
         'williamboman/mason.nvim',
@@ -39,13 +39,13 @@ return {
           pcall(vim.cmd, 'MasonUpdate')
         end,
       },
-      { 'williamboman/mason-lspconfig.nvim' },       -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },           -- Required
-      { 'hrsh7th/cmp-nvim-lsp' },       -- Required
+      { 'hrsh7th/nvim-cmp' },     -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
       { 'hrsh7th/cmp-buffer' },
-      { 'L3MON4D3/LuaSnip' },           -- Required
+      { 'L3MON4D3/LuaSnip' },     -- Required
     }
   },
   {
@@ -79,8 +79,8 @@ return {
   'https://github.com/mfussenegger/nvim-dap-python',
   'https://github.com/julianolf/nvim-dap-lldb',
 
-  'https://github.com/wsdjeg/vim-fetch',    -- Allow opening `path:linenr`
-  'https://github.com/Vigemus/iron.nvim',   -- REPLs
+  'https://github.com/wsdjeg/vim-fetch',  -- Allow opening `path:linenr`
+  'https://github.com/Vigemus/iron.nvim', -- REPLs
   'https://github.com/prisma/vim-prisma',
   'https://github.com/simrat39/symbols-outline.nvim',
   'https://github.com/mfussenegger/nvim-lint',
@@ -109,5 +109,5 @@ return {
     end
   },
   'https://github.com/nvim-pack/nvim-spectre',
-  'https://github.com/sourcegraph/sg.nvim'
+  'https://github.com/sourcegraph/sg.nvim',
 }
