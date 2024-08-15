@@ -2,9 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# source ~/.asdf/asdf.fish
-# fish_add_path ~/.asdf/shims
-# fish_add_path ~/.asdf/bin
 fish_add_path /usr/local/bin
 fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
@@ -39,7 +36,6 @@ alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne
 alias com="git add . && git commit -m"
 alias awk='gawk'
 alias dockre='docker'
-alias arst='asdf'
 alias yran='yarn'
 alias yanr='yarn'
 alias ynar='yarn'
