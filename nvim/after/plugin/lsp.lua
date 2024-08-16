@@ -58,6 +58,7 @@ end)
 
 lsp.configure('tailwindcss', {})
 lsp.configure('rust_analyzer', {})
+lsp.configure('cmake', {})
 
 lsp.configure("terraformls", {})
 lsp.configure("gleam", {})
@@ -115,8 +116,13 @@ lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim", "use" },
-        disable = { "lowercase-global" }
+        globals = { "vim" },
+        unusedLocalVariable = "Warning",
+        enable = true,
+        -- Enable the diagnostic for undefined globals
+        undefinedGlobal = "Error",
+        -- disable = { "lowercase-global" }
+        ["lowercase-global"] = "Error",
       }
     }
   }
@@ -154,4 +160,4 @@ cmp.setup({
   },
 })
 
-require('sg').setup{}
+require('sg').setup {}
