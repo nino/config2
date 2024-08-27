@@ -10,7 +10,21 @@ use strict;
 use warnings;
 
 if (!-e 'package.json') {
-  print "No package.json found. Exiting.\n";
+  my $did_run = 0;
+  my @dirs = grep { -d $_ } glob('*');
+  for my $dir (@dirs) {
+    $did_run = 1;
+    chdir($dir);
+    if (-e 'package.json') {
+      print "Running `np` in $dir\n";
+      system('np ' . join(' ', @ARGV));
+    }
+    chdir('..');
+  }
+
+  if ($did_run == 0) {
+    print "No package.json found. Exiting.\n";
+  }
   exit;
 }
 
