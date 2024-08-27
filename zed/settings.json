@@ -9,12 +9,12 @@
 {
   "theme": "macOS Classic Light",
   "buffer_font_size": 11,
-  "ui_font_size": 12,
+  "ui_font_size": 11,
   "project_panel": {
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "Iosevka Custom2",
+  "buffer_font_family": "Comic Code Ligatures",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
