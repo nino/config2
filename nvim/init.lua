@@ -37,6 +37,8 @@ vim.opt.list = true
 vim.opt.numberwidth = 1
 vim.opt.rulerformat = '%{v:lua.diagnostic_sign()} %l/%L %P %c'
 
+vim.cmd"Copilot disable"
+
 vim.opt.clipboard = "unnamed"
 
 vim.opt.swapfile = false
