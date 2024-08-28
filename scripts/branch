@@ -13,4 +13,4 @@ if @*ARGS.elems == 0 {
 
 $branch = $branch.trim.subst(/<-alnum>/, '-', :g);
 
-system "git checkout -b $branch";
+run "git", "checkout", "-b", $branch;
