@@ -112,8 +112,11 @@ return {
   {
     "julianolf/nvim-dap-lldb",
     dependencies = { "mfussenegger/nvim-dap" },
-     opts = {
-       codelldb_path = "~/.local/share/nvim/mason/bin/codelldb"
-     },
-  }
+    opts = {
+      codelldb_path = "~/.local/share/nvim/mason/bin/codelldb"
+    },
+  },
+  'https://github.com/catppuccin/nvim',
+  'https://github.com/Shatur/neovim-ayu',
+  'https://github.com/uloco/bluloco.nvim',
 }
