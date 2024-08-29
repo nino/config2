@@ -1,4 +1,4 @@
-vim.cmd [[ colorscheme lunaperche ]]
+-- vim.cmd [[ colorscheme ayu-light ]]
 vim.o.bg='light'
 vim.cmd [[
   hi Comment cterm=italic gui=italic
