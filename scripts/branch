@@ -1,6 +1,16 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env raku
 
-input = ARGV[0] || `pbpaste`
-branch = input.strip.gsub(/[^a-zA-Z0-9]+/m, '-')
-# puts branch
-system "git checkout -b #{branch}"
+my $branch = '';
+my $paste = run('pbpaste', :out).out.slurp.chomp;
+say $paste;
+if @*ARGS.elems == 0 {
+  $branch = $paste;
+} elsif @*ARGS[0] eq '-a' {
+  $branch = $paste ~ '-' ~ @*ARGS[1];
+} else {
+  $branch = @*ARGS[0];
+}
+
+$branch = $branch.trim.subst(/<-alnum>/, '-', :g);
+
+run "git", "checkout", "-b", $branch;

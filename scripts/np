@@ -1,0 +1,39 @@
+#!/usr/bin/env perl
+
+# Node dependency manager. Never wonder whether to use `yarn` or `npm` again.
+
+# Usage:
+# np        --> runs `yarn` or `npm i`
+# np <args> --> runs `yarn <args>` or `npm run <args>`
+
+use strict;
+use warnings;
+
+if (!-e 'package.json') {
+  my $did_run = 0;
+  my @dirs = grep { -d $_ } glob('*');
+  for my $dir (@dirs) {
+    $did_run = 1;
+    chdir($dir);
+    if (-e 'package.json') {
+      print "Running `np` in $dir\n";
+      system('np ' . join(' ', @ARGV));
+    }
+    chdir('..');
+  }
+
+  if ($did_run == 0) {
+    print "No package.json found. Exiting.\n";
+  }
+  exit;
+}
+
+if (-e 'package-lock.json') {
+  if (@ARGV) {
+    system('npm run ' . join(' ', @ARGV));
+  } else {
+    system('npm i');
+  }
+} else {
+  system('yarn ' . join(' ', @ARGV));
+}

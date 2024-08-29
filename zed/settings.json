@@ -8,13 +8,13 @@
 // from the command palette or from `Zed` application menu.
 {
   "theme": "macOS Classic Light",
-  "buffer_font_size": 11,
-  "ui_font_size": 12,
+  "buffer_font_size": 10,
+  "ui_font_size": 11,
   "project_panel": {
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "Iosevka Custom2",
+  "buffer_font_family": "JetBrains Mono",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
@@ -24,10 +24,10 @@
   "auto_update": true,
   "inlay_hints": {
     "enabled": true,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
+    "show_type_hints": false,
+    "show_parameter_hints": false,
     "show_other_hints": true
   },
-  "ui_font_family": "Fira Sans",
+  "ui_font_family": "Azeret",
   "format_on_save": "off"
 }
