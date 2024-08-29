@@ -14,7 +14,7 @@ local hooks = require "ibl.hooks"
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
   if vim.o.bg == 'light' then
     vim.api.nvim_set_hl(0, "DarkRainbowRed", { fg = "#fecaca" })
-    vim.api.nvim_set_hl(0, "DarkRainbowYellow", { fg = "#fef08a" })
+    vim.api.nvim_set_hl(0, "DarkRainbowYellow", { fg = "#f0f0D0" })
     vim.api.nvim_set_hl(0, "DarkRainbowBlue", { fg = "#bae6fd" })
     vim.api.nvim_set_hl(0, "DarkRainbowOrange", { fg = "#fed7aa" })
     vim.api.nvim_set_hl(0, "DarkRainbowGreen", { fg = "#bbf7d0" })
