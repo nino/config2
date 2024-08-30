@@ -76,11 +76,11 @@ lsp.configure('kotlin_language_server', {})
 lsp.configure('dartls', {})
 lsp.configure('solargraph', {})
 
-lsp.configure('clangd', {
-  capabilities = {
-    offsetEncoding = "utf-8"
-  }
-})
+-- lsp.configure('clangd', {
+--   capabilities = {
+--     offsetEncoding = "utf-8"
+--   }
+-- })
 lsp.configure('denols', {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
