@@ -1,5 +1,5 @@
--- vim.cmd [[ colorscheme ayu-light ]]
-vim.o.bg='light'
+vim.cmd [[ colorscheme retrobox ]]
+vim.o.bg='dark'
 vim.cmd [[
   hi Comment cterm=italic gui=italic
   hi DiagnosticUnderlineError cterm=underline gui=undercurl
