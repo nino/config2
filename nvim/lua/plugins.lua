@@ -119,4 +119,5 @@ return {
   'https://github.com/catppuccin/nvim',
   'https://github.com/Shatur/neovim-ayu',
   'https://github.com/uloco/bluloco.nvim',
+  'https://github.com/cweagans/vim-taskpaper',
 }
