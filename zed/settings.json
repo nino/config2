@@ -7,9 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "macOS Classic Light",
-  "buffer_font_size": 10,
-  "ui_font_size": 11,
+  "theme": "Gruvbox Dark",
+  "buffer_font_size": 12,
+  "ui_font_size": 13,
   "project_panel": {
     "dock": "left"
   },
