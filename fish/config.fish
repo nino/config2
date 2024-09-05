@@ -51,7 +51,6 @@ function save
   end
 end
 
-
 function mcd
   mkdir $argv && cd $argv
 end
