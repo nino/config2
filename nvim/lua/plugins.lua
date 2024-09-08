@@ -121,4 +121,5 @@ return {
   'https://github.com/uloco/bluloco.nvim',
   'https://github.com/cweagans/vim-taskpaper',
   'https://github.com/Julian/lean.nvim',
+  'https://github.com/mg979/vim-visual-multi',
 }
