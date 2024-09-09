@@ -61,6 +61,7 @@ lsp.configure('rust_analyzer', {})
 lsp.configure('cmake', {})
 
 lsp.configure("terraformls", {})
+lsp.configure("vale_ls", {})
 lsp.configure("gleam", {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
