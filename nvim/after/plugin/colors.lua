@@ -15,3 +15,10 @@ else
     hi DiffText cterm=bold gui=bold ctermbg=225 guibg=DarkRed
   ]]
 end
+
+vim.cmd [[
+  syntax match SpecialChar "…"
+  syntax match SpecialChar "–"
+  highlight SpecialChar guifg=#5555FF ctermfg=63 gui=bold cterm=bold
+]]
+
