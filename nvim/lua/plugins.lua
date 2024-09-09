@@ -121,4 +121,16 @@ return {
   'https://github.com/uloco/bluloco.nvim',
   'https://github.com/cweagans/vim-taskpaper',
   'https://github.com/Julian/lean.nvim',
+
+
+  -- Colors
+  'https://github.com/projekt0n/github-nvim-theme',
+  'https://github.com/yorickpeterse/nvim-grey',
+  'https://github.com/Mofiqul/vscode.nvim',
+  'https://github.com/nyoom-engineering/oxocarbon.nvim',
+  'https://github.com/zenbones-theme/zenbones.nvim',
+  'https://github.com/NTBBloodbath/sweetie.nvim',
+  'https://github.com/ramojus/mellifluous.nvim',
+  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
+
 }

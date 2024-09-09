@@ -5,7 +5,7 @@ local lsp = require('lsp-zero')
 local lspconfig = require('lspconfig')
 lsp.preset("recommended")
 lsp.ensure_installed({
-  'tsserver',
+  -- 'tsserver',
   'rust_analyzer',
   'lua_ls',
   'tailwindcss',
@@ -40,6 +40,7 @@ require("conform").setup({
     typescript = javascript_formatters,
     typescriptreact = javascript_formatters,
     swift = { "swiftformat" },
+    asm = { "asmfmt" },
   },
 })
 
@@ -59,6 +60,7 @@ end)
 lsp.configure('tailwindcss', {})
 lsp.configure('rust_analyzer', {})
 lsp.configure('cmake', {})
+lsp.configure('asm_lsp', {})
 
 lsp.configure("terraformls", {})
 lsp.configure("vale_ls", {})
@@ -86,7 +88,7 @@ lsp.configure('denols', {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-lsp.configure('tsserver', {
+lsp.configure('ts_ls', {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end,
