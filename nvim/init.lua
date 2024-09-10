@@ -17,7 +17,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 1
 vim.opt.smartindent = false
 vim.opt.autoread = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 -- vim.opt.bg = 'light'
 vim.cmd [[
 let &t_Cs = "\e[4:3m"

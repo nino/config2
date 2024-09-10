@@ -7,14 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Gruvbox Dark",
+  "theme": "macOS Classic Light",
   "buffer_font_size": 12,
   "ui_font_size": 13,
   "project_panel": {
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_family": "Inconsolata LGC",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,

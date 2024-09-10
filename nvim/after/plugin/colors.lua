@@ -1,5 +1,5 @@
-vim.cmd [[ colorscheme retrobox ]]
-vim.o.bg='dark'
+vim.cmd [[ colorscheme modus ]]
+vim.o.bg='light'
 vim.cmd [[
   hi Comment cterm=italic gui=italic
   hi DiagnosticUnderlineError cterm=underline gui=undercurl
@@ -15,3 +15,10 @@ else
     hi DiffText cterm=bold gui=bold ctermbg=225 guibg=DarkRed
   ]]
 end
+
+vim.cmd [[
+  syntax match SpecialChar "…"
+  syntax match SpecialChar "–"
+  highlight SpecialChar guifg=#5555FF ctermfg=63 gui=bold cterm=bold
+]]
+
