@@ -43,12 +43,16 @@ alias ynra='yarn'
 alias ayrn='yarn'
 
 function save
-  git add .
   if test -z $argv;
     git commit && git push
   else
     git commit -m $argv && git push
   end
+end
+
+function saveall
+  git add .
+  save $argv
 end
 
 function mcd
