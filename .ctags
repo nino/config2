@@ -18,3 +18,4 @@
 --exclude=build
 --exclude=.build
 --exclude=.conda
+--exclude=packages/kennek/assets

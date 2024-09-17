@@ -131,4 +131,6 @@ else
 end
 # <<< conda initialize <<<
 
+export GPG_TTY=$(tty)
+
 ~/.local/bin/mise activate fish | source
