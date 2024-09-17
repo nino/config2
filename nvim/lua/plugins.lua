@@ -77,6 +77,13 @@ return {
   'https://github.com/theHamsta/nvim-dap-virtual-text',
   'https://github.com/nvim-telescope/telescope-dap.nvim',
   'https://github.com/mfussenegger/nvim-dap-python',
+  {
+    "julianolf/nvim-dap-lldb",
+    dependencies = { "mfussenegger/nvim-dap" },
+    opts = {
+      codelldb_path = "~/.local/share/nvim/mason/bin/codelldb"
+    },
+  },
 
   'https://github.com/wsdjeg/vim-fetch',  -- Allow opening `path:linenr`
   'https://github.com/Vigemus/iron.nvim', -- REPLs
@@ -109,13 +116,6 @@ return {
   },
   'https://github.com/nvim-pack/nvim-spectre',
   'https://github.com/sourcegraph/sg.nvim',
-  {
-    "julianolf/nvim-dap-lldb",
-    dependencies = { "mfussenegger/nvim-dap" },
-    opts = {
-      codelldb_path = "~/.local/share/nvim/mason/bin/codelldb"
-    },
-  },
   'https://github.com/catppuccin/nvim',
   'https://github.com/Shatur/neovim-ayu',
   'https://github.com/uloco/bluloco.nvim',
