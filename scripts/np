@@ -17,23 +17,28 @@ if (!-e 'package.json') {
     chdir($dir);
     if (-e 'package.json') {
       print "Running `np` in $dir\n";
-      system('np ' . join(' ', @ARGV));
+      my $exit_code = system('np ' . join(' ', @ARGV));
+      exit($exit_code >> 8) if $exit_code != 0;
     }
     chdir('..');
   }
 
   if ($did_run == 0) {
     print "No package.json found. Exiting.\n";
+    exit(1);
   }
-  exit;
+  exit(0);
 }
 
+my $exit_code;
 if (-e 'package-lock.json') {
   if (@ARGV) {
-    system('npm run ' . join(' ', @ARGV));
+    $exit_code = system('npm run ' . join(' ', @ARGV));
   } else {
-    system('npm i');
+    $exit_code = system('npm i');
   }
 } else {
-  system('yarn ' . join(' ', @ARGV));
+  $exit_code = system('yarn ' . join(' ', @ARGV));
 }
+
+exit($exit_code >> 8);
