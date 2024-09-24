@@ -18,7 +18,7 @@ vim.opt.scrolloff = 1
 vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.cursorline = false
--- vim.opt.bg = 'light'
+vim.opt.smoothscroll = true
 vim.cmd [[
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
