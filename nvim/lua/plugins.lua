@@ -122,7 +122,7 @@ return {
   'https://github.com/cweagans/vim-taskpaper',
   'https://github.com/Julian/lean.nvim',
   'https://github.com/mg979/vim-visual-multi',
-
+  { "https://github.com/Olical/nfnl",                  ft = "fennel" },
 
   -- Colors
   'https://github.com/projekt0n/github-nvim-theme',
