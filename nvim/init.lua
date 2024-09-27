@@ -103,7 +103,7 @@ vim.keymap.set("n", "gk", "k")
 -- vim.keymap.set("n", "T", "gT")
 -- vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
-vim.keymap.set("n", "<Leader>T", ":tabe %<CR><C-o>"
+vim.keymap.set("n", "<Leader>T", ":tab split<CR>"
 -- function() vim.cmd("tabe % | norm <c-o>") end
 )
 vim.keymap.set("v", "<", "<gv")
@@ -301,3 +301,5 @@ end)
 vim.cmd [[
   let g:rg_command = 'rg --vimgrep --sort-files'
 ]]
+
+require "fennelconfig"
