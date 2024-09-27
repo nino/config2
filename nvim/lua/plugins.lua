@@ -54,7 +54,7 @@ return {
   },
   'https://github.com/nvim-telescope/telescope-live-grep-args.nvim',
   'tpope/vim-repeat',
-  'christoomey/vim-tmux-navigator',
+  -- 'christoomey/vim-tmux-navigator',
   'preservim/nerdtree',
   'https://github.com/JuliaEditorSupport/julia-vim',
   'https://github.com/leafOfTree/vim-svelte-plugin',
@@ -122,7 +122,8 @@ return {
   'https://github.com/cweagans/vim-taskpaper',
   'https://github.com/Julian/lean.nvim',
   'https://github.com/mg979/vim-visual-multi',
-
+  { "https://github.com/Olical/nfnl",                  ft = "fennel" },
+  'https://github.com/olimorris/codecompanion.nvim',
 
   -- Colors
   'https://github.com/projekt0n/github-nvim-theme',
