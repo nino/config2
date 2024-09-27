@@ -19,6 +19,7 @@ vim.opt.smartindent = false
 vim.opt.autoread = true
 vim.opt.cursorline = false
 vim.opt.smoothscroll = true
+vim.opt.cmdheight = 1
 vim.cmd [[
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
@@ -37,7 +38,7 @@ vim.opt.list = true
 vim.opt.numberwidth = 1
 vim.opt.rulerformat = '%{v:lua.diagnostic_sign()} %l/%L %P %c'
 
-vim.cmd"Copilot disable"
+vim.cmd "Copilot disable"
 
 vim.opt.clipboard = "unnamed"
 
@@ -99,10 +100,12 @@ vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
 
-vim.keymap.set("n", "T", "gT")
-vim.keymap.set("n", "t", "gt")
+-- vim.keymap.set("n", "T", "gT")
+-- vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
-vim.keymap.set("n", "<Leader>T", function() vim.cmd("tabe % | norm <c-o>") end)
+vim.keymap.set("n", "<Leader>T", ":tabe %<CR><C-o>"
+-- function() vim.cmd("tabe % | norm <c-o>") end
+)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\||||||||\\|>>>>>>><CR>")
@@ -218,7 +221,8 @@ utils.new_cmd("Min", function()
   vim.o.cmdheight = 0
   vim.o.laststatus = 1
   vim.o.signcolumn = "no"
-  vim.cmd("syntax off")
+  -- vim.cmd("TSDisable")
+  -- vim.cmd("syntax off")
   -- vim.cmd("Copilot disable")
 end, {})
 

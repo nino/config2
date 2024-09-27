@@ -106,3 +106,27 @@ vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
   desc = "Search on current file"
 })
+
+-- AI
+require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "anthropic",
+    },
+    inline = {
+      adapter = "copilot",
+    },
+    agent = {
+      adapter = "anthropic",
+    },
+  },
+  adapters = {
+    anthropic = function()
+      return require("codecompanion.adapters").extend("anthropic", {
+        env = {
+          api_key = os.getenv("ANTHROPIC_API_KEY")
+        },
+      })
+    end,
+  },
+})

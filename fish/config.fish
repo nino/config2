@@ -69,6 +69,9 @@ end
 
 source ~/.config/fish/git.fish
 source ~/.config/secret-config2/fish/secret.fish
+if [ -f ~/credentials ];
+  source ~/credentials
+end
 
 if [ -e /usr/local/bin/nvim ];
   export EDITOR=/usr/local/bin/nvim
