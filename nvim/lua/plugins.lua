@@ -134,5 +134,5 @@ return {
   'https://github.com/NTBBloodbath/sweetie.nvim',
   'https://github.com/ramojus/mellifluous.nvim',
   { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
-
+  'https://github.com/grizzlysmit/cpp2.vim',
 }
