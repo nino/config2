@@ -15,4 +15,12 @@ end
 local function _2_()
   return exec(("open '" .. current_word() .. "'"))
 end
-return vim.keymap.set("n", "gu", _2_)
+vim.keymap.set("n", "gu", _2_)
+local function _3_()
+  vim.bo.tabstop = 4
+  vim.bo.softtabstop = 4
+  vim.bo.shiftwidth = 4
+  vim.bo.expandtab = true
+  return nil
+end
+return vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = _3_})
