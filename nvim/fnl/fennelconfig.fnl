@@ -10,6 +10,8 @@
 
 (vim.keymap.set "n" "gu" (λ [] (exec (.. "open '" (current-word) "'"))))
 
+(vim.keymap.set "n" "<C-j>" vim.diagnostic.goto_next)
+(vim.keymap.set "n" "<C-k>" vim.diagnostic.goto_prev)
 
 (vim.api.nvim_create_autocmd "FileType"
   {:pattern "cpp"
@@ -18,3 +20,8 @@
                (set vim.bo.softtabstop 4)
                (set vim.bo.shiftwidth 4)
                (set vim.bo.expandtab true))})
+
+(vim.api.nvim_create_autocmd "FileType"
+  {:pattern "markdown"
+   :callback (fn []
+               (set vim.o.breakindentopt "shift:0"))})

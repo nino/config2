@@ -16,6 +16,8 @@ local function _2_()
   return exec(("open '" .. current_word() .. "'"))
 end
 vim.keymap.set("n", "gu", _2_)
+vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev)
 local function _3_()
   vim.bo.tabstop = 4
   vim.bo.softtabstop = 4
@@ -23,4 +25,9 @@ local function _3_()
   vim.bo.expandtab = true
   return nil
 end
-return vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = _3_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = _3_})
+local function _4_()
+  vim.o.breakindentopt = "shift:0"
+  return nil
+end
+return vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _4_})
