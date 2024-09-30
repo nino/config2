@@ -65,6 +65,7 @@ lsp.configure('asm_lsp', {})
 lsp.configure("terraformls", {})
 lsp.configure("vale_ls", {})
 lsp.configure("gleam", {})
+lsp.configure('ruff', {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false

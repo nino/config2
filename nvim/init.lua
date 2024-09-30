@@ -129,8 +129,6 @@ vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
-vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
 
