@@ -1,4 +1,5 @@
 (fn current-word [] (vim.fn.expand "<cword>"))
+(fn current-WORD [] (vim.fn.expand "<cWORD>"))
 
 (fn exec [cmd]
   (let [handle (io.popen cmd)]
@@ -8,7 +9,7 @@
         result)
       "")))
 
-(vim.keymap.set "n" "gu" (λ [] (exec (.. "open '" (current-word) "'"))))
+(vim.keymap.set "n" "gu" (λ [] (vim.cmd (.. "!open " (current-WORD)))))
 
 (vim.keymap.set "n" "<C-j>" vim.diagnostic.goto_next)
 (vim.keymap.set "n" "<C-k>" vim.diagnostic.goto_prev)

@@ -2,6 +2,9 @@
 local function current_word()
   return vim.fn.expand("<cword>")
 end
+local function current_WORD()
+  return vim.fn.expand("<cWORD>")
+end
 local function exec(cmd)
   local handle = io.popen(cmd)
   if handle then
@@ -13,7 +16,7 @@ local function exec(cmd)
   end
 end
 local function _2_()
-  return exec(("open '" .. current_word() .. "'"))
+  return vim.cmd(("!open " .. current_WORD()))
 end
 vim.keymap.set("n", "gu", _2_)
 vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
