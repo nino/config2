@@ -124,6 +124,7 @@ return {
   'https://github.com/mg979/vim-visual-multi',
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
   'https://github.com/olimorris/codecompanion.nvim',
+  'https://github.com/stevearc/dressing.nvim',
 
   -- Colors
   'https://github.com/projekt0n/github-nvim-theme',
