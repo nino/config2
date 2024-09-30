@@ -20,7 +20,7 @@ return {
   'editorconfig/editorconfig-vim',
   'tpope/vim-characterize',
   'rhysd/git-messenger.vim',
-  'https://github.com/github/copilot.vim',
+  -- 'https://github.com/github/copilot.vim',
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
@@ -115,7 +115,6 @@ return {
     end
   },
   'https://github.com/nvim-pack/nvim-spectre',
-  'https://github.com/sourcegraph/sg.nvim',
   'https://github.com/catppuccin/nvim',
   'https://github.com/Shatur/neovim-ayu',
   'https://github.com/uloco/bluloco.nvim',
