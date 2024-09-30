@@ -163,5 +163,3 @@ cmp.setup({
     },
   },
 })
-
-require('sg').setup {}
