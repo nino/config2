@@ -17,7 +17,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 1
 vim.opt.smartindent = false
 vim.opt.autoread = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.smoothscroll = true
 vim.opt.cmdheight = 1
 vim.cmd [[
