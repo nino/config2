@@ -53,6 +53,12 @@ return {
     requires = { { 'nvim-lua/plenary.nvim' } }
   },
   'https://github.com/nvim-telescope/telescope-live-grep-args.nvim',
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
   'tpope/vim-repeat',
   -- 'christoomey/vim-tmux-navigator',
   'preservim/nerdtree',

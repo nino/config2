@@ -71,3 +71,6 @@ secret-config2
 git-cola/settings
 tortoisehg.org
 
+lnav/*.history
+lnav/*/default
+lnav
