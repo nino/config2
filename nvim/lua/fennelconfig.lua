@@ -1,10 +1,5 @@
 -- [nfnl] Compiled from fennelconfig.fnl by https://github.com/Olical/nfnl, do not edit.
-local function current_word()
-  return vim.fn.expand("<cword>")
-end
-local function current_WORD()
-  return vim.fn.expand("<cWORD>")
-end
+local util = require("fnlutils")
 local function exec(cmd)
   local handle = io.popen(cmd)
   if handle then
@@ -16,7 +11,7 @@ local function exec(cmd)
   end
 end
 local function _2_()
-  return vim.cmd(("!open " .. current_WORD()))
+  return vim.cmd(("!open " .. util["current-WORD"]()))
 end
 vim.keymap.set("n", "gu", _2_)
 vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
@@ -33,4 +28,5 @@ local function _4_()
   vim.o.breakindentopt = "shift:0"
   return nil
 end
-return vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _4_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _4_})
+return {}

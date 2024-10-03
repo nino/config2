@@ -6,39 +6,11 @@ require("abbreviations")
 local utils = require("utils")
 
 -- Defaults
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.textwidth = 80
-vim.opt.expandtab = true
-vim.opt.number = true
-vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 1
-vim.opt.smartindent = false
-vim.opt.autoread = true
-vim.opt.cursorline = true
-vim.opt.smoothscroll = true
-vim.opt.cmdheight = 1
+require "fnldefaults"
 vim.cmd [[
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
 ]]
-
-vim.opt.wildignorecase = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.linebreak = true
-vim.opt.diffopt = vim.opt.diffopt + { "vertical", "followwrap" }
-vim.opt.diffopt = vim.opt.diffopt + "iwhite"
-vim.opt.diffopt = vim.opt.diffopt + "linematch:40"
-vim.opt.listchars = "tab:⡇ ,nbsp:␣,trail:⌁,extends:→,precedes:←"
-vim.opt.fillchars = vim.opt.fillchars + "eob:·"
-vim.opt.list = true
-vim.opt.numberwidth = 1
-vim.opt.rulerformat = '%{v:lua.diagnostic_sign()} %l/%L %P %c'
-
-vim.opt.clipboard = "unnamed"
 
 vim.opt.swapfile = false
 vim.opt.wrap = true
@@ -79,11 +51,6 @@ vim.keymap.set('n', '<M-s>', symbols_outline.toggle_outline, {})
 vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
-
-vim.keymap.set("n", "<leader>d",
-  function()
-    vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>'); vim.cmd "set hls"
-  end, {})
 
 vim.keymap.set("n", "<M-c>", "F_x~", {}) -- Convert to camels
 -- Convert to snakes

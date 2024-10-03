@@ -1,5 +1,4 @@
-(fn current-word [] (vim.fn.expand "<cword>"))
-(fn current-WORD [] (vim.fn.expand "<cWORD>"))
+(local util (require :fnlutils))
 
 (fn exec [cmd]
   (let [handle (io.popen cmd)]
@@ -9,13 +8,13 @@
         result)
       "")))
 
-(vim.keymap.set "n" "gu" (λ [] (vim.cmd (.. "!open " (current-WORD)))))
+(vim.keymap.set "n" "gu" (λ [] (vim.cmd (.. "!open " (util.current-WORD)))))
 
 (vim.keymap.set "n" "<C-j>" vim.diagnostic.goto_next)
 (vim.keymap.set "n" "<C-k>" vim.diagnostic.goto_prev)
 
 (vim.api.nvim_create_autocmd "FileType"
-  {:pattern "cpp"
+  {:pattern  "cpp"
    :callback (fn []
                (set vim.bo.tabstop 4)
                (set vim.bo.softtabstop 4)
@@ -23,6 +22,8 @@
                (set vim.bo.expandtab true))})
 
 (vim.api.nvim_create_autocmd "FileType"
-  {:pattern "markdown"
+  {:pattern  "markdown"
    :callback (fn []
                (set vim.o.breakindentopt "shift:0"))})
+
+{}
