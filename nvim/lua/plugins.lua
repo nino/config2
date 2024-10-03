@@ -130,6 +130,7 @@ return {
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
   'https://github.com/olimorris/codecompanion.nvim',
   'https://github.com/stevearc/dressing.nvim',
+  'https://github.com/Sangdol/mintabline.vim',
 
   -- Colors
   'https://github.com/projekt0n/github-nvim-theme',
