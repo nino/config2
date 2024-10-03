@@ -11,7 +11,7 @@ time = Time.now.strftime('%H-%M-%S')
 out_path = File.join(timelapse_root_path, "#{day}--#{time}.mov")
 
 system "ffmpeg -y -framerate 15 -i #{images_path} " \
-       "-vf \"format=yuv420p\" -vcodec libx265 -preset veryslow -crf 30 #{out_path}"
+       "-vf \"format=yuv420p\" -vcodec libx265 -preset veryslow -crf 35 #{out_path}"
 
 # command: List[str] = ["ffmpeg", "-y",
 #                              "-framerate", "30",
