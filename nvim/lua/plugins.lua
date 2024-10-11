@@ -125,7 +125,22 @@ return {
   'https://github.com/Shatur/neovim-ayu',
   'https://github.com/uloco/bluloco.nvim',
   'https://github.com/cweagans/vim-taskpaper',
-  'https://github.com/Julian/lean.nvim',
+  {
+    'Julian/lean.nvim',
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      -- you also will likely want nvim-cmp or some completion engine
+    },
+
+    -- see details below for full configuration options
+    opts = {
+      lsp = {},
+      mappings = true,
+    }
+  },
   'https://github.com/mg979/vim-visual-multi',
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
   'https://github.com/olimorris/codecompanion.nvim',
