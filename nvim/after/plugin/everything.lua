@@ -48,6 +48,7 @@ local iron = require "iron.core"
 iron.setup {
   config = {
     repl_definition = {
+      lisp = { command = "sbcl" },
       lua = { command = "lua" },
       ruby = { command = "pry" },
       python = { command = "python" },
