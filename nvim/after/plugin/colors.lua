@@ -1,5 +1,5 @@
 vim.cmd [[ colorscheme modus ]]
-vim.o.bg='light'
+vim.o.bg='dark'
 vim.cmd [[
   hi Comment cterm=italic gui=italic
   hi DiagnosticUnderlineError cterm=underline gui=undercurl

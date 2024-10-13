@@ -146,6 +146,7 @@ return {
   'https://github.com/olimorris/codecompanion.nvim',
   'https://github.com/stevearc/dressing.nvim',
   'https://github.com/Sangdol/mintabline.vim',
+  'https://github.com/vlime/vlime',
 
   -- Colors
   'https://github.com/projekt0n/github-nvim-theme',
