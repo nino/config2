@@ -35,6 +35,8 @@ end
 vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = _4_})
 local function _5_()
   vim.o.breakindentopt = "shift:0"
+  vim.bo.smartindent = false
+  vim.bo.cindent = false
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _5_})
