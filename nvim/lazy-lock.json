@@ -73,6 +73,7 @@
   "vim-svelte-plugin": { "branch": "master", "commit": "2de4e9f55d061e3296917e3621e022542db74faa" },
   "vim-taskpaper": { "branch": "master", "commit": "8555769fcef550d711dad1b586162a2196dd0207" },
   "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
+  "vlime": { "branch": "master", "commit": "f57518bf6ac1b6c5e10db6a9259016b84ff81d8b" },
   "vscode.nvim": { "branch": "main", "commit": "7de58b7a6d55fe48475d0ba2fddbcec871717761" },
   "zenbones.nvim": { "branch": "main", "commit": "88960c8aa3ad8aff0bcccdce7cd23629c7a3c510" }
 }

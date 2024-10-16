@@ -16,17 +16,28 @@ end
 vim.keymap.set("n", "gu", _2_)
 vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev)
-local function _3_()
-  vim.bo.tabstop = 4
-  vim.bo.softtabstop = 4
-  vim.bo.shiftwidth = 4
+local cpp_indent
+do
+  local env = os.getenv("CPP_INDENT")
+  if env then
+    cpp_indent = tonumber(env)
+  else
+    cpp_indent = 4
+  end
+end
+local function _4_()
+  vim.bo.tabstop = cpp_indent
+  vim.bo.softtabstop = cpp_indent
+  vim.bo.shiftwidth = cpp_indent
   vim.bo.expandtab = true
   return nil
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = _3_})
-local function _4_()
+vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = _4_})
+local function _5_()
   vim.o.breakindentopt = "shift:0"
+  vim.bo.smartindent = false
+  vim.bo.cindent = false
   return nil
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _4_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _5_})
 return {}
