@@ -55,17 +55,17 @@ return {
   'tpope/vim-repeat',
   -- 'christoomey/vim-tmux-navigator',
   'preservim/nerdtree',
-  'https://github.com/JuliaEditorSupport/julia-vim',
-  'https://github.com/leafOfTree/vim-svelte-plugin',
+  -- 'https://github.com/JuliaEditorSupport/julia-vim',
+  -- 'https://github.com/leafOfTree/vim-svelte-plugin',
   'https://github.com/gleam-lang/gleam.vim',
   'https://github.com/godlygeek/tabular',
-  'https://github.com/elixir-tools/elixir-tools.nvim',
-  'elixir-editors/vim-elixir',
+  -- 'https://github.com/elixir-tools/elixir-tools.nvim',
+  -- 'elixir-editors/vim-elixir',
   'https://github.com/guns/vim-sexp',
   'https://github.com/tpope/vim-sexp-mappings-for-regular-people',
   'https://github.com/duane9/nvim-rg',
-  'https://github.com/kaarmu/typst.vim',
-  'https://github.com/dstein64/nvim-scrollview',
+  -- 'https://github.com/kaarmu/typst.vim',
+  -- 'https://github.com/dstein64/nvim-scrollview',
 
   -- DAP
   {
@@ -212,20 +212,18 @@ return {
 
   'https://github.com/wsdjeg/vim-fetch',  -- Allow opening `path:linenr`
   'https://github.com/Vigemus/iron.nvim', -- REPLs
-  'https://github.com/prisma/vim-prisma',
+  -- 'https://github.com/prisma/vim-prisma',
   'https://github.com/simrat39/symbols-outline.nvim',
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/NoahTheDuke/vim-just',
-  'https://github.com/lukas-reineke/indent-blankline.nvim',
-  'https://github.com/chrisbra/vim-diff-enhanced',
+  -- 'https://github.com/lukas-reineke/indent-blankline.nvim',
+  -- 'https://github.com/chrisbra/vim-diff-enhanced',
   ({
     "https://github.com/stevearc/conform.nvim",
     config = function()
       require("conform").setup()
     end,
   }),
-  'https://github.com/blumaa/ohne-accidents.nvim',
-  'https://github.com/sputnick1124/uiua.vim',
   'https://github.com/Olical/nfnl',
   {
     'https://github.com/stevearc/oil.nvim',
@@ -233,16 +231,16 @@ return {
       require('oil').setup()
     end
   },
-  {
-    'https://github.com/lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  },
+  -- {
+  --   'https://github.com/lewis6991/gitsigns.nvim',
+  --   config = function()
+  --     require('gitsigns').setup()
+  --   end
+  -- },
   'https://github.com/nvim-pack/nvim-spectre',
-  'https://github.com/catppuccin/nvim',
-  'https://github.com/Shatur/neovim-ayu',
-  'https://github.com/uloco/bluloco.nvim',
+  -- 'https://github.com/catppuccin/nvim',
+  -- 'https://github.com/Shatur/neovim-ayu',
+  -- 'https://github.com/uloco/bluloco.nvim',
   'https://github.com/cweagans/vim-taskpaper',
   {
     'Julian/lean.nvim',
@@ -260,7 +258,7 @@ return {
       mappings = true,
     }
   },
-  'https://github.com/mg979/vim-visual-multi',
+  -- 'https://github.com/mg979/vim-visual-multi',
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
   'https://github.com/olimorris/codecompanion.nvim',
   'https://github.com/stevearc/dressing.nvim',
@@ -268,13 +266,13 @@ return {
   'https://github.com/vlime/vlime',
 
   -- Colors
-  'https://github.com/projekt0n/github-nvim-theme',
-  'https://github.com/yorickpeterse/nvim-grey',
-  'https://github.com/Mofiqul/vscode.nvim',
-  'https://github.com/nyoom-engineering/oxocarbon.nvim',
-  'https://github.com/zenbones-theme/zenbones.nvim',
-  'https://github.com/NTBBloodbath/sweetie.nvim',
-  'https://github.com/ramojus/mellifluous.nvim',
+  -- 'https://github.com/projekt0n/github-nvim-theme',
+  -- 'https://github.com/yorickpeterse/nvim-grey',
+  -- 'https://github.com/Mofiqul/vscode.nvim',
+  -- 'https://github.com/nyoom-engineering/oxocarbon.nvim',
+  -- 'https://github.com/zenbones-theme/zenbones.nvim',
+  -- 'https://github.com/NTBBloodbath/sweetie.nvim',
+  -- 'https://github.com/ramojus/mellifluous.nvim',
   { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
-  'https://github.com/grizzlysmit/cpp2.vim',
+  -- 'https://github.com/grizzlysmit/cpp2.vim',
 }

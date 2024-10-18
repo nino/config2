@@ -63,10 +63,7 @@ vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
 vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})
 -- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
 
-require("ohne-accidents").setup({ welcomeOnStartup = false })
-
 require("nfnl").setup()
-
 
 require('spectre').setup({
   default = {
