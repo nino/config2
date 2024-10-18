@@ -40,4 +40,11 @@ local function _5_()
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", callback = _5_})
+local function _6_()
+  vim.o.breakindentopt = "shift:0"
+  vim.bo.smartindent = false
+  vim.bo.cindent = false
+  return nil
+end
+vim.api.nvim_create_autocmd("FileType", {pattern = "gitcommit", callback = _6_})
 return {}
