@@ -6,6 +6,7 @@ fish_add_path /usr/local/bin
 fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
+fish_add_path ~/.local/context-osx-64/bin
 
 alias l='eza -lh'
 alias la='eza -lha'
