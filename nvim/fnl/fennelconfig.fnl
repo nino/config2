@@ -34,4 +34,11 @@
                (set vim.bo.smartindent false)
                (set vim.bo.cindent false))})
 
+(vim.api.nvim_create_autocmd "FileType"
+  {:pattern  "gitcommit"
+   :callback (fn []
+               (set vim.o.breakindentopt "shift:0")
+               (set vim.bo.smartindent false)
+               (set vim.bo.cindent false))})
+
 {}

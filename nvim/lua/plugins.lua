@@ -1,14 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Only required if you have packer configured as `opt`
--- vim.cmd [[packadd packer.nvim]]
--- local packer = require('packer')
--- packer.init({
---   git = {
---     clone_timeout = 600, -- Timeout, in seconds, for git clones
---   },
--- })
---
+local js_languages = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }
+
 return {
   'williamboman/mason.nvim',
   { 'nvim-treesitter/nvim-treesitter',         run = ':TSUpdate' },
@@ -62,20 +55,146 @@ return {
   'tpope/vim-repeat',
   -- 'christoomey/vim-tmux-navigator',
   'preservim/nerdtree',
-  'https://github.com/JuliaEditorSupport/julia-vim',
-  'https://github.com/leafOfTree/vim-svelte-plugin',
+  -- 'https://github.com/JuliaEditorSupport/julia-vim',
+  -- 'https://github.com/leafOfTree/vim-svelte-plugin',
   'https://github.com/gleam-lang/gleam.vim',
   'https://github.com/godlygeek/tabular',
-  'https://github.com/elixir-tools/elixir-tools.nvim',
-  'elixir-editors/vim-elixir',
+  -- 'https://github.com/elixir-tools/elixir-tools.nvim',
+  -- 'elixir-editors/vim-elixir',
   'https://github.com/guns/vim-sexp',
   'https://github.com/tpope/vim-sexp-mappings-for-regular-people',
   'https://github.com/duane9/nvim-rg',
-  'https://github.com/kaarmu/typst.vim',
-  'https://github.com/dstein64/nvim-scrollview',
+  -- 'https://github.com/kaarmu/typst.vim',
+  -- 'https://github.com/dstein64/nvim-scrollview',
 
   -- DAP
-  'https://github.com/mfussenegger/nvim-dap',
+  {
+    'https://github.com/mfussenegger/nvim-dap',
+    config = function()
+      local dap = require "dap"
+      -- local Config = require "lazyvim.config"
+      -- vim.api.nvim
+
+
+      for _, language in ipairs(js_languages) do
+        dap.configurations[language] = {
+          -- Debug single nodejs files
+          {
+            type = "pwa-node",
+            request = "launch",
+            name = "Launch file",
+            program = "${file}",
+            cwd = vim.fn.getcwd(),
+            sourceMaps = true,
+          },
+          -- Debug nodejs processes (make sure to add --inspect when you run the process)
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "Attach",
+            processId = require("dap.utils").pick_process,
+            cwd = vim.fn.getcwd(),
+            sourceMaps = true,
+          },
+          -- Debug web applications (client side)
+          {
+            type = "pwa-chrome",
+            request = "launch",
+            name = "Launch & Debug Chrome",
+            url = function()
+              local co = coroutine.running()
+              return coroutine.create(function()
+                vim.ui.input({
+                  prompt = "Enter URL: ",
+                  default = "http://localhost:3000",
+                }, function(url)
+                  if url == nil or url == "" then
+                    return
+                  else
+                    coroutine.resume(co, url)
+                  end
+                end)
+              end)
+            end,
+            webRoot = vim.fn.getcwd(),
+            protocol = "inspector",
+            sourceMaps = true,
+            userDataDir = false,
+          },
+          -- Divider for the launch.json derived configs
+          {
+            name = "----- ↓ launch.json configs ↓ -----",
+            type = "",
+            request = "launch",
+          },
+        }
+      end
+    end,
+    keys = {
+      -- {
+      --   "<leader>da",
+      --   function()
+      --     if vim.fn.filereadable(".vscode/launch.json") then
+      --       local dap_vscode = require("dap.ext.vscode")
+      --       dap_vscode.load_launchjs(nil, {
+      --         ["pwa-node"] = js_languages,
+      --         ["node"] = js_languages,
+      --       })
+      --     end
+      --     require("dap").continue()
+      --   end,
+      --   desc = "Run with Args",
+      -- }
+    },
+    dependencies = {
+      {
+        "microsoft/vscode-js-debug",
+        -- After install, build it and rename the dist directory to out
+        build = "npm install && npx gulp vsDebugServerBundle && mv dist out",
+        -- version = "1.*",
+      },
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        config = function()
+          ---@diagnostic disable-next-line: missing-fields
+          require("dap-vscode-js").setup({
+            -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+            -- node_path = "node",
+
+            -- Path to vscode-js-debug installation.
+            debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+
+            -- Command to use to launch the debug server. Takes precedence over "node_path" and "debugger_path"
+            -- debugger_cmd = { "js-debug-adapter" },
+
+            -- which adapters to register in nvim-dap
+            adapters = {
+              "chrome",
+              "pwa-node",
+              "pwa-chrome",
+              "pwa-msedge",
+              "pwa-extensionHost",
+              "node-terminal",
+              "node",
+            },
+
+            -- Path for file logging
+            -- log_file_path = "(stdpath cache)/dap_vscode_js.log",
+
+            -- Logging level for output to file. Set to false to disable logging.
+            -- log_file_level = false,
+
+            -- Logging level for output to console. Set to false to disable console output.
+            -- log_console_level = vim.log.levels.ERROR,
+          })
+        end,
+      },
+      {
+        "Joakker/lua-json5",
+        build = "./install.sh",
+      },
+    }
+  },
   'https://github.com/mxsdev/nvim-dap-vscode-js',
   'https://github.com/leoluz/nvim-dap-go',
   "nvim-neotest/nvim-nio",
@@ -93,20 +212,18 @@ return {
 
   'https://github.com/wsdjeg/vim-fetch',  -- Allow opening `path:linenr`
   'https://github.com/Vigemus/iron.nvim', -- REPLs
-  'https://github.com/prisma/vim-prisma',
+  -- 'https://github.com/prisma/vim-prisma',
   'https://github.com/simrat39/symbols-outline.nvim',
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/NoahTheDuke/vim-just',
-  'https://github.com/lukas-reineke/indent-blankline.nvim',
-  'https://github.com/chrisbra/vim-diff-enhanced',
+  -- 'https://github.com/lukas-reineke/indent-blankline.nvim',
+  -- 'https://github.com/chrisbra/vim-diff-enhanced',
   ({
     "https://github.com/stevearc/conform.nvim",
     config = function()
       require("conform").setup()
     end,
   }),
-  'https://github.com/blumaa/ohne-accidents.nvim',
-  'https://github.com/sputnick1124/uiua.vim',
   'https://github.com/Olical/nfnl',
   {
     'https://github.com/stevearc/oil.nvim',
@@ -114,16 +231,16 @@ return {
       require('oil').setup()
     end
   },
-  {
-    'https://github.com/lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  },
+  -- {
+  --   'https://github.com/lewis6991/gitsigns.nvim',
+  --   config = function()
+  --     require('gitsigns').setup()
+  --   end
+  -- },
   'https://github.com/nvim-pack/nvim-spectre',
-  'https://github.com/catppuccin/nvim',
-  'https://github.com/Shatur/neovim-ayu',
-  'https://github.com/uloco/bluloco.nvim',
+  -- 'https://github.com/catppuccin/nvim',
+  -- 'https://github.com/Shatur/neovim-ayu',
+  -- 'https://github.com/uloco/bluloco.nvim',
   'https://github.com/cweagans/vim-taskpaper',
   {
     'Julian/lean.nvim',
@@ -141,7 +258,7 @@ return {
       mappings = true,
     }
   },
-  'https://github.com/mg979/vim-visual-multi',
+  -- 'https://github.com/mg979/vim-visual-multi',
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
   'https://github.com/olimorris/codecompanion.nvim',
   'https://github.com/stevearc/dressing.nvim',
@@ -149,13 +266,13 @@ return {
   'https://github.com/vlime/vlime',
 
   -- Colors
-  'https://github.com/projekt0n/github-nvim-theme',
-  'https://github.com/yorickpeterse/nvim-grey',
-  'https://github.com/Mofiqul/vscode.nvim',
-  'https://github.com/nyoom-engineering/oxocarbon.nvim',
-  'https://github.com/zenbones-theme/zenbones.nvim',
-  'https://github.com/NTBBloodbath/sweetie.nvim',
-  'https://github.com/ramojus/mellifluous.nvim',
+  -- 'https://github.com/projekt0n/github-nvim-theme',
+  -- 'https://github.com/yorickpeterse/nvim-grey',
+  -- 'https://github.com/Mofiqul/vscode.nvim',
+  -- 'https://github.com/nyoom-engineering/oxocarbon.nvim',
+  -- 'https://github.com/zenbones-theme/zenbones.nvim',
+  -- 'https://github.com/NTBBloodbath/sweetie.nvim',
+  -- 'https://github.com/ramojus/mellifluous.nvim',
   { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
-  'https://github.com/grizzlysmit/cpp2.vim',
+  -- 'https://github.com/grizzlysmit/cpp2.vim',
 }
