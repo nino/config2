@@ -13,7 +13,6 @@ return {
   'editorconfig/editorconfig-vim',
   'tpope/vim-characterize',
   'rhysd/git-messenger.vim',
-  -- 'https://github.com/github/copilot.vim',
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
@@ -53,19 +52,12 @@ return {
     end,
   },
   'tpope/vim-repeat',
-  -- 'christoomey/vim-tmux-navigator',
   'preservim/nerdtree',
-  -- 'https://github.com/JuliaEditorSupport/julia-vim',
-  -- 'https://github.com/leafOfTree/vim-svelte-plugin',
   'https://github.com/gleam-lang/gleam.vim',
   'https://github.com/godlygeek/tabular',
-  -- 'https://github.com/elixir-tools/elixir-tools.nvim',
-  -- 'elixir-editors/vim-elixir',
   'https://github.com/guns/vim-sexp',
   'https://github.com/tpope/vim-sexp-mappings-for-regular-people',
   'https://github.com/duane9/nvim-rg',
-  -- 'https://github.com/kaarmu/typst.vim',
-  -- 'https://github.com/dstein64/nvim-scrollview',
 
   -- DAP
   {
@@ -264,6 +256,7 @@ return {
   'https://github.com/stevearc/dressing.nvim',
   'https://github.com/Sangdol/mintabline.vim',
   'https://github.com/vlime/vlime',
+  -- 'https://github.com/Olical/conjure',
 
   -- Colors
   -- 'https://github.com/projekt0n/github-nvim-theme',
