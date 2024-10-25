@@ -1,3 +1,4 @@
+local fnlutils = require("fnlutils")
 local actions = require("telescope.actions")
 require "telescope".setup {
   defaults = {
@@ -20,21 +21,7 @@ require "telescope".setup {
 
 -- Diagnostics
 function diagnostic_sign()
-  local diagnostics = vim.diagnostic.get(0)
-  local total = #diagnostics
-  local errors = 0
-   for _, msg in pairs(diagnostics) do
-     if msg.severity == 1 then
-       errors = errors + 1
-     end
-   end
-  if total == 0 then
-    return '♥︎'
-  elseif errors == 0 then
-    return '⊙'
-  else
-    return '×'
-  end
+  return fnlutils["diagnostic-sign"]()
 end
 
 -- REPLs
