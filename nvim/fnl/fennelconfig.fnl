@@ -41,4 +41,11 @@
                (set vim.bo.smartindent false)
                (set vim.bo.cindent false))})
 
+(vim.api.nvim_create_autocmd "FileType"
+  {:pattern  "gdscript"
+   :callback (fn []
+               (set vim.bo.tabstop 4)
+               (set vim.bo.shiftwidth 4)
+               (set vim.bo.expandtab false))})
+
 {}

@@ -93,7 +93,7 @@ require("codecompanion").setup({
       adapter = "anthropic",
     },
     inline = {
-      adapter = "copilot",
+      adapter = "anthropic",
     },
     agent = {
       adapter = "anthropic",

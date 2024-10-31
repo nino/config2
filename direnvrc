@@ -10,3 +10,19 @@ layout_poetry() {
   export POETRY_ACTIVE=1
   PATH_add "$VENV"
 }
+
+layout_uv() {
+  if [[ ! -f pyproject.toml ]]; then
+    log_error 'No pyproject.toml found. Create one first.'
+    exit 2
+  fi
+
+  # Create or activate the uv virtual environment
+  if [[ ! -d .venv ]]; then
+    uv venv
+  fi
+
+  export VIRTUAL_ENV="$(pwd)/.venv"
+  export UV_ACTIVE=1
+  PATH_add "$VIRTUAL_ENV/bin"
+}

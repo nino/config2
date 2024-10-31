@@ -47,4 +47,11 @@ local function _6_()
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "gitcommit", callback = _6_})
+local function _7_()
+  vim.bo.tabstop = 4
+  vim.bo.shiftwidth = 4
+  vim.bo.expandtab = false
+  return nil
+end
+vim.api.nvim_create_autocmd("FileType", {pattern = "gdscript", callback = _7_})
 return {}

@@ -58,6 +58,7 @@ return {
   'https://github.com/guns/vim-sexp',
   'https://github.com/tpope/vim-sexp-mappings-for-regular-people',
   'https://github.com/duane9/nvim-rg',
+  'elixir-editors/vim-elixir',
 
   -- DAP
   {
@@ -255,8 +256,9 @@ return {
   'https://github.com/olimorris/codecompanion.nvim',
   'https://github.com/stevearc/dressing.nvim',
   'https://github.com/Sangdol/mintabline.vim',
-  'https://github.com/vlime/vlime',
-  -- 'https://github.com/Olical/conjure',
+  -- 'https://github.com/vlime/vlime',
+  'https://github.com/Olical/conjure',
+  -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
 
   -- Colors
   -- 'https://github.com/projekt0n/github-nvim-theme',
