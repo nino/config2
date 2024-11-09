@@ -10,7 +10,7 @@ lsp.ensure_installed({
   'lua_ls',
   'tailwindcss',
   -- 'gopls',
-  'pyright',
+  -- 'pyright',
   'diagnosticls',
   'terraformls',
 })
@@ -20,7 +20,7 @@ require('lint').linters_by_ft = {
   typescriptreact = { 'eslint', },
   javascript = { 'eslint', },
   javascriptreact = { 'eslint', },
-  python = { 'flake8' },
+  -- python = { 'flake8' },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   callback = function()
@@ -33,7 +33,7 @@ require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
     -- Conform will run multiple formatters sequentially
-    python = { "isort", "black" },
+    -- python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
     javascript = javascript_formatters,
     javascriptreact = javascript_formatters,

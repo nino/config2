@@ -32,7 +32,7 @@ iron.setup {
       lisp = { command = "sbcl" },
       lua = { command = "lua" },
       ruby = { command = "pry" },
-      python = { command = "python" },
+      python = { command = "uv run ipython" },
       fennel = { command = "fennel" },
     },
     keymaps = {
