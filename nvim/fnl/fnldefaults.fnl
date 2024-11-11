@@ -14,7 +14,7 @@
 (set vim.opt.cursorline true)
 (set vim.opt.smoothscroll true)
 (set vim.opt.cmdheight 1)
-(set vim.opt.colorcolumn [80])
+(set vim.opt.colorcolumn [])
 
 (set vim.opt.wildignorecase true)
 (set vim.opt.ignorecase true)
