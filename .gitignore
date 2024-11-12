@@ -6,6 +6,7 @@ zsh-update
 nvim/.netrwhist
 configstore/*
 gtk-2.0
+gtk-3.0
 fontforge
 TheFoundry
 wireshark
@@ -77,3 +78,4 @@ lnav
 
 darktable
 yarn
+
