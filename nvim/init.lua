@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+vim.g.sexp_filetypes = "clojure,scheme,lisp,timl,fennel,racket"
 require("config.lazy")
 require("plugins")
 require("abbreviations")
