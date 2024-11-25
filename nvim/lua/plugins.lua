@@ -256,8 +256,8 @@ return {
   'https://github.com/olimorris/codecompanion.nvim',
   'https://github.com/stevearc/dressing.nvim',
   'https://github.com/Sangdol/mintabline.vim',
-  -- 'https://github.com/vlime/vlime',
-  'https://github.com/Olical/conjure',
+  'https://github.com/vlime/vlime',
+  -- 'https://github.com/Olical/conjure',
   -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
 
   -- Colors

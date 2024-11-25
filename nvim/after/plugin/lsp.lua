@@ -58,6 +58,11 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.configure('tailwindcss', {})
+require('lspconfig').astro.setup({
+  -- capabilities = capabilities,
+  -- on_attach = on_attach,
+  filetypes = { "astro" }
+})
 lsp.configure('rust_analyzer', {})
 lsp.configure('cmake', {})
 lsp.configure('asm_lsp', {})
