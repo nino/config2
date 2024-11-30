@@ -1,5 +1,8 @@
 (local util (require :fnlutils))
 
+; (set vim.g.conjure_filetypes ["fennel" "clojure"])
+(set vim.g.conjure#filetype#fennel "conjure.client.fennel.nfnl")
+
 (fn exec [cmd]
   (let [handle (io.popen cmd)]
     (if handle

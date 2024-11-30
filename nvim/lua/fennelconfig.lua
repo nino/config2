@@ -1,5 +1,6 @@
 -- [nfnl] Compiled from fennelconfig.fnl by https://github.com/Olical/nfnl, do not edit.
 local util = require("fnlutils")
+vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.nfnl"
 local function exec(cmd)
   local handle = io.popen(cmd)
   if handle then
