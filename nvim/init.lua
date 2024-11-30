@@ -147,7 +147,7 @@ vim.cmd [[
         endif
     endfunction
     command! Here call s:ToggleHere()
-    " nnoremap Q :Here<CR>
+    nnoremap Q :Here<CR>
 ]]
 
 -- Digraphs
