@@ -257,7 +257,17 @@ return {
   'https://github.com/stevearc/dressing.nvim',
   'https://github.com/Sangdol/mintabline.vim',
   'https://github.com/vlime/vlime',
-  -- 'https://github.com/Olical/conjure',
+  {
+    {
+
+      'https://github.com/Olical/conjure',
+      ft = { "clojure", "fennel" },
+      lazy = true,
+      init = function()
+        -- Any additional configuration can go here
+      end
+    }
+  },
   -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
 
   -- Colors
