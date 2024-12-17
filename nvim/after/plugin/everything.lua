@@ -87,25 +87,35 @@ vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search(
 })
 
 -- AI
-require("codecompanion").setup({
-  strategies = {
-    chat = {
-      adapter = "anthropic",
-    },
-    inline = {
-      adapter = "anthropic",
-    },
-    agent = {
-      adapter = "anthropic",
-    },
-  },
-  adapters = {
-    anthropic = function()
-      return require("codecompanion.adapters").extend("anthropic", {
-        env = {
-          api_key = os.getenv("ANTHROPIC_API_KEY")
-        },
-      })
-    end,
-  },
-})
+-- require("codecompanion").setup({
+--   display = {
+--     diff = {
+--       provider = "mini_diff",
+--     },
+--   },
+--   strategies = {
+--     chat = {
+--       adapter = "anthropic",
+--     },
+--     inline = {
+--       adapter = "anthropic",
+--     },
+--     agent = {
+--       adapter = "anthropic",
+--     },
+--   },
+--   adapters = {
+--     anthropic = function()
+--       return require("codecompanion.adapters").extend("anthropic", {
+--         env = {
+--           api_key = os.getenv("ANTHROPIC_API_KEY")
+--         },
+--       })
+--     end,
+--   },
+-- })
+
+vim.api.nvim_set_keymap("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
