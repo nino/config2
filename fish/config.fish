@@ -42,6 +42,8 @@ alias yanr='yarn'
 alias ynar='yarn'
 alias ynra='yarn'
 alias ayrn='yarn'
+alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
+alias rvlime='rlwrap sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
 
 function save
   if test -z $argv;
