@@ -253,7 +253,60 @@ return {
   },
   -- 'https://github.com/mg979/vim-visual-multi',
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
-  'https://github.com/olimorris/codecompanion.nvim',
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    opts = {
+      -- add any opts here
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "hrsh7th/nvim-cmp",          -- autocompletion for avante commands and mentions
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "zbirenbaum/copilot.lua",    -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   config = true
+  -- },
   'https://github.com/stevearc/dressing.nvim',
   'https://github.com/Sangdol/mintabline.vim',
   'https://github.com/vlime/vlime',
@@ -271,23 +324,7 @@ return {
   -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
 
   -- Colors
-  -- 'https://github.com/projekt0n/github-nvim-theme',
-  -- 'https://github.com/yorickpeterse/nvim-grey',
-  -- 'https://github.com/Mofiqul/vscode.nvim',
-  -- 'https://github.com/nyoom-engineering/oxocarbon.nvim',
-  -- 'https://github.com/zenbones-theme/zenbones.nvim',
-  -- 'https://github.com/NTBBloodbath/sweetie.nvim',
-  -- 'https://github.com/ramojus/mellifluous.nvim',
   { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
-  -- 'https://github.com/grizzlysmit/cpp2.vim',
-  {
-    'https://github.com/sphamba/smear-cursor.nvim',
-    opts = {                         -- Default  Range
-      stiffness = 0.8,               -- 0.6      [0, 1]
-      trailing_stiffness = 0.5,      -- 0.3      [0, 1]
-      distance_stop_animating = 0.5, -- 0.1      > 0
-      hide_target_hack = false,      -- true     boolean
-      cursor_color = "#FF00EE",
-    },
-  },
+  'https://github.com/echasnovski/mini.diff',
+  { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
 }
