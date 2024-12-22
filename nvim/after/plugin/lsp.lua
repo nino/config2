@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   end,
 })
 
-local javascript_formatters = { "eslint_d" }
+local javascript_formatters = { "prettierd" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
@@ -96,7 +96,7 @@ lsp.configure('denols', {
 
 lsp.configure('ts_ls', {
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentFormattingProvider = false
   end,
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false
