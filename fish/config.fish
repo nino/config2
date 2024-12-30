@@ -2,8 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-fish_add_path /usr/local/bin
 fish_add_path /opt/homebrew/bin
+fish_add_path /usr/local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
 fish_add_path ~/.local/context-osx-64/bin
@@ -111,11 +111,6 @@ function co
   # fi
 end
 
-# opam configuration
-source /Users/Nino/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
-
-# retrieve command cheat sheets from cheat.sh
-# fish version by @tobiasreischmann
 
 function cheat.sh
     curl cheat.sh/$argv
@@ -126,15 +121,15 @@ complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /usr/local/Caskroom/miniconda/base/bin/conda
-    eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-        . "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/usr/local/Caskroom/miniconda/base/bin" $PATH
-    end
-end
+# if test -f /usr/local/Caskroom/miniconda/base/bin/conda
+#     eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+# else
+#     if test -f "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
+#         . "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
+#     else
+#         set -x PATH "/usr/local/Caskroom/miniconda/base/bin" $PATH
+#     end
+# end
 # <<< conda initialize <<<
 
 

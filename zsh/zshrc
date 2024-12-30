@@ -23,9 +23,9 @@ setopt extended_glob
 
 PROMPT="$PROMPT$ "
 
-trash() {
-  mv $1 ~/.Trash/$1-$(date +%H%M%S)
-}
+# trash() {
+#   mv $1 ~/.Trash/$1-$(date +%H%M%S)
+# }
 
 
 local_ip_address() {
@@ -40,42 +40,18 @@ function git_prompt_info() {
 
 alias l='ls -l -h'
 alias ls='ls'
-alias dum='diskutil unmount'
-alias js='jekyll serve --watch'
-alias pastepd='pbpaste | pandoc --smart --css css.css'
-alias pdtex='pandoc --template ~/Google\ Drive/Other\ Shit/pandoc-template.tex'
-alias osajsi='osascript -i -l JavaScript'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias vs='nvim -S ~/Prevsession.vim'
 alias bb='bbedit'
-alias vimserv='NVIM_LISTEN_ADDRESS=/tmp/neovim/neovim nvim'
-alias vv='/Applications/VV.app/Contents/Resources/bin/vv'
-alias zhrc='bbedit ~/.zshrc'
-alias zshrc='bbedit ~/.zshrc'
-alias tmconf='bbedit ~/.tmux.conf'
 alias tst='tig status'
 alias vc='nvim -S `ls | grep .vim | fzf`'
-alias ydl="youtube-dl -f 'best[ext=mp4]' "
-alias yda="youtube-dl -x --audio-format mp3 "
 alias ct='ctags -R .'
 alias uuid='uuidgen | tr -d "\n" | pbcopy'
-alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.lock'
-alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"
 alias com="git add . && git commit -m"
 alias awk='gawk'
 alias dockre='docker'
-# alias docker='podman'
-alias arst='asdf'
-
-npma() {
-    fd 'package.json' | parallel --gnu 'cd $(dirname {}); npm i'
-}
-
-pipa() {
-    fd 'requirements.txt' | parallel --gnu 'cd $(dirname {}); pip install -r requirements.txt'
-}
 
 if [ -f ~/.config/secret-config2/secret_zsh ]; then
   source ~/.config/secret-config2/secret_zsh
@@ -95,31 +71,7 @@ mcd() {
   mkdir $1 && cd $1
 }
 
-# Delete renovate PRs
-rmrenovate() {
-  for branch in `git branch | rg renovate/ | sed 's/^..//'`; do
-    git branch -D $branch
-  done
-}
 
-
-rmnodemodules() {
-  echo "Deleting at root"
-  trash ./node_modules
-  echo "Deleting at 1 level deep"
-  rm -rf ./*/node_modules
-  echo "Deleting at 2 levels deep"
-  rm -rf ./*/*/node_modules
-  echo "Deleting at 3 levels deep"
-  rm -rf ./*/*/*/node_modules
-  echo "Deleting at 4 levels deep"
-  rm -rf ./*/*/*/*/node_modules
-  echo "Deleting at 5 levels deep"
-  rm -rf ./*/*/*/*/*/node_modules
-  echo "Deleting at 6 levels deep"
-  rm -rf ./*/*/*/*/*/*/node_modules
-  true
-}
 
 co() {
   local branch=`git lb | uniquelines | fzf`
@@ -149,30 +101,6 @@ try_invoke() {
   eval "$1 || $1 || $1"
 }
 
-updates() {
-  tmux rename-window UPDATES
-  tmux send-keys "brew update && brew upgrade && brew cask upgrade && brew cleanup" C-m
-
-  tmux split-window
-  tmux select-layout tiled
-  tmux send-keys "gem install neovim" C-m
-
-  tmux split-window
-  tmux select-layout tiled
-  tmux send-keys "yarn global add neovim@latest" C-m
-
-  tmux split-window
-  tmux select-layout tiled
-  tmux send-keys "pip install --upgrade pip && pip install --upgrade neovim" C-m
-
-  tmux split-window
-  tmux select-layout tiled
-  tmux send-keys "pip3 install --upgrade pip && pip3 install --upgrade neovim" C-m
-
-  tmux split-window
-  tmux select-layout tiled
-  tmux send-keys "nvim -c \"PluginUpdate| :UpdateRemotePlugins\"" C-m
-}
 
 # So you can press ctrl-s to save
 # v() {
@@ -245,105 +173,24 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export PATH="$HOME/.config/scripts:${PATH}"
 export PATH="$HOME/.config/secret-config2/scripts:${PATH}"
 export PATH="$HOME/.local/bin:${PATH}"
-
-# export TERM=xterm
 export TERM=screen-256color
 
-# echo "Opened zsh at $(date)" >> ~/.config/zsh-startups.log
-
-# RBENV!
-
-if [ -n "$(command -v rbenv)" ]; then # Only if rbenv command exists
-  eval "$(rbenv init -)"
-fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 
-export PYTHONPATH=/Users/Nino/.config/scripts:${PYTHONPATH}
-
-
-# Perl
-# source ~/perl5/perlbrew/etc/bashrc
-
-
-export REACT_EDITOR=nvr
-
-# Created by `pipx` on 2022-02-01 15:38:52
-export PATH="$PATH:/Users/nino/.local/bin"
-
-export PATH="$PATH:$HOME/zls"
-
-export BROCCOLI_ENABLED_MEMOIZE=true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.secret_vars ] && source ~/.secret_vars
 
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
 
-# export OCIO=/Users/Nino/OpenColorIO/aces_1.2/config.ocio
-
-
-export Qt5_DIR=/usr/local/Cellar/qt@5.7/5.7.1/lib/cmake/Qt5/Qt5Config.cmake
-export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt@5/5.15.5/:$CMAKE_PREFIX_PATH
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
-# eval "$(pyenv init --path)"
-
-# Load pyenv into the shell by adding
-# the following to ~/.zshrc:
-
-eval "$(pyenv init -)"
-
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# eval $(opam env)
-[[ ! -r /Users/Nino/.opam/opam-init/init.zsh ]] || source /Users/Nino/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
-# if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
-#   . /usr/local/opt/asdf/libexec/asdf.sh
-# fi
-# if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-#   . /opt/homebrew/opt/asdf/libexec/asdf.sh
-# fi
-# . "$HOME/.asdf/asdf.sh"
-
-
-export PATH=$PATH:/Applications/Coq-Platform~8.16~2022.09.app/Contents/Resources/bin
 export PATH=$PATH:/home/nino/.cargo/bin
 export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
-# RUST_VERSION=$(awk '/rust/ {print $2}' ~/.tool-versions)
-# export PATH=$HOME/.asdf/installs/rust/$RUST_VERSION/bin:$PATH
 
 # For rm-improved
 export GRAVEYARD=~/.Trash
 
-export AWS_VAULT_BACKEND=keychain
-
-export PATH=$PATH:/Users/nino/code-friends/roc-release
-export PATH=$PATH:/Users/nino/code-friends/odin-release
-export PATH=/Applications/factor:"$PATH"
-
-
-[ -f "/Users/Nino/.ghcup/env" ] && source "/Users/Nino/.ghcup/env" # ghcup-env
-
 # https://github.com/keybase/keybase-issues/issues/2798
 # export GPG_TTY=$(tty)
 eval "$(~/.local/bin/mise activate zsh)"
+
+export PATH=$PATH:/opt/homebrew/bin
