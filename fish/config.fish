@@ -134,3 +134,4 @@ complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
 
 
 ~/.local/bin/mise activate fish | source
+fish_add_path /Users/Nino/.modular/bin
