@@ -25,7 +25,7 @@ end
 --- @param path string
 --- @return nil
 local function scale_image(path)
-  local cmd = string.format("convert %s -resize 800x800> %s", path, path)
+  local cmd = string.format("magick '%s' -resize '800x800>' '%s'", path, path)
   print(cmd)
   local success, output = pcall(run_command, cmd)
   print(output)
@@ -82,6 +82,11 @@ local function upload_to_b2(auth_data, file_path, file_name)
   return vim.fn.json_decode(run_command(upload_cmd))
 end
 
+local function printing(s)
+  print(s)
+  return s
+end
+
 --- @param path string
 --- @param alt_text string
 --- @return string
@@ -99,8 +104,9 @@ function M.process_file(path, alt_text)
   local thumb_tmp = vim.fn.tempname() .. "." .. ext
 
   -- Copy original file to temp files
-  vim.fn.system(string.format("cp '%s' '%s'", path, full_tmp))
-  vim.fn.system(string.format("cp '%s' '%s'", path, thumb_tmp))
+  -- TODO need to remove backslashes??
+  vim.fn.system(printing(string.format("cp '%s' '%s'", path, full_tmp)))
+  vim.fn.system(printing(string.format("cp '%s' '%s'", path, thumb_tmp)))
 
   -- Process images
   scale_image(thumb_tmp)
@@ -124,9 +130,6 @@ function M.process_file(path, alt_text)
     alt_text
   )
 
-  -- -- Copy to clipboard
-  -- vim.fn.system("pbcopy", html)
-
   -- Clean up temp files
   os.remove(full_tmp)
   os.remove(thumb_tmp)
@@ -143,8 +146,10 @@ vim.api.nvim_create_user_command('UploadImage', function(opts)
   local path = opts.args
   local alt_text = vim.fn.input('Alt text: ')
   local html = M.process_file(path, alt_text)
-  vim.api.nvim_put({html}, 'c', true, true)
+  vim.api.nvim_put({ html }, 'c', true, true)
   print("Image uploaded and inserted!")
-end, {nargs = 1})
+end, { nargs = 1 })
 
 return M
+
+

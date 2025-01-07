@@ -66,9 +66,9 @@ require("nfnl").setup()
 -- AI
 require("codecompanion").setup({
   display = {
-    diff = {
-      provider = "mini_diff",
-    },
+    -- diff = {
+    --   provider = "mini_diff",
+    -- },
   },
   strategies = {
     chat = {
