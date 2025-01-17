@@ -81,7 +81,6 @@ lsp.skip_server_setup({ 'eslint' })
 
 
 lsp.configure('kotlin_language_server', {})
-
 lsp.configure('dartls', {})
 lsp.configure('solargraph', {})
 

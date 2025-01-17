@@ -26,6 +26,7 @@ vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
 vim.opt.inccommand = "nosplit"
+vim.opt.laststatus = 3
 
 vim.cmd [[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
 
