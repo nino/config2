@@ -14,6 +14,15 @@ return {
   'tpope/vim-characterize',
   'rhysd/git-messenger.vim',
   {
+    'https://github.com/github/copilot.vim',
+    enabled = false,
+    config = function()
+      vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
+        ]]
+    end
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = { {
       "folke/lazydev.nvim",
@@ -347,9 +356,9 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp",          -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",    -- for providers='copilot'
+      "zbirenbaum/copilot.lua",      -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",

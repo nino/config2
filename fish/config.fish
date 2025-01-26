@@ -86,6 +86,7 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 export HOMEBREW_AUTO_UPDATE_SECS=600
 export CMAKE_GENERATOR=Ninja
+export CMAKE_PREFIX_PATH="/opt/homebrew:$CMAKE_PREFIX_PATH"
 export MAKEFLAGS="-j16"
 export VCPKG_ROOT=$HOME/code-friends/vcpkg
 fish_add_path $VCPKG_ROOT

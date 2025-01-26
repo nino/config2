@@ -26,7 +26,7 @@ vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
 vim.opt.inccommand = "nosplit"
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 
 vim.cmd [[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
 
@@ -96,8 +96,8 @@ vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
-vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
+-- vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
+-- vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
 
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
@@ -268,3 +268,5 @@ vim.cmd [[
 ]]
 
 require "fennelconfig"
+
+vim.keymap.set('o', 'ae', ':<C-u>normal! ggVG<CR>', {desc = 'entire buffer'})
