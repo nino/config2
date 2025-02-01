@@ -91,6 +91,9 @@ export MAKEFLAGS="-j16"
 export VCPKG_ROOT=$HOME/code-friends/vcpkg
 fish_add_path $VCPKG_ROOT
 # export VCPKG_TARGET_ARCHITECTURE=x64
+export PKG_CONFIG_PATH="$VCPKG_ROOT/installed/$TRIPLET/lib/pkgconfig:$PKG_CONFIG_PATH"
+export CMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+export TRIPLET='arm64-osx'
 
 function co
   set -l branch (git lb | uniquelines | fzf)
