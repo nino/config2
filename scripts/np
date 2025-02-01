@@ -32,13 +32,21 @@ if (!-e 'package.json') {
 
 my $exit_code;
 if (-e 'package-lock.json') {
-  if (@ARGV) {
+  if (@ARGV && $ARGV[0] eq 'add') {
+    shift @ARGV;  # Remove 'add' from arguments
+    $exit_code = system('npm install ' . join(' ', @ARGV));
+  } elsif (@ARGV) {
     $exit_code = system('npm run ' . join(' ', @ARGV));
   } else {
     $exit_code = system('npm i');
   }
 } else {
-  $exit_code = system('yarn ' . join(' ', @ARGV));
+  if (@ARGV && $ARGV[0] eq 'add') {
+    shift @ARGV;  # Remove 'add' from arguments
+    $exit_code = system('yarn add ' . join(' ', @ARGV));
+  } else {
+    $exit_code = system('yarn ' . join(' ', @ARGV));
+  }
 }
 
 exit($exit_code >> 8);
