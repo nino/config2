@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+import subprocess
+import multiprocessing
+from pathlib import Path
+
+
+def process_file(file):
+    if Path(file).exists():
+        print(f"Processing {file}…")
+
+        # Run ESLint
+        subprocess.run(["yarn", "exec", "eslint", "--", "--fix", file], check=False)
+
+        # Run Prettier
+        subprocess.run(["yarn", "exec", "prettier", "--", "--write", file], check=False)
+
+        # Re-stage the file
+        subprocess.run(["git", "add", file], check=False)
+
+
+def main():
+    # Get staged files
+    result = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMR"],
+        capture_output=True,
+        text=True,
+    )
+
+    staged_files = result.stdout.strip().split("\n")
+
+    if not staged_files or (len(staged_files) == 1 and not staged_files[0]):
+        print("No files are staged for commit.")
+        return
+
+    # Number of parallel processes - adjust based on your CPU
+    num_processes = max(multiprocessing.cpu_count() - 1, 1)
+
+    # Process files in parallel
+    with multiprocessing.Pool(num_processes) as pool:
+        pool.map(process_file, staged_files)
+
+    print("✨ Done processing staged files")
+
+
+if __name__ == "__main__":
+    main()
