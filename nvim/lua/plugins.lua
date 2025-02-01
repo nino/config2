@@ -15,7 +15,7 @@ return {
   'rhysd/git-messenger.vim',
   {
     'https://github.com/github/copilot.vim',
-    enabled = false,
+    enabled = true,
     config = function()
       vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
         let g:copilot_no_tab_map = v:true
@@ -344,9 +344,12 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
+    version = "*", -- set this to "*" if you want to always pull the latest change, false to update on release
     opts = {
       -- add any opts here
+      behaviour = {
+        auto_suggestions = false,  -- Experimental stage
+      }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",

@@ -67,8 +67,12 @@ vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
 
--- vim.keymap.set("n", "T", "gT")
--- vim.keymap.set("n", "t", "gt")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "T", "gT")
+vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
 vim.keymap.set("n", "<Leader>T", ":tab split<CR>"
 -- function() vim.cmd("tabe % | norm <c-o>") end
@@ -96,8 +100,6 @@ vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
--- vim.keymap.set("n", "<M-a>", vim.lsp.buf.code_action)
--- vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
 
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
@@ -117,6 +119,7 @@ vim.keymap.set("n", "<leader>p", function()
 end)
 
 vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
+vim.keymap.set("n", "<C-w>gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { desc = "Go to definition in new tab" })
 vim.keymap.set("n", "X", "dd")
 
 --- @param command string
@@ -200,6 +203,7 @@ vim.api.nvim_create_user_command("D", function(info)
 end, { nargs = "?" })
 
 vim.api.nvim_create_user_command("Re", function(info)
+  --- @type string | nil
   local new_name = info.args
   if #new_name == 0 then
     new_name = nil

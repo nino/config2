@@ -21,6 +21,8 @@ function CheckAppearance()
       hi NonText guifg=#eeeeee
       hi CursorLine guibg=#eeeeff
       hi htmlBold gui=bold
+      hi AvanteConflictCurrent guibg=#66CCFF
+      hi AvanteConflictIncoming guibg=#33FFAA
     ]]
   end
 
@@ -38,8 +40,8 @@ CheckAppearance()
 vim.api.nvim_create_user_command('CheckAppearance', function()
   CheckAppearance()
 end, {})
--- vim.api.nvim_create_autocmd("FocusGained", {
---   callback = function()
---     CheckAppearance()
---   end,
--- })
+vim.api.nvim_create_autocmd("FocusGained", {
+  callback = function()
+    CheckAppearance()
+  end,
+})

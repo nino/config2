@@ -1,5 +1,12 @@
 vim.diagnostic.config { virtual_text = false }
 
+-- Add toggle function and keymap for diagnostic virtual text
+local diagnostic_virtual_text = false
+vim.keymap.set('n', '<leader><M-d>', function()
+  diagnostic_virtual_text = not diagnostic_virtual_text
+  vim.diagnostic.config { virtual_text = diagnostic_virtual_text }
+end)
+
 -- LSP-zero
 local lsp = require('lsp-zero')
 local lspconfig = require('lspconfig')

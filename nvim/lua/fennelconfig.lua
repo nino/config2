@@ -15,8 +15,8 @@ local function _2_()
   return vim.cmd(("!open " .. util["current-WORD"]()))
 end
 vim.keymap.set("n", "gu", _2_)
-vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
 local cpp_indent
 do
   local env = os.getenv("CPP_INDENT")
