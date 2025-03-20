@@ -13,10 +13,6 @@
 
 (vim.keymap.set "n" "gu" (λ [] (vim.cmd (.. "!open " (util.current-WORD)))))
 
-(vim.keymap.set "n" "<C-n>" vim.diagnostic.goto_next)
-(vim.keymap.set "n" "<C-p>" vim.diagnostic.goto_prev)
-
-
 (local cpp-indent
        (let [env (os.getenv "CPP_INDENT")]
          (if env (tonumber env)

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+git checkout master
+git pull
+yarn
+yarn next lint 2> ~/lint_master.txt
+git checkout -
+yarn
+yarn next lint 2> ~/lint_other.txt
+
+nvim -c "edit ~/lint_other.txt | vsplit ~/lint_master.txt | windo diffthis"

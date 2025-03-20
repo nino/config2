@@ -75,7 +75,7 @@ lsp.configure('cmake', {})
 lsp.configure('asm_lsp', {})
 
 lsp.configure("terraformls", {})
-lsp.configure("vale_ls", {})
+-- lsp.configure("vale_ls", {})
 lsp.configure("gleam", {})
 lsp.configure('ruff', {})
 lsp.configure("pyright", {
@@ -84,7 +84,6 @@ lsp.configure("pyright", {
   end
 })
 lsp.skip_server_setup({ 'pylsp' })
-lsp.skip_server_setup({ 'eslint' })
 
 
 lsp.configure('kotlin_language_server', {})
@@ -101,31 +100,16 @@ lsp.configure('denols', {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
+lsp.configure('eslint', {});
 lsp.configure('ts_ls', {
   on_attach = function(client, bufnr)
-    -- client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormattingProvider = false
   end,
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false
 })
 lsp.configure('svelte', {})
 
--- lsp.configure('eslint', {
---    root_dir = lspconfig.util.root_pattern("package.json"),
---    single_file_support = false
--- })
-
--- lsp.configure('diagnosticls', {
---   settings = {
---     linters = {
---       {
---         eslint = {
---           command = "eslint"
---         }
---       }
---     }
---   }
--- })
 
 lsp.configure('julials', {})
 lsp.configure('lua_ls', {

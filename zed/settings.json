@@ -7,23 +7,25 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "show_edit_predictions": false,
   "features": {
+    "edit_prediction_provider": "zed"
   },
   "assistant": {
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-7-sonnet-latest"
     },
     "version": "2"
   },
   "theme": "macOS Classic Light",
-  "buffer_font_size": 11,
+  "buffer_font_size": 12,
   "ui_font_size": 13,
   "project_panel": {
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "Inconsolata LGC",
+  "buffer_font_family": "PragmataPro Mono Liga",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
@@ -37,5 +39,5 @@
     "show_parameter_hints": false,
     "show_other_hints": true
   },
-  "format_on_save": "off"
+  "format_on_save": "on"
 }

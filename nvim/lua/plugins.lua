@@ -15,7 +15,7 @@ return {
   'rhysd/git-messenger.vim',
   {
     'https://github.com/github/copilot.vim',
-    enabled = true,
+    enabled = false,
     config = function()
       vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
         let g:copilot_no_tab_map = v:true
@@ -228,6 +228,7 @@ return {
   'https://github.com/wsdjeg/vim-fetch',    -- Allow opening `path:linenr`
   {
     'https://github.com/Vigemus/iron.nvim', -- REPLs
+    enabled = false,
     config = function()
       local iron = require "iron.core"
       iron.setup {
@@ -342,13 +343,14 @@ return {
   { "https://github.com/Olical/nfnl",                  ft = "fennel" },
   {
     "yetone/avante.nvim",
+    enabled = false,
     event = "VeryLazy",
     lazy = false,
     version = "*", -- set this to "*" if you want to always pull the latest change, false to update on release
     opts = {
       -- add any opts here
       behaviour = {
-        auto_suggestions = false,  -- Experimental stage
+        auto_suggestions = false, -- Experimental stage
       }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -391,7 +393,7 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -461,4 +463,22 @@ return {
       cursor_color = "#FF00EE",
     },
   },
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  }
 }

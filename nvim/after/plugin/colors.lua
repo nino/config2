@@ -4,7 +4,7 @@ function CheckAppearance()
   local theme = vim.fn.system('defaults read -g AppleInterfaceStyle'):gsub('\n', '')
   if theme == 'Dark' then
     vim.o.background = 'dark'
-    vim.cmd('colorscheme modus_vivendi')
+    vim.cmd('colorscheme default')
     vim.cmd [[
       hi DiffText cterm=bold gui=bold ctermbg=225 guibg=DarkRed
       hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#1e1e1e
