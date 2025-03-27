@@ -8,4 +8,4 @@ git checkout -
 yarn
 yarn next lint 2> ~/lint_other.txt
 
-nvim -c "edit ~/lint_other.txt | vsplit ~/lint_master.txt | windo diffthis"
+nvim -c "edit ~/lint_other.txt | vsplit ~/lint_master.txt | windo %s/\d\+/xx/g | windo w | windo diffthis"

@@ -162,55 +162,55 @@ return {
       -- }
     },
     dependencies = {
-      {
-        "microsoft/vscode-js-debug",
-        -- After install, build it and rename the dist directory to out
-        build = "npm install && npx gulp vsDebugServerBundle && mv dist out",
-        -- version = "1.*",
-      },
-      {
-        "mxsdev/nvim-dap-vscode-js",
-        config = function()
-          ---@diagnostic disable-next-line: missing-fields
-          require("dap-vscode-js").setup({
-            -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-            -- node_path = "node",
+      -- {
+      --   "microsoft/vscode-js-debug",
+      --   -- After install, build it and rename the dist directory to out
+      --   build = "npm install && npx gulp vsDebugServerBundle && mv dist out",
+      --   -- version = "1.*",
+      -- },
+      --{
+      --  "mxsdev/nvim-dap-vscode-js",
+      --  config = function()
+      --    ---@diagnostic disable-next-line: missing-fields
+      --    require("dap-vscode-js").setup({
+      --      -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+      --      -- node_path = "node",
 
-            -- Path to vscode-js-debug installation.
-            debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+      --      -- Path to vscode-js-debug installation.
+      --      debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
 
-            -- Command to use to launch the debug server. Takes precedence over "node_path" and "debugger_path"
-            -- debugger_cmd = { "js-debug-adapter" },
+      --      -- Command to use to launch the debug server. Takes precedence over "node_path" and "debugger_path"
+      --      -- debugger_cmd = { "js-debug-adapter" },
 
-            -- which adapters to register in nvim-dap
-            adapters = {
-              "chrome",
-              "pwa-node",
-              "pwa-chrome",
-              "pwa-msedge",
-              "pwa-extensionHost",
-              "node-terminal",
-              "node",
-            },
+      --      -- which adapters to register in nvim-dap
+      --      adapters = {
+      --        "chrome",
+      --        "pwa-node",
+      --        "pwa-chrome",
+      --        "pwa-msedge",
+      --        "pwa-extensionHost",
+      --        "node-terminal",
+      --        "node",
+      --      },
 
-            -- Path for file logging
-            -- log_file_path = "(stdpath cache)/dap_vscode_js.log",
+      --      -- Path for file logging
+      --      -- log_file_path = "(stdpath cache)/dap_vscode_js.log",
 
-            -- Logging level for output to file. Set to false to disable logging.
-            -- log_file_level = false,
+      --      -- Logging level for output to file. Set to false to disable logging.
+      --      -- log_file_level = false,
 
-            -- Logging level for output to console. Set to false to disable console output.
-            -- log_console_level = vim.log.levels.ERROR,
-          })
-        end,
-      },
+      --      -- Logging level for output to console. Set to false to disable console output.
+      --      -- log_console_level = vim.log.levels.ERROR,
+      --    })
+      --  end,
+      --},
       {
         "Joakker/lua-json5",
         build = "./install.sh",
       },
     }
   },
-  'https://github.com/mxsdev/nvim-dap-vscode-js',
+  -- 'https://github.com/mxsdev/nvim-dap-vscode-js',
   'https://github.com/leoluz/nvim-dap-go',
   "nvim-neotest/nvim-nio",
   { 'https://github.com/rcarriga/nvim-dap-ui', requires = { "nvim-neotest/nvim-nio" } },
@@ -266,8 +266,6 @@ return {
       -- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
     end
   },
-  -- 'https://github.com/prisma/vim-prisma',
-  'https://github.com/simrat39/symbols-outline.nvim',
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/NoahTheDuke/vim-just',
   -- 'https://github.com/lukas-reineke/indent-blankline.nvim',
@@ -319,12 +317,10 @@ return {
       })
     end
   },
-  -- 'https://github.com/catppuccin/nvim',
-  -- 'https://github.com/Shatur/neovim-ayu',
-  -- 'https://github.com/uloco/bluloco.nvim',
-  'https://github.com/cweagans/vim-taskpaper',
+  { 'https://github.com/cweagans/vim-taskpaper', enabled = false },
   {
     'Julian/lean.nvim',
+    enabled = false,
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
 
     dependencies = {
@@ -340,7 +336,7 @@ return {
     }
   },
   -- 'https://github.com/mg979/vim-visual-multi',
-  { "https://github.com/Olical/nfnl",                  ft = "fennel" },
+  { "https://github.com/Olical/nfnl",            ft = "fennel" },
   {
     "yetone/avante.nvim",
     enabled = false,
@@ -432,7 +428,7 @@ return {
       vim.api.nvim_set_keymap("v", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
     end
   },
-  'https://github.com/stevearc/dressing.nvim',
+  { 'https://github.com/stevearc/dressing.nvim', enabled = true },
   'https://github.com/Sangdol/mintabline.vim',
   'https://github.com/vlime/vlime',
   {
@@ -447,10 +443,11 @@ return {
     }
   },
   -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
+  -- { 'https://github.com/chentau/marks.nvim' },
 
   -- Colors
   { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
-  'https://github.com/echasnovski/mini.diff',
+  -- 'https://github.com/echasnovski/mini.diff',
   { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
   {
     'https://github.com/sphamba/smear-cursor.nvim',

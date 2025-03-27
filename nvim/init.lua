@@ -47,8 +47,6 @@ vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
 
-local symbols_outline = require('symbols-outline')
-vim.keymap.set('n', '<M-s>', symbols_outline.toggle_outline, {})
 
 vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
