@@ -80,9 +80,9 @@ if [ -e /usr/local/bin/nvim ];
   export EDITOR=/usr/local/bin/nvim
 end
 
-export REACT_EDITOR='zed'
-export EDITOR='zed'
-export VISUAL='zed'
+export REACT_EDITOR='cursor'
+export EDITOR='cursor'
+export VISUAL='cursor'
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 export HOMEBREW_AUTO_UPDATE_SECS=600
