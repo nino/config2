@@ -103,17 +103,6 @@ function co
   else if [ "$1" = "merge" ];
     eval "git merge \"$branch\""
   end
-  # local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
-  # if [ ! -z $branch ]; then
-  #   if [ -z $1 ]; then
-  #     git checkout "$branch"
-  #   elif [ "$1" = "tig" ]; then
-  #     eval "tig \"$branch\""
-  #   else
-  #     local command="git $1 \"$branch\""
-  #     eval $command
-  #   fi
-  # fi
 end
 
 
@@ -123,20 +112,6 @@ end
 
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# if test -f /usr/local/Caskroom/miniconda/base/bin/conda
-#     eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
-# else
-#     if test -f "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-#         . "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-#     else
-#         set -x PATH "/usr/local/Caskroom/miniconda/base/bin" $PATH
-#     end
-# end
-# <<< conda initialize <<<
-
 
 ~/.local/bin/mise activate fish | source
 fish_add_path /Users/Nino/.modular/bin
