@@ -1,4 +1,4 @@
-vim.diagnostic.config { virtual_text = false }
+vim.diagnostic.config { virtual_text = false, jump = { float = true } }
 
 -- Add toggle function and keymap for diagnostic virtual text
 local diagnostic_virtual_text = false

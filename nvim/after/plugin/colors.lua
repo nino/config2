@@ -11,6 +11,7 @@ function CheckAppearance()
       hi NonText guifg=#333333
       hi CursorLine guibg=#222244
       hi htmlBold gui=bold
+      hi DiagnosticUnderlineError gui=underline guisp=#aa3333
     ]]
   else
     vim.o.background = 'light'
@@ -23,12 +24,12 @@ function CheckAppearance()
       hi htmlBold gui=bold
       hi AvanteConflictCurrent guibg=#66CCFF
       hi AvanteConflictIncoming guibg=#33FFAA
+      hi DiagnosticUnderlineError gui=underline guisp=#f29999
     ]]
   end
 
   vim.cmd [[
     hi Comment cterm=italic gui=italic
-    hi DiagnosticUnderlineError cterm=underline gui=undercurl
     hi htmlItalic gui=italic
     syntax match SpecialChar "…"
     syntax match SpecialChar "–"
