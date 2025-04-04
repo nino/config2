@@ -25,6 +25,7 @@ function CheckAppearance()
       hi AvanteConflictCurrent guibg=#66CCFF
       hi AvanteConflictIncoming guibg=#33FFAA
       hi DiagnosticUnderlineError gui=underline guisp=#f29999
+      hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
     ]]
   end
 
