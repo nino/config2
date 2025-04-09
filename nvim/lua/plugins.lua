@@ -339,7 +339,7 @@ return {
   { "https://github.com/Olical/nfnl",            ft = "fennel" },
   {
     "yetone/avante.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     lazy = false,
     version = "*", -- set this to "*" if you want to always pull the latest change, false to update on release
@@ -389,7 +389,7 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -477,5 +477,6 @@ return {
       { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
-  }
+  },
+  { 'https://github.com/delphinus/vim-firestore' },
 }
