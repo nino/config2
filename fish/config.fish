@@ -44,6 +44,9 @@ alias ynra='yarn'
 alias ayrn='yarn'
 alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
 alias rvlime='rlwrap sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
+alias pddraft='pandoc --pdf-engine=lualatex -V papersize:a5 -V documentclass:scrarticle -V classoption:oneside -V indent -V fontfamily:kpfonts --top-level-division=section  --shift-heading-level-by=0 -V microtypeoptions:protrusion=true,expansion=true,tracking=true,factor=500,stretch=30,shrink=30'
+alias stash='git stash --include-untracked'
+alias stpop='git stash pop'
 
 function save
   if test -z $argv;
@@ -80,6 +83,7 @@ if [ -e /usr/local/bin/nvim ];
   export EDITOR=/usr/local/bin/nvim
 end
 
+export GHOSTCONF="/Users/Nino/Library/Application Support/com.mitchellh.ghostty/config"
 export REACT_EDITOR='cursor'
 export EDITOR='cursor'
 export VISUAL='cursor'
