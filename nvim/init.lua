@@ -13,6 +13,8 @@ let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
 ]]
 
+vim.opt.number = true
+vim.opt.signcolumn = 'number'
 vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -117,7 +119,8 @@ vim.keymap.set("n", "<leader>p", function()
 end)
 
 vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
-vim.keymap.set("n", "<C-w>gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { desc = "Go to definition in new tab" })
+vim.keymap.set("n", "<C-w>gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
+  { desc = "Go to definition in new tab" })
 vim.keymap.set("n", "X", "dd")
 
 --- @param command string
@@ -271,4 +274,4 @@ vim.cmd [[
 
 require "fennelconfig"
 
-vim.keymap.set('o', 'ae', ':<C-u>normal! ggVG<CR>', {desc = 'entire buffer'})
+vim.keymap.set('o', 'ae', ':<C-u>normal! ggVG<CR>', { desc = 'entire buffer' })
