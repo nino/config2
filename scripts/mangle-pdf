@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+
+import { exec } from "child_process";
+import { mkdtemp, rm, readdir } from "fs/promises";
+import { join } from "path";
+import { promisify } from "util";
+import { tmpdir } from "os";
+import PQueue from "p-queue";
+
+const execAsync = promisify(exec);
+
+async function processPDF(inputPath, outputPath) {
+  const tempDir = await mkdtemp(join(tmpdir(), "mangle-pdf-"));
+  const queue = new PQueue({ concurrency: 32 });
+
+  try {
+    console.log("Converting PDF to images...");
+    // Convert PDF to images
+    await execAsync(
+      `magick convert -density 160 "${inputPath}" "${join(
+        tempDir,
+        "page_%03d.jpg"
+      )}"`
+    );
+
+    // List files in temp directory to verify conversion
+    const files = await readdir(tempDir);
+    const jpgFiles = files.filter(
+      (f) => f.startsWith("page_") && f.endsWith(".jpg")
+    );
+
+    if (jpgFiles.length === 0) {
+      throw new Error("No images were created from the PDF");
+    }
+
+    console.log(`Found ${jpgFiles.length} pages to process`);
+
+    for (const file of jpgFiles) {
+      queue.add(async () => {
+        const filePath = join(tempDir, file);
+        console.log(`Processing ${file}...`);
+
+        // Fuck shit up 🧨👊
+        const rotation = Math.random() * 3 - 1;
+        const blur = Math.random() * 0.5 + 0.2;
+        const noise = Math.random() * 0.1;
+
+        await execAsync(
+          `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} -noise ${noise} "${filePath}"`
+        );
+      });
+    }
+
+    // Wait for all tasks to complete
+    await queue.onEmpty();
+
+    console.log("Creating final PDF...");
+    await execAsync(
+      `magick convert "${join(tempDir, "page_*.jpg")}" "${outputPath}"`
+    );
+
+    console.log("Done!");
+  } catch (error) {
+    console.error("Error processing PDF:", error.message);
+    if (error.stderr) {
+      console.error("Command error output:", error.stderr);
+    }
+    throw error;
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+}
+
+// Parse command line arguments
+const args = process.argv.slice(2);
+let inputFile = "";
+let outputFile = "";
+
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === "-i" && i + 1 < args.length) {
+    inputFile = args[i + 1];
+    i++;
+  } else if (args[i] === "-o" && i + 1 < args.length) {
+    outputFile = args[i + 1];
+    i++;
+  }
+}
+
+if (!inputFile || !outputFile) {
+  console.error("Usage: mangle-pdf -i input.pdf -o output.pdf");
+  process.exit(1);
+}
+
+processPDF(inputFile, outputFile).catch((error) => {
+  console.error("Failed to process PDF:", error.message);
+  process.exit(1);
+});

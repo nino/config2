@@ -44,6 +44,9 @@ alias ynra='yarn'
 alias ayrn='yarn'
 alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
 alias rvlime='rlwrap sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
+alias pddraft='pandoc --pdf-engine=lualatex -V papersize:a5 -V documentclass:scrarticle -V classoption:oneside -V indent -V fontfamily:kpfonts --top-level-division=section  --shift-heading-level-by=0 -V microtypeoptions:protrusion=true,expansion=true,tracking=true,factor=500,stretch=30,shrink=30'
+alias stash='git stash --include-untracked'
+alias stpop='git stash pop'
 
 function save
   if test -z $argv;
@@ -80,9 +83,10 @@ if [ -e /usr/local/bin/nvim ];
   export EDITOR=/usr/local/bin/nvim
 end
 
-export REACT_EDITOR='zed'
-export EDITOR='zed'
-export VISUAL='zed'
+export GHOSTCONF="/Users/Nino/Library/Application Support/com.mitchellh.ghostty/config"
+export REACT_EDITOR='cursor'
+export EDITOR='cursor'
+export VISUAL='cursor'
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 export HOMEBREW_AUTO_UPDATE_SECS=600
@@ -103,17 +107,6 @@ function co
   else if [ "$1" = "merge" ];
     eval "git merge \"$branch\""
   end
-  # local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
-  # if [ ! -z $branch ]; then
-  #   if [ -z $1 ]; then
-  #     git checkout "$branch"
-  #   elif [ "$1" = "tig" ]; then
-  #     eval "tig \"$branch\""
-  #   else
-  #     local command="git $1 \"$branch\""
-  #     eval $command
-  #   fi
-  # fi
 end
 
 
@@ -123,20 +116,6 @@ end
 
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# if test -f /usr/local/Caskroom/miniconda/base/bin/conda
-#     eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
-# else
-#     if test -f "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-#         . "/usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-#     else
-#         set -x PATH "/usr/local/Caskroom/miniconda/base/bin" $PATH
-#     end
-# end
-# <<< conda initialize <<<
-
 
 ~/.local/bin/mise activate fish | source
 fish_add_path /Users/Nino/.modular/bin
