@@ -225,47 +225,47 @@ return {
     },
   },
 
-  'https://github.com/wsdjeg/vim-fetch',    -- Allow opening `path:linenr`
-  {
-    'https://github.com/Vigemus/iron.nvim', -- REPLs
-    enabled = false,
-    config = function()
-      local iron = require "iron.core"
-      iron.setup {
-        config = {
-          repl_definition = {
-            lisp = { command = "sbcl" },
-            lua = { command = "lua" },
-            ruby = { command = "pry" },
-            python = { command = "uv run ipython" },
-            fennel = { command = "fennel" },
-          },
-          keymaps = {
-            send_motion = "<m-i>",
-            visual_send = "<c-l>",
-            send_file = "<leader>sf",
-            send_line = "`ll",
-            send_until_cursor = "<leader>su",
-            send_mark = "<leader>sm",
-            mark_motion = "<leader>mc",
-            mark_visual = "<space>mc",
-            remove_mark = "<leader>md",
-            cr = "<leader>s<cr>",
-            interrupt = "<leader>s<leader>",
-            exit = "<leader>sq",
-            clear = "<leader>cl",
-          },
-        }
-      }
+  'https://github.com/wsdjeg/vim-fetch', -- Allow opening `path:linenr`
+  -- {
+  --   'https://github.com/Vigemus/iron.nvim', -- REPLs
+  --   enabled = false,
+  --   config = function()
+  --     local iron = require "iron.core"
+  --     iron.setup {
+  --       config = {
+  --         repl_definition = {
+  --           lisp = { command = "sbcl" },
+  --           lua = { command = "lua" },
+  --           ruby = { command = "pry" },
+  --           python = { command = "uv run ipython" },
+  --           fennel = { command = "fennel" },
+  --         },
+  --         keymaps = {
+  --           send_motion = "<m-i>",
+  --           visual_send = "<c-l>",
+  --           send_file = "<leader>sf",
+  --           send_line = "`ll",
+  --           send_until_cursor = "<leader>su",
+  --           send_mark = "<leader>sm",
+  --           mark_motion = "<leader>mc",
+  --           mark_visual = "<space>mc",
+  --           remove_mark = "<leader>md",
+  --           cr = "<leader>s<cr>",
+  --           interrupt = "<leader>s<leader>",
+  --           exit = "<leader>sq",
+  --           clear = "<leader>cl",
+  --         },
+  --       }
+  --     }
 
-      vim.keymap.set('n', '<leader>rs', '<cmd>IronRepl<cr>')
-      vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
-      vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
-      vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
-      vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})
-      -- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
-    end
-  },
+  --     vim.keymap.set('n', '<leader>rs', '<cmd>IronRepl<cr>')
+  --     vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
+  --     vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
+  --     vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
+  --     vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})
+  --     -- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
+  --   end
+  -- },
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/NoahTheDuke/vim-just',
   -- 'https://github.com/lukas-reineke/indent-blankline.nvim',
@@ -317,24 +317,24 @@ return {
       })
     end
   },
-  { 'https://github.com/cweagans/vim-taskpaper', enabled = false },
-  {
-    'Julian/lean.nvim',
-    enabled = false,
-    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+  -- { 'https://github.com/cweagans/vim-taskpaper', enabled = false },
+  -- {
+  --   'Julian/lean.nvim',
+  --   enabled = false,
+  --   event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
 
-    dependencies = {
-      'neovim/nvim-lspconfig',
-      'nvim-lua/plenary.nvim',
-      -- you also will likely want nvim-cmp or some completion engine
-    },
+  --   dependencies = {
+  --     'neovim/nvim-lspconfig',
+  --     'nvim-lua/plenary.nvim',
+  --     -- you also will likely want nvim-cmp or some completion engine
+  --   },
 
-    -- see details below for full configuration options
-    opts = {
-      lsp = {},
-      mappings = true,
-    }
-  },
+  --   -- see details below for full configuration options
+  --   opts = {
+  --     lsp = {},
+  --     mappings = true,
+  --   }
+  -- },
   -- 'https://github.com/mg979/vim-visual-multi',
   { "https://github.com/Olical/nfnl",            ft = "fennel" },
   {
@@ -342,12 +342,17 @@ return {
     enabled = true,
     event = "VeryLazy",
     lazy = false,
-    version = "*", -- set this to "*" if you want to always pull the latest change, false to update on release
+    version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
     opts = {
       -- add any opts here
+      provider = "claude",
       behaviour = {
         auto_suggestions = false, -- Experimental stage
-      }
+      },
+      windows = {
+        width = 40
+      },
+      hints = { enabled = false }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -387,47 +392,47 @@ return {
       },
     },
   },
-  {
-    "olimorris/codecompanion.nvim",
-    enabled = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("codecompanion").setup({
-        display = {
-          -- diff = {
-          --   provider = "mini_diff",
-          -- },
-        },
-        strategies = {
-          chat = {
-            adapter = "anthropic",
-          },
-          inline = {
-            adapter = "anthropic",
-          },
-          agent = {
-            adapter = "anthropic",
-          },
-        },
-        adapters = {
-          anthropic = function()
-            return require("codecompanion.adapters").extend("anthropic", {
-              env = {
-                api_key = os.getenv("ANTHROPIC_API_KEY")
-              },
-            })
-          end,
-        },
-      })
-      vim.api.nvim_set_keymap("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("v", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("v", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-    end
-  },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   enabled = false,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   config = function()
+  --     require("codecompanion").setup({
+  --       display = {
+  --         -- diff = {
+  --         --   provider = "mini_diff",
+  --         -- },
+  --       },
+  --       strategies = {
+  --         chat = {
+  --           adapter = "anthropic",
+  --         },
+  --         inline = {
+  --           adapter = "anthropic",
+  --         },
+  --         agent = {
+  --           adapter = "anthropic",
+  --         },
+  --       },
+  --       adapters = {
+  --         anthropic = function()
+  --           return require("codecompanion.adapters").extend("anthropic", {
+  --             env = {
+  --               api_key = os.getenv("ANTHROPIC_API_KEY")
+  --             },
+  --           })
+  --         end,
+  --       },
+  --     })
+  --     vim.api.nvim_set_keymap("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+  --     vim.api.nvim_set_keymap("v", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+  --     vim.api.nvim_set_keymap("n", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+  --     vim.api.nvim_set_keymap("v", "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+  --   end
+  -- },
   { 'https://github.com/stevearc/dressing.nvim', enabled = true },
   'https://github.com/Sangdol/mintabline.vim',
   'https://github.com/vlime/vlime',
@@ -443,12 +448,12 @@ return {
     }
   },
   -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
-  -- { 'https://github.com/chentau/marks.nvim' },
+  { 'https://github.com/chentau/marks.nvim' },
 
   -- Colors
   { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
   -- 'https://github.com/echasnovski/mini.diff',
-  { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
+  { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown", "codecompanion" } },
   {
     'https://github.com/sphamba/smear-cursor.nvim',
     enabled = false,

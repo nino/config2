@@ -19,6 +19,7 @@ vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+vim.opt.cursorline = false
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -81,6 +82,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\||||||||\\|>>>>>>><CR>")
 vim.keymap.set("n", "<Leader>w", ":set wrap!<CR>")
+vim.keymap.set("n", "<Leader>B", ":G blame<CR>")
 vim.keymap.set("n", "<Leader>D", ":Gdiff<CR>")
 vim.keymap.set("n", "<Leader>s", ":G<CR>")
 vim.keymap.set("n", "zs", "v%zf")
@@ -95,6 +97,7 @@ vim.keymap.set("n", "<M-l>", "5zl")
 vim.keymap.set("n", "<M-h>", "5zh")
 vim.keymap.set("n", "∑", "<c-w><c-c>")
 vim.keymap.set("n", "<M-w>", "<c-w><c-c>")
+vim.keymap.set("n", "<M-v>", "<c-w>v<c-w>l")
 vim.keymap.set("n", "ø", "<c-w><c-o>")
 vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
@@ -106,7 +109,7 @@ vim.keymap.set("n", "<M-2>", "@@")
 
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "_", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end)
-vim.keymap.set("n", "<leader>-", function() require('conform').format() end)
+vim.keymap.set("", "<leader>-", function() require('conform').format() end)
 vim.keymap.set("n", "<leader>p", function()
   if vim.bo.filetype == "python" then
     exec("black --quiet '" .. vim.fn.expand('%') .. "'")
@@ -141,8 +144,6 @@ vim.keymap.set("n", "cp", function()
 end)
 
 vim.cmd [[
-    imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-
     function! s:ToggleHere()
         let cursorcolumn = getcurpos()[2]
         if &colorcolumn == cursorcolumn

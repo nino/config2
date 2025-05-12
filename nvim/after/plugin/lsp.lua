@@ -64,6 +64,7 @@ lsp.on_attach(function(client, bufnr)
       })
 end)
 
+lsp.configure('zls', {})
 lsp.configure('tailwindcss', {})
 require('lspconfig').astro.setup({
   -- capabilities = capabilities,
@@ -86,6 +87,7 @@ lsp.configure("pyright", {
 lsp.skip_server_setup({ 'pylsp' })
 
 
+lsp.configure('gopls', {})
 lsp.configure('kotlin_language_server', {})
 lsp.configure('dartls', {})
 lsp.configure('solargraph', {})
