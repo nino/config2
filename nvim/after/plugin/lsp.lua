@@ -73,7 +73,7 @@ require('lspconfig').astro.setup({
 })
 lsp.configure('rust_analyzer', {})
 lsp.configure('cmake', {})
-lsp.configure('asm_lsp', {})
+-- lsp.configure('asm_lsp', {})
 
 lsp.configure("terraformls", {})
 -- lsp.configure("vale_ls", {})

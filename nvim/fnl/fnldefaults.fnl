@@ -23,7 +23,7 @@
 (set vim.opt.diffopt (+ vim.opt.diffopt [ "vertical" "followwrap" ]))
 (set vim.opt.diffopt (+ vim.opt.diffopt "iwhite"))
 (set vim.opt.diffopt (+ vim.opt.diffopt "linematch:40"))
-(set vim.opt.listchars "tab:⡇ ,nbsp:␣,trail:⌁,extends:→,precedes:←")
+(set vim.opt.listchars "tab:  ,nbsp:␣,trail:⌁,extends:→,precedes:←")
 (set vim.opt.fillchars (+ vim.opt.fillchars "eob:·"))
 (set vim.opt.list true)
 (set vim.opt.numberwidth 1)

@@ -43,7 +43,7 @@ impl Photographer {
     fn screenshoot_loop(&self) {
         loop {
             match self.do_screenshot() {
-                Ok(()) => sleep(Duration::from_secs(4)),
+                Ok(()) => sleep(Duration::from_secs(1)),
                 Err(reason) => {
                     println!("Error: {}", reason);
                     sleep(Duration::from_secs(60))

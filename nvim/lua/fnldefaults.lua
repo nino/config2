@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnldefaults.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnldefaults.fnl
 local util = require("fnlutils")
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -22,7 +22,7 @@ vim.opt.linebreak = true
 vim.opt.diffopt = (vim.opt.diffopt + {"vertical", "followwrap"})
 vim.opt.diffopt = (vim.opt.diffopt + "iwhite")
 vim.opt.diffopt = (vim.opt.diffopt + "linematch:40")
-vim.opt.listchars = "tab:\226\161\135 ,nbsp:\226\144\163,trail:\226\140\129,extends:\226\134\146,precedes:\226\134\144"
+vim.opt.listchars = "tab:  ,nbsp:\226\144\163,trail:\226\140\129,extends:\226\134\146,precedes:\226\134\144"
 vim.opt.fillchars = (vim.opt.fillchars + "eob:\194\183")
 vim.opt.list = true
 vim.opt.numberwidth = 1

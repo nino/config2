@@ -19,7 +19,19 @@ vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
-vim.opt.cursorline = false
+-- vim.opt.cursorline = false
+
+-- Enable cursorline only in quickfix windows
+-- vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+--   pattern = "*",
+--   callback = function()
+--     if vim.bo.buftype == "quickfix" then
+--       vim.opt_local.cursorline = true
+--     else
+--       -- vim.opt_local.cursorline = false
+--     end
+--   end
+-- })
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -50,7 +62,7 @@ vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
 
-
+vim.keymap.set('n', '<m-.>', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
@@ -101,6 +113,8 @@ vim.keymap.set("n", "<M-v>", "<c-w>v<c-w>l")
 vim.keymap.set("n", "ø", "<c-w><c-o>")
 vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
+vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1}) end)
+vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1}) end)
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 
