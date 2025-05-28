@@ -4,8 +4,10 @@ function CheckAppearance()
   local theme = vim.fn.system('defaults read -g AppleInterfaceStyle'):gsub('\n', '')
   if theme == 'Dark' then
     vim.o.background = 'dark'
-    -- vim.cmd('colorscheme vim')
+    vim.cmd('colorscheme quiet')
     vim.cmd [[
+      hi Normal guibg=clear
+      hi TabLineSel guibg=#999999
       " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=DarkRed
       " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#1e1e1e
       " hi NonText guifg=#333333
@@ -17,19 +19,24 @@ function CheckAppearance()
     ]]
   else
     vim.o.background = 'light'
-    -- vim.cmd('colorscheme vim')
+    -- vim.cmd('colorscheme quiet')
     vim.cmd [[
       hi Normal guibg=clear
+      hi Pmenu guibg=#eeeeee
+      hi DiagnosticError guifg=#660000
+      hi DiagnosticFloatingHint guifg=#111111
+      hi TabLineSel guibg=#EEEEEE
       " hi AvanteTitle guifg=#1e222a guibg=#98c379
       " hi AvanteReversedTitle guifg=#98c379
       " hi AvanteSubtitle guifg=#1e222a guibg=#56b6c2
       " hi AvanteReversedSubtitle guifg=#56b6c2
       " hi AvanteThirdTitle guifg=#abb2bf guibg=#353b45
       " hi AvanteReversedThirdTitle guifg=#353b45
-      " hi AvanteConflictCurrent cterm=bold gui=bold guibg=#66ccff
-      " hi AvanteConflictIncoming cterm=bold gui=bold guibg=#33ffaa
-      " hi AvanteConflictCurrentLabel guibg=#6f393e
-      " hi AvanteConflictIncomingLabel guibg=#3f5c6b
+      hi AvanteConflictCurrent cterm=bold gui=bold guibg=#66ccff
+      hi AvanteToBeDeletedWOStrikethrough cterm=bold gui=bold guibg=#66ccff
+      hi AvanteConflictIncoming cterm=bold gui=bold guibg=#33ffaa
+      hi AvanteConflictCurrentLabel guibg=#6f393e
+      hi AvanteConflictIncomingLabel guibg=#3f5c6b
       " hi def link AvantePopupHint NormalFloat
       " hi def link AvanteInlineHint Keyword
       " hi clear AvantePromptInput
@@ -38,13 +45,16 @@ function CheckAppearance()
       " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=LightRed
       " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
       " hi NonText guifg=#eeeeee
-      " hi CursorLine guibg=#eeeeff
+      hi CursorLine guibg=#eeeeff
+      hi CursorColumn guibg=#eeeeff
+      hi ColorColumn guibg=#eeeeff
       " hi htmlBold gui=bold
       " hi DiagnosticUnderlineError gui=underline guisp=#f29999
       " hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
       " hi DiagnosticUnderlineHint gui=underline guisp=#cccccc
       " hi SignColumn guibg=#eeeeee
       " hi LineNr guifg=#777777
+      hi Comment cterm=italic gui=italic guifg=#885588
     ]]
   end
   pcall(function()
@@ -53,7 +63,7 @@ function CheckAppearance()
 
   vim.cmd [[
     hi Cursor guibg=#FF00EE
-    hi Comment cterm=italic gui=italic
+    " hi Comment cterm=italic gui=italic
     hi htmlItalic gui=italic
     syntax match SpecialChar "…"
     syntax match SpecialChar "–"
