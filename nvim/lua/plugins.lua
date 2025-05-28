@@ -346,13 +346,21 @@ return {
     opts = {
       -- add any opts here
       provider = "claude",
+      claude = {
+        model = "claude-sonnet-4-20250514",
+      },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
       },
       windows = {
         width = 40
       },
-      hints = { enabled = false }
+      hints = { enabled = false },
+      highlights = {
+        diff = {
+          CURRENT = { name = "AvanteConflictCurrent", bg = "#66ccff", bold = true },
+        },
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -437,34 +445,18 @@ return {
   'https://github.com/Sangdol/mintabline.vim',
   'https://github.com/vlime/vlime',
   {
-    {
-
-      'https://github.com/Olical/conjure',
-      ft = { "clojure", "fennel" },
-      lazy = true,
-      init = function()
-        -- Any additional configuration can go here
-      end
-    }
+    'https://github.com/Olical/conjure',
+    ft = { "clojure", "fennel" },
+    lazy = true,
+    init = function()
+      -- Any additional configuration can go here
+    end
   },
-  -- 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
-  { 'https://github.com/chentau/marks.nvim' },
+  { 'https://github.com/chentau/marks.nvim',           enabled = false },
 
   -- Colors
-  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000 }, -- "Highly accessible"
-  -- 'https://github.com/echasnovski/mini.diff',
+  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,                     enabled = false }, -- "Highly accessible"
   { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown", "codecompanion" } },
-  {
-    'https://github.com/sphamba/smear-cursor.nvim',
-    enabled = false,
-    opts = {                         -- Default  Range
-      stiffness = 0.8,               -- 0.6      [0, 1]
-      trailing_stiffness = 0.5,      -- 0.3      [0, 1]
-      distance_stop_animating = 0.5, -- 0.1      > 0
-      hide_target_hack = false,      -- true     boolean
-      cursor_color = "#FF00EE",
-    },
-  },
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
@@ -483,5 +475,4 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-  { 'https://github.com/delphinus/vim-firestore' },
 }
