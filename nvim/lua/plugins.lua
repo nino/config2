@@ -39,7 +39,8 @@ return {
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
-  'L3MON4D3/LuaSnip', -- Required
+  -- 'L3MON4D3/LuaSnip',             -- Required
+
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -346,9 +347,9 @@ return {
     opts = {
       -- add any opts here
       provider = "claude",
-      claude = {
-        model = "claude-sonnet-4-20250514",
-      },
+      -- claude = {
+      --   -- model = "claude-sonnet-4-20250514",
+      -- },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
       },
@@ -455,7 +456,7 @@ return {
   { 'https://github.com/chentau/marks.nvim',           enabled = false },
 
   -- Colors
-  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,                     enabled = false }, -- "Highly accessible"
+  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,                     enabled = true }, -- "Highly accessible"
   { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown", "codecompanion" } },
   {
     "christoomey/vim-tmux-navigator",
