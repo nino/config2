@@ -4,10 +4,12 @@ function CheckAppearance()
   local theme = vim.fn.system('defaults read -g AppleInterfaceStyle'):gsub('\n', '')
   if theme == 'Dark' then
     vim.o.background = 'dark'
-    vim.cmd('colorscheme quiet')
+    vim.cmd('colorscheme modus')
     vim.cmd [[
-      hi Normal guibg=clear
+      " hi Normal guibg=clear
       hi TabLineSel guibg=#999999
+      hi DiagnosticUnderlineError gui=none
+      hi DiagnosticUnderlineWarn gui=none
       " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=DarkRed
       " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#1e1e1e
       " hi NonText guifg=#333333
@@ -19,9 +21,9 @@ function CheckAppearance()
     ]]
   else
     vim.o.background = 'light'
-    -- vim.cmd('colorscheme quiet')
+    vim.cmd('colorscheme modus')
     vim.cmd [[
-      hi Normal guibg=clear
+      " hi Normal guibg=clear
       hi Pmenu guibg=#eeeeee
       hi DiagnosticError guifg=#660000
       hi DiagnosticFloatingHint guifg=#111111
@@ -42,19 +44,24 @@ function CheckAppearance()
       " hi clear AvantePromptInput
       " hi def link AvantePromptInputBorder NormalFloat
 
-      " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=LightRed
+      hi DiffAdd guibg=#DDFFDD
+      hi DiffChange guibg=#DDDDDD
+      hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#EEEEFF
+      hi DiffDelete guifg=#FFDDDD guibg=#FFEEEE
+      hi diffRemoved guibg=#FFEEEE
+
       " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
       " hi NonText guifg=#eeeeee
       hi CursorLine guibg=#eeeeff
       hi CursorColumn guibg=#eeeeff
       hi ColorColumn guibg=#eeeeff
       " hi htmlBold gui=bold
-      " hi DiagnosticUnderlineError gui=underline guisp=#f29999
-      " hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
-      " hi DiagnosticUnderlineHint gui=underline guisp=#cccccc
+      hi DiagnosticUnderlineError gui=underline guisp=#f2AAAA
+      hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
+      hi DiagnosticUnderlineHint gui=underline guisp=#cccccc
       " hi SignColumn guibg=#eeeeee
       " hi LineNr guifg=#777777
-      hi Comment cterm=italic gui=italic guifg=#885588
+      " hi Comment cterm=italic gui=italic guifg=#885588
     ]]
   end
   pcall(function()
@@ -62,6 +69,8 @@ function CheckAppearance()
   end)
 
   vim.cmd [[
+    hi DiagnosticUnderlineError gui=none
+    hi DiagnosticUnderlineWarn gui=none
     hi Cursor guibg=#FF00EE
     " hi Comment cterm=italic gui=italic
     hi htmlItalic gui=italic
