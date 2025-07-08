@@ -1,4 +1,8 @@
---exclude=node_modules
+--exclude="**/node_modules/**"
+--exclude="*/node_modules/*"
+--exclude="node_modules/*"
+--exclude="node_modules/**"
+--exclude="node_modules/**/*"
 --exclude=tmp
 --exclude=dist
 --exclude=Carthage
@@ -18,4 +22,3 @@
 --exclude=build
 --exclude=.build
 --exclude=.conda
---exclude=packages/kennek/assets

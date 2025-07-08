@@ -64,7 +64,7 @@ lsp.on_attach(function(client, bufnr)
       })
 end)
 
-lsp.configure('css-lsp', {})
+-- lsp.configure('css-lsp', {})
 lsp.configure('zls', {})
 lsp.configure('tailwindcss', {})
 require('lspconfig').astro.setup({

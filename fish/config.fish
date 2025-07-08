@@ -7,6 +7,7 @@ fish_add_path /usr/local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
 fish_add_path ~/.local/context-osx-64/bin
+fish_add_path ~/code-friends/plinth/database-scripts/ninos-scripts/runnable
 
 alias l='eza -lh'
 alias la='eza -lha'
@@ -30,7 +31,7 @@ alias tst='tig status'
 alias vc='nvim -S `ls | grep .vim | fzf`'
 alias ydl="youtube-dl -f 'best[ext=mp4]' "
 alias yda="youtube-dl -x --audio-format mp3 "
-alias ct='ctags -R .'
+alias ct='ctags -R --exclude="**/node_modules/**" --exclude="node_modules/**/*" --exclude="models/classifier.json"'
 alias uuid='uuidgen | tr -d "\n" | tr "[:upper:]" "[:lower:]" | pbcopy'
 alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.lock'
 alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"

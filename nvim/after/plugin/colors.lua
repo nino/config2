@@ -23,7 +23,8 @@ function CheckAppearance()
     vim.o.background = 'light'
     vim.cmd('colorscheme modus')
     vim.cmd [[
-      " hi Normal guibg=clear
+      hi Normal guibg=clear
+      hi NormalNC guibg=clear
       hi Pmenu guibg=#eeeeee
       hi DiagnosticError guifg=#660000
       hi DiagnosticFloatingHint guifg=#111111
@@ -37,7 +38,7 @@ function CheckAppearance()
       hi AvanteConflictCurrent cterm=bold gui=bold guibg=#66ccff
       hi AvanteToBeDeletedWOStrikethrough cterm=bold gui=bold guibg=#66ccff
       hi AvanteConflictIncoming cterm=bold gui=bold guibg=#33ffaa
-      hi AvanteConflictCurrentLabel guibg=#6f393e
+      " hi AvanteConflictCurrentLabel guibg=#6f393e
       hi AvanteConflictIncomingLabel guibg=#3f5c6b
       " hi def link AvantePopupHint NormalFloat
       " hi def link AvanteInlineHint Keyword
@@ -45,7 +46,7 @@ function CheckAppearance()
       " hi def link AvantePromptInputBorder NormalFloat
 
       hi DiffAdd guibg=#DDFFDD
-      hi DiffChange guibg=#DDDDDD
+      hi DiffChange guibg=#FAFAFA
       hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#EEEEFF
       hi DiffDelete guifg=#FFDDDD guibg=#FFEEEE
       hi diffRemoved guibg=#FFEEEE

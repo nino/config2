@@ -4,7 +4,7 @@ local js_languages = { 'javascript', 'typescript', 'javascriptreact', 'typescrip
 
 return {
   'williamboman/mason.nvim',
-  { 'nvim-treesitter/nvim-treesitter',         run = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter',                                 run = ':TSUpdate' },
   'https://github.com/tpope/vim-commentary',
   'mbbill/undotree',
   'tpope/vim-fugitive',
@@ -39,7 +39,7 @@ return {
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
-  -- 'L3MON4D3/LuaSnip',             -- Required
+  'L3MON4D3/LuaSnip', -- Required
 
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -57,18 +57,19 @@ return {
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/cmp-buffer' },
-      { 'L3MON4D3/LuaSnip' },     -- Required
+      -- { 'hrsh7th/nvim-cmp' },     -- Required
+      -- { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      -- { 'hrsh7th/cmp-buffer' },
+      { 'L3MON4D3/LuaSnip' }, -- Required
     }
   },
   {
     'https://github.com/nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   },
-  'https://github.com/nvim-telescope/telescope-live-grep-args.nvim',
+  { 'https://github.com/nvim-telescope/telescope-live-grep-args.nvim', enabled = false },
   {
+    enabled = false,
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
       require("telescope").load_extension "frecency"
@@ -76,15 +77,16 @@ return {
   },
   'tpope/vim-repeat',
   'preservim/nerdtree',
-  'https://github.com/gleam-lang/gleam.vim',
+  { 'https://github.com/gleam-lang/gleam.vim',                       enabled = false },
   'https://github.com/godlygeek/tabular',
-  'https://github.com/guns/vim-sexp',
-  'https://github.com/tpope/vim-sexp-mappings-for-regular-people',
+  { 'https://github.com/guns/vim-sexp',                              enabled = false },
+  { 'https://github.com/tpope/vim-sexp-mappings-for-regular-people', enabled = false },
   'https://github.com/duane9/nvim-rg',
-  'elixir-editors/vim-elixir',
+  { 'elixir-editors/vim-elixir',             enabled = false },
 
   -- DAP
   {
+    enabled = false,
     'https://github.com/mfussenegger/nvim-dap',
     config = function()
       local dap = require "dap"
@@ -212,13 +214,14 @@ return {
     }
   },
   -- 'https://github.com/mxsdev/nvim-dap-vscode-js',
-  'https://github.com/leoluz/nvim-dap-go',
+  { 'https://github.com/leoluz/nvim-dap-go', enabled = false },
   "nvim-neotest/nvim-nio",
-  { 'https://github.com/rcarriga/nvim-dap-ui', requires = { "nvim-neotest/nvim-nio" } },
-  'https://github.com/theHamsta/nvim-dap-virtual-text',
-  'https://github.com/nvim-telescope/telescope-dap.nvim',
-  'https://github.com/mfussenegger/nvim-dap-python',
+  { 'https://github.com/rcarriga/nvim-dap-ui',              requires = { "nvim-neotest/nvim-nio" } },
+  { 'https://github.com/theHamsta/nvim-dap-virtual-text',   enabled = false },
+  { 'https://github.com/nvim-telescope/telescope-dap.nvim', enabled = false },
+  { 'https://github.com/mfussenegger/nvim-dap-python',      enabled = false },
   {
+    enabled = false,
     "julianolf/nvim-dap-lldb",
     dependencies = { "mfussenegger/nvim-dap" },
     opts = {
@@ -347,9 +350,11 @@ return {
     opts = {
       -- add any opts here
       provider = "claude",
-      -- claude = {
-      --   -- model = "claude-sonnet-4-20250514",
-      -- },
+      providers = {
+        claude = {
+          model = "claude-sonnet-4-20250514",
+        },
+      },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
       },
@@ -443,9 +448,10 @@ return {
   --   end
   -- },
   { 'https://github.com/stevearc/dressing.nvim', enabled = true },
-  'https://github.com/Sangdol/mintabline.vim',
+  { 'https://github.com/Sangdol/mintabline.vim', enabled = false },
   'https://github.com/vlime/vlime',
   {
+    enabled = false,
     'https://github.com/Olical/conjure',
     ft = { "clojure", "fennel" },
     lazy = true,

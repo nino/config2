@@ -16,6 +16,9 @@ enum Error {
     #[error("Unable convert screenshot path to string")]
     UnableToConvertScreenshotPathToString,
 
+    #[error("Unable to check if image is black: {reason}")]
+    UnableToCheckIfImageIsBlack { reason: String },
+
     #[error("IO Error")]
     IoError(#[from] std::io::Error),
 }
@@ -43,7 +46,15 @@ impl Photographer {
     fn screenshoot_loop(&self) {
         loop {
             match self.do_screenshot() {
-                Ok(()) => sleep(Duration::from_secs(1)),
+                Ok(is_black) => {
+                    if is_black {
+                        // Image was all black and deleted, wait 10 seconds
+                        sleep(Duration::from_secs(10))
+                    } else {
+                        // Normal screenshot, wait 1 second
+                        sleep(Duration::from_secs(1))
+                    }
+                }
                 Err(reason) => {
                     println!("Error: {}", reason);
                     sleep(Duration::from_secs(60))
@@ -52,7 +63,7 @@ impl Photographer {
         }
     }
 
-    fn do_screenshot(&self) -> Result<(), Error> {
+    fn do_screenshot(&self) -> Result<bool, Error> {
         let day_dir = self.create_day_dir_if_needed()?;
         let screenshot_path = String::from(
             day_dir
@@ -62,7 +73,15 @@ impl Photographer {
         );
         capture_screenshot(&screenshot_path)?;
         resize_screenshot(&screenshot_path)?;
-        Ok(())
+
+        // Check if the image is all black
+        if is_image_all_black(&screenshot_path)? {
+            println!("Screenshot is all black, deleting: {}", screenshot_path);
+            std::fs::remove_file(&screenshot_path)?;
+            Ok(true) // Return true to indicate image was black and deleted
+        } else {
+            Ok(false) // Return false for normal screenshots
+        }
     }
 }
 
@@ -110,6 +129,31 @@ fn resize_screenshot(file_path: &str) -> Result<(), Error> {
     } else {
         Err(Error::UnableToResizeScreenshot {
             path: file_path.to_string(),
+            reason: output.stderr_as_string(),
+        })
+    }
+}
+
+fn is_image_all_black(file_path: &str) -> Result<bool, Error> {
+    // Use ImageMagick's identify command to get mean pixel value
+    // For a completely black image, the mean should be 0
+    let output = Command::new("identify")
+        .args(&["-format", "%[mean]", file_path])
+        .output()?;
+
+    if output.status.success() {
+        let mean_str = String::from_utf8_lossy(&output.stdout).trim().to_string();
+        let mean_value: f64 = mean_str
+            .parse()
+            .map_err(|e| Error::UnableToCheckIfImageIsBlack {
+                reason: format!("Failed to parse mean value '{}': {}", mean_str, e),
+            })?;
+
+        // Consider image "all black" if mean pixel value is very close to 0
+        // Using a small threshold to account for potential compression artifacts
+        Ok(mean_value < 1.0)
+    } else {
+        Err(Error::UnableToCheckIfImageIsBlack {
             reason: output.stderr_as_string(),
         })
     }

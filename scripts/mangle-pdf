@@ -17,7 +17,7 @@ async function processPDF(inputPath, outputPath) {
     console.log("Converting PDF to images...");
     // Convert PDF to images
     await execAsync(
-      `magick convert -density 160 "${inputPath}" "${join(
+      `magick convert -density 260 "${inputPath}" "${join(
         tempDir,
         "page_%03d.jpg"
       )}"`
@@ -40,19 +40,32 @@ async function processPDF(inputPath, outputPath) {
         const filePath = join(tempDir, file);
         console.log(`Processing ${file}...`);
 
+        // Check if file exists before processing
+        try {
+          await execAsync(`ls -la "${filePath}"`);
+        } catch (error) {
+          console.error(`File ${filePath} does not exist`);
+          throw error;
+        }
+
         // Fuck shit up 🧨👊
         const rotation = Math.random() * 3 - 1;
         const blur = Math.random() * 0.5 + 0.2;
-        const noise = Math.random() * 0.1;
+        const noiseLevel = Math.random() * 10 + 5; // Adjust noise level for -statistic NonPeak
 
-        await execAsync(
-          `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} -noise ${noise} "${filePath}"`
-        );
+        try {
+          await execAsync(
+            `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} -statistic NonPeak ${noiseLevel}x${noiseLevel} "${filePath}"`
+          );
+        } catch (error) {
+          console.error(`Error processing ${file}:`, error.message);
+          throw error;
+        }
       });
     }
 
     // Wait for all tasks to complete
-    await queue.onEmpty();
+    await queue.onIdle();
 
     console.log("Creating final PDF...");
     await execAsync(

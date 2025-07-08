@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yarn next lint 2> ~/lint_master.txt

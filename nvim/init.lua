@@ -57,7 +57,7 @@ local telescope = require("telescope")
 vim.keymap.set('n', '<leader>ff', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
 vim.keymap.set('n', '<c-f>', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
 vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
@@ -216,6 +216,7 @@ vim.api.nvim_create_user_command("D", function(info)
     main_branch = "main"
   end
   vim.cmd("Gvdiffsplit " .. main_branch .. ":%")
+  vim.cmd("norm zR<c-w>l")
 end, { nargs = "?" })
 
 vim.api.nvim_create_user_command("Re", function(info)
@@ -243,6 +244,10 @@ end, { nargs = "?" })
 --- Add current line to the loclist. Might be nicer than using marks.
 vim.api.nvim_create_user_command("L", function()
   vim.cmd [[ ladd expand("%") .. ":" .. line(".") .. ":" .. getline(".") ]]
+end, {})
+
+vim.api.nvim_create_user_command("MD", function()
+  vim.cmd [[ !mkdir -p %:p:h ]]
 end, {})
 
 -- vim.cmd [[
