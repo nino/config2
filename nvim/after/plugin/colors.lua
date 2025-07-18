@@ -46,8 +46,8 @@ function CheckAppearance()
       " hi def link AvantePromptInputBorder NormalFloat
 
       hi DiffAdd guibg=#DDFFDD
-      hi DiffChange guibg=#FAFAFA
-      hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#EEEEFF
+      hi DiffChange guibg=#DDFFDD
+      hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#BBEEBB
       hi DiffDelete guifg=#FFDDDD guibg=#FFEEEE
       hi diffRemoved guibg=#FFEEEE
 
