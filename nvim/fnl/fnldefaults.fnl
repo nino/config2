@@ -8,7 +8,7 @@
 (set vim.opt.number true)
 (set vim.opt.termguicolors true)
 (set vim.opt.signcolumn "yes")
-(set vim.opt.scrolloff 1)
+(set vim.opt.scrolloff 0)
 (set vim.opt.smartindent false)
 (set vim.opt.autoread true)
 (set vim.opt.cursorline true)
