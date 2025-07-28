@@ -247,7 +247,7 @@ vim.api.nvim_create_user_command("L", function()
 end, {})
 
 vim.api.nvim_create_user_command("MD", function()
-  vim.cmd [[ !mkdir -p %:p:h ]]
+  vim.cmd [[ !mkdir -p '%:p:h' ]]
 end, {})
 
 -- vim.cmd [[
