@@ -53,7 +53,7 @@ function CheckAppearance()
 
       " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
       " hi NonText guifg=#eeeeee
-      hi CursorLine guibg=#eeeeff
+      hi CursorLine guibg=#fafafd
       hi CursorColumn guibg=#eeeeff
       hi ColorColumn guibg=#eeeeff
       " hi htmlBold gui=bold
