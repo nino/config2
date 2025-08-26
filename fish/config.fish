@@ -8,6 +8,7 @@ fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
 fish_add_path ~/.local/context-osx-64/bin
 fish_add_path ~/code-friends/plinth/database-scripts/ninos-scripts/runnable
+fish_add_path ~/Developer/plinth/database-scripts/ninos-scripts/runnable
 
 alias l='eza -lh'
 alias la='eza -lha'
@@ -76,7 +77,7 @@ function maybe_source
 end
 
 source ~/.config/fish/git.fish
-source ~/.config/secret-config2/fish/secret.fish
+source ~/secret-config2/fish/secret.fish
 if [ -f ~/credentials ];
   source ~/credentials
 end

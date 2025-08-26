@@ -1,32 +1,32 @@
-vim.diagnostic.config { virtual_text = false, jump = { float = true } }
+vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
 -- Add toggle function and keymap for diagnostic virtual text
 local diagnostic_virtual_text = false
-vim.keymap.set('n', '<leader><M-d>', function()
+vim.keymap.set("n", "<leader><M-d>", function()
   diagnostic_virtual_text = not diagnostic_virtual_text
-  vim.diagnostic.config { virtual_text = diagnostic_virtual_text }
+  vim.diagnostic.config({ virtual_text = diagnostic_virtual_text })
 end)
 
 -- LSP-zero
-local lsp = require('lsp-zero')
-local lspconfig = require('lspconfig')
+local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 lsp.preset("recommended")
 lsp.ensure_installed({
   -- 'tsserver',
-  'rust_analyzer',
-  'lua_ls',
-  'tailwindcss',
+  "rust_analyzer",
+  "lua_ls",
+  "tailwindcss",
   -- 'gopls',
   -- 'pyright',
-  'diagnosticls',
-  'terraformls',
+  "diagnosticls",
+  "terraformls",
 })
 
-require('lint').linters_by_ft = {
-  typescript = { 'eslint', },
-  typescriptreact = { 'eslint', },
-  javascript = { 'eslint', },
-  javascriptreact = { 'eslint', },
+require("lint").linters_by_ft = {
+  typescript = { "eslint" },
+  typescriptreact = { "eslint" },
+  javascript = { "eslint" },
+  javascriptreact = { "eslint" },
   -- python = { 'flake8' },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
@@ -53,45 +53,43 @@ require("conform").setup({
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
-  vim.lsp.handlers["textDocument/publishDiagnostics"] =
-      vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- disable virtual text
-        virtual_text = false,
-        -- show signs
-        signs = true,
-        -- delay update diagnostics
-        update_in_insert = false
-      })
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- disable virtual text
+    virtual_text = false,
+    -- show signs
+    signs = true,
+    -- delay update diagnostics
+    update_in_insert = false,
+  })
 end)
 
 -- lsp.configure('css-lsp', {})
-lsp.configure('zls', {})
-lsp.configure('tailwindcss', {})
-require('lspconfig').astro.setup({
+lsp.configure("zls", {})
+lsp.configure("tailwindcss", {})
+require("lspconfig").astro.setup({
   -- capabilities = capabilities,
   -- on_attach = on_attach,
-  filetypes = { "astro" }
+  filetypes = { "astro" },
 })
-lsp.configure('rust_analyzer', {})
-lsp.configure('cmake', {})
+lsp.configure("rust_analyzer", {})
+lsp.configure("cmake", {})
 -- lsp.configure('asm_lsp', {})
 
 lsp.configure("terraformls", {})
 -- lsp.configure("vale_ls", {})
 lsp.configure("gleam", {})
-lsp.configure('ruff', {})
+lsp.configure("ruff", {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
-  end
+  end,
 })
-lsp.skip_server_setup({ 'pylsp' })
+lsp.skip_server_setup({ "pylsp" })
 
-
-lsp.configure('gopls', {})
-lsp.configure('kotlin_language_server', {})
-lsp.configure('dartls', {})
-lsp.configure('solargraph', {})
+lsp.configure("gopls", {})
+lsp.configure("kotlin_language_server", {})
+lsp.configure("dartls", {})
+lsp.configure("solargraph", {})
 
 lsp.skip_server_setup("clangd")
 -- lsp.configure('clangd', {
@@ -99,23 +97,22 @@ lsp.skip_server_setup("clangd")
 --     offsetEncoding = "utf-8"
 --   }
 -- })
-lsp.configure('denols', {
+lsp.configure("denols", {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-lsp.configure('eslint', {});
-lsp.configure('ts_ls', {
+lsp.configure("eslint", {})
+lsp.configure("ts_ls", {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end,
   root_dir = lspconfig.util.root_pattern("package.json"),
-  single_file_support = false
+  single_file_support = false,
 })
-lsp.configure('svelte', {})
+lsp.configure("svelte", {})
 
-
-lsp.configure('julials', {})
-lsp.configure('lua_ls', {
+lsp.configure("julials", {})
+lsp.configure("lua_ls", {
   settings = {
     Lua = {
       diagnostics = {
@@ -126,9 +123,9 @@ lsp.configure('lua_ls', {
         undefinedGlobal = "Error",
         -- disable = { "lowercase-global" }
         ["lowercase-global"] = "Error",
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 -- lsp.skip_server_setup('sourcekit')
@@ -137,13 +134,13 @@ lsp.configure("sourcekit", {})
 lsp.setup()
 
 -- LSP-zero-powered auto-completion
-local cmp = require('cmp')
+local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  ['<C-f>'] = cmp.mapping.confirm({ select = true }),
+  ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+  ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+  ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  ["<C-f>"] = cmp.mapping.confirm({ select = true }),
   ["<C-space>"] = cmp.mapping.complete(),
 })
 
@@ -151,14 +148,14 @@ cmp.setup({
   completion = { autocomplete = false },
   mapping = cmp_mappings,
   sources = {
-    { name = 'nvim_lsp' },
+    { name = "nvim_lsp" },
     {
-      name = 'buffer',
+      name = "buffer",
       option = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
-        end
-      }
+        end,
+      },
     },
   },
 })
