@@ -6,3 +6,5 @@
 - Remove unused imports
 - In new code, fully qualify React API names. So, write `import React from "react";` and `React.useState(...)`. You don't need to change existing imports unless asked to.
 - The final item on your todo list should always be to fix any CLAUDE.md/AGENTS.md/etc guideline violations in code you added or edited
+- I have comby installed, so you can use that for structured find & replace
+

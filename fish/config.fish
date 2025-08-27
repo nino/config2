@@ -76,6 +76,7 @@ function maybe_source
   end
 end
 
+source ~/.config/fish/worktrees.fish
 source ~/.config/fish/git.fish
 source ~/secret-config2/fish/secret.fish
 if [ -f ~/credentials ];
@@ -87,9 +88,9 @@ if [ -e /usr/local/bin/nvim ];
 end
 
 export GHOSTCONF="/Users/Nino/Library/Application Support/com.mitchellh.ghostty/config"
-export REACT_EDITOR='cursor'
-export EDITOR='cursor'
-export VISUAL='cursor'
+export REACT_EDITOR='nvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
 export HOMEBREW_AUTO_UPDATE_SECS=600
