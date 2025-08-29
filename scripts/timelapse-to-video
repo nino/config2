@@ -10,7 +10,7 @@ images_path = File.join(timelapse_root_path, day, '%5d.jpg')
 time = Time.now.strftime('%H-%M-%S')
 out_path = File.join(timelapse_root_path, "#{day}--#{time}.mov")
 
-command = "ffmpeg -y -framerate 15 -i #{images_path} -vcodec libx265 -crf 35 -preset veryslow -vf \"format=yuv420p\" #{out_path}" # \
+command = "ffmpeg -y -framerate 15 -i #{images_path} -vcodec libx265 -crf 35 -preset veryslow -vf \"scale=1280:800:force_original_aspect_ratio=decrease,pad=1280:800:(ow-iw)/2:(oh-ih)/2:black,format=yuv420p\" #{out_path}" # \
 
 puts "Command: »#{command}»"
 system command
