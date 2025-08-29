@@ -11,7 +11,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "anthropic",
       "model": "claude-3-7-sonnet-latest"
@@ -25,7 +25,7 @@
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "PragmataPro Mono Liga",
+  "buffer_font_family": "Inconsolata",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,

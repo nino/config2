@@ -13,13 +13,13 @@ local lspconfig = require('lspconfig')
 lsp.preset("recommended")
 lsp.ensure_installed({
   -- 'tsserver',
-  'rust_analyzer',
-  'lua_ls',
-  'tailwindcss',
+  -- 'rust_analyzer',
+  -- 'lua_ls',
+  -- 'tailwindcss',
   -- 'gopls',
   -- 'pyright',
-  'diagnosticls',
-  'terraformls',
+  -- 'diagnosticls',
+  -- 'terraformls',
 })
 
 require('lint').linters_by_ft = {
@@ -51,18 +51,18 @@ require("conform").setup({
   },
 })
 
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({ buffer = bufnr })
-  vim.lsp.handlers["textDocument/publishDiagnostics"] =
-      vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- disable virtual text
-        virtual_text = false,
-        -- show signs
-        signs = true,
-        -- delay update diagnostics
-        update_in_insert = false
-      })
-end)
+-- lsp.on_attach(function(client, bufnr)
+--   lsp.default_keymaps({ buffer = bufnr })
+--   vim.lsp.handlers["textDocument/publishDiagnostics"] =
+--       vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--         -- disable virtual text
+--         virtual_text = false,
+--         -- show signs
+--         signs = true,
+--         -- delay update diagnostics
+--         update_in_insert = false
+--       })
+-- end)
 
 -- lsp.configure('css-lsp', {})
 lsp.configure('zls', {})
@@ -76,10 +76,10 @@ lsp.configure('rust_analyzer', {})
 lsp.configure('cmake', {})
 -- lsp.configure('asm_lsp', {})
 
-lsp.configure("terraformls", {})
+-- lsp.configure("terraformls", {})
 -- lsp.configure("vale_ls", {})
-lsp.configure("gleam", {})
-lsp.configure('ruff', {})
+-- lsp.configure("gleam", {})
+-- lsp.configure('ruff', {})
 lsp.configure("pyright", {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
@@ -88,22 +88,30 @@ lsp.configure("pyright", {
 lsp.skip_server_setup({ 'pylsp' })
 
 
-lsp.configure('gopls', {})
-lsp.configure('kotlin_language_server', {})
-lsp.configure('dartls', {})
-lsp.configure('solargraph', {})
+-- lsp.configure('gopls', {})
+-- lsp.configure('kotlin_language_server', {})
+-- lsp.configure('dartls', {})
+-- lsp.configure('solargraph', {})
 
-lsp.skip_server_setup("clangd")
--- lsp.configure('clangd', {
---   capabilities = {
---     offsetEncoding = "utf-8"
---   }
--- })
+-- lsp.skip_server_setup("clangd")
+lsp.configure('clangd', {
+  capabilities = {
+    offsetEncoding = "utf-8"
+  }
+})
 lsp.configure('denols', {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
 lsp.configure('eslint', {});
+
+-- lsp.configure('vtsls', {
+--   on_attach = function(client, bufnr)
+--     client.server_capabilities.documentFormattingProvider = false
+--   end,
+--   root_dir = lspconfig.util.root_pattern("package.json"),
+--   single_file_support = false
+-- })
 lsp.configure('ts_ls', {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
@@ -111,10 +119,10 @@ lsp.configure('ts_ls', {
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false
 })
-lsp.configure('svelte', {})
+-- lsp.configure('svelte', {})
 
 
-lsp.configure('julials', {})
+-- lsp.configure('julials', {})
 lsp.configure('lua_ls', {
   settings = {
     Lua = {
@@ -132,7 +140,7 @@ lsp.configure('lua_ls', {
 })
 
 -- lsp.skip_server_setup('sourcekit')
-lsp.configure("sourcekit", {})
+-- lsp.configure("sourcekit", {})
 
 lsp.setup()
 
@@ -162,3 +170,8 @@ cmp.setup({
     },
   },
 })
+
+
+-- vim.keymap.set('n', '<leader>td', function()
+--   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+-- end, { silent = true, noremap = true })

@@ -11,25 +11,17 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "agent": {
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-7-sonnet-latest"
-    },
-    "version": "2"
-  },
   "theme": "macOS Classic Light",
-  "buffer_font_size": 12,
+  "buffer_font_size": 11,
   "ui_font_size": 13,
   "project_panel": {
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "Inconsolata",
+  "buffer_font_family": "Fira Code",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
-  "indent_size": 2,
   "cursor_blink": false,
   "show_completion_documentation": true,
   "auto_update": true,

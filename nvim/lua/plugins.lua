@@ -68,13 +68,6 @@ return {
     requires = { { 'nvim-lua/plenary.nvim' } }
   },
   { 'https://github.com/nvim-telescope/telescope-live-grep-args.nvim', enabled = false },
-  {
-    enabled = false,
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension "frecency"
-    end,
-  },
   'tpope/vim-repeat',
   'preservim/nerdtree',
   { 'https://github.com/gleam-lang/gleam.vim',                       enabled = false },
@@ -230,46 +223,6 @@ return {
   },
 
   'https://github.com/wsdjeg/vim-fetch', -- Allow opening `path:linenr`
-  -- {
-  --   'https://github.com/Vigemus/iron.nvim', -- REPLs
-  --   enabled = false,
-  --   config = function()
-  --     local iron = require "iron.core"
-  --     iron.setup {
-  --       config = {
-  --         repl_definition = {
-  --           lisp = { command = "sbcl" },
-  --           lua = { command = "lua" },
-  --           ruby = { command = "pry" },
-  --           python = { command = "uv run ipython" },
-  --           fennel = { command = "fennel" },
-  --         },
-  --         keymaps = {
-  --           send_motion = "<m-i>",
-  --           visual_send = "<c-l>",
-  --           send_file = "<leader>sf",
-  --           send_line = "`ll",
-  --           send_until_cursor = "<leader>su",
-  --           send_mark = "<leader>sm",
-  --           mark_motion = "<leader>mc",
-  --           mark_visual = "<space>mc",
-  --           remove_mark = "<leader>md",
-  --           cr = "<leader>s<cr>",
-  --           interrupt = "<leader>s<leader>",
-  --           exit = "<leader>sq",
-  --           clear = "<leader>cl",
-  --         },
-  --       }
-  --     }
-
-  --     vim.keymap.set('n', '<leader>rs', '<cmd>IronRepl<cr>')
-  --     vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
-  --     vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
-  --     vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')
-  --     vim.keymap.set('v', '<c-l>', function() iron.visual_send() end, {})
-  --     -- vim.keymap.set('n', '<m-i>', function() iron.send_motion() end, {})
-  --   end
-  -- },
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/NoahTheDuke/vim-just',
   -- 'https://github.com/lukas-reineke/indent-blankline.nvim',

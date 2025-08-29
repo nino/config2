@@ -62,6 +62,7 @@ vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
 
+vim.keymap.set('n', '<m-a>', vim.cmd.e)
 vim.keymap.set('n', '<m-.>', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
 
@@ -113,8 +114,8 @@ vim.keymap.set("n", "<M-v>", "<c-w>v<c-w>l")
 vim.keymap.set("n", "ø", "<c-w><c-o>")
 vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
-vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1}) end)
-vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1}) end)
+vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1 }) end)
+vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1 }) end)
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 
@@ -132,6 +133,10 @@ vim.keymap.set("n", "<leader>p", function()
   else
     exec("prettier --write '" .. vim.fn.expand('%') .. "'")
   end
+  vim.cmd "e"
+end)
+vim.keymap.set("n", "<leader>P", function()
+  exec("prettier --write --prose-wrap=always '" .. vim.fn.expand('%') .. "'")
   vim.cmd "e"
 end)
 
