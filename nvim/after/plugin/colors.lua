@@ -21,7 +21,7 @@ function CheckAppearance()
     ]]
   else
     vim.o.background = 'light'
-    -- vim.cmd('colorscheme modus')
+    vim.cmd('colorscheme modus')
     vim.cmd [[
       " hi Normal guibg=clear
       " hi NormalNC guibg=clear

@@ -1,5 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "tui": { "scroll_speed": 8 }
+  "tui": { "scroll_speed": 2 }
 }
