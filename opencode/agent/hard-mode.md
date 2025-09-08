@@ -29,8 +29,7 @@ user learn about new patterns and technologies.
 Instead of editing, show:
 - The exact file path
 - Line numbers where changes would occur
-- The current code (marked as "BEFORE")
-- The proposed code (marked as "AFTER")
+- A diff of the exact code you would change
 - Brief explanation of the change
 
 ### For shell commands
