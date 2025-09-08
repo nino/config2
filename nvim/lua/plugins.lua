@@ -10,18 +10,9 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-surround',
-  'editorconfig/editorconfig-vim',
+  -- 'editorconfig/editorconfig-vim', -- (might not need this anymore?)
   'tpope/vim-characterize',
-  'rhysd/git-messenger.vim',
-  {
-    'https://github.com/github/copilot.vim',
-    enabled = false,
-    config = function()
-      vim.cmd [[imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-        let g:copilot_no_tab_map = v:true
-        ]]
-    end
-  },
+  -- 'rhysd/git-messenger.vim',
   {
     'neovim/nvim-lspconfig',
     dependencies = { {
@@ -75,7 +66,7 @@ return {
   { 'https://github.com/guns/vim-sexp',                              enabled = false },
   { 'https://github.com/tpope/vim-sexp-mappings-for-regular-people', enabled = false },
   'https://github.com/duane9/nvim-rg',
-  { 'elixir-editors/vim-elixir',             enabled = false },
+  -- { 'elixir-editors/vim-elixir',             enabled = false },
 
   -- DAP
   {
@@ -207,7 +198,7 @@ return {
     }
   },
   -- 'https://github.com/mxsdev/nvim-dap-vscode-js',
-  { 'https://github.com/leoluz/nvim-dap-go', enabled = false },
+  { 'https://github.com/leoluz/nvim-dap-go',                enabled = false },
   "nvim-neotest/nvim-nio",
   { 'https://github.com/rcarriga/nvim-dap-ui',              requires = { "nvim-neotest/nvim-nio" } },
   { 'https://github.com/theHamsta/nvim-dap-virtual-text',   enabled = false },
@@ -233,13 +224,12 @@ return {
       require("conform").setup()
     end,
   },
-  'https://github.com/Olical/nfnl',
-  {
-    'https://github.com/stevearc/oil.nvim',
-    config = function()
-      require('oil').setup()
-    end
-  },
+  -- {
+  --   'https://github.com/stevearc/oil.nvim',
+  --   config = function()
+  --     require('oil').setup()
+  --   end
+  -- },
   -- {
   --   'https://github.com/lewis6991/gitsigns.nvim',
   --   config = function()
@@ -307,8 +297,8 @@ return {
   },
 
   -- Colors
-  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,                     enabled = true }, -- "Highly accessible"
-  { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown", "codecompanion" } },
+  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,    enabled = true },                  -- "Highly accessible"
+  { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown" } },
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
