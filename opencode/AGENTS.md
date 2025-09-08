@@ -7,6 +7,6 @@ Hi!
 - Don't use `++` or `--`. Use `+= 1` or `-= 1`.
 - Remove unused imports
 - In new code, fully qualify React API names. So, write `import React from "react";` and `React.useState(...)`. You don't need to change existing imports unless asked to.
-- I have comby installed, so you can use that for structured find & replace
+- I have comby and ast-grep (sg) installed, so you can use either of those for structured find & replace
 
 Don't hesitate to create todo lists. The final item on your todo list should always be to fix any CLAUDE.md/AGENTS.md/etc guideline violations in code you added or edited. This is important because LLMs often forget to follow rules when they focus on a task, so you need to check for rule violations when you're done. It's basically a proofreading step, I need to do this too when I write code.
