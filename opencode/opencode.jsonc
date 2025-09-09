@@ -1,5 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "tui": { "scroll_speed": 2 }
+  "tui": { "scroll_speed": 2 },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "gpt-oss": { "name": "GPT OSS" }
+      }
+    }
+  }
 }
