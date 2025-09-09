@@ -51,6 +51,14 @@ alias pddraft4='pandoc --pdf-engine=lualatex -V papersize:a4 -V documentclass:sc
 alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
 
+function patchlint
+  cp ~/VaultyMcVaultFace/Custom\ ESLint\ conf.json .eslintrc.json
+end
+
+function unpatchlint
+  git checkout -- .eslintrc.json
+end
+
 function save
   if test -z $argv;
     git commit && git push
