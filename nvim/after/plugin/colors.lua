@@ -23,8 +23,8 @@ function CheckAppearance()
     vim.o.background = 'light'
     vim.cmd('colorscheme modus')
     vim.cmd [[
-      " hi Normal guibg=clear
-      " hi NormalNC guibg=clear
+      hi Normal guibg=#EEEEEE
+      hi NormalNC guibg=#EEEEEE
       " hi Pmenu guibg=#eeeeee
       " hi DiagnosticError guifg=#660000
       " hi DiagnosticFloatingHint guifg=#111111

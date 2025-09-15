@@ -52,7 +52,11 @@ alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
 
 function patchlint
-  cp ~/VaultyMcVaultFace/Custom\ ESLint\ conf.json .eslintrc.json
+  if [ "$argv[1]" = "-f" ]
+    cp ~/VaultyMcVaultFace/Custom\ ESLint\ conf\ functions.js .eslintrc.js
+  else
+    cp ~/VaultyMcVaultFace/Custom\ ESLint\ conf.json .eslintrc.json
+  end
 end
 
 function unpatchlint
@@ -65,6 +69,10 @@ function save
   else
     git commit -m $argv && git push
   end
+end
+
+function gfmm
+  git fetch origin $TRUNKBRANCHNAME:$TRUNKBRANCHNAME
 end
 
 function saveall

@@ -1,5 +1,15 @@
 vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "❌",
+      [vim.diagnostic.severity.WARN] = "⚠️",
+      [vim.diagnostic.severity.HINT] = "💡",
+    }
+  }
+})
+
 -- Add toggle function and keymap for diagnostic virtual text
 local diagnostic_virtual_text = false
 vim.keymap.set("n", "<leader><M-d>", function()
@@ -66,6 +76,7 @@ require("conform").setup({
 
 -- lsp.configure('css-lsp', {})
 lsp.configure("zls", {})
+lsp.configure("fennel-language-server", {})
 lsp.configure("tailwindcss", {})
 require("lspconfig").astro.setup({
   -- capabilities = capabilities,
