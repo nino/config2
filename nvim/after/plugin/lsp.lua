@@ -76,7 +76,7 @@ require("conform").setup({
 
 -- lsp.configure('css-lsp', {})
 lsp.configure("zls", {})
-lsp.configure("fennel-language-server", {})
+-- lsp.configure("fennel-language-server", {})
 lsp.configure("tailwindcss", {})
 require("lspconfig").astro.setup({
   -- capabilities = capabilities,

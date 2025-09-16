@@ -38,9 +38,9 @@ function CheckAppearance()
 
       " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
       " hi NonText guifg=#eeeeee
-      " hi CursorLine guibg=#fafafd
-      " hi CursorColumn guibg=#eeeeff
-      " hi ColorColumn guibg=#eeeeff
+      hi CursorLine guibg=#eaeaed
+      hi CursorColumn guibg=#eeeeff
+      hi ColorColumn guibg=#eeeeff
       " hi htmlBold gui=bold
       " hi DiagnosticUnderlineError gui=underline guisp=#f2AAAA
       " hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
