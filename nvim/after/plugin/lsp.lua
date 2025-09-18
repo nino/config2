@@ -116,10 +116,26 @@ lsp.configure("denols", {
 lsp.configure("eslint", {})
 lsp.configure("ts_ls", {
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormattingProvider = true
   end,
   root_dir = lspconfig.util.root_pattern("package.json"),
   single_file_support = false,
+  settings = {
+    typescript = {
+      format = {
+        indentSize = 2,
+        tabSize = 2,
+        convertTabsToSpaces = true,
+      }
+    },
+    javascript = {
+      format = {
+        indentSize = 2,
+        tabSize = 2,
+        convertTabsToSpaces = true,
+      }
+    }
+  }
 })
 -- lsp.configure('svelte', {})
 

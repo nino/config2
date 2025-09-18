@@ -297,7 +297,7 @@ return {
   },
 
   -- Colors
-  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,    enabled = true },                  -- "Highly accessible"
+  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,    enabled = true }, -- "Highly accessible"
   { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown" } },
   {
     "christoomey/vim-tmux-navigator",
@@ -317,4 +317,5 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  "https://github.com/lewis6991/gitsigns.nvim",
 }
