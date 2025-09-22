@@ -28,7 +28,6 @@ vim.opt.fillchars = (vim.opt.fillchars + "eob:\194\183")
 vim.opt.list = true
 vim.opt.numberwidth = 1
 vim.opt.rulerformat = "%{v:lua.diagnostic_sign()} %l/%L %P %c"
-vim.opt.lazyredraw = true
 vim.opt.clipboard = "unnamed"
 local function _1_()
   vim.fn.setreg("/", ("\\<" .. util["current-word"]() .. "\\>"))

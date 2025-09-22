@@ -29,7 +29,7 @@
 (set vim.opt.list true)
 (set vim.opt.numberwidth 1)
 (set vim.opt.rulerformat "%{v:lua.diagnostic_sign()} %l/%L %P %c")
-(set vim.opt.lazyredraw true)
+; (set vim.opt.lazyredraw true)
 
 (set vim.opt.clipboard "unnamed")
 

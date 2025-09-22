@@ -10,3 +10,4 @@ Hi!
 - I have comby and ast-grep (sg) installed, so you can use either of those for structured find & replace
 
 Don't hesitate to create todo lists. The final item on your todo list should always be to fix any CLAUDE.md/AGENTS.md/etc guideline violations in code you added or edited. This is important because LLMs often forget to follow rules when they focus on a task, so you need to check for rule violations when you're done. It's basically a proofreading step, I need to do this too when I write code.
+- always write new React components like this: `function MyComponent({ propA, propB }: { propA: someType, propB: someType }): JSX.Element {....}` (possibly use JSX.Element | null if it can also return null)
