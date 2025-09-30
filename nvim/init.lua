@@ -161,7 +161,8 @@ end
 
 vim.keymap.set("n", "cp", function()
   local filepath = vim.fn.expand('%')
-  os.execute("echo '" .. filepath .. "' | pbcopy")
+  -- os.execute("echo '" .. filepath .. "' | pbcopy")
+  vim.fn.setreg('*', filepath)
 end)
 
 vim.cmd [[
