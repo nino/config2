@@ -17,27 +17,12 @@ vim.keymap.set("n", "<leader><M-d>", function()
   vim.diagnostic.config({ virtual_text = diagnostic_virtual_text })
 end)
 
--- LSP-zero
-local lsp = require("lsp-zero")
-local lspconfig = require("lspconfig")
-lsp.preset("recommended")
-lsp.ensure_installed({
-  -- 'tsserver',
-  -- 'rust_analyzer',
-  -- 'lua_ls',
-  -- 'tailwindcss',
-  -- 'gopls',
-  -- 'pyright',
-  -- 'diagnosticls',
-  -- 'terraformls',
-})
-
+-- Linting setup
 require("lint").linters_by_ft = {
   typescript = { "eslint" },
   typescriptreact = { "eslint" },
   javascript = { "eslint" },
   javascriptreact = { "eslint" },
-  -- python = { 'flake8' },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   callback = function()
@@ -45,13 +30,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
   end,
 })
 
+-- Formatting setup
 local javascript_formatters = { "prettierd" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
-    -- Conform will run multiple formatters sequentially
-    -- python = { "isort", "black" },
-    -- Use a sub-list to run only the first available formatter
     javascript = javascript_formatters,
     javascriptreact = javascript_formatters,
     typescript = javascript_formatters,
@@ -61,65 +44,101 @@ require("conform").setup({
   },
 })
 
--- lsp.on_attach(function(client, bufnr)
---   lsp.default_keymaps({ buffer = bufnr })
---   vim.lsp.handlers["textDocument/publishDiagnostics"] =
---       vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
---         -- disable virtual text
---         virtual_text = false,
---         -- show signs
---         signs = true,
---         -- delay update diagnostics
---         update_in_insert = false
---       })
--- end)
+-- LSP Configuration using new vim.lsp.config API
+-- Note: vim.lsp.config() defines the config, vim.lsp.enable() starts the server
 
--- lsp.configure('css-lsp', {})
-lsp.configure("zls", {})
--- lsp.configure("fennel-language-server", {})
-lsp.configure("tailwindcss", {})
-require("lspconfig").astro.setup({
-  -- capabilities = capabilities,
-  -- on_attach = on_attach,
-  filetypes = { "astro" },
+vim.lsp.config('zls', {
+  cmd = { 'zls' },
+  filetypes = { 'zig' },
+  root_markers = { 'build.zig', '.git' },
 })
-lsp.configure("rust_analyzer", {})
-lsp.configure("cmake", {})
--- lsp.configure('asm_lsp', {})
 
--- lsp.configure("terraformls", {})
--- lsp.configure("vale_ls", {})
--- lsp.configure("gleam", {})
--- lsp.configure('ruff', {})
-lsp.configure("pyright", {
+vim.lsp.config('tailwindcss', {
+  cmd = { 'tailwindcss-language-server', '--stdio' },
+  filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'svelte' },
+  root_markers = { 'tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs' },
+})
+
+vim.lsp.config('astro', {
+  cmd = { 'astro-ls', '--stdio' },
+  filetypes = { 'astro' },
+  root_markers = { 'package.json', 'astro.config.mjs', '.git' },
+})
+
+vim.lsp.config('rust_analyzer', {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  root_markers = { 'Cargo.toml', 'rust-project.json' },
+})
+
+vim.lsp.config('cmake', {
+  cmd = { 'cmake-language-server' },
+  filetypes = { 'cmake' },
+  root_markers = { 'CMakeLists.txt', '.git' },
+})
+
+vim.lsp.config('pyright', {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end,
 })
-lsp.skip_server_setup({ "pylsp" })
 
-lsp.configure("gopls", {})
-lsp.configure("kotlin_language_server", {})
-lsp.configure("dartls", {})
-lsp.configure("solargraph", {})
+vim.lsp.config('gopls', {
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_markers = { 'go.work', 'go.mod', '.git' },
+})
 
--- lsp.skip_server_setup("clangd")
-lsp.configure('clangd', {
+vim.lsp.config('kotlin_language_server', {
+  cmd = { 'kotlin-language-server' },
+  filetypes = { 'kotlin' },
+  root_markers = { 'settings.gradle', 'settings.gradle.kts', '.git' },
+})
+
+vim.lsp.config('dartls', {
+  cmd = { 'dart', 'language-server', '--protocol=lsp' },
+  filetypes = { 'dart' },
+  root_markers = { 'pubspec.yaml', '.git' },
+})
+
+vim.lsp.config('solargraph', {
+  cmd = { 'solargraph', 'stdio' },
+  filetypes = { 'ruby' },
+  root_markers = { 'Gemfile', '.git' },
+})
+
+vim.lsp.config('clangd', {
+  cmd = { 'clangd' },
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+  root_markers = { '.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac', '.git' },
   capabilities = {
     offsetEncoding = "utf-8"
   }
 })
-lsp.configure("denols", {
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+
+vim.lsp.config('denols', {
+  cmd = { 'deno', 'lsp' },
+  filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+  root_markers = { 'deno.json', 'deno.jsonc' },
 })
 
-lsp.configure("eslint", {})
-lsp.configure("ts_ls", {
+vim.lsp.config('eslint', {
+  cmd = { 'vscode-eslint-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue', 'svelte', 'astro' },
+  root_markers = { '.eslintrc', '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.yaml', '.eslintrc.yml', '.eslintrc.json', 'eslint.config.js', 'package.json' },
+})
+
+vim.lsp.config('ts_ls', {
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+  root_markers = { 'package.json' },
+  single_file_support = false,
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end,
-  root_dir = lspconfig.util.root_pattern("package.json"),
-  single_file_support = false,
   settings = {
     typescript = {
       format = {
@@ -137,45 +156,75 @@ lsp.configure("ts_ls", {
     }
   }
 })
--- lsp.configure('svelte', {})
 
-
--- lsp.configure('julials', {})
-lsp.configure('lua_ls', {
+vim.lsp.config('lua_ls', {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml', '.git' },
   settings = {
     Lua = {
       diagnostics = {
         globals = { "vim" },
         unusedLocalVariable = "Warning",
         enable = true,
-        -- Enable the diagnostic for undefined globals
         undefinedGlobal = "Error",
-        -- disable = { "lowercase-global" }
         ["lowercase-global"] = "Error",
       },
     },
   },
 })
 
--- lsp.skip_server_setup('sourcekit')
--- lsp.configure("sourcekit", {})
+-- Enable all configured LSP servers
+vim.lsp.enable('zls')
+vim.lsp.enable('tailwindcss')
+vim.lsp.enable('astro')
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('cmake')
+vim.lsp.enable('pyright')
+vim.lsp.enable('gopls')
+vim.lsp.enable('kotlin_language_server')
+vim.lsp.enable('dartls')
+vim.lsp.enable('solargraph')
+vim.lsp.enable('clangd')
+vim.lsp.enable('eslint')
+vim.lsp.enable('lua_ls')
 
-lsp.setup()
+-- Conditionally enable ts_ls OR denols based on project type
+-- This autocmd runs when opening JS/TS files and determines which server to use
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  callback = function(args)
+    local bufnr = args.buf
+    local root_dir = vim.fs.root(bufnr, { 'package.json', 'deno.json', 'deno.jsonc' })
 
--- LSP-zero-powered auto-completion
+    if not root_dir then
+      return
+    end
+
+    -- Check if it's a Deno project
+    local is_deno = vim.uv.fs_stat(root_dir .. '/deno.json') or vim.uv.fs_stat(root_dir .. '/deno.jsonc')
+
+    if is_deno then
+      vim.lsp.enable('denols', true)
+    else
+      vim.lsp.enable('ts_ls', true)
+    end
+  end,
+})
+
+-- Completion setup
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-  ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-  ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  ["<C-f>"] = cmp.mapping.confirm({ select = true }),
-  ["<C-space>"] = cmp.mapping.complete(),
-})
 
 cmp.setup({
   completion = { autocomplete = false },
-  mapping = cmp_mappings,
+  mapping = cmp.mapping.preset.insert({
+    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+    ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    ["<C-f>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-space>"] = cmp.mapping.complete(),
+  }),
   sources = {
     { name = "nvim_lsp" },
     {
@@ -188,8 +237,3 @@ cmp.setup({
     },
   },
 })
-
-
--- vim.keymap.set('n', '<leader>td', function()
---   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
--- end, { silent = true, noremap = true })

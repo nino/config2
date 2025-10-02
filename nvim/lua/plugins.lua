@@ -10,9 +10,7 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-surround',
-  -- 'editorconfig/editorconfig-vim', -- (might not need this anymore?)
   'tpope/vim-characterize',
-  -- 'rhysd/git-messenger.vim',
   {
     'neovim/nvim-lspconfig',
     dependencies = { {
@@ -30,30 +28,7 @@ return {
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
-  'L3MON4D3/LuaSnip', -- Required
-
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      {
-        -- Optional
-        'williamboman/mason.nvim',
-        run = function()
-          pcall(vim.cmd, 'MasonUpdate')
-        end,
-      },
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-      -- Autocompletion
-      -- { 'hrsh7th/nvim-cmp' },     -- Required
-      -- { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      -- { 'hrsh7th/cmp-buffer' },
-      { 'L3MON4D3/LuaSnip' }, -- Required
-    }
-  },
+  'L3MON4D3/LuaSnip',
   {
     'https://github.com/nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
