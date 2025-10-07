@@ -116,8 +116,8 @@ vim.keymap.set("n", "<M-v>", "<c-w>v<c-w>l")
 vim.keymap.set("n", "ø", "<c-w><c-o>")
 vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
-vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1 }) end)
-vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1 }) end)
+vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
+vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 

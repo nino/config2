@@ -17,6 +17,16 @@ vim.keymap.set("n", "<leader><M-d>", function()
   vim.diagnostic.config({ virtual_text = diagnostic_virtual_text })
 end)
 
+-- LSP keymaps
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local bufnr = args.buf
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr })
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = bufnr })
+  end,
+})
+
 -- Linting setup
 require("lint").linters_by_ft = {
   typescript = { "eslint" },
@@ -136,9 +146,9 @@ vim.lsp.config('ts_ls', {
   filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
   root_markers = { 'package.json' },
   single_file_support = false,
-  on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = true
-  end,
+  -- on_attach = function(client, bufnr)
+  --   client.server_capabilities.documentFormattingProvider = true
+  -- end,
   settings = {
     typescript = {
       format = {
@@ -213,27 +223,27 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Completion setup
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+-- local cmp = require("cmp")
+-- local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-cmp.setup({
-  completion = { autocomplete = false },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-    ["<C-f>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-space>"] = cmp.mapping.complete(),
-  }),
-  sources = {
-    { name = "nvim_lsp" },
-    {
-      name = "buffer",
-      option = {
-        get_bufnrs = function()
-          return vim.api.nvim_list_bufs()
-        end,
-      },
-    },
-  },
-})
+-- cmp.setup({
+--   completion = { autocomplete = false },
+--   mapping = cmp.mapping.preset.insert({
+--     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+--     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+--     ["<CR>"] = cmp.mapping.confirm({ select = false }),
+--     ["<C-f>"] = cmp.mapping.confirm({ select = true }),
+--     ["<C-space>"] = cmp.mapping.complete(),
+--   }),
+--   sources = {
+--     { name = "nvim_lsp" },
+--     {
+--       name = "buffer",
+--       option = {
+--         get_bufnrs = function()
+--           return vim.api.nvim_list_bufs()
+--         end,
+--       },
+--     },
+--   },
+-- })
