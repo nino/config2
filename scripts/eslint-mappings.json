@@ -1,0 +1,17 @@
+[
+  {
+    "pattern": "*/Developer/plinth/functions*",
+    "source": "~/VaultyMcVaultFace/Custom ESLint conf functions.js",
+    "target": ".eslintrc.js"
+  },
+  {
+    "pattern": "*/Developer/plinth/app*",
+    "source": "~/VaultyMcVaultFace/Custom ESLint conf.json",
+    "target": ".eslintrc.json"
+  },
+  {
+    "pattern": "*/Developer/plinth/database-scripts*",
+    "source": "~/VaultyMcVaultFace/Custom ESLint conf database-scripts.json",
+    "target": ".eslintrc.json"
+  }
+]

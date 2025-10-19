@@ -1,10 +1,40 @@
+local function hi(group, attrs)
+  local cmd = { "hi", group }
+  for k, v in pairs(attrs) do
+    table.insert(cmd, k .. "=" .. v)
+  end
+  vim.cmd(table.concat(cmd, " "))
+end
+
+local a = 333
+local function configure_light()
+  vim.o.background = "light"
+  vim.cmd("colorscheme default")
+  vim.cmd("syntax reset")
+  hi("Normal", { guibg = "none", guifg = "none" })
+  hi("NormalNC", { guibg = "none", guifg = "none" })
+  hi("Identifier", { guibg = "none", guifg = "none" })
+  hi("@variable", { guibg = "none" })
+  hi("String", { guibg = "#EEFFDD", guifg = "none", gui = "none" })
+  hi("Constant", { guibg = "#FFEEDD", guifg = "none", gui = "none" })
+  hi("Statement", { guibg = "none", guifg = "none", gui = "none" })
+  hi("function", { guibg = "#FFEEFF", guifg = "none", gui = "none" })
+  hi("Comment", { guibg = "#FFFFEA", guifg = "none" })
+
+  hi("@punctuation", { guifg = "#333333" })
+  hi("CursorLine", { guibg = "#EEEEEE" })
+  hi("CursorColumn", { guibg = "#EEEEEE" })
+  hi("ColorColumn", { guibg = "#EEEEEE" })
+end
+
+
 --- Check whether macOS is set to light or dark mode, and update the
 --- colourscheme accordingly.
 function CheckAppearance()
   local theme = vim.fn.system('defaults read -g AppleInterfaceStyle'):gsub('\n', '')
   if theme == 'Dark' then
     vim.o.background = 'dark'
-    vim.cmd('colorscheme modus')
+    vim.cmd('colorscheme retrobox')
     vim.cmd [[
       " hi Normal guibg=clear
       " hi TabLineSel guibg=#999999
@@ -20,35 +50,36 @@ function CheckAppearance()
       " hi AvanteConflictIncoming guibg=#2c4215
     ]]
   else
-    vim.o.background = 'light'
-    vim.cmd('colorscheme modus')
-    vim.cmd [[
-      hi Normal guibg=#EEEEEE
-      hi NormalNC guibg=#EEEEEE
-      " hi Pmenu guibg=#eeeeee
-      " hi DiagnosticError guifg=#660000
-      " hi DiagnosticFloatingHint guifg=#111111
-      " hi TabLineSel guibg=#EEEEEE
+    configure_light()
+    -- vim.o.background = 'light'
+    -- vim.cmd('colorscheme modus')
+    -- vim.cmd [[
+    --   hi Normal guibg=#EEEEEE
+    --   hi NormalNC guibg=#EEEEEE
+    --   " hi Pmenu guibg=#eeeeee
+    --   " hi DiagnosticError guifg=#660000
+    --   " hi DiagnosticFloatingHint guifg=#111111
+    --   " hi TabLineSel guibg=#EEEEEE
 
-      " hi DiffAdd guibg=#DDFFDD
-      " hi DiffChange guibg=#DDFFDD
-      " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#BBEEBB
-      " hi DiffDelete guifg=#FFDDDD guibg=#FFEEEE
-      " hi diffRemoved guibg=#FFEEEE
+    --   " hi DiffAdd guibg=#DDFFDD
+    --   " hi DiffChange guibg=#DDFFDD
+    --   " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#BBEEBB
+    --   " hi DiffDelete guifg=#FFDDDD guibg=#FFEEEE
+    --   " hi diffRemoved guibg=#FFEEEE
 
-      " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
-      " hi NonText guifg=#eeeeee
-      hi CursorLine guibg=#eaeaed
-      hi CursorColumn guibg=#eeeeff
-      hi ColorColumn guibg=#eeeeff
-      " hi htmlBold gui=bold
-      " hi DiagnosticUnderlineError gui=underline guisp=#f2AAAA
-      " hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
-      " hi DiagnosticUnderlineHint gui=underline guisp=#cccccc
-      " hi SignColumn guibg=#eeeeee
-      " hi LineNr guifg=#777777
-      " hi Comment cterm=italic gui=italic guifg=#885588
-    ]]
+    --   " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
+    --   " hi NonText guifg=#eeeeee
+    --   hi CursorLine guibg=#eaeaed
+    --   hi CursorColumn guibg=#eeeeff
+    --   hi ColorColumn guibg=#eeeeff
+    --   " hi htmlBold gui=bold
+    --   " hi DiagnosticUnderlineError gui=underline guisp=#f2AAAA
+    --   " hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
+    --   " hi DiagnosticUnderlineHint gui=underline guisp=#cccccc
+    --   " hi SignColumn guibg=#eeeeee
+    --   " hi LineNr guifg=#777777
+    --   " hi Comment cterm=italic gui=italic guifg=#885588
+    -- ]]
   end
   pcall(function()
     require('smear_cursor').setup({ cursor_color = "#FF00EE" })
@@ -75,5 +106,3 @@ CheckAppearance()
 --     CheckAppearance()
 --   end,
 -- })
-
-

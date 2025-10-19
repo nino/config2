@@ -1,0 +1,57 @@
+#!/usr/bin/env bun
+
+import { readFileSync, copyFileSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
+interface EslintMapping {
+  pattern: string;
+  source: string;
+  target: string;
+}
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+function expandTilde(path: string): string {
+  if (path.startsWith("~/")) {
+    return resolve(process.env.HOME ?? "", path.slice(2));
+  }
+  return path;
+}
+
+function matchPattern(cwd: string, pattern: string): boolean {
+  const regex = new RegExp(pattern.replace(/\*/g, ".*"));
+  return regex.test(cwd);
+}
+
+function main(): void {
+  const cwd = process.cwd();
+  const mappingsPath = resolve(__dirname, "eslint-mappings.json");
+  const mappings: EslintMapping[] = JSON.parse(
+    readFileSync(mappingsPath, "utf-8"),
+  );
+
+  for (const mapping of mappings) {
+    if (matchPattern(cwd, mapping.pattern)) {
+      const source = expandTilde(mapping.source);
+      const target = resolve(cwd, mapping.target);
+
+      try {
+        copyFileSync(source, target);
+        console.log(`Patched ${mapping.target}`);
+        process.exit(0);
+      } catch (error) {
+        console.error(`Failed to copy ${source} to ${target}:`, error);
+        process.exit(1);
+      }
+    }
+  }
+
+  console.error(
+    "Not in a recognized plinth directory (app, functions, or database-scripts)",
+  );
+  process.exit(1);
+}
+
+main();

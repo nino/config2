@@ -1,0 +1,52 @@
+#!/usr/bin/env bun
+
+import { readFileSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+import { spawnSync } from "child_process";
+
+interface EslintMapping {
+  pattern: string;
+  source: string;
+  target: string;
+}
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+function matchPattern(cwd: string, pattern: string): boolean {
+  const regex = new RegExp(pattern.replace(/\*/g, ".*"));
+  return regex.test(cwd);
+}
+
+function main(): void {
+  const cwd = process.cwd();
+  const mappingsPath = resolve(__dirname, "eslint-mappings.json");
+  const mappings: EslintMapping[] = JSON.parse(
+    readFileSync(mappingsPath, "utf-8"),
+  );
+
+  for (const mapping of mappings) {
+    if (matchPattern(cwd, mapping.pattern)) {
+      const result = spawnSync("git", ["checkout", "--", mapping.target], {
+        cwd,
+        stdio: "inherit",
+      });
+
+      if (result.status === 0) {
+        console.log(`Restored ${mapping.target}`);
+        process.exit(0);
+      } else {
+        console.error(`Failed to restore ${mapping.target}`);
+        process.exit(1);
+      }
+    }
+  }
+
+  console.error(
+    "Not in a recognized plinth directory (app, functions, or database-scripts)",
+  );
+  process.exit(1);
+}
+
+main();
