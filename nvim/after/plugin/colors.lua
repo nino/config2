@@ -10,8 +10,6 @@ local function link_highlight(group, reference_group)
   vim.cmd("hi! link " .. group .. " " .. reference_group)
 end
 
-local a = 333
-
 local function configure_light()
   vim.o.background = "light"
   vim.cmd("colorscheme default")
@@ -20,10 +18,10 @@ local function configure_light()
   hi("NormalNC", { guibg = "none", guifg = "none" })
   hi("Identifier", { guibg = "none", guifg = "none" })
   hi("@variable", { guibg = "none" })
-  hi("String", { guibg = "#EEFFDD", guifg = "none", gui = "none" })
-  hi("Constant", { guibg = "#FFEEDD", guifg = "none", gui = "none" })
+  hi("String", { guibg = "none", guifg = "#009944", gui = "none" })
+  hi("Constant", { guibg = "none", guifg = "#BB5500", gui = "none" })
   hi("Statement", { guibg = "none", guifg = "none", gui = "none" })
-  hi("function", { guibg = "none", guifg = "#990099", gui = "none" })
+  hi("function", { guibg = "none", guifg = "#6600CC", gui = "none" })
   hi("Comment", { guibg = "#FFFFEA", guifg = "none" })
   hi("@punctuation", { guifg = "#888888" })
 
@@ -31,6 +29,7 @@ local function configure_light()
   link_highlight("typescriptParens", "@punctuation")
   link_highlight("typescriptMember", "Identifier")
   link_highlight("typescriptArrayMethod", "function")
+  link_highlight("typescriptDestructureLabel", "String")
   link_highlight("Special", "Normal")
 
   hi("Visual", { guibg = "#FFFF00" })
@@ -39,6 +38,12 @@ local function configure_light()
   hi("ColorColumn", { guibg = "#EEEEEE" })
   hi("Search", { guibg = "#AADDFF" })
   hi("CurSearch", { guibg = "#3388CC" })
+
+  hi("StatusLine", { guibg = "#3365BB", guifg = "white", gui = "bold" })
+  hi("StatusLineNC", { guibg = "#AADDFF", guifg = "black" })
+  link_highlight("TabLine", "StatusLineNC")
+  link_highlight("TabLineFill", "StatusLineNC")
+  link_highlight("TabLineSel", "StatusLine")
 
   hi("DiffChange", { guibg = "#DDDDFF" })
 end
@@ -67,11 +72,11 @@ end
 --- Check whether macOS is set to light or dark mode, and update the
 --- colourscheme accordingly.
 function CheckAppearance()
-  local theme = vim.fn.system('defaults read -g AppleInterfaceStyle'):gsub('\n', '')
-  if theme == 'Dark' then
-    vim.o.background = 'dark'
-    vim.cmd('colorscheme retrobox')
-    vim.cmd [[
+  local theme = vim.fn.system("defaults read -g AppleInterfaceStyle"):gsub("\n", "")
+  if theme == "Dark" then
+    vim.o.background = "dark"
+    vim.cmd("colorscheme retrobox")
+    vim.cmd([[
       " hi Normal guibg=clear
       " hi TabLineSel guibg=#999999
       " hi DiagnosticUnderlineError gui=none
@@ -84,7 +89,7 @@ function CheckAppearance()
       " hi DiagnosticUnderlineError gui=underline guisp=#aa3333
       " hi AvanteConflictCurrent guibg=#421515
       " hi AvanteConflictIncoming guibg=#2c4215
-    ]]
+    ]])
   else
     configure_light()
     -- vim.o.background = 'light'
@@ -118,10 +123,10 @@ function CheckAppearance()
     -- ]]
   end
   pcall(function()
-    require('smear_cursor').setup({ cursor_color = "#FF00EE" })
+    require("smear_cursor").setup({ cursor_color = "#FF00EE" })
   end)
 
-  vim.cmd [[
+  vim.cmd([[
     hi DiagnosticUnderlineError gui=none
     hi DiagnosticUnderlineWarn gui=none
     hi Cursor guibg=#FF00EE
@@ -130,7 +135,7 @@ function CheckAppearance()
     syntax match SpecialChar "…"
     syntax match SpecialChar "–"
     highlight SpecialChar guifg=#5555FF ctermfg=63 gui=bold cterm=bold
-  ]]
+  ]])
 end
 
 CheckAppearance()

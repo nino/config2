@@ -293,5 +293,4 @@ return {
     },
   },
   "https://github.com/lewis6991/gitsigns.nvim",
-  -- "https://github.com/dstein64/nvim-scrollview",
 }
