@@ -6,7 +6,12 @@ local function hi(group, attrs)
   vim.cmd(table.concat(cmd, " "))
 end
 
+local function link_highlight(group, reference_group)
+  vim.cmd("hi! link " .. group .. " " .. reference_group)
+end
+
 local a = 333
+
 local function configure_light()
   vim.o.background = "light"
   vim.cmd("colorscheme default")
@@ -18,15 +23,46 @@ local function configure_light()
   hi("String", { guibg = "#EEFFDD", guifg = "none", gui = "none" })
   hi("Constant", { guibg = "#FFEEDD", guifg = "none", gui = "none" })
   hi("Statement", { guibg = "none", guifg = "none", gui = "none" })
-  hi("function", { guibg = "#FFEEFF", guifg = "none", gui = "none" })
+  hi("function", { guibg = "none", guifg = "#990099", gui = "none" })
   hi("Comment", { guibg = "#FFFFEA", guifg = "none" })
+  hi("@punctuation", { guifg = "#888888" })
 
-  hi("@punctuation", { guifg = "#333333" })
+  link_highlight("typescriptBraces", "@punctuation")
+  link_highlight("typescriptParens", "@punctuation")
+  link_highlight("typescriptMember", "Identifier")
+  link_highlight("typescriptArrayMethod", "function")
+  link_highlight("Special", "Normal")
+
+  hi("Visual", { guibg = "#FFFF00" })
   hi("CursorLine", { guibg = "#EEEEEE" })
   hi("CursorColumn", { guibg = "#EEEEEE" })
   hi("ColorColumn", { guibg = "#EEEEEE" })
+  hi("Search", { guibg = "#AADDFF" })
+  hi("CurSearch", { guibg = "#3388CC" })
+
+  hi("DiffChange", { guibg = "#DDDDFF" })
 end
 
+-- Here's with fg colours:
+-- local function configure_light()
+--   vim.o.background = "light"
+--   vim.cmd("colorscheme default")
+--   vim.cmd("syntax reset")
+--   hi("Normal", { guibg = "none", guifg = "none" })
+--   hi("NormalNC", { guibg = "none", guifg = "none" })
+--   hi("Identifier", { guibg = "none", guifg = "none" })
+--   hi("@variable", { guibg = "none" })
+--   hi("String", { guibg = "none", guifg = "#006622", gui = "none" })
+--   hi("Constant", { guibg = "none", guifg = "#663300", gui = "none" })
+--   hi("Statement", { guibg = "none", guifg = "none", gui = "none" })
+--   hi("function", { guibg = "none", guifg = "#660066", gui = "none" })
+--   hi("Comment", { guibg = "none", guifg = "#666600" })
+
+--   hi("@punctuation", { guifg = "#333333" })
+--   hi("CursorLine", { guibg = "#EEEEEE" })
+--   hi("CursorColumn", { guibg = "#EEEEEE" })
+--   hi("ColorColumn", { guibg = "#EEEEEE" })
+-- end
 
 --- Check whether macOS is set to light or dark mode, and update the
 --- colourscheme accordingly.
