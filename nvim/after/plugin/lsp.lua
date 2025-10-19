@@ -147,7 +147,11 @@ vim.lsp.config('ts_ls', {
   root_markers = { 'package.json' },
   single_file_support = false,
   -- on_attach = function(client, bufnr)
-  --   client.server_capabilities.documentFormattingProvider = true
+  --   -- client.server_capabilities.documentFormattingProvider = true
+  --   if client:supports_method('textDocument/completion') then
+  --     -- Enable completion side effects
+  --     vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
+  --   end
   -- end,
   settings = {
     typescript = {
@@ -166,6 +170,17 @@ vim.lsp.config('ts_ls', {
     }
   }
 })
+
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+--     if client:supports_method('textDocument/completion') then
+--       -- Enable completion side effects
+--       vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = false})
+--     end
+--   end,
+-- })
 
 vim.lsp.config('lua_ls', {
   cmd = { 'lua-language-server' },

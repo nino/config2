@@ -1,6 +1,20 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.g.sexp_filetypes = "clojure,scheme,lisp,timl,fennel,racket"
+
+vim.filetype.add({
+  pattern = {
+    ['.*'] = {
+      function(path, buf)
+        local first_line = vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1]
+        if first_line and first_line:match('^#!/usr/bin/env bun') then
+          return 'typescript'
+        end
+      end,
+    },
+  },
+})
+
 require("config.lazy")
 require("plugins")
 require("abbreviations")
@@ -37,6 +51,9 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.foldmethod = "manual"
+-- cindent and smartindent apparently conflict with treesitter indentation?
+vim.opt.cindent = false
+vim.opt.smartindent = false
 vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
@@ -49,6 +66,14 @@ vim.cmd [[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
 
 vim.opt.updatetime = 50
+
+-- Set textwidth for claude-prompt files
+vim.api.nvim_create_autocmd({"BufEnter", "BufNewFile", "BufRead"}, {
+  pattern = "claude-prompt-*.md",
+  callback = function()
+    vim.opt_local.textwidth = 99999
+  end
+})
 
 -- Mappings
 

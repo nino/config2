@@ -51,30 +51,6 @@ alias pddraft4='pandoc --pdf-engine=lualatex -V papersize:a4 -V documentclass:sc
 alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
 
-function patchlint
-  set -l cwd (pwd)
-  if string match -q "*/Developer/plinth/functions*" $cwd
-    cp ~/VaultyMcVaultFace/Custom\ ESLint\ conf\ functions.js .eslintrc.js
-  else if string match -q "*/Developer/plinth/app*" $cwd
-    cp ~/VaultyMcVaultFace/Custom\ ESLint\ conf.json .eslintrc.json
-  else
-    echo "Not in a recognized plinth directory (app or functions)"
-    return 1
-  end
-end
-
-function unpatchlint
-  set -l cwd (pwd)
-  if string match -q "*/Developer/plinth/functions*" $cwd
-    git checkout -- .eslintrc.js
-  else if string match -q "*/Developer/plinth/app*" $cwd
-    git checkout -- .eslintrc.json
-  else
-    echo "Not in a recognized plinth directory (app or functions)"
-    return 1
-  end
-end
-
 function save
   if test -z $argv;
     git commit && git push
