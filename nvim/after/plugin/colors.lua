@@ -1,3 +1,14 @@
+--- @alias HighlightAttributes {
+---   cterm: string,
+---   ctermfg: string,
+---   ctermbg: string,
+---   gui: string,
+---   guifg: string,
+---   guibg: string,
+--- }
+
+--- @param group string
+--- @param attrs HighlightAttributes
 local function hi(group, attrs)
   local cmd = { "hi", group }
   for k, v in pairs(attrs) do
@@ -6,6 +17,8 @@ local function hi(group, attrs)
   vim.cmd(table.concat(cmd, " "))
 end
 
+--- @param group string
+--- @param reference_group string
 local function link_highlight(group, reference_group)
   vim.cmd("hi! link " .. group .. " " .. reference_group)
 end
@@ -14,38 +27,53 @@ local function configure_light()
   vim.o.background = "light"
   vim.cmd("colorscheme default")
   vim.cmd("syntax reset")
-  hi("Normal", { guibg = "none", guifg = "none" })
-  hi("NormalNC", { guibg = "none", guifg = "none" })
-  hi("Identifier", { guibg = "none", guifg = "none" })
-  hi("@variable", { guibg = "none" })
-  hi("String", { guibg = "none", guifg = "#009944", gui = "none" })
-  hi("Constant", { guibg = "none", guifg = "#BB5500", gui = "none" })
-  hi("Statement", { guibg = "none", guifg = "none", gui = "none" })
-  hi("function", { guibg = "none", guifg = "#6600CC", gui = "none" })
-  hi("Comment", { guibg = "#FFFFEA", guifg = "none" })
-  hi("@punctuation", { guifg = "#888888" })
+  hi("Normal", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("NormalNC", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("Identifier", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("@variable", { guibg = "none", ctermbg = "none" })
+  hi(
+    "String",
+    { guibg = "none", guifg = "#009944", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "darkgreen" }
+  )
+  hi("Constant", { guibg = "none", guifg = "#BB5500", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "130" })
+  hi("Statement", { guibg = "none", guifg = "none", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "none" })
+  hi("function", { guibg = "none", guifg = "#6600CC", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "54" })
+  hi("Comment", { guibg = "#FFFFEA", guifg = "#444400", ctermbg = "230", ctermfg = "58" })
+  hi("@punctuation", { guifg = "#888888", ctermfg = "244" })
 
+  hi("typeScriptMagicComment", { gui = "bold", cterm = "bold" })
+  hi("typeScriptCastKeyword", { gui = "bold", cterm = "bold" })
+  hi("DiagnosticUnnecessary", { guifg = "grey", ctermfg = "244" })
+  link_highlight("@string.regexp.javascript", "Constant")
+  link_highlight("@character.special.javascript", "Normal")
   link_highlight("typescriptBraces", "@punctuation")
   link_highlight("typescriptParens", "@punctuation")
   link_highlight("typescriptMember", "Identifier")
   link_highlight("typescriptArrayMethod", "function")
   link_highlight("typescriptDestructureLabel", "String")
   link_highlight("Special", "Normal")
+  link_highlight("diffAdded", "DiffAdd")
+  link_highlight("diffRemoved", "DiffDelete")
 
-  hi("Visual", { guibg = "#FFFF00" })
-  hi("CursorLine", { guibg = "#EEEEEE" })
-  hi("CursorColumn", { guibg = "#EEEEEE" })
-  hi("ColorColumn", { guibg = "#EEEEEE" })
-  hi("Search", { guibg = "#AADDFF" })
-  hi("CurSearch", { guibg = "#3388CC" })
+  hi("Visual", { guibg = "#FFFF00", ctermbg = "226" })
+  hi("CursorLine", { guibg = "none", ctermbg = "none" })
+  hi("CursorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
+  hi("ColorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
+  hi("Search", { guibg = "#AADDFF", ctermbg = "153" })
+  hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
 
-  hi("StatusLine", { guibg = "#3365BB", guifg = "white", gui = "bold" })
-  hi("StatusLineNC", { guibg = "#AADDFF", guifg = "black" })
+  hi(
+    "StatusLine",
+    { guibg = "#3365BB", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "61", ctermfg = "white" }
+  )
+  hi("StatusLineNC", { guibg = "#AADDFF", guifg = "black", ctermbg = "153", ctermfg = "black" })
   link_highlight("TabLine", "StatusLineNC")
   link_highlight("TabLineFill", "StatusLineNC")
   link_highlight("TabLineSel", "StatusLine")
 
-  hi("DiffChange", { guibg = "#DDDDFF" })
+  hi("DiffChange", { guibg = "#DDDDFF", ctermbg = "189" })
+  hi("DiffAdd", { guibg = "#AFF3BC", ctermbg = "157" })
+  hi("DiffDelete", { guibg = "#F9CCCC", gui = "none", cterm = "none", ctermbg = "224" })
 end
 
 -- Here's with fg colours:

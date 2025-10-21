@@ -1,57 +1,58 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-local js_languages = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }
+local js_languages = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
 
 return {
-  'williamboman/mason.nvim',
-  { 'nvim-treesitter/nvim-treesitter',                                 run = ':TSUpdate' },
-  'https://github.com/tpope/vim-commentary',
-  'mbbill/undotree',
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  'tpope/vim-surround',
-  'tpope/vim-characterize',
+  "williamboman/mason.nvim",
+  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+  "https://github.com/tpope/vim-commentary",
+  "mbbill/undotree",
+  "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
+  "tpope/vim-surround",
+  "tpope/vim-characterize",
   {
-    'neovim/nvim-lspconfig',
-    dependencies = { {
-      "folke/lazydev.nvim",
-      ft = "lua", -- only load on lua files
-      opts = {
-        library = {
-          -- See the configuration section for more details
-          -- Load luvit types when the `vim.uv` word is found
-          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
         },
       },
-    }, }
+    },
   },
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'L3MON4D3/LuaSnip',
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "L3MON4D3/LuaSnip",
   {
-    'https://github.com/nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    "https://github.com/nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/plenary.nvim" } },
   },
-  { 'https://github.com/nvim-telescope/telescope-live-grep-args.nvim', enabled = false },
-  'tpope/vim-repeat',
-  'preservim/nerdtree',
-  { 'https://github.com/gleam-lang/gleam.vim',                       enabled = false },
-  'https://github.com/godlygeek/tabular',
-  { 'https://github.com/guns/vim-sexp',                              enabled = false },
-  { 'https://github.com/tpope/vim-sexp-mappings-for-regular-people', enabled = false },
-  'https://github.com/duane9/nvim-rg',
+  { "https://github.com/nvim-telescope/telescope-live-grep-args.nvim", enabled = false },
+  "tpope/vim-repeat",
+  "preservim/nerdtree",
+  { "https://github.com/gleam-lang/gleam.vim", enabled = false },
+  "https://github.com/godlygeek/tabular",
+  { "https://github.com/guns/vim-sexp", enabled = false },
+  { "https://github.com/tpope/vim-sexp-mappings-for-regular-people", enabled = false },
+  "https://github.com/duane9/nvim-rg",
   -- { 'elixir-editors/vim-elixir',             enabled = false },
 
   -- DAP
   {
     enabled = false,
-    'https://github.com/mfussenegger/nvim-dap',
+    "https://github.com/mfussenegger/nvim-dap",
     config = function()
-      local dap = require "dap"
+      local dap = require("dap")
       -- local Config = require "lazyvim.config"
       -- vim.api.nvim
-
 
       for _, language in ipairs(js_languages) do
         dap.configurations[language] = {
@@ -170,27 +171,27 @@ return {
         "Joakker/lua-json5",
         build = "./install.sh",
       },
-    }
+    },
   },
   -- 'https://github.com/mxsdev/nvim-dap-vscode-js',
-  { 'https://github.com/leoluz/nvim-dap-go',                enabled = false },
+  { "https://github.com/leoluz/nvim-dap-go", enabled = false },
   "nvim-neotest/nvim-nio",
-  { 'https://github.com/rcarriga/nvim-dap-ui',              requires = { "nvim-neotest/nvim-nio" } },
-  { 'https://github.com/theHamsta/nvim-dap-virtual-text',   enabled = false },
-  { 'https://github.com/nvim-telescope/telescope-dap.nvim', enabled = false },
-  { 'https://github.com/mfussenegger/nvim-dap-python',      enabled = false },
+  { "https://github.com/rcarriga/nvim-dap-ui", requires = { "nvim-neotest/nvim-nio" } },
+  { "https://github.com/theHamsta/nvim-dap-virtual-text", enabled = false },
+  { "https://github.com/nvim-telescope/telescope-dap.nvim", enabled = false },
+  { "https://github.com/mfussenegger/nvim-dap-python", enabled = false },
   {
     enabled = false,
     "julianolf/nvim-dap-lldb",
     dependencies = { "mfussenegger/nvim-dap" },
     opts = {
-      codelldb_path = "~/.local/share/nvim/mason/bin/codelldb"
+      codelldb_path = "~/.local/share/nvim/mason/bin/codelldb",
     },
   },
 
-  'https://github.com/wsdjeg/vim-fetch', -- Allow opening `path:linenr`
-  'https://github.com/mfussenegger/nvim-lint',
-  'https://github.com/NoahTheDuke/vim-just',
+  "https://github.com/wsdjeg/vim-fetch", -- Allow opening `path:linenr`
+  "https://github.com/mfussenegger/nvim-lint",
+  "https://github.com/NoahTheDuke/vim-just",
   -- 'https://github.com/lukas-reineke/indent-blankline.nvim',
   -- 'https://github.com/chrisbra/vim-diff-enhanced',
   {
@@ -212,32 +213,32 @@ return {
   --   end
   -- },
   {
-    'https://github.com/nvim-pack/nvim-spectre',
+    "https://github.com/nvim-pack/nvim-spectre",
     config = function()
-      require('spectre').setup({
+      require("spectre").setup({
         default = {
           replace = {
-            cmd = "oxi"
-          }
-        }
+            cmd = "oxi",
+          },
+        },
       })
 
-      vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
-        desc = "Toggle Spectre"
+      vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+        desc = "Toggle Spectre",
       })
-      vim.keymap.set('n', '<m-f>', '<cmd>lua require("spectre").toggle()<CR>', {
-        desc = "Toggle Spectre"
+      vim.keymap.set("n", "<m-f>", '<cmd>lua require("spectre").toggle()<CR>', {
+        desc = "Toggle Spectre",
       })
-      vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-        desc = "Search current word"
+      vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+        desc = "Search current word",
       })
-      vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-        desc = "Search current word"
+      vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+        desc = "Search current word",
       })
-      vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-        desc = "Search on current file"
+      vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+        desc = "Search on current file",
       })
-    end
+    end,
   },
   -- { 'https://github.com/cweagans/vim-taskpaper', enabled = false },
   -- {
@@ -258,22 +259,22 @@ return {
   --   }
   -- },
   -- 'https://github.com/mg979/vim-visual-multi',
-  { "https://github.com/Olical/nfnl",            ft = "fennel" },
-  { 'https://github.com/stevearc/dressing.nvim', enabled = true },
-  'https://github.com/vlime/vlime',
+  { "https://github.com/Olical/nfnl", ft = "fennel" },
+  { "https://github.com/stevearc/dressing.nvim", enabled = true },
+  "https://github.com/vlime/vlime",
   {
     enabled = false,
-    'https://github.com/Olical/conjure',
+    "https://github.com/Olical/conjure",
     ft = { "clojure", "fennel" },
     lazy = true,
     init = function()
       -- Any additional configuration can go here
-    end
+    end,
   },
 
   -- Colors
-  { 'https://github.com/miikanissi/modus-themes.nvim', priority = 1000,    enabled = true }, -- "Highly accessible"
-  { "MeanderingProgrammer/render-markdown.nvim",       ft = { "markdown" } },
+  { "https://github.com/miikanissi/modus-themes.nvim", priority = 1000, enabled = true }, -- "Highly accessible"
+  { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown" } },
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
@@ -285,12 +286,19 @@ return {
       "TmuxNavigatorProcessList",
     },
     keys = {
-      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
   "https://github.com/lewis6991/gitsigns.nvim",
+  {
+    "https://github.com/hedyhli/outline.nvim",
+    init = function()
+      require("outline").setup({})
+      vim.keymap.set("n", "<M-s>", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+    end,
+  },
 }
