@@ -47,6 +47,7 @@ local function configure_light()
   link_highlight("@comment.magic", "typeScriptMagicComment")
   hi("DiagnosticUnnecessary", { guifg = "grey", ctermfg = "244" })
   link_highlight("@string.regexp.javascript", "Constant")
+  link_highlight("@string.regexp.typescript", "Constant")
   link_highlight("@character.special.javascript", "Normal")
   link_highlight("typescriptBraces", "@punctuation")
   link_highlight("typescriptParens", "@punctuation")
@@ -54,15 +55,24 @@ local function configure_light()
   link_highlight("typescriptArrayMethod", "function")
   link_highlight("typescriptDestructureLabel", "String")
   link_highlight("Special", "Normal")
+  link_highlight("Title", "Normal")
   link_highlight("diffAdded", "DiffAdd")
   link_highlight("diffRemoved", "DiffDelete")
+  link_highlight("@string.special.url.tsx", "Normal")
+  link_highlight("@markup.strong.tsx", "Normal")
 
-  hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg="none" })
+  hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg = "none" })
   hi("CursorLine", { guibg = "none", ctermbg = "none" })
   hi("CursorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
   hi("ColorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
   hi("Search", { guibg = "#AADDFF", ctermbg = "153" })
   hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
+  hi("diffNewFile", { gui = "bold", cterm = "bold" })
+  hi("diffOldFile", { gui = "bold", cterm = "bold" })
+  hi("@keyword.exception.javascript", { gui="italic", cterm="italic"})
+  hi("@keyword.return.javascript", { gui="italic", cterm="italic"})
+  hi("@keyword.exception.typescript", { gui="italic", cterm="italic"})
+  hi("@keyword.return.typescript", { gui="italic", cterm="italic"})
 
   hi(
     "StatusLine",
@@ -74,83 +84,78 @@ local function configure_light()
   link_highlight("TabLineSel", "StatusLine")
 
   hi("DiffChange", { guibg = "#DDDDFF", ctermbg = "189" })
-  hi("DiffAdd", { guibg = "#AFF3BC", ctermbg = "157" })
+  hi("DiffAdd", { guibg = "#AFF3BC", ctermbg = "157", ctermfg = "none", guifg = "none" })
   hi("DiffDelete", { guibg = "#F9CCCC", gui = "none", cterm = "none", ctermbg = "224" })
 end
 
--- Here's with fg colours:
--- local function configure_light()
---   vim.o.background = "light"
---   vim.cmd("colorscheme default")
---   vim.cmd("syntax reset")
---   hi("Normal", { guibg = "none", guifg = "none" })
---   hi("NormalNC", { guibg = "none", guifg = "none" })
---   hi("Identifier", { guibg = "none", guifg = "none" })
---   hi("@variable", { guibg = "none" })
---   hi("String", { guibg = "none", guifg = "#006622", gui = "none" })
---   hi("Constant", { guibg = "none", guifg = "#663300", gui = "none" })
---   hi("Statement", { guibg = "none", guifg = "none", gui = "none" })
---   hi("function", { guibg = "none", guifg = "#660066", gui = "none" })
---   hi("Comment", { guibg = "none", guifg = "#666600" })
+local function configure_dark()
+  vim.o.background = "dark"
+  vim.cmd("colorscheme default")
+  vim.cmd("syntax reset")
+  hi("Normal", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("NormalNC", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("Identifier", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("@variable", { guibg = "none", ctermbg = "none" })
+  hi(
+    "String",
+    { guibg = "none", guifg = "#66DD88", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "lightgreen" }
+  )
+  hi("Constant", { guibg = "none", guifg = "#FFAA66", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "216" })
+  hi("Statement", { guibg = "none", guifg = "none", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "none" })
+  hi("function", { guibg = "none", guifg = "#BB88FF", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "141" })
+  hi("Comment", { guibg = "#222200", guifg = "#AAAA66", ctermbg = "234", ctermfg = "143" })
+  hi("@punctuation", { guifg = "#888888", ctermfg = "244" })
 
---   hi("@punctuation", { guifg = "#333333" })
---   hi("CursorLine", { guibg = "#EEEEEE" })
---   hi("CursorColumn", { guibg = "#EEEEEE" })
---   hi("ColorColumn", { guibg = "#EEEEEE" })
--- end
+  hi("typeScriptMagicComment", { gui = "bold", cterm = "bold" })
+  hi("typeScriptCastKeyword", { gui = "bold", cterm = "bold" })
+  link_highlight("@keyword.cast", "typeScriptCastKeyword")
+  link_highlight("@comment.magic", "typeScriptMagicComment")
+  hi("DiagnosticUnnecessary", { guifg = "grey", ctermfg = "244" })
+  link_highlight("@string.regexp.javascript", "Constant")
+  link_highlight("@character.special.javascript", "Normal")
+  link_highlight("typescriptBraces", "@punctuation")
+  link_highlight("typescriptParens", "@punctuation")
+  link_highlight("typescriptMember", "Identifier")
+  link_highlight("typescriptArrayMethod", "function")
+  link_highlight("typescriptDestructureLabel", "String")
+  link_highlight("Special", "Normal")
+  link_highlight("Title", "Normal")
+  link_highlight("diffAdded", "DiffAdd")
+  link_highlight("diffRemoved", "DiffDelete")
+  link_highlight("@string.special.url.tsx", "Normal")
+  link_highlight("@markup.strong.tsx", "Normal")
+
+  hi("Visual", { guibg = "#555500", ctermbg = "58", ctermfg = "none" })
+  hi("CursorLine", { guibg = "none", ctermbg = "none" })
+  hi("CursorColumn", { guibg = "#222222", ctermbg = "235" })
+  hi("ColorColumn", { guibg = "#222222", ctermbg = "235" })
+  hi("Search", { guibg = "#005588", ctermbg = "24" })
+  hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
+  hi("diffNewFile", { gui = "bold", cterm = "bold" })
+  hi("diffOldFile", { gui = "bold", cterm = "bold" })
+
+  hi(
+    "StatusLine",
+    { guibg = "#3365BB", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "61", ctermfg = "white" }
+  )
+  hi("StatusLineNC", { guibg = "#223355", guifg = "#AAAAAA", ctermbg = "237", ctermfg = "248" })
+  link_highlight("TabLine", "StatusLineNC")
+  link_highlight("TabLineFill", "StatusLineNC")
+  link_highlight("TabLineSel", "StatusLine")
+
+  hi("DiffChange", { guibg = "#222244", ctermbg = "235" })
+  hi("DiffAdd", { guibg = "#223322", ctermbg = "22", ctermfg = "none", guifg = "none" })
+  hi("DiffDelete", { guibg = "#442222", gui = "none", cterm = "none", ctermbg = "52" })
+end
 
 --- Check whether macOS is set to light or dark mode, and update the
 --- colourscheme accordingly.
 function CheckAppearance()
   local theme = vim.fn.system("defaults read -g AppleInterfaceStyle"):gsub("\n", "")
   if theme == "Dark" then
-    vim.o.background = "dark"
-    vim.cmd("colorscheme retrobox")
-    vim.cmd([[
-      " hi Normal guibg=clear
-      " hi TabLineSel guibg=#999999
-      " hi DiagnosticUnderlineError gui=none
-      " hi DiagnosticUnderlineWarn gui=none
-      " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=DarkRed
-      " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#1e1e1e
-      " hi NonText guifg=#333333
-      " hi CursorLine guibg=#222244
-      " hi htmlBold gui=bold
-      " hi DiagnosticUnderlineError gui=underline guisp=#aa3333
-      " hi AvanteConflictCurrent guibg=#421515
-      " hi AvanteConflictIncoming guibg=#2c4215
-    ]])
+    configure_dark()
   else
     configure_light()
-    -- vim.o.background = 'light'
-    -- vim.cmd('colorscheme modus')
-    -- vim.cmd [[
-    --   hi Normal guibg=#EEEEEE
-    --   hi NormalNC guibg=#EEEEEE
-    --   " hi Pmenu guibg=#eeeeee
-    --   " hi DiagnosticError guifg=#660000
-    --   " hi DiagnosticFloatingHint guifg=#111111
-    --   " hi TabLineSel guibg=#EEEEEE
-
-    --   " hi DiffAdd guibg=#DDFFDD
-    --   " hi DiffChange guibg=#DDFFDD
-    --   " hi DiffText cterm=bold gui=bold ctermbg=225 guibg=#BBEEBB
-    --   " hi DiffDelete guifg=#FFDDDD guibg=#FFEEEE
-    --   " hi diffRemoved guibg=#FFEEEE
-
-    --   " hi RenderMarkdown_bgtofg_RenderMarkdownCode guifg=#f2f2f2
-    --   " hi NonText guifg=#eeeeee
-    --   hi CursorLine guibg=#eaeaed
-    --   hi CursorColumn guibg=#eeeeff
-    --   hi ColorColumn guibg=#eeeeff
-    --   " hi htmlBold gui=bold
-    --   " hi DiagnosticUnderlineError gui=underline guisp=#f2AAAA
-    --   " hi DiagnosticUnderlineWarn gui=underline guisp=#e2e222
-    --   " hi DiagnosticUnderlineHint gui=underline guisp=#cccccc
-    --   " hi SignColumn guibg=#eeeeee
-    --   " hi LineNr guifg=#777777
-    --   " hi Comment cterm=italic gui=italic guifg=#885588
-    -- ]]
   end
   pcall(function()
     require("smear_cursor").setup({ cursor_color = "#FF00EE" })

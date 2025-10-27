@@ -10,6 +10,11 @@
     "target": ".eslintrc.json"
   },
   {
+    "pattern": "*/Developer/plinth/book*",
+    "source": "~/VaultyMcVaultFace/Custom ESLint conf book.json",
+    "target": ".eslintrc.json"
+  },
+  {
     "pattern": "*/Developer/plinth/database-scripts*",
     "source": "~/VaultyMcVaultFace/Custom ESLint conf database-scripts.json",
     "target": ".eslintrc.json"

@@ -28,7 +28,6 @@ let &t_Ce = "\e[4:0m"
 ]]
 
 vim.opt.number = true
-vim.opt.signcolumn = 'number'
 vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -185,7 +184,7 @@ function exec(command)
 end
 
 vim.keymap.set("n", "cp", function()
-  local filepath = vim.fn.expand('%')
+  local filepath = vim.fn.expand('%:p')
   -- os.execute("echo '" .. filepath .. "' | pbcopy")
   vim.fn.setreg('*', filepath)
 end)
