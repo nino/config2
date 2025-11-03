@@ -51,6 +51,7 @@ require("conform").setup({
     typescriptreact = javascript_formatters,
     swift = { "swiftformat" },
     asm = { "asmfmt" },
+    python = { "ruff" },
   },
 })
 

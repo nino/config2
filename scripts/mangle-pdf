@@ -51,11 +51,11 @@ async function processPDF(inputPath, outputPath) {
         // Fuck shit up 🧨👊
         const rotation = Math.random() * 3 - 1;
         const blur = Math.random() * 0.5 + 0.2;
-        const noiseLevel = Math.random() * 10 + 5; // Adjust noise level for -statistic NonPeak
+        const noise = Math.random() * 3 + 2;
 
         try {
           await execAsync(
-            `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} -statistic NonPeak ${noiseLevel}x${noiseLevel} "${filePath}"`
+            `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} +noise Gaussian -attenuate ${noise} "${filePath}"`
           );
         } catch (error) {
           console.error(`Error processing ${file}:`, error.message);
