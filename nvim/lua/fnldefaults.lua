@@ -16,6 +16,7 @@ vim.opt.cursorline = true
 vim.opt.smoothscroll = true
 vim.opt.cmdheight = 1
 vim.opt.colorcolumn = {}
+vim.opt.winborder = "double"
 vim.opt.wildignorecase = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

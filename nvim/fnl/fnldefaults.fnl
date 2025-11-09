@@ -17,6 +17,7 @@
 (set vim.opt.cmdheight 1)
 (set vim.opt.colorcolumn [])
 
+(set vim.opt.winborder "double")
 (set vim.opt.wildignorecase true)
 (set vim.opt.ignorecase true)
 (set vim.opt.smartcase true)
