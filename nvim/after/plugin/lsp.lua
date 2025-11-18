@@ -27,6 +27,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 -- Linting setup
 require("lint").linters_by_ft = {
   typescript = { "eslint" },
@@ -62,6 +64,7 @@ vim.lsp.config("zls", {
   cmd = { "zls" },
   filetypes = { "zig" },
   root_markers = { "build.zig", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("tailwindcss", {
@@ -78,24 +81,28 @@ vim.lsp.config("tailwindcss", {
     "svelte",
   },
   root_markers = { "tailwind.config.js", "tailwind.config.ts", "tailwind.config.cjs" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("astro", {
   cmd = { "astro-ls", "--stdio" },
   filetypes = { "astro" },
   root_markers = { "package.json", "astro.config.mjs", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("rust_analyzer", {
   cmd = { "rust-analyzer" },
   filetypes = { "rust" },
   root_markers = { "Cargo.toml", "rust-project.json" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("cmake", {
   cmd = { "cmake-language-server" },
   filetypes = { "cmake" },
   root_markers = { "CMakeLists.txt", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("pyright", {
@@ -105,30 +112,35 @@ vim.lsp.config("pyright", {
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end,
+  capabilities = capabilities,
 })
 
 vim.lsp.config("gopls", {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_markers = { "go.work", "go.mod", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("kotlin_language_server", {
   cmd = { "kotlin-language-server" },
   filetypes = { "kotlin" },
   root_markers = { "settings.gradle", "settings.gradle.kts", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("dartls", {
   cmd = { "dart", "language-server", "--protocol=lsp" },
   filetypes = { "dart" },
   root_markers = { "pubspec.yaml", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("solargraph", {
   cmd = { "solargraph", "stdio" },
   filetypes = { "ruby" },
   root_markers = { "Gemfile", ".git" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("clangd", {
@@ -152,6 +164,7 @@ vim.lsp.config("denols", {
   cmd = { "deno", "lsp" },
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   root_markers = { "deno.json", "deno.jsonc" },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("eslint", {
@@ -177,6 +190,7 @@ vim.lsp.config("eslint", {
     "eslint.config.js",
     "package.json",
   },
+  capabilities = capabilities,
 })
 
 vim.lsp.config("ts_ls", {
@@ -207,6 +221,7 @@ vim.lsp.config("ts_ls", {
       },
     },
   },
+  capabilities = capabilities,
 })
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
@@ -244,6 +259,7 @@ vim.lsp.config("lua_ls", {
       },
     },
   },
+  capabilities = capabilities,
 })
 
 -- Enable all configured LSP servers
@@ -283,29 +299,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
-
--- Completion setup
--- local cmp = require("cmp")
--- local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
--- cmp.setup({
---   completion = { autocomplete = false },
---   mapping = cmp.mapping.preset.insert({
---     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
---     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
---     ["<CR>"] = cmp.mapping.confirm({ select = false }),
---     ["<C-f>"] = cmp.mapping.confirm({ select = true }),
---     ["<C-space>"] = cmp.mapping.complete(),
---   }),
---   sources = {
---     { name = "nvim_lsp" },
---     {
---       name = "buffer",
---       option = {
---         get_bufnrs = function()
---           return vim.api.nvim_list_bufs()
---         end,
---       },
---     },
---   },
--- })
