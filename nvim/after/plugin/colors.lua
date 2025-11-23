@@ -61,14 +61,14 @@ local function configure_light()
   link_highlight("@markup.strong.tsx", "Normal")
 
   hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg = "none" })
-  hi("CursorLine", { guibg = "none", ctermbg = "none" })
+  hi("CursorLine", { guibg = "#FAFAFA", ctermbg = "none" })
   hi("CursorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
   hi("ColorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
   hi("Search", { guibg = "#AADDFF", ctermbg = "153" })
   hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
   hi("diffNewFile", { gui = "bold", cterm = "bold" })
   hi("diffOldFile", { gui = "bold", cterm = "bold" })
-  hi("@keyword.exception", { guifg = "#C64690", ctermfg = "205" })
+  hi("@keyword.throw", { guifg = "#C64690", ctermfg = "205" })
   hi("@keyword.return", { guifg = "#C64690", ctermfg = "205" })
 
   hi(

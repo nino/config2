@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 
 case ARGV[0]
+when "diff"
+  puts "Diffing"
+  system "git show KeyboardMaestroMacros.kmsync > /tmp/km_current.kmsync && plutil -convert xml1 KeyboardMaestroMacros.kmsync -o km_current.xml"
+  system "plutil -convert xml1 KeyboardMaestroMacros.kmsync -o km.xml"
 when "setup"
   puts "Setup"
   system "git show :2:KeyboardMaestroMacros.kmsync > /tmp/km_ours.kmsync && plutil -convert xml1 /tmp/km_ours.kmsync -o km1.xml"
   system "git show :3:KeyboardMaestroMacros.kmsync > /tmp/km_theirs.kmsync && plutil -convert xml1 /tmp/km_theirs.kmsync -o km2.xml"
 when "done"
   puts "Done"
-  system "plutil -convert binary1 your-merged-file.xml -o KeyboardMaestroMacros.kmsync"
+  system "plutil -convert binary1 #{ARGV[1]} -o KeyboardMaestroMacros.kmsync"
 end
