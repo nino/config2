@@ -7,12 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "buffer_line_height": "standard",
   "show_edit_predictions": false,
   "features": {
     "edit_prediction_provider": "zed"
   },
   "theme": "macOS Classic Light",
-  "buffer_font_size": 11,
+  "buffer_font_size": 14.0,
   "ui_font_size": 13,
   "project_panel": {
     "dock": "left"
