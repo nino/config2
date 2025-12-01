@@ -80,9 +80,10 @@ local function configure_light()
   link_highlight("TabLineFill", "StatusLineNC")
   link_highlight("TabLineSel", "StatusLine")
 
-  hi("DiffChange", { guibg = "#DDDDFF", ctermbg = "189" })
-  hi("DiffAdd", { guibg = "#AFF3BC", ctermbg = "157", ctermfg = "none", guifg = "none" })
-  hi("DiffDelete", { guibg = "#F9CCCC", gui = "none", cterm = "none", ctermbg = "224" })
+  hi("DiffChange", { guibg = "#EEEEFF", ctermbg = "189" })
+  hi("DiffAdd", { guibg = "#EAFFDC", ctermbg = "157", ctermfg = "none", guifg = "none" })
+  hi("DiffDelete", { guibg = "#F9DDDD", gui = "none", cterm = "none", ctermbg = "224" })
+  hi("DiffText", { guibg = "#DDFCFA" })
 end
 
 local function configure_dark()
