@@ -85,6 +85,7 @@ vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fs', telescope_builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>fd', telescope_builtin.lsp_dynamic_workspace_symbols, {})
 vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
 
 vim.keymap.set('n', '<m-a>', vim.cmd.e)
