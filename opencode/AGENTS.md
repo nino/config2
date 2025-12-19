@@ -1,5 +1,7 @@
 Hi!
 
+If you write one more `const [isLoading, setIsLoading] = useState(false)` for an async operation instead of using TanStack's `useQuery` or `useMutation` I'm going to KICK OFF.
+
 - Use fd for finding files and rg for grepping. Calling rg with `--type ts` will
   also match tsx files. There is not such thing as `--type tsx`.
 - ALWAYS use `??` instead of `||` for nullish-coalescing / fallback values. ONLY
