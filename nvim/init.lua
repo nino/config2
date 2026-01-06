@@ -121,7 +121,7 @@ vim.keymap.set("n", "<Leader>T", ":tab split<CR>"
 )
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("n", "<Leader>c", "/<<<<<<<\\|=======\\||||||||\\|>>>>>>><CR>")
+vim.keymap.set("n", "<Leader>c", "/^\\(<<<<<<<\\|=======\\||||||||\\|>>>>>>>\\)<CR>")
 vim.keymap.set("n", "<Leader>w", ":set wrap!<CR>")
 vim.keymap.set("n", "<Leader>B", ":G blame<CR>")
 vim.keymap.set("n", "<Leader>D", ":Gdiff<CR>")
