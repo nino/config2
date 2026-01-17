@@ -11,6 +11,10 @@ days_to_do =
 
 days_to_do.each do |day|
   puts "Doing #{day}..."
-  system "timelapse-to-video #{day} && rm -rf #{timelapse_root_path}/#{day}"
-  puts "#{day} is done."
+  if system "timelapse-to-video #{day}"
+    system "rm -rf #{timelapse_root_path}/#{day}"
+    puts "#{day} is done."
+  else
+    puts "#{day} failed, keeping images."
+  end
 end

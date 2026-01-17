@@ -383,7 +383,7 @@ return {
     "https://github.com/hedyhli/outline.nvim",
     init = function()
       require("outline").setup({
-        auto_close = true,
+        outline_window = { auto_close = true },
       })
       vim.keymap.set("n", "<M-s>", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
     end,

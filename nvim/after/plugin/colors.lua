@@ -23,6 +23,7 @@ local function link_highlight(group, reference_group)
   vim.cmd("hi! link " .. group .. " " .. reference_group)
 end
 
+-- This is the source of truth, use this as reference to update configure_dark
 local function configure_light()
   vim.o.background = "light"
   vim.cmd("colorscheme default")
@@ -59,6 +60,13 @@ local function configure_light()
   link_highlight("diffRemoved", "DiffDelete")
   link_highlight("@string.special.url.tsx", "Normal")
   link_highlight("@markup.strong.tsx", "Normal")
+
+  hi("NormalFloat", { guibg = "#FFFFFF", guifg = "none", ctermbg = "231", ctermfg = "none" })
+  hi("FloatBorder", { guibg = "#FFFFFF", guifg = "#888888", ctermbg = "231", ctermfg = "244" })
+  hi("Pmenu", { guibg = "#FFFFFF", guifg = "none", ctermbg = "231", ctermfg = "none" })
+  hi("PmenuSel", { guibg = "#AADDFF", guifg = "none", ctermbg = "153", ctermfg = "none" })
+  hi("RenderMarkdownCode", { guibg = "#EEEEEE", ctermbg = "255" })
+  hi("RenderMarkdownCodeInline", { guibg = "#EEEEEE", ctermbg = "255" })
 
   hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg = "none" })
   hi("CursorLine", { guibg = "#FAFAFA", ctermbg = "none" })
@@ -99,20 +107,18 @@ local function configure_dark()
     { guibg = "none", guifg = "#66DD88", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "lightgreen" }
   )
   hi("Constant", { guibg = "none", guifg = "#FFAA66", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "216" })
-  -- hi("Statement", { guibg = "none", guifg = "none", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "none" })
   hi("function", { guibg = "none", guifg = "#BB88FF", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "141" })
   hi("Comment", { guibg = "#222200", guifg = "#AAAA66", ctermbg = "234", ctermfg = "143" })
   hi("@punctuation", { guifg = "#888888", ctermfg = "244" })
 
-  link_highlight("Statement", "Normal")
+  hi("Statement", { guibg = "none", guifg = "none", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "none" })
   hi("typeScriptMagicComment", { gui = "bold", cterm = "bold" })
   hi("typeScriptCastKeyword", { gui = "bold", cterm = "bold" })
   link_highlight("@keyword.cast", "typeScriptCastKeyword")
   link_highlight("@comment.magic", "typeScriptMagicComment")
   hi("DiagnosticUnnecessary", { guifg = "grey", ctermfg = "244" })
-  link_highlight("@string.regexp.javascript", "Constant")
+  link_highlight("@string.regexp", "Constant")
   link_highlight("@character.special", "Normal")
-  link_highlight("@character.special.typescript", "Normal")
   link_highlight("typescriptBraces", "@punctuation")
   link_highlight("typescriptParens", "@punctuation")
   link_highlight("typescriptMember", "Identifier")
@@ -125,6 +131,13 @@ local function configure_dark()
   link_highlight("@string.special.url.tsx", "Normal")
   link_highlight("@markup.strong.tsx", "Normal")
 
+  hi("NormalFloat", { guibg = "#222222", guifg = "none", ctermbg = "235", ctermfg = "none" })
+  hi("FloatBorder", { guibg = "#222222", guifg = "#888888", ctermbg = "235", ctermfg = "244" })
+  hi("Pmenu", { guibg = "#222222", guifg = "none", ctermbg = "235", ctermfg = "none" })
+  hi("PmenuSel", { guibg = "#005588", guifg = "none", ctermbg = "24", ctermfg = "none" })
+  hi("RenderMarkdownCode", { guibg = "#333333", ctermbg = "236" })
+  hi("RenderMarkdownCodeInline", { guibg = "#333333", ctermbg = "236" })
+
   hi("Visual", { guibg = "#555500", ctermbg = "58", ctermfg = "none" })
   hi("CursorLine", { guibg = "none", ctermbg = "none" })
   hi("CursorColumn", { guibg = "#222222", ctermbg = "235" })
@@ -133,6 +146,8 @@ local function configure_dark()
   hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
   hi("diffNewFile", { gui = "bold", cterm = "bold" })
   hi("diffOldFile", { gui = "bold", cterm = "bold" })
+  hi("@keyword.throw", { guifg = "#FF66AA", ctermfg = "205" })
+  hi("@keyword.return", { guifg = "#FF66AA", ctermfg = "205" })
 
   hi(
     "StatusLine",
@@ -146,6 +161,7 @@ local function configure_dark()
   hi("DiffChange", { guibg = "#222244", ctermbg = "235" })
   hi("DiffAdd", { guibg = "#223322", ctermbg = "22", ctermfg = "none", guifg = "none" })
   hi("DiffDelete", { guibg = "#442222", gui = "none", cterm = "none", ctermbg = "52" })
+  hi("DiffText", { guibg = "#224455" })
 end
 
 --- Check whether macOS is set to light or dark mode, and update the
