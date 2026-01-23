@@ -1,0 +1,20 @@
+{
+  "name": "nino-light",
+  "displayName": "Nino Light",
+  "description": "A light theme based on Neovim configuration",
+  "version": "1.0.0",
+  "publisher": "nino",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nino Light",
+        "uiTheme": "vs",
+        "path": "./themes/nino-light-color-theme.json"
+      }
+    ]
+  }
+}

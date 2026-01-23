@@ -2,12 +2,16 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Speed up git prompt - disable expensive checks
+set -g __fish_git_prompt_showdirtystate false
+set -g __fish_git_prompt_showuntrackedfiles false
+set -g __fish_git_prompt_showstashstate false
+
 fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
 fish_add_path ~/.local/context-osx-64/bin
-fish_add_path ~/code-friends/plinth/database-scripts/ninos-scripts/runnable
 fish_add_path ~/Developer/plinth/database-scripts/ninos-scripts/runnable
 
 alias l='eza -lh'
@@ -125,5 +129,8 @@ end
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
 
-~/.local/bin/mise activate fish | source
+# Lazy-load mise - use shims instead of full shell integration for faster startup
+if test -f ~/.local/bin/mise
+    ~/.local/bin/mise activate fish --shims | source
+end
 fish_add_path /Users/Nino/.modular/bin

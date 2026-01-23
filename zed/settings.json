@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "ui_font_size": 14.0,
   "redact_private_values": true,
   "base_keymap": "SublimeText",
   "buffer_line_height": "standard",
@@ -14,13 +15,13 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "theme": "One Light",
-  "buffer_font_size": 14.0,
+  "theme": "Nino Light",
+  "buffer_font_size": 12.0,
   "project_panel": {
     "dock": "left"
   },
   "vim_mode": true,
-  "buffer_font_family": "Fira Code",
+  "buffer_font_family": "JetBrains Mono",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,

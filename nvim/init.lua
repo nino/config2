@@ -221,6 +221,7 @@ vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
 vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
 vim.api.nvim_create_user_command("OF", function() require('oil').open_float() end, {})
 vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
+vim.api.nvim_create_user_command("WD", function() vim.cmd(":windo difft") end, {})
 vim.keymap.set('n', '<m-e>', '<cmd>NERDTreeToggle<CR>', {
   desc = "Toggle NERDTree"
 })

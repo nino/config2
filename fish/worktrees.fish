@@ -22,6 +22,55 @@ function wta
     git worktree add $worktree_path $argv[2..-1]
 end
 
+function wtax
+    ## FYI this doesn't actually work yet
+    if test (count $argv) -eq 0
+        echo "Error: No branch name provided" >&2
+        return 1
+    end
+
+    set -l branch_name $argv[1]
+    set -l current_dir (pwd)
+
+    # Get the git directory and repo root
+    set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
+
+    if test -z "$git_dir"
+        echo "Error: Not in a git repository" >&2
+        return 1
+    end
+
+    set -l repo_root (dirname $git_dir)
+    set -l worktree_path "$repo_root/worktree/$branch_name"
+
+    # Create new tmux session with the branch name, starting in current directory
+    tmux new-session -d -s $branch_name -c $current_dir
+
+    # Run gfmm && wta to create the worktree, then cd into it
+    tmux send-keys -t $branch_name:0 "gfmm && wta $branch_name -b $branch_name master && cd $worktree_path" C-m
+
+    # Wait a moment for the worktree to be created
+    sleep 1
+
+    # Open nvim in tab 0
+    tmux send-keys -t $branch_name:0 "nvim" C-m
+
+    # Create a new tab with two panes
+    tmux new-window -t $branch_name:1 -c $worktree_path
+
+    # Split the window vertically
+    tmux split-window -t $branch_name:1 -h -c $worktree_path
+
+    # Left pane: yarn && yarn dev
+    tmux send-keys -t $branch_name:1.0 "yarn && yarn dev" C-m
+
+    # Right pane: yarn exec tsc -- --noEmit --watch
+    tmux send-keys -t $branch_name:1.1 "yarn exec tsc -- --noEmit --watch" C-m
+
+    # Switch to the new session
+    tmux switch-client -t $branch_name
+end
+
 function wtr
     if test (count $argv) -eq 0
         echo "Error: No worktree name provided" >&2
