@@ -30,4 +30,4 @@ Don't hesitate to create todo lists. The final item on your todo list should alw
 
   If you find yourself accidentally adding such comments, delete them in the proofreading step.
 
-
+- I usually have uncommitted ESLint config changes. These are just for my convenience. Please don't ever stage or commit them unless specifically asked to.

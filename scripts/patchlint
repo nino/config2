@@ -1,8 +1,12 @@
 #!/usr/bin/env bun
 
-import { readFileSync, copyFileSync } from "fs";
+import { readFile, copyFile } from "fs/promises";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { execFile } from "child_process";
+import { promisify } from "util";
+
+const execFileAsync = promisify(execFile);
 
 interface EslintMapping {
   pattern: string;
@@ -25,20 +29,39 @@ function matchPattern(cwd: string, pattern: string): boolean {
   return regex.test(cwd);
 }
 
-function main(): void {
-  const cwd = process.cwd();
+async function getGitRepoRoot(): Promise<string | null> {
+  try {
+    const { stdout } = await execFileAsync("git", [
+      "rev-parse",
+      "--git-common-dir",
+    ]);
+    const gitDir = stdout.trim();
+    return dirname(resolve(gitDir));
+  } catch {
+    return null;
+  }
+}
+
+async function main(): Promise<void> {
+  const repoRoot = await getGitRepoRoot();
+  if (repoRoot == null) {
+    console.error("Not in a git repository");
+    process.exit(1);
+  }
+
   const mappingsPath = resolve(__dirname, "eslint-mappings.json");
   const mappings: EslintMapping[] = JSON.parse(
-    readFileSync(mappingsPath, "utf-8"),
+    await readFile(mappingsPath, "utf-8"),
   );
 
+  const cwd = process.cwd();
   for (const mapping of mappings) {
-    if (matchPattern(cwd, mapping.pattern)) {
+    if (matchPattern(repoRoot, mapping.pattern)) {
       const source = expandTilde(mapping.source);
       const target = resolve(cwd, mapping.target);
 
       try {
-        copyFileSync(source, target);
+        await copyFile(source, target);
         console.log(`Patched ${mapping.target}`);
         process.exit(0);
       } catch (error) {

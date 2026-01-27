@@ -32,7 +32,6 @@ vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
--- vim.opt.termguicolors = false
 -- vim.opt.cursorline = false
 
 -- Enable cursorline only in quickfix windows
