@@ -3,9 +3,9 @@ vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 vim.diagnostic.config({
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "❌",
-      [vim.diagnostic.severity.WARN] = "⚠️",
-      [vim.diagnostic.severity.HINT] = "💡",
+      [vim.diagnostic.severity.HINT] = "⁍",
+      [vim.diagnostic.severity.WARN] = "⚠",
+      [vim.diagnostic.severity.ERROR] = "×",
     },
   },
 })
@@ -47,10 +47,10 @@ local javascript_formatters = { "prettierd" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
-    -- javascript = javascript_formatters,
-    -- javascriptreact = javascript_formatters,
-    -- typescript = javascript_formatters,
-    -- typescriptreact = javascript_formatters,
+    javascript = javascript_formatters,
+    javascriptreact = javascript_formatters,
+    typescript = javascript_formatters,
+    typescriptreact = javascript_formatters,
     swift = { "swiftformat" },
     asm = { "asmfmt" },
     python = { "ruff" },
