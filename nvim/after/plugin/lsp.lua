@@ -47,10 +47,10 @@ local javascript_formatters = { "prettierd" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
-    javascript = javascript_formatters,
-    javascriptreact = javascript_formatters,
-    typescript = javascript_formatters,
-    typescriptreact = javascript_formatters,
+    -- javascript = javascript_formatters,
+    -- javascriptreact = javascript_formatters,
+    -- typescript = javascript_formatters,
+    -- typescriptreact = javascript_formatters,
     swift = { "swiftformat" },
     asm = { "asmfmt" },
     python = { "ruff" },
