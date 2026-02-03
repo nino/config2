@@ -15,6 +15,10 @@ path = "src/refresh_repos/main.rs"
 name = "timelapse"
 path = "src/timelapse/main.rs"
 
+[[bin]]
+name = "lint_history"
+path = "src/lint_history/main.rs"
+
 [lib]
 path = "src/lib/mod.rs"
 
