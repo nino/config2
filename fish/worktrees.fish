@@ -22,6 +22,10 @@ function wta
     git worktree add $worktree_path $argv[2..-1]
 end
 
+function wtam
+  wta $argv[1] -b $argv[1] $TRUNKBRANCHNAME
+end
+
 function wtax
     ## FYI this doesn't actually work yet
     if test (count $argv) -eq 0
