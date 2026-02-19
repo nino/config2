@@ -69,7 +69,7 @@ local function configure_light()
   hi("RenderMarkdownCodeInline", { guibg = "#EEEEEE", ctermbg = "255" })
 
   hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg = "none" })
-  hi("CursorLine", { guibg = "#FAFAFA", ctermbg = "none" })
+  hi("CursorLine", { guibg = "#F2F2F2", ctermbg = "none" })
   hi("CursorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
   hi("ColorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
   hi("Search", { guibg = "#AADDFF", ctermbg = "153" })
