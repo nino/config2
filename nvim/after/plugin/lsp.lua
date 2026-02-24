@@ -55,6 +55,10 @@ require("conform").setup({
     asm = { "asmfmt" },
     python = { "ruff" },
   },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
 })
 
 -- LSP Configuration using new vim.lsp.config API

@@ -28,8 +28,8 @@ local function configure_light()
   vim.o.background = "light"
   vim.cmd("colorscheme default")
   vim.cmd("syntax reset")
-  hi("Normal", { guibg = "#FAFAFA", guifg = "none", ctermbg = "255", ctermfg = "none" })
-  hi("NormalNC", { guibg = "#FAFAFA", guifg = "none", ctermbg = "255", ctermfg = "none" })
+  hi("Normal", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  hi("NormalNC", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
   hi("Identifier", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
   hi("@variable", { guibg = "none", ctermbg = "none" })
   hi(
