@@ -54,6 +54,7 @@ alias pddraft='pandoc --pdf-engine=lualatex -V papersize:a5 -V documentclass:scr
 alias pddraft4='pandoc --pdf-engine=lualatex -V papersize:a4 -V documentclass:scrarticle -V classoption:oneside -V indent -V fontfamily:ebgaramond-maths --top-level-division=section  --shift-heading-level-by=0 -V microtypeoptions:protrusion=true,expansion=true,tracking=true,factor=500,stretch=30,shrink=30'
 alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
+alias cl='claude'
 
 function save
   if test -z $argv;
@@ -84,6 +85,7 @@ function maybe_source
   end
 end
 
+source ~/.config/fish/fixall.fish
 source ~/.config/fish/worktrees.fish
 source ~/.config/fish/git.fish
 source ~/secret-config2/fish/secret.fish
