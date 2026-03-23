@@ -85,7 +85,6 @@ function maybe_source
   end
 end
 
-source ~/.config/fish/fixall.fish
 source ~/.config/fish/worktrees.fish
 source ~/.config/fish/git.fish
 source ~/secret-config2/fish/secret.fish

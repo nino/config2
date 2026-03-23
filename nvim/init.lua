@@ -4,11 +4,11 @@ vim.g.sexp_filetypes = "clojure,scheme,lisp,timl,fennel,racket"
 
 vim.filetype.add({
   pattern = {
-    ['.*'] = {
+    [".*"] = {
       function(path, buf)
         local first_line = vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1]
-        if first_line and first_line:match('^#!/usr/bin/env bun') then
-          return 'typescript'
+        if first_line and first_line:match("^#!/usr/bin/env bun") then
+          return "typescript"
         end
       end,
     },
@@ -21,11 +21,11 @@ require("abbreviations")
 local utils = require("utils")
 
 -- Defaults
-require "fnldefaults"
-vim.cmd [[
+require("fnldefaults")
+vim.cmd([[
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
-]]
+]])
 
 vim.opt.number = true
 vim.opt.swapfile = false
@@ -59,7 +59,7 @@ vim.opt.title = true
 vim.opt.inccommand = "nosplit"
 vim.opt.laststatus = 2
 
-vim.cmd [[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]]
+vim.cmd([[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]])
 
 -- Keep the visual textwidth but don't add new line in insert mode:
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
@@ -67,30 +67,36 @@ vim.opt.formatoptions = vim.opt.formatoptions - "t"
 vim.opt.updatetime = 50
 
 -- Set textwidth for claude-prompt files
-vim.api.nvim_create_autocmd({"BufEnter", "BufNewFile", "BufRead"}, {
+vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile", "BufRead" }, {
   pattern = "claude-prompt-*.md",
   callback = function()
     vim.opt_local.textwidth = 99999
-  end
+  end,
 })
 
 -- Mappings
 
-local telescope_builtin = require('telescope.builtin')
+local telescope_builtin = require("telescope.builtin")
 local telescope = require("telescope")
-vim.keymap.set('n', '<leader>ff', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
-vim.keymap.set('n', '<c-f>', function() telescope_builtin.git_files({ show_untracked = true }) end, {})
-vim.keymap.set('n', '<leader>F', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fs', telescope_builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>fd', telescope_builtin.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set('n', '<leader>fm', telescope_builtin.marks, {})
+vim.keymap.set("n", "<leader>ff", function()
+  telescope_builtin.git_files({ show_untracked = true })
+end, {})
+vim.keymap.set("n", "<c-f>", function()
+  telescope_builtin.git_files({ show_untracked = true })
+end, {})
+vim.keymap.set("n", "<leader>F", telescope_builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, {})
+vim.keymap.set("n", "<leader>fd", telescope_builtin.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set("n", "<leader>fm", telescope_builtin.marks, {})
 
-vim.keymap.set('n', '<m-a>', vim.cmd.e)
-vim.keymap.set('n', '<m-.>', vim.lsp.buf.code_action)
-vim.keymap.set('n', '<leader>r', function() utils.toggle_option("wrap") end, {})
+vim.keymap.set("n", "<m-a>", vim.cmd.e)
+vim.keymap.set("n", "<m-.>", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>r", function()
+  utils.toggle_option("wrap")
+end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
 
@@ -115,9 +121,14 @@ vim.keymap.set("i", "<m-bs>", "<c-w>")
 -- vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "T", "gT")
 vim.keymap.set("n", "t", "gt")
-vim.keymap.set("n", "<Leader>t", function() vim.cmd("tabe") end)
-vim.keymap.set("n", "<Leader>T", ":tab split<CR>"
--- function() vim.cmd("tabe % | norm <c-o>") end
+vim.keymap.set("n", "<Leader>t", function()
+  vim.cmd("tabe")
+end)
+vim.keymap.set(
+  "n",
+  "<Leader>T",
+  ":tab split<CR>"
+  -- function() vim.cmd("tabe % | norm <c-o>") end
 )
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -142,8 +153,12 @@ vim.keymap.set("n", "<M-v>", "<c-w>v<c-w>l")
 vim.keymap.set("n", "ø", "<c-w><c-o>")
 vim.keymap.set("n", "<M-o>", "<c-w><c-o>")
 
-vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
-vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
+vim.keymap.set("n", "<C-n>", function()
+  vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+end)
+vim.keymap.set("n", "<C-p>", function()
+  vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+end)
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 
@@ -151,26 +166,34 @@ vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
 
 vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>")
-vim.keymap.set("n", "_", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end)
-vim.keymap.set("", "<leader>-", function() require('conform').format() end)
+vim.keymap.set("n", "_", function()
+  vim.lsp.buf.format({ timeout_ms = 10000 })
+end)
+vim.keymap.set("", "<leader>-", function()
+  require("conform").format()
+end)
 vim.keymap.set("n", "<leader>p", function()
   if vim.bo.filetype == "python" then
-    exec("black --quiet '" .. vim.fn.expand('%') .. "'")
+    exec("black --quiet '" .. vim.fn.expand("%") .. "'")
   elseif vim.bo.filetype == "prisma" then
-    exec("prisma format --schema '" .. vim.fn.expand('%') .. "'")
+    exec("prisma format --schema '" .. vim.fn.expand("%") .. "'")
   else
-    exec("prettier --write '" .. vim.fn.expand('%') .. "'")
+    exec("prettier --write '" .. vim.fn.expand("%") .. "'")
   end
-  vim.cmd "e"
+  vim.cmd("e")
 end)
 vim.keymap.set("n", "<leader>P", function()
-  exec("prettier --write --prose-wrap=always '" .. vim.fn.expand('%') .. "'")
-  vim.cmd "e"
+  exec("prettier --write --prose-wrap=always '" .. vim.fn.expand("%") .. "'")
+  vim.cmd("e")
 end)
 
 vim.keymap.set("n", "<M-r>", ":LspRestart<CR>")
-vim.keymap.set("n", "<C-w>gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
-  { desc = "Go to definition in new tab" })
+vim.keymap.set(
+  "n",
+  "<C-w>gd",
+  "<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
+  { desc = "Go to definition in new tab" }
+)
 vim.keymap.set("n", "X", "dd")
 
 --- @param command string
@@ -186,12 +209,12 @@ function exec(command)
 end
 
 vim.keymap.set("n", "cp", function()
-  local filepath = vim.fn.expand('%:p')
+  local filepath = vim.fn.expand("%:p")
   -- os.execute("echo '" .. filepath .. "' | pbcopy")
-  vim.fn.setreg('*', filepath)
+  vim.fn.setreg("*", filepath)
 end)
 
-vim.cmd [[
+vim.cmd([[
     function! s:ToggleHere()
         let cursorcolumn = getcurpos()[2]
         if &colorcolumn == cursorcolumn
@@ -202,7 +225,7 @@ vim.cmd [[
     endfunction
     command! Here call s:ToggleHere()
     nnoremap Q :Here<CR>
-]]
+]])
 
 -- Digraphs
 -- local utils = require("utils")
@@ -213,21 +236,37 @@ vim.cmd [[
 
 -- Commands
 vim.cmd("command! Q :mksession! ~/Prevsession.vim | qa")
-vim.cmd [[command! -range=% DP :<line1>,<line2>diffput]]
-vim.api.nvim_create_user_command("GP", function() vim.cmd(":Git push -u") end, {})
-vim.api.nvim_create_user_command("GC", function() vim.cmd(":Git commit") end, {})
-vim.api.nvim_create_user_command("GW", function() vim.cmd(":Gw") end, {})
-vim.api.nvim_create_user_command("NF", function() vim.cmd(":NERDTreeFind") end, {})
-vim.api.nvim_create_user_command("OF", function() require('oil').open_float() end, {})
-vim.api.nvim_create_user_command("NT", function() vim.cmd(":NERDTreeToggle") end, {})
-vim.api.nvim_create_user_command("WD", function() vim.cmd(":windo difft") end, {})
-vim.keymap.set('n', '<m-e>', '<cmd>NERDTreeToggle<CR>', {
-  desc = "Toggle NERDTree"
+vim.cmd([[command! -range=% DP :<line1>,<line2>diffput]])
+vim.api.nvim_create_user_command("GP", function()
+  vim.cmd(":Git push -u")
+end, {})
+vim.api.nvim_create_user_command("GC", function()
+  vim.cmd(":Git commit")
+end, {})
+vim.api.nvim_create_user_command("GW", function()
+  vim.cmd(":Gw")
+end, {})
+vim.api.nvim_create_user_command("NF", function()
+  vim.cmd(":NERDTreeFind")
+end, {})
+vim.api.nvim_create_user_command("OF", function()
+  require("oil").open_float()
+end, {})
+vim.api.nvim_create_user_command("NT", function()
+  vim.cmd(":NERDTreeToggle")
+end, {})
+vim.api.nvim_create_user_command("WD", function()
+  vim.cmd(":windo difft")
+end, {})
+vim.keymap.set("n", "<m-e>", "<cmd>NERDTreeToggle<CR>", {
+  desc = "Toggle NERDTree",
 })
-vim.keymap.set('n', '<m-E>', '<cmd>NERDTreeFind<CR>', {
-  desc = "Find current file in NERDTree"
+vim.keymap.set("n", "<m-E>", "<cmd>NERDTreeFind<CR>", {
+  desc = "Find current file in NERDTree",
 })
-vim.api.nvim_create_user_command("Exe", function() vim.cmd(":!chmod +ux %") end, {})
+vim.api.nvim_create_user_command("Exe", function()
+  vim.cmd(":!chmod +ux %")
+end, {})
 vim.api.nvim_create_user_command("Indent", function(info)
   local val = tonumber(info.args)
   vim.b.shiftwidth = val
@@ -268,7 +307,7 @@ vim.api.nvim_create_user_command("CC", function(info)
   if #msg == 0 then
     vim.cmd("G commit")
   else
-    vim.cmd("G commit -m \"" .. msg .. '"')
+    vim.cmd('G commit -m "' .. msg .. '"')
   end
 end, { nargs = "?" })
 
@@ -278,11 +317,19 @@ end, { nargs = "?" })
 
 --- Add current line to the loclist. Might be nicer than using marks.
 vim.api.nvim_create_user_command("L", function()
-  vim.cmd [[ ladd expand("%") .. ":" .. line(".") .. ":" .. getline(".") ]]
+  vim.cmd([[ ladd expand("%") .. ":" .. line(".") .. ":" .. getline(".") ]])
 end, {})
 
+vim.api.nvim_create_user_command("GD", function(info)
+  local base = info.args
+  if #base == 0 then
+    base = "origin/main"
+  end
+  utils.shell_to_quickfix("git diff " .. base .. "... --name-only", "git diff vs " .. base)
+end, { nargs = "?" })
+
 vim.api.nvim_create_user_command("MD", function()
-  vim.cmd [[ !mkdir -p '%:p:h' ]]
+  vim.cmd([[ !mkdir -p '%:p:h' ]])
 end, {})
 
 -- vim.cmd [[
@@ -309,12 +356,11 @@ end, {})
 
 -- ]]
 
-
 utils.run_once("Remove context-menu items about mouse stuff", function()
-  vim.cmd [[
+  vim.cmd([[
       aunmenu PopUp.How-to\ disable\ mouse
       aunmenu PopUp.-1-
-   ]]
+   ]])
 end)
 
 -- vim.cmd [[
@@ -323,10 +369,10 @@ end)
 -- ]]
 --
 
-vim.cmd [[
+vim.cmd([[
   let g:rg_command = 'rg --vimgrep --sort-files'
-]]
+]])
 
-require "fennelconfig"
+require("fennelconfig")
 
-vim.keymap.set('o', 'ae', ':<C-u>normal! ggVG<CR>', { desc = 'entire buffer' })
+vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "entire buffer" })

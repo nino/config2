@@ -1,0 +1,44 @@
+#!/usr/bin/env bun
+
+import { $ } from "bun";
+import { existsSync } from "fs";
+
+const ESLINT_EXTENSIONS = new Set([
+  ".js",
+  ".ts",
+  ".tsx",
+  ".jsx",
+  ".mjs",
+  ".cjs",
+]);
+
+const diffCommands: Record<string, string[]> = {
+  staged: ["git", "diff", "--name-only", "--cached"],
+  unstaged: ["git", "diff", "--name-only"],
+  "vs origin/main": ["git", "diff", "--name-only", "origin/main..."],
+};
+
+for (const [label, cmd] of Object.entries(diffCommands)) {
+  const result = await $`${cmd}`.quiet().nothrow();
+  const files = result
+    .text()
+    .split("\n")
+    .filter((f) => f.length > 0 && existsSync(f));
+
+  if (files.length === 0) {
+    console.log(`${label}: no files`);
+    continue;
+  }
+
+  const eslintFiles = files.filter((f) =>
+    ESLINT_EXTENSIONS.has(f.slice(f.lastIndexOf(".")))
+  );
+
+  if (eslintFiles.length > 0) {
+    console.log(`${label}: eslint --fix on ${eslintFiles.length} file(s)`);
+    await $`yarn eslint --fix ${eslintFiles}`.quiet().nothrow();
+  }
+
+  console.log(`${label}: prettier --write on ${files.length} file(s)`);
+  await $`yarn prettier --write ${files}`.quiet().nothrow();
+}
