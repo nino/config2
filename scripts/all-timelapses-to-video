@@ -10,6 +10,14 @@ days_to_do =
   end
 
 days_to_do.each do |day|
+  day_path = File.join(timelapse_root_path, day)
+
+  if Dir.empty?(day_path)
+    puts "#{day} is empty, removing."
+    Dir.rmdir(day_path)
+    next
+  end
+
   puts "Doing #{day}..."
   if system "timelapse-to-video #{day}"
     system "rm -rf #{timelapse_root_path}/#{day}"

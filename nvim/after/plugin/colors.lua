@@ -178,7 +178,7 @@ function CheckAppearance()
   end)
 
   vim.cmd([[
-    hi DiagnosticUnderlineError gui=none
+    " hi DiagnosticUnderlineError gui=none
     hi DiagnosticUnderlineWarn gui=none
     hi Cursor guibg=#FF00EE
     " hi Comment cterm=italic gui=italic

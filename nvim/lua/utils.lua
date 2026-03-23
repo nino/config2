@@ -49,4 +49,23 @@ function mod.run_once(description, fun)
   run_once_functions[description] = true
 end
 
+--- Run a shell command and populate the quickfix list with filenames from the output.
+--- @param cmd string
+--- @param title string|nil
+function mod.shell_to_quickfix(cmd, title)
+  local lines = vim.fn.systemlist(cmd)
+  if vim.v.shell_error ~= 0 then
+    vim.notify("Command failed: " .. cmd, vim.log.levels.ERROR)
+    return
+  end
+  local items = {}
+  for _, line in ipairs(lines) do
+    if #line > 0 then
+      table.insert(items, { filename = line, lnum = 1 })
+    end
+  end
+  vim.fn.setqflist({}, " ", { title = title or cmd, items = items })
+  vim.cmd("copen")
+end
+
 return mod
