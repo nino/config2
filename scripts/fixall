@@ -18,6 +18,8 @@ const diffCommands: Record<string, string[]> = {
   "vs origin/main": ["git", "diff", "--name-only", "origin/main..."],
 };
 
+const eslintOutput: string[] = [];
+
 for (const [label, cmd] of Object.entries(diffCommands)) {
   const result = await $`${cmd}`.quiet().nothrow();
   const files = result
@@ -36,9 +38,20 @@ for (const [label, cmd] of Object.entries(diffCommands)) {
 
   if (eslintFiles.length > 0) {
     console.log(`${label}: eslint --fix on ${eslintFiles.length} file(s)`);
-    await $`yarn eslint --fix ${eslintFiles}`.quiet().nothrow();
+    const eslintResult = await $`yarn eslint --fix ${eslintFiles}`
+      .quiet()
+      .nothrow();
+    const output = eslintResult.text().trim();
+    if (output.length > 0) {
+      eslintOutput.push(output);
+    }
   }
 
   console.log(`${label}: prettier --write on ${files.length} file(s)`);
   await $`yarn prettier --write ${files}`.quiet().nothrow();
+}
+
+if (eslintOutput.length > 0) {
+  console.log("\n--- Unresolved ESLint issues ---\n");
+  console.log(eslintOutput.join("\n\n"));
 }
