@@ -4,7 +4,7 @@ local js_languages = { "javascript", "typescript", "javascriptreact", "typescrip
 
 return {
   "williamboman/mason.nvim",
-  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
   "https://github.com/tpope/vim-commentary",
   "mbbill/undotree",
   "tpope/vim-fugitive",
