@@ -84,8 +84,7 @@
       "name": "Comment",
       "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
-        "foreground": "#444400",
-        "background": "#FFFFEA"
+        "foreground": "#998800"
       }
     },
     {
@@ -221,7 +220,6 @@
       "name": "Magic comment (directive)",
       "scope": [
         "comment.line.directive",
-        "comment.block.documentation",
         "keyword.other.directive",
         "punctuation.definition.directive"
       ],
@@ -282,7 +280,7 @@
     "property": "#000000",
     "string": "#009944",
     "number": "#BB5500",
-    "comment": "#444400",
+    "comment": "#998800",
     "keyword": "#000000",
     "type": "#000000",
     "class": "#000000",
