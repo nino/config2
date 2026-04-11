@@ -214,6 +214,11 @@ vim.keymap.set("n", "cp", function()
   vim.fn.setreg("*", filepath)
 end)
 
+vim.keymap.set("n", "cP", function()
+  local filepath = vim.fn.expand("%:.")
+  vim.fn.setreg("*", filepath)
+end)
+
 vim.cmd([[
     function! s:ToggleHere()
         let cursorcolumn = getcurpos()[2]

@@ -1,0 +1,191 @@
+#!/usr/bin/env bun
+
+/**
+ * git-blame-ahead
+ *
+ * Runs git blame on a file and highlights lines whose commits are
+ * ahead of a given base ref (default: main).
+ */
+
+const RESET = "\x1b[0m";
+const BOLD = "\x1b[1m";
+const DIM = "\x1b[2m";
+const YELLOW = "\x1b[33m";
+const CYAN = "\x1b[36m";
+const GREEN = "\x1b[32m";
+const GRAY = "\x1b[90m";
+
+// ── CLI parsing ─────────────────────────────────────────────────────
+
+interface Args {
+  file: string;
+  base: string;
+  noColor: boolean;
+  stat: boolean;
+  onlyAhead: boolean;
+  help: boolean;
+}
+
+function parseArgs(argv: string[]): Args {
+  const args: Args = {
+    file: "",
+    base: "main",
+    noColor: false,
+    stat: false,
+    onlyAhead: false,
+    help: false,
+  };
+
+  const positional: string[] = [];
+
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    if (arg === "--help" || arg === "-h") {
+      args.help = true;
+    } else if (arg === "--base" || arg === "-b") {
+      args.base = argv[++i] ?? "";
+    } else if (arg.startsWith("--base=")) {
+      args.base = arg.slice("--base=".length);
+    } else if (arg === "--no-color") {
+      args.noColor = true;
+    } else if (arg === "--stat" || arg === "-s") {
+      args.stat = true;
+    } else if (arg === "--only-ahead" || arg === "-a") {
+      args.onlyAhead = true;
+    } else if (arg === "--") {
+      positional.push(...argv.slice(i + 1));
+      break;
+    } else if (arg.startsWith("-")) {
+      console.error(`Unknown option: ${arg}\nTry --help for usage.`);
+      process.exit(1);
+    } else {
+      positional.push(arg);
+    }
+  }
+
+  if (positional.length >= 1) args.file = positional[0];
+
+  return args;
+}
+
+function printHelp(): void {
+  console.log(`
+${BOLD}git-blame-ahead${RESET} — blame a file, highlighting lines ahead of a base ref
+
+${BOLD}USAGE${RESET}
+  git-blame-ahead [options] <file>
+  git-blame-ahead [options] -- <file>
+
+${BOLD}OPTIONS${RESET}
+  ${GREEN}-b, --base <ref>${RESET}    Base ref to compare against  ${DIM}(default: main)${RESET}
+  ${GREEN}-a, --only-ahead${RESET}    Only show lines from ahead commits
+  ${GREEN}-s, --stat${RESET}          Print a summary of ahead vs. base line counts
+  ${GREEN}    --no-color${RESET}      Disable coloured output
+  ${GREEN}-h, --help${RESET}          Show this help
+
+${BOLD}EXAMPLES${RESET}
+  ${DIM}# Highlight lines in src/app.ts ahead of main${RESET}
+  git-blame-ahead src/app.ts
+
+  ${DIM}# Compare against a release tag${RESET}
+  git-blame-ahead --base v2.1.0 src/app.ts
+
+  ${DIM}# Only print the lines that are new/changed since main${RESET}
+  git-blame-ahead --only-ahead src/app.ts
+
+  ${DIM}# Quick stats on how much of the file is "ahead"${RESET}
+  git-blame-ahead --stat src/app.ts
+`);
+}
+
+// ── Git helpers ─────────────────────────────────────────────────────
+
+async function run(cmd: string[]): Promise<string> {
+  const proc = Bun.spawn(cmd, { stdout: "pipe", stderr: "pipe" });
+  const [stdout, stderr] = await Promise.all([
+    new Response(proc.stdout).text(),
+    new Response(proc.stderr).text(),
+  ]);
+  const code = await proc.exited;
+  if (code !== 0) {
+    throw new Error(stderr.trim() || `Command failed with exit code ${code}`);
+  }
+  return stdout;
+}
+
+async function getAheadCommits(base: string): Promise<Set<string>> {
+  const out = await run(["git", "log", "--format=%h", `${base}..HEAD`]);
+  const hashes = out.trim().split("\n").filter(Boolean);
+  return new Set(hashes);
+}
+
+async function getBlame(file: string): Promise<string[]> {
+  const out = await run(["git", "blame", "--abbrev=7", "--", file]);
+  return out.trimEnd().split("\n");
+}
+
+function extractHash(line: string): string {
+  const match = line.match(/^\^?([0-9a-f]+)/);
+  return match?.[1] ?? "";
+}
+
+// ── Main ────────────────────────────────────────────────────────────
+
+const args = parseArgs(process.argv.slice(2));
+
+if (args.help) {
+  printHelp();
+  process.exit(0);
+}
+
+if (!args.file) {
+  console.error("Error: no file specified. Try --help for usage.");
+  process.exit(1);
+}
+
+const c = {
+  ahead: args.noColor ? "" : `${BOLD}${YELLOW}`,
+  marker: args.noColor ? "" : `${BOLD}${CYAN}`,
+  dim: args.noColor ? "" : DIM,
+  reset: args.noColor ? "" : RESET,
+};
+
+try {
+  const [ahead, lines] = await Promise.all([
+    getAheadCommits(args.base),
+    getBlame(args.file),
+  ]);
+
+  let aheadCount = 0;
+  const output: string[] = [];
+
+  for (const line of lines) {
+    const hash = extractHash(line);
+    const isAhead = ahead.has(hash);
+
+    if (isAhead) aheadCount++;
+
+    if (args.onlyAhead && !isAhead) continue;
+
+    const marker = isAhead ? `${c.marker}+${c.reset} ` : `${c.dim} ${c.reset} `;
+    const text = isAhead
+      ? `${c.ahead}${line}${c.reset}`
+      : `${c.dim}${line}${c.reset}`;
+
+    output.push(`${marker}${text}`);
+  }
+
+  console.log(output.join("\n"));
+
+  if (args.stat) {
+    const total = lines.length;
+    const pct = total > 0 ? ((aheadCount / total) * 100).toFixed(1) : "0.0";
+    console.log(
+      `\n${c.marker}── stat ──${c.reset}` +
+        `\n  ${aheadCount} / ${total} lines (${pct}%) ahead of ${BOLD}${args.base}${c.reset}`
+    );
+  }
+} catch (err: any) {
+  console.error(`Error: ${err.message}`);
+  process.exit(1);
+}
