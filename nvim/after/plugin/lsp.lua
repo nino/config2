@@ -119,8 +119,13 @@ vim.lsp.config("pyright", {
   filetypes = { "python" },
   root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentFormattingProvider = false
   end,
+  -- settings = {
+  --   python = {
+  --     pythonPath = ".venv/bin/python",
+  --   },
+  -- },
   capabilities = capabilities,
 })
 
