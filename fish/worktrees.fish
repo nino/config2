@@ -5,21 +5,21 @@ function wta
     end
 
     # Get the git directory
-    set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
+    # set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
 
-    if test -z "$git_dir"
-        echo "Error: Not in a git repository" >&2
-        return 1
-    end
+    # if test -z "$git_dir"
+    #     echo "Error: Not in a git repository" >&2
+    #     return 1
+    # end
 
     # Get the main worktree root
-    set -l repo_root (dirname $git_dir)
+    # set -l repo_root (dirname $git_dir)
 
     # Construct the worktree path
-    set -l worktree_path "$repo_root/worktree/$argv[1]"
+    set -l worktree_path "$argv[1]"
 
     # Pass the constructed path and any additional arguments to git worktree add
-    git worktree add $worktree_path $argv[2..-1]
+    git worktree add ~/.claude-worktrees/$worktree_path $argv[2..-1]
 end
 
 function wtam
