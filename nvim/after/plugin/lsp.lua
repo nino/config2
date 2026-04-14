@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
 })
 
 -- Formatting setup
-local javascript_formatters = { "prettierd" }
+local javascript_formatters = { "prettier" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
