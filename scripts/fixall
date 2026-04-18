@@ -20,6 +20,16 @@ const diffCommands: Record<string, string[]> = {
 
 const eslintOutput: string[] = [];
 
+function pluralise(
+  count: number,
+  singular: string,
+  customPlural?: string,
+): string {
+  const plural = customPlural ?? `${singular}s`;
+  if (count === 1) return singular;
+  return plural;
+}
+
 for (const [label, cmd] of Object.entries(diffCommands)) {
   const result = await $`${cmd}`.quiet().nothrow();
   const files = result
@@ -33,11 +43,13 @@ for (const [label, cmd] of Object.entries(diffCommands)) {
   }
 
   const eslintFiles = files.filter((f) =>
-    ESLINT_EXTENSIONS.has(f.slice(f.lastIndexOf(".")))
+    ESLINT_EXTENSIONS.has(f.slice(f.lastIndexOf("."))),
   );
 
   if (eslintFiles.length > 0) {
-    console.log(`${label}: eslint --fix on ${eslintFiles.length} file(s)`);
+    console.log(
+      `${label}: eslint --fix on ${eslintFiles.length} ${pluralise(eslintFiles.length, "file")}`,
+    );
     const eslintResult = await $`yarn eslint --fix ${eslintFiles}`
       .quiet()
       .nothrow();
@@ -47,7 +59,9 @@ for (const [label, cmd] of Object.entries(diffCommands)) {
     }
   }
 
-  console.log(`${label}: prettier --write on ${files.length} file(s)`);
+  console.log(
+    `${label}: prettier --write on ${files.length} ${pluralise(files.length, "file")}`,
+  );
   await $`yarn prettier --write ${files}`.quiet().nothrow();
 }
 

@@ -5,21 +5,21 @@ function wta
     end
 
     # Get the git directory
-    set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
+    # set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
 
-    if test -z "$git_dir"
-        echo "Error: Not in a git repository" >&2
-        return 1
-    end
+    # if test -z "$git_dir"
+    #     echo "Error: Not in a git repository" >&2
+    #     return 1
+    # end
 
     # Get the main worktree root
-    set -l repo_root (dirname $git_dir)
+    # set -l repo_root (dirname $git_dir)
 
     # Construct the worktree path
-    set -l worktree_path "$repo_root/worktree/$argv[1]"
+    set -l worktree_path "$argv[1]"
 
     # Pass the constructed path and any additional arguments to git worktree add
-    git worktree add $worktree_path $argv[2..-1]
+    git worktree add ~/.claude-worktrees/$worktree_path $argv[2..-1]
 end
 
 function wtam
@@ -81,21 +81,8 @@ function wtr
         return 1
     end
 
-    # Get the git directory
-    set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
+    set -l worktree_path ~/.claude-worktrees/$argv[1]
 
-    if test -z "$git_dir"
-        echo "Error: Not in a git repository" >&2
-        return 1
-    end
-
-    # Get the main worktree root
-    set -l repo_root (dirname $git_dir)
-
-    # Construct the worktree path
-    set -l worktree_path "$repo_root/worktree/$argv[1]"
-
-    # Remove the worktree
     git worktree remove $worktree_path $argv[2..-1]
 end
 
@@ -105,11 +92,9 @@ end
 
 # Completion for existing worktrees (for wtr)
 function __fish_complete_worktrees
-    set -l git_dir (git rev-parse --git-common-dir 2>/dev/null)
-    if test -n "$git_dir"
-        set -l repo_root (dirname $git_dir)
-        if test -d "$repo_root/worktree"
-            ls -1 "$repo_root/worktree" 2>/dev/null
+    if test -d ~/.claude-worktrees
+        for entry in (find ~/.claude-worktrees -mindepth 1 -maxdepth 2 -type d -exec test -e '{}/.git' \; -print 2>/dev/null)
+            string replace "$HOME/.claude-worktrees/" "" $entry
         end
     end
 end

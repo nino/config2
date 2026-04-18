@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "BufRead" }, {
 })
 
 -- Formatting setup
-local javascript_formatters = { "prettierd" }
+local javascript_formatters = { "prettier" }
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
@@ -119,8 +119,13 @@ vim.lsp.config("pyright", {
   filetypes = { "python" },
   root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentFormattingProvider = false
   end,
+  -- settings = {
+  --   python = {
+  --     pythonPath = ".venv/bin/python",
+  --   },
+  -- },
   capabilities = capabilities,
 })
 
