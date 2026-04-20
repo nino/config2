@@ -81,13 +81,13 @@ local function configure_light()
 
   hi(
     "StatusLine",
-    { guibg = "#3365BB", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "61", ctermfg = "white" }
+    { guibg = "#777777", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "243", ctermfg = "white" }
   )
-  hi("StatusLineNC", { guibg = "#AADDFF", guifg = "black", ctermbg = "153", ctermfg = "black" })
-  hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#3365BB", gui = "bold", ctermfg = "204", ctermbg = "61", cterm = "bold" })
-  hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#3365BB", gui = "bold", ctermfg = "221", ctermbg = "61", cterm = "bold" })
-  hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#3365BB", gui = "bold", ctermfg = "117", ctermbg = "61", cterm = "bold" })
-  hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#3365BB", gui = "bold", ctermfg = "157", ctermbg = "61", cterm = "bold" })
+  hi("StatusLineNC", { guibg = "#DDDDDD", guifg = "#555555", ctermbg = "253", ctermfg = "240" })
+  hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#777777", gui = "bold", ctermfg = "204", ctermbg = "243", cterm = "bold" })
+  hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#777777", gui = "bold", ctermfg = "221", ctermbg = "243", cterm = "bold" })
+  hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#777777", gui = "bold", ctermfg = "117", ctermbg = "243", cterm = "bold" })
+  hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#777777", gui = "bold", ctermfg = "157", ctermbg = "243", cterm = "bold" })
   link_highlight("TabLine", "StatusLineNC")
   link_highlight("TabLineFill", "StatusLineNC")
   link_highlight("TabLineSel", "StatusLine")
@@ -155,13 +155,13 @@ local function configure_dark()
 
   hi(
     "StatusLine",
-    { guibg = "#3365BB", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "61", ctermfg = "white" }
+    { guibg = "#666666", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "242", ctermfg = "white" }
   )
-  hi("StatusLineNC", { guibg = "#223355", guifg = "#AAAAAA", ctermbg = "237", ctermfg = "248" })
-  hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#3365BB", gui = "bold", ctermfg = "204", ctermbg = "61", cterm = "bold" })
-  hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#3365BB", gui = "bold", ctermfg = "221", ctermbg = "61", cterm = "bold" })
-  hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#3365BB", gui = "bold", ctermfg = "117", ctermbg = "61", cterm = "bold" })
-  hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#3365BB", gui = "bold", ctermfg = "157", ctermbg = "61", cterm = "bold" })
+  hi("StatusLineNC", { guibg = "#444444", guifg = "#AAAAAA", ctermbg = "238", ctermfg = "248" })
+  hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#666666", gui = "bold", ctermfg = "204", ctermbg = "242", cterm = "bold" })
+  hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#666666", gui = "bold", ctermfg = "221", ctermbg = "242", cterm = "bold" })
+  hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#666666", gui = "bold", ctermfg = "117", ctermbg = "242", cterm = "bold" })
+  hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#666666", gui = "bold", ctermfg = "157", ctermbg = "242", cterm = "bold" })
   link_highlight("TabLine", "StatusLineNC")
   link_highlight("TabLineFill", "StatusLineNC")
   link_highlight("TabLineSel", "StatusLine")
