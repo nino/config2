@@ -1,10 +1,10 @@
 local fnlutils = require("fnlutils")
 local actions = require("telescope.actions")
-require "telescope".setup {
+require("telescope").setup({
   defaults = {
     layout_strategy = "vertical",
     preview = {
-      treesitter = false
+      treesitter = false,
     },
     mappings = {
       i = {
@@ -12,12 +12,10 @@ require "telescope".setup {
       },
       n = {
         ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
-      }
-    }
-  }
-}
-
-
+      },
+    },
+  },
+})
 
 -- Diagnostics
 function diagnostic_sign()
@@ -25,4 +23,3 @@ function diagnostic_sign()
 end
 
 vim.g["nfnl#compile_on_write"] = true
-
