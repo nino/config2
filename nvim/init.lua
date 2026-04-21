@@ -100,9 +100,32 @@ end, {})
 
 vim.keymap.set("x", "<leader>P", [["0p]])
 
-vim.keymap.set("n", "<M-c>", "F_x~", {}) -- Convert to camels
--- Convert to snakes
-vim.keymap.set("n", "<M-C>", "?[A-Z]\\|\\([0-9]\\+\\)<CR>~hi_<ESC>", {})
+-- Copy @filepath (or @filepath:line in visual mode) to clipboard
+vim.keymap.set("n", "<M-c>", function()
+  vim.fn.setreg("+", "@" .. vim.fn.expand("%:p"))
+end, { desc = "Copy @filepath to clipboard" })
+
+vim.keymap.set("n", "<M-C>", function()
+  vim.fn.setreg("+", "@" .. vim.fn.expand("%:p") .. ":" .. vim.fn.line("."))
+end, { desc = "Copy @filepath:line to clipboard" })
+
+vim.keymap.set("v", "<M-c>", function()
+  local start_line = vim.fn.line("v")
+  local end_line = vim.fn.line(".")
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+  vim.fn.setreg("+", "@" .. vim.fn.expand("%:p") .. ":" .. start_line .. "-" .. end_line)
+end, { desc = "Copy @filepath:lines to clipboard" })
+
+vim.keymap.set("v", "<M-C>", function()
+  local start_line = vim.fn.line("v")
+  local end_line = vim.fn.line(".")
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+  vim.fn.setreg("+", "@" .. vim.fn.expand("%:p") .. ":" .. start_line .. "-" .. end_line)
+end, { desc = "Copy @filepath:lines to clipboard" })
 
 vim.keymap.set("n", "<c-s>", vim.cmd.w)
 vim.keymap.set("n", "<localleader>s", vim.cmd.wa)

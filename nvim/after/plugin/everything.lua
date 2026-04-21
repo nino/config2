@@ -22,4 +22,4 @@ function diagnostic_sign()
   return fnlutils["diagnostic-sign"]()
 end
 
--- require("nfnl").setup()
+vim.g["nfnl#compile_on_write"] = true
