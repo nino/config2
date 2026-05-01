@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+
+dirs=$(fd --type d --no-ignore --prune '^node_modules$')
+
+if [ -z "$dirs" ]; then
+  echo "No node_modules directories found."
+  exit 0
+fi
+
+count=$(echo "$dirs" | wc -l | tr -d ' ')
+echo "Found $count node_modules directories:"
+echo ""
+echo "$dirs"
+echo ""
+read -p "Delete all? [y/N] " confirm
+
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+  echo "$dirs" | while IFS= read -r dir; do
+    echo "Deleting $dir"
+    rm -rf "$dir"
+  done
+  echo "Done."
+else
+  echo "Aborted."
+fi
