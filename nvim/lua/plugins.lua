@@ -279,6 +279,7 @@ return {
   "https://github.com/NoahTheDuke/vim-just",
   {
     "https://github.com/lukas-reineke/indent-blankline.nvim",
+    enabled = false, -- It's kinda nice but makes the UI slower
     config = function()
       local highlight = {
         "RainbowRed",
