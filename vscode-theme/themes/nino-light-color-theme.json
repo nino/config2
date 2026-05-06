@@ -53,8 +53,8 @@
     "titleBar.inactiveBackground": "#F5F5F5",
     "titleBar.inactiveForeground": "#888888",
 
-    "diffEditor.insertedTextBackground": "#EAFFDC",
-    "diffEditor.removedTextBackground": "#F9DDDD",
+    "diffEditor.insertedTextBackground": "#D5FFB980",
+    "diffEditor.removedTextBackground": "#F3BBBB80",
     "diffEditor.diagonalFill": "#EEEEFF",
 
     "gitDecoration.addedResourceForeground": "#009944",
