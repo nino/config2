@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
-vim.g.sexp_filetypes = "clojure,scheme,lisp,timl,fennel,racket"
+vim.g.sexp_filetypes = "clojure,scheme,lisp,timl,racket"
 
 vim.filetype.add({
   pattern = {
@@ -21,7 +21,7 @@ require("abbreviations")
 local utils = require("utils")
 
 -- Defaults
-require("fnldefaults")
+require("defaults")
 vim.cmd([[
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
@@ -401,6 +401,6 @@ vim.cmd([[
   let g:rg_command = 'rg --vimgrep --sort-files'
 ]])
 
-require("fennelconfig")
+require("filetypes")
 
 vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "entire buffer" })

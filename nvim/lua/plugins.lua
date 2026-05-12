@@ -372,18 +372,8 @@ return {
     },
   },
   -- 'https://github.com/mg979/vim-visual-multi',
-  { "https://github.com/Olical/nfnl", ft = "fennel" },
   { "https://github.com/stevearc/dressing.nvim", enabled = true },
   "https://github.com/vlime/vlime",
-  {
-    enabled = false,
-    "https://github.com/Olical/conjure",
-    ft = { "clojure", "fennel" },
-    lazy = true,
-    init = function()
-      -- Any additional configuration can go here
-    end,
-  },
 
   -- Colors
   { "MeanderingProgrammer/render-markdown.nvim" },

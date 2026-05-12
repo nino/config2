@@ -1,4 +1,3 @@
-local fnlutils = require("fnlutils")
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
@@ -16,10 +15,3 @@ require("telescope").setup({
     },
   },
 })
-
--- Diagnostics
-function diagnostic_sign()
-  return fnlutils["diagnostic-sign"]()
-end
-
-vim.g["nfnl#compile_on_write"] = true
