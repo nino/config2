@@ -2,6 +2,7 @@
 
 import { $ } from "bun";
 import { existsSync } from "fs";
+import { basename, dirname, join } from "path";
 
 const ESLINT_EXTENSIONS = new Set([
   ".js",
@@ -11,6 +12,20 @@ const ESLINT_EXTENSIONS = new Set([
   ".mjs",
   ".cjs",
 ]);
+
+function detectPackageManager(): "yarn" | "pnpm" {
+  let dir = process.cwd();
+  while (true) {
+    if (existsSync(join(dir, "pnpm-lock.yaml"))) return "pnpm";
+    if (existsSync(join(dir, "yarn.lock"))) return "yarn";
+    const parent = dirname(dir);
+    if (parent === dir) return "yarn";
+    dir = parent;
+  }
+}
+
+const pm = detectPackageManager();
+console.log(`using ${pm}`);
 
 const diffCommands: Record<string, string[]> = {
   staged: ["git", "diff", "--name-only", "--cached"],
@@ -35,7 +50,10 @@ for (const [label, cmd] of Object.entries(diffCommands)) {
   const files = result
     .text()
     .split("\n")
-    .filter((f) => f.length > 0 && existsSync(f));
+    .filter(
+      (f) =>
+        f.length > 0 && existsSync(f) && basename(f) !== "pnpm-lock.yaml",
+    );
 
   if (files.length === 0) {
     console.log(`${label}: no files`);
@@ -50,7 +68,7 @@ for (const [label, cmd] of Object.entries(diffCommands)) {
     console.log(
       `${label}: eslint --fix on ${eslintFiles.length} ${pluralise(eslintFiles.length, "file")}`,
     );
-    const eslintResult = await $`yarn eslint --fix ${eslintFiles}`
+    const eslintResult = await $`${pm} eslint --fix ${eslintFiles}`
       .quiet()
       .nothrow();
     const output = eslintResult.text().trim();
@@ -62,7 +80,7 @@ for (const [label, cmd] of Object.entries(diffCommands)) {
   console.log(
     `${label}: prettier --write on ${files.length} ${pluralise(files.length, "file")}`,
   );
-  await $`yarn prettier --write ${files}`.quiet().nothrow();
+  await $`${pm} prettier --write ${files}`.quiet().nothrow();
 }
 
 if (eslintOutput.length > 0) {
