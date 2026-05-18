@@ -1,14 +1,14 @@
 vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.HINT] = "⁍",
-      [vim.diagnostic.severity.WARN] = "⚠",
-      [vim.diagnostic.severity.ERROR] = "×",
-    },
-  },
-})
+-- vim.diagnostic.config({
+--   signs = {
+--     text = {
+--       [vim.diagnostic.severity.HINT] = "⁍",
+--       [vim.diagnostic.severity.WARN] = "⚠",
+--       [vim.diagnostic.severity.ERROR] = "×",
+--     },
+--   },
+-- })
 
 -- Add toggle function and keymap for diagnostic virtual text
 local diagnostic_virtual_text = false

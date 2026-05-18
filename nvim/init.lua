@@ -32,19 +32,6 @@ vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
--- vim.opt.cursorline = false
-
--- Enable cursorline only in quickfix windows
--- vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
---   pattern = "*",
---   callback = function()
---     if vim.bo.buftype == "quickfix" then
---       vim.opt_local.cursorline = true
---     else
---       -- vim.opt_local.cursorline = false
---     end
---   end
--- })
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -77,7 +64,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile", "BufRead" }, {
 -- Mappings
 
 local telescope_builtin = require("telescope.builtin")
-local telescope = require("telescope")
 vim.keymap.set("n", "<leader>ff", function()
   telescope_builtin.git_files({ show_untracked = true })
 end, {})

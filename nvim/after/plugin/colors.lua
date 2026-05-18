@@ -26,76 +26,76 @@ end
 -- This is the source of truth, use this as reference to update configure_dark
 local function configure_light()
   vim.o.background = "light"
-  vim.cmd("colorscheme default")
-  vim.cmd("syntax reset")
-  hi("Normal", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
-  hi("NormalNC", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
-  hi("Identifier", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
-  hi("@variable", { guibg = "none", ctermbg = "none" })
-  hi(
-    "String",
-    { guibg = "none", guifg = "#009944", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "darkgreen" }
-  )
-  hi("Constant", { guibg = "none", guifg = "#BB5500", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "130" })
-  hi("Statement", { guibg = "none", guifg = "none", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "none" })
-  hi("function", { guibg = "none", guifg = "#6600CC", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "54" })
-  hi("Comment", { guibg = "#FFFFEA", guifg = "#444400", ctermbg = "230", ctermfg = "58" })
-  hi("@punctuation", { guifg = "#888888", ctermfg = "244" })
+  vim.cmd("colorscheme lunaperche")
+  -- vim.cmd("syntax reset")
+  -- hi("Normal", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  -- hi("NormalNC", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  -- hi("Identifier", { guibg = "none", guifg = "none", ctermbg = "none", ctermfg = "none" })
+  -- hi("@variable", { guibg = "none", ctermbg = "none" })
+  -- hi(
+  --   "String",
+  --   { guibg = "none", guifg = "#009944", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "darkgreen" }
+  -- )
+  -- hi("Constant", { guibg = "none", guifg = "#BB5500", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "130" })
+  -- hi("Statement", { guibg = "none", guifg = "none", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "none" })
+  -- hi("function", { guibg = "none", guifg = "#6600CC", gui = "none", cterm = "none", ctermbg = "none", ctermfg = "54" })
+  -- hi("Comment", { guibg = "#FFFFEA", guifg = "#444400", ctermbg = "230", ctermfg = "58" })
+  -- hi("@punctuation", { guifg = "#888888", ctermfg = "244" })
 
-  hi("typeScriptMagicComment", { gui = "bold", cterm = "bold" })
-  hi("typeScriptCastKeyword", { gui = "bold", cterm = "bold" })
-  link_highlight("@keyword.cast", "typeScriptCastKeyword")
-  link_highlight("@comment.magic", "typeScriptMagicComment")
-  hi("DiagnosticUnnecessary", { guifg = "grey", ctermfg = "244" })
-  link_highlight("@string.regexp", "Constant")
-  link_highlight("@character.special", "Normal")
-  link_highlight("typescriptBraces", "@punctuation")
-  link_highlight("typescriptParens", "@punctuation")
-  link_highlight("typescriptMember", "Identifier")
-  link_highlight("typescriptArrayMethod", "function")
-  link_highlight("typescriptDestructureLabel", "String")
-  link_highlight("Special", "Normal")
-  link_highlight("Title", "Normal")
-  link_highlight("diffAdded", "DiffAdd")
-  link_highlight("diffRemoved", "DiffDelete")
-  link_highlight("@string.special.url.tsx", "Normal")
-  link_highlight("@markup.strong.tsx", "Normal")
+  -- hi("typeScriptMagicComment", { gui = "bold", cterm = "bold" })
+  -- hi("typeScriptCastKeyword", { gui = "bold", cterm = "bold" })
+  -- link_highlight("@keyword.cast", "typeScriptCastKeyword")
+  -- link_highlight("@comment.magic", "typeScriptMagicComment")
+  -- hi("DiagnosticUnnecessary", { guifg = "grey", ctermfg = "244" })
+  -- link_highlight("@string.regexp", "Constant")
+  -- link_highlight("@character.special", "Normal")
+  -- link_highlight("typescriptBraces", "@punctuation")
+  -- link_highlight("typescriptParens", "@punctuation")
+  -- link_highlight("typescriptMember", "Identifier")
+  -- link_highlight("typescriptArrayMethod", "function")
+  -- link_highlight("typescriptDestructureLabel", "String")
+  -- link_highlight("Special", "Normal")
+  -- link_highlight("Title", "Normal")
+  -- link_highlight("diffAdded", "DiffAdd")
+  -- link_highlight("diffRemoved", "DiffDelete")
+  -- link_highlight("@string.special.url.tsx", "Normal")
+  -- link_highlight("@markup.strong.tsx", "Normal")
 
-  hi("NormalFloat", { guibg = "#EEEEEE", guifg = "none", ctermbg = "255", ctermfg = "none" })
-  hi("FloatBorder", { guibg = "#EEEEEE", guifg = "#888888", ctermbg = "255", ctermfg = "244" })
-  hi("Pmenu", { guibg = "#EEEEEE", guifg = "none", ctermbg = "255", ctermfg = "none" })
-  hi("PmenuSel", { guibg = "#AADDFF", guifg = "none", ctermbg = "153", ctermfg = "none" })
-  hi("RenderMarkdownCode", { guibg = "#EEEEEE", ctermbg = "255" })
-  hi("RenderMarkdownCodeInline", { guibg = "#EEEEEE", ctermbg = "255" })
+  -- hi("NormalFloat", { guibg = "#EEEEEE", guifg = "none", ctermbg = "255", ctermfg = "none" })
+  -- hi("FloatBorder", { guibg = "#EEEEEE", guifg = "#888888", ctermbg = "255", ctermfg = "244" })
+  -- hi("Pmenu", { guibg = "#EEEEEE", guifg = "none", ctermbg = "255", ctermfg = "none" })
+  -- hi("PmenuSel", { guibg = "#AADDFF", guifg = "none", ctermbg = "153", ctermfg = "none" })
+  -- hi("RenderMarkdownCode", { guibg = "#EEEEEE", ctermbg = "255" })
+  -- hi("RenderMarkdownCodeInline", { guibg = "#EEEEEE", ctermbg = "255" })
 
-  hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg = "none" })
-  hi("CursorLine", { guibg = "#F2F2F2", ctermbg = "none" })
-  hi("CursorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
-  hi("ColorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
-  hi("Search", { guibg = "#AADDFF", ctermbg = "153" })
-  hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
-  hi("diffNewFile", { gui = "bold", cterm = "bold" })
-  hi("diffOldFile", { gui = "bold", cterm = "bold" })
-  hi("@keyword.throw", { guifg = "#C64690", ctermfg = "205" })
-  hi("@keyword.return", { guifg = "#C64690", ctermfg = "205" })
+  -- hi("Visual", { guibg = "#FFFF00", ctermbg = "226", ctermfg = "none" })
+  -- hi("CursorLine", { guibg = "#F2F2F2", ctermbg = "none" })
+  -- hi("CursorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
+  -- hi("ColorColumn", { guibg = "#EEEEEE", ctermbg = "255" })
+  -- hi("Search", { guibg = "#AADDFF", ctermbg = "153" })
+  -- hi("CurSearch", { guibg = "#3388CC", ctermbg = "68" })
+  -- hi("diffNewFile", { gui = "bold", cterm = "bold" })
+  -- hi("diffOldFile", { gui = "bold", cterm = "bold" })
+  -- hi("@keyword.throw", { guifg = "#C64690", ctermfg = "205" })
+  -- hi("@keyword.return", { guifg = "#C64690", ctermfg = "205" })
 
-  hi(
-    "StatusLine",
-    { guibg = "#777777", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "243", ctermfg = "white" }
-  )
-  hi("StatusLineNC", { guibg = "#DDDDDD", guifg = "#555555", ctermbg = "253", ctermfg = "240" })
-  hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#777777", gui = "bold", ctermfg = "204", ctermbg = "243", cterm = "bold" })
-  hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#777777", gui = "bold", ctermfg = "221", ctermbg = "243", cterm = "bold" })
-  hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#777777", gui = "bold", ctermfg = "117", ctermbg = "243", cterm = "bold" })
-  hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#777777", gui = "bold", ctermfg = "157", ctermbg = "243", cterm = "bold" })
-  link_highlight("TabLine", "StatusLineNC")
-  link_highlight("TabLineFill", "StatusLineNC")
-  link_highlight("TabLineSel", "StatusLine")
+  -- hi(
+  --   "StatusLine",
+  --   { guibg = "#777777", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "243", ctermfg = "white" }
+  -- )
+  -- hi("StatusLineNC", { guibg = "#DDDDDD", guifg = "#555555", ctermbg = "253", ctermfg = "240" })
+  -- hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#777777", gui = "bold", ctermfg = "204", ctermbg = "243", cterm = "bold" })
+  -- hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#777777", gui = "bold", ctermfg = "221", ctermbg = "243", cterm = "bold" })
+  -- hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#777777", gui = "bold", ctermfg = "117", ctermbg = "243", cterm = "bold" })
+  -- hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#777777", gui = "bold", ctermfg = "157", ctermbg = "243", cterm = "bold" })
+  -- link_highlight("TabLine", "StatusLineNC")
+  -- link_highlight("TabLineFill", "StatusLineNC")
+  -- link_highlight("TabLineSel", "StatusLine")
 
-  hi("DiffChange", { guibg = "#EEEEFF", ctermbg = "189" })
-  hi("DiffAdd", { guibg = "#EAFFDC", ctermbg = "157", ctermfg = "none", guifg = "none" })
-  hi("DiffDelete", { guibg = "#F9DDDD", gui = "none", cterm = "none", ctermbg = "224" })
-  hi("DiffText", { guibg = "#DDFCFA" })
+  -- hi("DiffChange", { guibg = "#EEEEFF", ctermbg = "189" })
+  -- hi("DiffAdd", { guibg = "#EAFFDC", ctermbg = "157", ctermfg = "none", guifg = "none" })
+  -- hi("DiffDelete", { guibg = "#F9DDDD", gui = "none", cterm = "none", ctermbg = "224" })
+  -- hi("DiffText", { guibg = "#DDFCFA" })
 end
 
 local function configure_dark()
@@ -158,10 +158,22 @@ local function configure_dark()
     { guibg = "#666666", guifg = "white", gui = "bold", cterm = "bold", ctermbg = "242", ctermfg = "white" }
   )
   hi("StatusLineNC", { guibg = "#444444", guifg = "#AAAAAA", ctermbg = "238", ctermfg = "248" })
-  hi("DiagnosticSignError", { guifg = "#FF6666", guibg = "#666666", gui = "bold", ctermfg = "204", ctermbg = "242", cterm = "bold" })
-  hi("DiagnosticSignWarn", { guifg = "#FFDD66", guibg = "#666666", gui = "bold", ctermfg = "221", ctermbg = "242", cterm = "bold" })
-  hi("DiagnosticSignInfo", { guifg = "#88DDFF", guibg = "#666666", gui = "bold", ctermfg = "117", ctermbg = "242", cterm = "bold" })
-  hi("DiagnosticSignHint", { guifg = "#AAEEBB", guibg = "#666666", gui = "bold", ctermfg = "157", ctermbg = "242", cterm = "bold" })
+  hi(
+    "DiagnosticSignError",
+    { guifg = "#FF6666", guibg = "#666666", gui = "bold", ctermfg = "204", ctermbg = "242", cterm = "bold" }
+  )
+  hi(
+    "DiagnosticSignWarn",
+    { guifg = "#FFDD66", guibg = "#666666", gui = "bold", ctermfg = "221", ctermbg = "242", cterm = "bold" }
+  )
+  hi(
+    "DiagnosticSignInfo",
+    { guifg = "#88DDFF", guibg = "#666666", gui = "bold", ctermfg = "117", ctermbg = "242", cterm = "bold" }
+  )
+  hi(
+    "DiagnosticSignHint",
+    { guifg = "#AAEEBB", guibg = "#666666", gui = "bold", ctermfg = "157", ctermbg = "242", cterm = "bold" }
+  )
   link_highlight("TabLine", "StatusLineNC")
   link_highlight("TabLineFill", "StatusLineNC")
   link_highlight("TabLineSel", "StatusLine")
@@ -197,12 +209,7 @@ function CheckAppearance()
   ]])
 end
 
-CheckAppearance()
--- vim.api.nvim_create_user_command('CheckAppearance', function()
---   CheckAppearance()
--- end, {})
--- vim.api.nvim_create_autocmd("FocusGained", {
---   callback = function()
---     CheckAppearance()
---   end,
--- })
+vim.o.background = "light"
+vim.cmd("colorscheme lunaperche")
+
+-- CheckAppearance()
