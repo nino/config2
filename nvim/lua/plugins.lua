@@ -391,4 +391,5 @@ return {
       vim.keymap.set("n", "<M-s>", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
     end,
   },
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
 }
