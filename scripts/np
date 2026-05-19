@@ -1,61 +1,86 @@
-#!/usr/bin/env perl
+#!/usr/bin/env bun
 
-# Node dependency manager. Never wonder whether to use `yarn`, `npm`, or `pnpm` again.
+/**
+ * np — Node dependency manager. Never wonder whether to use
+ * `yarn`, `npm`, or `pnpm` again.
+ *
+ * Usage:
+ *   np            --> runs `yarn`, `npm i`, or `pnpm install`
+ *   np add <pkg>  --> runs `yarn add`, `npm install`, or `pnpm add`
+ *   np <args>     --> runs `yarn <args>`, `npm run <args>`, or `pnpm run <args>`
+ *
+ * If there's no package.json in the current directory, recurses one level
+ * into each immediate subdirectory that has a package.json.
+ */
 
-# Usage:
-# np        --> runs `yarn`, `npm i`, or `pnpm install`
-# np <args> --> runs `yarn <args>`, `npm run <args>`, or `pnpm run <args>`
+import { existsSync, readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 
-use strict;
-use warnings;
-
-if (!-e 'package.json') {
-  my $did_run = 0;
-  my @dirs = grep { -d $_ } glob('*');
-  for my $dir (@dirs) {
-    $did_run = 1;
-    chdir($dir);
-    if (-e 'package.json') {
-      print "Running `np` in $dir\n";
-      my $exit_code = system('np ' . join(' ', @ARGV));
-      exit($exit_code >> 8) if $exit_code != 0;
-    }
-    chdir('..');
-  }
-
-  if ($did_run == 0) {
-    print "No package.json found. Exiting.\n";
-    exit(1);
-  }
-  exit(0);
+async function spawn(cmd: string[], cwd?: string): Promise<number> {
+  const proc = Bun.spawn(cmd, {
+    cwd,
+    stdin: "inherit",
+    stdout: "inherit",
+    stderr: "inherit",
+  });
+  return await proc.exited;
 }
 
-my $exit_code;
-if (-e 'pnpm-lock.yaml') {
-  if (@ARGV && $ARGV[0] eq 'add') {
-    shift @ARGV;  # Remove 'add' from arguments
-    $exit_code = system('pnpm add ' . join(' ', @ARGV));
-  } elsif (@ARGV) {
-    $exit_code = system('pnpm run ' . join(' ', @ARGV));
-  } else {
-    $exit_code = system('pnpm install');
-  }
-} elsif (-e 'package-lock.json') {
-  if (@ARGV && $ARGV[0] eq 'add') {
-    shift @ARGV;  # Remove 'add' from arguments
-    $exit_code = system('npm install ' . join(' ', @ARGV));
-  } elsif (@ARGV) {
-    $exit_code = system('npm run ' . join(' ', @ARGV));
-  } else {
-    $exit_code = system('npm i');
-  }
-} else {
-  if (@ARGV && $ARGV[0] eq 'add') {
-    shift @ARGV;  # Remove 'add' from arguments
-    $exit_code = system('yarn add ' . join(' ', @ARGV));
-  } else {
-    $exit_code = system('yarn ' . join(' ', @ARGV));
-  }
+type Manager = "pnpm" | "npm" | "yarn";
+
+function detectManager(dir: string): Manager {
+  if (existsSync(join(dir, "pnpm-lock.yaml"))) return "pnpm";
+  if (existsSync(join(dir, "package-lock.json"))) return "npm";
+  return "yarn";
 }
 
-exit($exit_code >> 8);
+function buildCommand(manager: Manager, args: string[]): string[] {
+  if (args.length === 0) {
+    if (manager === "pnpm") return ["pnpm", "install"];
+    if (manager === "npm") return ["npm", "i"];
+    return ["yarn"];
+  }
+
+  if (args[0] === "add") {
+    const rest = args.slice(1);
+    if (manager === "pnpm") return ["pnpm", "add", ...rest];
+    if (manager === "npm") return ["npm", "install", ...rest];
+    return ["yarn", "add", ...rest];
+  }
+
+  if (manager === "pnpm") return ["pnpm", "run", ...args];
+  if (manager === "npm") return ["npm", "run", ...args];
+  return ["yarn", ...args];
+}
+
+const argv = process.argv.slice(2);
+const cwd = process.cwd();
+
+if (!existsSync(join(cwd, "package.json"))) {
+  const entries = readdirSync(cwd)
+    .filter((e) => {
+      try {
+        return statSync(join(cwd, e)).isDirectory();
+      } catch {
+        return false;
+      }
+    })
+    .filter((e) => existsSync(join(cwd, e, "package.json")));
+
+  if (entries.length === 0) {
+    console.log("No package.json found. Exiting.");
+    process.exit(1);
+  }
+
+  for (const dir of entries) {
+    console.log(`Running \`np\` in ${dir}`);
+    const manager = detectManager(join(cwd, dir));
+    const code = await spawn(buildCommand(manager, argv), join(cwd, dir));
+    if (code !== 0) process.exit(code);
+  }
+  process.exit(0);
+}
+
+const manager = detectManager(cwd);
+const code = await spawn(buildCommand(manager, argv));
+process.exit(code);
