@@ -1,10 +1,10 @@
 #!/usr/bin/env perl
 
-# Node dependency manager. Never wonder whether to use `yarn` or `npm` again.
+# Node dependency manager. Never wonder whether to use `yarn`, `npm`, or `pnpm` again.
 
 # Usage:
-# np        --> runs `yarn` or `npm i`
-# np <args> --> runs `yarn <args>` or `npm run <args>`
+# np        --> runs `yarn`, `npm i`, or `pnpm install`
+# np <args> --> runs `yarn <args>`, `npm run <args>`, or `pnpm run <args>`
 
 use strict;
 use warnings;
@@ -31,7 +31,16 @@ if (!-e 'package.json') {
 }
 
 my $exit_code;
-if (-e 'package-lock.json') {
+if (-e 'pnpm-lock.yaml') {
+  if (@ARGV && $ARGV[0] eq 'add') {
+    shift @ARGV;  # Remove 'add' from arguments
+    $exit_code = system('pnpm add ' . join(' ', @ARGV));
+  } elsif (@ARGV) {
+    $exit_code = system('pnpm run ' . join(' ', @ARGV));
+  } else {
+    $exit_code = system('pnpm install');
+  }
+} elsif (-e 'package-lock.json') {
   if (@ARGV && $ARGV[0] eq 'add') {
     shift @ARGV;  # Remove 'add' from arguments
     $exit_code = system('npm install ' . join(' ', @ARGV));
