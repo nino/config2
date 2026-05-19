@@ -307,6 +307,16 @@ vim.api.nvim_create_user_command("D", function(info)
   vim.cmd("norm zR<c-w>l")
 end, { nargs = "?" })
 
+vim.api.nvim_create_user_command("DiffJs", function(info)
+  local main_branch = info.args
+  if #main_branch == 0 then
+    main_branch = "main"
+  end
+  local js_path = vim.fn.expand("%:r") .. ".js"
+  vim.cmd("Gvdiffsplit " .. main_branch .. ":" .. js_path)
+  vim.cmd("norm zR<c-w>l")
+end, { nargs = "?" })
+
 vim.api.nvim_create_user_command("Re", function(info)
   --- @type string | nil
   local new_name = info.args
