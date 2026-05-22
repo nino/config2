@@ -210,6 +210,6 @@ function CheckAppearance()
 end
 
 vim.o.background = "light"
-vim.cmd("colorscheme lunaperche")
+vim.cmd("colorscheme catppuccin")
 
 -- CheckAppearance()
