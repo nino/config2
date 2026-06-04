@@ -400,3 +400,11 @@ vim.cmd([[
 require("filetypes")
 
 vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "entire buffer" })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.env.TERM_PROGRAM == "vscode" then
+      io.write("\27[<u") -- pop kitty keyboard protocol → fall back to legacy keys
+    end
+  end,
+})
