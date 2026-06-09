@@ -36,7 +36,7 @@ vim.opt.undofile = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
-vim.opt.foldmethod = "manual"
+-- vim.opt.foldmethod = "manual"
 -- cindent and smartindent apparently conflict with treesitter indentation?
 vim.opt.cindent = false
 vim.opt.smartindent = false
