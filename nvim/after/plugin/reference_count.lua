@@ -8,7 +8,7 @@ local M = {}
 
 local ns = vim.api.nvim_create_namespace("reference_count")
 
-vim.api.nvim_set_hl(0, "ReferenceCount", { default = true, link = "Comment" })
+vim.api.nvim_set_hl(0, "ReferenceCount", { default = true, fg = "#808080", ctermfg = 244 })
 
 -- Symbol kinds we want to annotate. Values come from the LSP spec.
 local SymbolKind = vim.lsp.protocol.SymbolKind
@@ -20,6 +20,19 @@ local annotated_kinds = {
   [SymbolKind.Interface] = true,
   [SymbolKind.Struct] = true,
   [SymbolKind.Enum] = true,
+  -- Variables/Constants are only kept when bound to a function (see
+  -- value_is_function); plain value constants are filtered out below.
+  [SymbolKind.Variable] = true,
+  [SymbolKind.Constant] = true,
+}
+
+-- Treesitter node types that represent a function value bound to a variable,
+-- e.g. `const foo = () => ...` or `const foo = function () {}`.
+local function_value_types = {
+  arrow_function = true,
+  function_expression = true,
+  ["function"] = true,
+  generator_function = true,
 }
 
 -- Whether annotations are currently enabled. Toggle with :ReferenceCountToggle.
@@ -28,18 +41,68 @@ local enabled = true
 -- Per-buffer debounce timers, keyed by bufnr.
 local timers = {}
 
+--- Whether `range` covers a bare identifier in the buffer. Anonymous functions
+--- come back with a synthesized name (e.g. "createLookupByKey() callback") whose
+--- selectionRange spans the whole expression rather than a name, so this rejects
+--- them — and with them anything not anchored to a real, referenceable symbol.
+--- @param bufnr integer
+--- @param range table LSP range with 0-indexed start/end
+--- @return boolean
+local function is_identifier(bufnr, range)
+  -- Names always live on a single line.
+  if range.start.line ~= range["end"].line then
+    return false
+  end
+  local text = vim.api.nvim_buf_get_text(
+    bufnr,
+    range.start.line, range.start.character,
+    range["end"].line, range["end"].character,
+    {}
+  )[1] or ""
+  -- `$` is a valid identifier character in JS/TS.
+  return text:match("^[%a_$][%w_$]*$") ~= nil
+end
+
+--- Whether the variable whose name sits at (line, character) is initialised to a
+--- function. The LSP collapses `const foo = () => ...` into a single Constant
+--- symbol with no detail, so treesitter is the only way to tell a function-valued
+--- binding from a plain value constant like `const x = 5`.
+--- @param bufnr integer
+--- @param line integer 0-indexed
+--- @param character integer 0-indexed
+--- @return boolean
+local function value_is_function(bufnr, line, character)
+  local ok, node = pcall(vim.treesitter.get_node, { bufnr = bufnr, pos = { line, character } })
+  if not ok or not node then
+    return false
+  end
+  local declarator = node
+  while declarator and declarator:type() ~= "variable_declarator" do
+    declarator = declarator:parent()
+  end
+  if not declarator then
+    return false
+  end
+  local value = declarator:field("value")[1]
+  return value ~= nil and function_value_types[value:type()] == true
+end
+
 --- Flatten a documentSymbol response (which may be hierarchical DocumentSymbol[]
 --- or flat SymbolInformation[]) into a list of { kind, line, character } entries
 --- describing where to anchor and where to query each annotation.
+--- @param bufnr integer
 --- @param symbols table[]
 --- @param out table[]
-local function collect_symbols(symbols, out)
+local function collect_symbols(bufnr, symbols, out)
   for _, symbol in ipairs(symbols) do
-    if annotated_kinds[symbol.kind] then
-      -- DocumentSymbol has selectionRange (the name); SymbolInformation only
-      -- has location.range. Prefer the name position for the reference query.
-      local range = symbol.selectionRange or (symbol.location and symbol.location.range)
-      if range then
+    -- DocumentSymbol has selectionRange (the name); SymbolInformation only
+    -- has location.range. Prefer the name position for the reference query.
+    local range = symbol.selectionRange or (symbol.location and symbol.location.range)
+    if range and annotated_kinds[symbol.kind] and is_identifier(bufnr, range) then
+      -- Variables/constants are only worth annotating when they hold a function.
+      local kind_ok = symbol.kind ~= SymbolKind.Variable and symbol.kind ~= SymbolKind.Constant
+        or value_is_function(bufnr, range.start.line, range.start.character)
+      if kind_ok then
         table.insert(out, {
           query_line = range.start.line,
           query_character = range.start.character,
@@ -48,7 +111,7 @@ local function collect_symbols(symbols, out)
       end
     end
     if symbol.children then
-      collect_symbols(symbol.children, out)
+      collect_symbols(bufnr, symbol.children, out)
     end
   end
 end
@@ -95,7 +158,7 @@ function M.refresh(bufnr)
     end
 
     local symbols = {}
-    collect_symbols(result, symbols)
+    collect_symbols(bufnr, result, symbols)
 
     -- Clear only once we have a fresh symbol list, to avoid flicker.
     vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
