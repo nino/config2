@@ -1,21 +1,11 @@
 vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
--- vim.diagnostic.config({
---   signs = {
---     text = {
---       [vim.diagnostic.severity.HINT] = "⁍",
---       [vim.diagnostic.severity.WARN] = "⚠",
---       [vim.diagnostic.severity.ERROR] = "×",
---     },
---   },
--- })
-
 -- Add toggle function and keymap for diagnostic virtual text
-local diagnostic_virtual_text = false
-vim.keymap.set("n", "<leader><M-d>", function()
-  diagnostic_virtual_text = not diagnostic_virtual_text
-  vim.diagnostic.config({ virtual_text = diagnostic_virtual_text })
-end)
+-- local diagnostic_virtual_text = false
+-- vim.keymap.set("n", "<leader><M-d>", function()
+--   diagnostic_virtual_text = not diagnostic_virtual_text
+--   vim.diagnostic.config({ virtual_text = diagnostic_virtual_text })
+-- end)
 
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {

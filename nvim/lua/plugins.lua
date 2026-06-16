@@ -34,7 +34,7 @@ return {
       local cmp = require("cmp")
 
       cmp.setup({
-        completion = { autocomplete = false },
+        completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
@@ -376,7 +376,7 @@ return {
   "https://github.com/vlime/vlime",
 
   -- Colors
-  { "MeanderingProgrammer/render-markdown.nvim" },
+  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
   {
     "alexghergh/nvim-tmux-navigation",
     enabled = false,
