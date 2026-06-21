@@ -36,7 +36,7 @@ vim.opt.undofile = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
-vim.opt.foldmethod = "manual"
+-- vim.opt.foldmethod = "manual"
 -- cindent and smartindent apparently conflict with treesitter indentation?
 vim.opt.cindent = false
 vim.opt.smartindent = false
@@ -400,3 +400,11 @@ vim.cmd([[
 require("filetypes")
 
 vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "entire buffer" })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.env.TERM_PROGRAM == "vscode" then
+      io.write("\27[<u") -- pop kitty keyboard protocol → fall back to legacy keys
+    end
+  end,
+})
