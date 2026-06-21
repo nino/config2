@@ -17,13 +17,21 @@ import { existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 async function spawn(cmd: string[], cwd?: string): Promise<number> {
-  const proc = Bun.spawn(cmd, {
-    cwd,
-    stdin: "inherit",
-    stdout: "inherit",
-    stderr: "inherit",
-  });
-  return await proc.exited;
+  try {
+    const proc = Bun.spawn(cmd, {
+      cwd,
+      stdin: "inherit",
+      stdout: "inherit",
+      stderr: "inherit",
+    });
+    return await proc.exited;
+  } catch (err) {
+    console.error(
+      `Error occurred while spawning process ${cmd.join(" ")}:`,
+      err,
+    );
+    return 1;
+  }
 }
 
 type Manager = "pnpm" | "npm" | "yarn";

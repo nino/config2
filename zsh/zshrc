@@ -194,3 +194,5 @@ export GRAVEYARD=~/.Trash
 eval "$(~/.local/bin/mise activate zsh)"
 
 export PATH=$PATH:/opt/homebrew/bin
+
+export PATH="/Users/Nino/.pixi/bin:$PATH"

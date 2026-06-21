@@ -13,6 +13,7 @@ fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/scripts
 fish_add_path ~/.local/context-osx-64/bin
 fish_add_path ~/Developer/plinth/database-scripts/ninos-scripts/runnable
+fish_add_path ~/.pixi/bin
 
 alias l='eza -lh'
 alias la='eza -lha'
