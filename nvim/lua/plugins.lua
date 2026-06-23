@@ -1,16 +1,29 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-local js_languages = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
-
 return {
-  "williamboman/mason.nvim",
   { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
-  "https://github.com/tpope/vim-commentary",
   "mbbill/undotree",
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
-  "tpope/vim-surround",
-  "tpope/vim-characterize",
+  -- Pure text-editing plugins: kept on under vscode-neovim (cond = true) since
+  -- they enhance editing without duplicating any VS Code feature.
+  { "tpope/vim-surround", cond = true },
+  { "tpope/vim-characterize", cond = true },
+  { "tpope/vim-repeat", cond = true },
+  { "https://github.com/godlygeek/tabular", cond = true },
+  "https://github.com/duane9/nvim-rg",
+  { "https://github.com/wsdjeg/vim-fetch", cond = true }, -- Allow opening `path:linenr`
+  "https://github.com/mfussenegger/nvim-lint",
+  "https://github.com/NoahTheDuke/vim-just",
+  "https://github.com/vlime/vlime",
+
+  -- Git
+  {
+    "https://github.com/lewis6991/gitsigns.nvim",
+    opts = {}, -- opts = {} makes lazy call require("gitsigns").setup()
+  },
+
+  -- LSP
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -19,7 +32,6 @@ return {
         ft = "lua", -- only load on lua files
         opts = {
           library = {
-            -- See the configuration section for more details
             -- Load luvit types when the `vim.uv` word is found
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
@@ -27,305 +39,129 @@ return {
       },
     },
   },
+
+  -- Completion (blink.cmp; replaces nvim-cmp + cmp-* + vim-vsnip)
   {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      -- Set up nvim-cmp.
-      local cmp = require("cmp")
-
-      cmp.setup({
-        completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
-        snippet = {
-          -- REQUIRED - you must specify a snippet engine
-          expand = function(args)
-            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-
-            -- For `mini.snippets` users:
-            -- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-            -- insert({ body = args.body }) -- Insert at cursor
-            -- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-            -- require("cmp.config").set_onetime({ sources = {} })
-          end,
+    "saghen/blink.cmp",
+    version = "1.*", -- a release tag pulls down the prebuilt fuzzy-matcher binary
+    dependencies = { "rafamadriz/friendly-snippets" },
+    opts = {
+      keymap = { preset = "enter" }, -- <CR> accepts, like the old nvim-cmp mapping
+      appearance = { nerd_font_variant = "mono" },
+      completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
+        list = { selection = { preselect = true, auto_insert = false } },
+      },
+      sources = {
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
         },
-        window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          -- { name = "vsnip" }, -- For vsnip users.
-          -- { name = 'luasnip' }, -- For luasnip users.
-          -- { name = 'ultisnips' }, -- For ultisnips users.
-          -- { name = 'snippy' }, -- For snippy users.
-        }, {
-          { name = "buffer" },
-        }),
-      })
-
-      -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
-      -- Set configuration for specific filetype.
-      --[[ cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' },
-    }, {
-      { name = 'buffer' },
-    })
- })
- require("cmp_git").setup() ]]
-      --
-
-      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-      -- cmp.setup.cmdline({ "/", "?" }, {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = {
-      --     { name = "buffer" },
-      --   },
-      -- })
-
-      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      -- cmp.setup.cmdline(":", {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = cmp.config.sources({
-      --     { name = "path" },
-      --   }, {
-      --     { name = "cmdline" },
-      --   }),
-      --   matching = { disallow_symbol_nonprefix_matching = false },
-      -- })
-
-      -- Set up lspconfig.
-      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-      -- vim.lsp.config("ts_ls", {
-      --   capabilities = capabilities,
-      -- })
-      -- vim.lsp.enable("ts_ls")
-    end,
+      },
+      signature = { enabled = true },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+    },
   },
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/vim-vsnip",
+
+  -- Fuzzy finder
   {
     "https://github.com/nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { "https://github.com/nvim-telescope/telescope-live-grep-args.nvim", enabled = false },
-  "tpope/vim-repeat",
-  "preservim/nerdtree",
-  { "https://github.com/gleam-lang/gleam.vim", enabled = false },
-  "https://github.com/godlygeek/tabular",
-  { "https://github.com/guns/vim-sexp", enabled = false },
-  { "https://github.com/tpope/vim-sexp-mappings-for-regular-people", enabled = false },
-  "https://github.com/duane9/nvim-rg",
-  -- { 'elixir-editors/vim-elixir',             enabled = false },
 
-  -- DAP
+  -- File explorer (neo-tree; replaces NERDTree)
   {
-    enabled = false,
-    "https://github.com/mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      -- local Config = require "lazyvim.config"
-      -- vim.api.nvim
-
-      for _, language in ipairs(js_languages) do
-        dap.configurations[language] = {
-          -- Debug single nodejs files
-          {
-            type = "pwa-node",
-            request = "launch",
-            name = "Launch file",
-            program = "${file}",
-            cwd = vim.fn.getcwd(),
-            sourceMaps = true,
-          },
-          -- Debug nodejs processes (make sure to add --inspect when you run the process)
-          {
-            type = "pwa-node",
-            request = "attach",
-            name = "Attach",
-            processId = require("dap.utils").pick_process,
-            cwd = vim.fn.getcwd(),
-            sourceMaps = true,
-          },
-          -- Debug web applications (client side)
-          {
-            type = "pwa-chrome",
-            request = "launch",
-            name = "Launch & Debug Chrome",
-            url = function()
-              local co = coroutine.running()
-              return coroutine.create(function()
-                vim.ui.input({
-                  prompt = "Enter URL: ",
-                  default = "http://localhost:3000",
-                }, function(url)
-                  if url == nil or url == "" then
-                    return
-                  else
-                    coroutine.resume(co, url)
-                  end
-                end)
-              end)
-            end,
-            webRoot = vim.fn.getcwd(),
-            protocol = "inspector",
-            sourceMaps = true,
-            userDataDir = false,
-          },
-          -- Divider for the launch.json derived configs
-          {
-            name = "----- ↓ launch.json configs ↓ -----",
-            type = "",
-            request = "launch",
-          },
-        }
-      end
-    end,
-    keys = {
-      -- {
-      --   "<leader>da",
-      --   function()
-      --     if vim.fn.filereadable(".vscode/launch.json") then
-      --       local dap_vscode = require("dap.ext.vscode")
-      --       dap_vscode.load_launchjs(nil, {
-      --         ["pwa-node"] = js_languages,
-      --         ["node"] = js_languages,
-      --       })
-      --     end
-      --     require("dap").continue()
-      --   end,
-      --   desc = "Run with Args",
-      -- }
-    },
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    cmd = "Neotree",
     dependencies = {
-      -- {
-      --   "microsoft/vscode-js-debug",
-      --   -- After install, build it and rename the dist directory to out
-      --   build = "npm install && npx gulp vsDebugServerBundle && mv dist out",
-      --   -- version = "1.*",
-      -- },
-      --{
-      --  "mxsdev/nvim-dap-vscode-js",
-      --  config = function()
-      --    ---@diagnostic disable-next-line: missing-fields
-      --    require("dap-vscode-js").setup({
-      --      -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-      --      -- node_path = "node",
-
-      --      -- Path to vscode-js-debug installation.
-      --      debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
-
-      --      -- Command to use to launch the debug server. Takes precedence over "node_path" and "debugger_path"
-      --      -- debugger_cmd = { "js-debug-adapter" },
-
-      --      -- which adapters to register in nvim-dap
-      --      adapters = {
-      --        "chrome",
-      --        "pwa-node",
-      --        "pwa-chrome",
-      --        "pwa-msedge",
-      --        "pwa-extensionHost",
-      --        "node-terminal",
-      --        "node",
-      --      },
-
-      --      -- Path for file logging
-      --      -- log_file_path = "(stdpath cache)/dap_vscode_js.log",
-
-      --      -- Logging level for output to file. Set to false to disable logging.
-      --      -- log_file_level = false,
-
-      --      -- Logging level for output to console. Set to false to disable console output.
-      --      -- log_console_level = vim.log.levels.ERROR,
-      --    })
-      --  end,
-      --},
-      {
-        "Joakker/lua-json5",
-        build = "./install.sh",
-      },
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
     },
-  },
-  -- 'https://github.com/mxsdev/nvim-dap-vscode-js',
-  { "https://github.com/leoluz/nvim-dap-go", enabled = false },
-  "nvim-neotest/nvim-nio",
-  { "https://github.com/rcarriga/nvim-dap-ui", requires = { "nvim-neotest/nvim-nio" } },
-  { "https://github.com/theHamsta/nvim-dap-virtual-text", enabled = false },
-  { "https://github.com/nvim-telescope/telescope-dap.nvim", enabled = false },
-  { "https://github.com/mfussenegger/nvim-dap-python", enabled = false },
-  {
-    enabled = false,
-    "julianolf/nvim-dap-lldb",
-    dependencies = { "mfussenegger/nvim-dap" },
     opts = {
-      codelldb_path = "~/.local/share/nvim/mason/bin/codelldb",
+      close_if_last_window = true,
+      filesystem = {
+        follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          never_show = { "__pycache__" },
+          hide_by_pattern = { "*.pyc" },
+        },
+      },
+      window = { width = 32 },
     },
   },
 
-  "https://github.com/wsdjeg/vim-fetch", -- Allow opening `path:linenr`
-  "https://github.com/mfussenegger/nvim-lint",
-  "https://github.com/NoahTheDuke/vim-just",
+  -- Statusline
   {
-    "https://github.com/lukas-reineke/indent-blankline.nvim",
-    enabled = false, -- It's kinda nice but makes the UI slower
-    config = function()
-      local highlight = {
-        "RainbowRed",
-        "RainbowYellow",
-        "RainbowBlue",
-        "RainbowOrange",
-        "RainbowGreen",
-        "RainbowViolet",
-        "RainbowCyan",
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = function()
+      -- High-contrast light theme. The "auto" theme derives washed-out greys
+      -- from lunaperche; spell the colours out so every section is legible.
+      local dark = "#1c1c1c"
+      local light = "#fafafa"
+      local theme = {
+        normal = {
+          a = { fg = light, bg = "#005f87", gui = "bold" }, -- blue mode badge
+          b = { fg = dark, bg = "#d0d0d0" }, -- branch/diagnostics
+          c = { fg = dark, bg = "#e4e4e4" }, -- filename / fill
+        },
+        insert = { a = { fg = light, bg = "#5f8700", gui = "bold" } },
+        visual = { a = { fg = light, bg = "#8700af", gui = "bold" } },
+        replace = { a = { fg = light, bg = "#af0000", gui = "bold" } },
+        command = { a = { fg = light, bg = "#af5f00", gui = "bold" } },
+        inactive = {
+          a = { fg = dark, bg = "#c6c6c6" },
+          b = { fg = dark, bg = "#d0d0d0" },
+          c = { fg = "#626262", bg = "#e4e4e4" },
+        },
       }
-
-      local hooks = require("ibl.hooks")
-      -- create the highlight groups in the highlight setup hook, so they are reset
-      -- every time the colorscheme changes
-      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#FFC8CE" })
-        vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#FFEEBE" })
-        vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#C0E5FF" })
-        vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#FFE0C0" })
-        vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#D9F5C8" })
-        vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#F0D4FF" })
-        vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#BEF5FA" })
-      end)
-
-      require("ibl").setup({ indent = { highlight = highlight } })
+      return {
+        options = {
+          theme = theme,
+          globalstatus = true,
+          section_separators = "",
+          component_separators = "",
+        },
+        sections = {
+          -- Single-character mode indicator (N/I/V/C/R/…).
+          lualine_a = {
+            { "mode", fmt = function(str) return str:sub(1, 1) end },
+          },
+          -- Trim long branch names so they don't dominate the bar.
+          lualine_b = {
+            { "branch", fmt = function(name)
+              return #name > 12 and name:sub(1, 12) .. "…" or name
+            end },
+            "diff",
+            "diagnostics",
+          },
+          lualine_c = { { "filename", path = 1 } }, -- show the relative path
+          -- Drop "encoding" (utf-8), "fileformat" (the OS logo) and "filetype".
+          lualine_x = {},
+        },
+      }
     end,
   },
-  -- 'https://github.com/chrisbra/vim-diff-enhanced',
+
+  -- Diagnostics / quickfix panel
   {
-    "https://github.com/stevearc/conform.nvim",
-    config = function()
-      require("conform").setup()
-    end,
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {},
+    keys = {
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+      { "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
+      { "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+    },
   },
-  -- {
-  --   'https://github.com/stevearc/oil.nvim',
-  --   config = function()
-  --     require('oil').setup()
-  --   end
-  -- },
-  -- {
-  --   'https://github.com/lewis6991/gitsigns.nvim',
-  --   config = function()
-  --     require('gitsigns').setup()
-  --   end
-  -- },
+
+  -- Search & replace
   {
     "https://github.com/nvim-pack/nvim-spectre",
     config = function()
@@ -354,7 +190,16 @@ return {
       })
     end,
   },
-  -- { 'https://github.com/cweagans/vim-taskpaper', enabled = false },
+
+  -- Formatting
+  {
+    "https://github.com/stevearc/conform.nvim",
+    config = function()
+      require("conform").setup()
+    end,
+  },
+
+  -- Lean theorem prover
   {
     "Julian/lean.nvim",
     event = { "BufReadPre *.lean", "BufNewFile *.lean" },
@@ -362,26 +207,16 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-lua/plenary.nvim",
-      -- you also will likely want nvim-cmp or some completion engine
     },
 
-    -- see details below for full configuration options
     opts = {
       lsp = {},
       mappings = true,
     },
   },
-  -- 'https://github.com/mg979/vim-visual-multi',
-  { "https://github.com/stevearc/dressing.nvim", enabled = true },
-  "https://github.com/vlime/vlime",
 
-  -- Colors
-  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
-  {
-    "alexghergh/nvim-tmux-navigation",
-    enabled = false,
-  },
-  "https://github.com/lewis6991/gitsigns.nvim",
+  -- UI niceties
+  { "https://github.com/stevearc/dressing.nvim", enabled = true },
   {
     "https://github.com/hedyhli/outline.nvim",
     init = function()
@@ -409,6 +244,38 @@ return {
         zindex = 20, -- The Z-index of the context window
         on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
       })
+    end,
+  },
+
+  -- Disabled, but kept for the custom rainbow config (slows the UI when on)
+  {
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+    config = function()
+      local highlight = {
+        "RainbowRed",
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowOrange",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowCyan",
+      }
+
+      local hooks = require("ibl.hooks")
+      -- create the highlight groups in the highlight setup hook, so they are reset
+      -- every time the colorscheme changes
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#FFC8CE" })
+        vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#FFEEBE" })
+        vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#C0E5FF" })
+        vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#FFE0C0" })
+        vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#D9F5C8" })
+        vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#F0D4FF" })
+        vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#BEF5FA" })
+      end)
+
+      require("ibl").setup({ indent = { highlight = highlight } })
     end,
   },
 }

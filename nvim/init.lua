@@ -46,8 +46,6 @@ vim.opt.title = true
 vim.opt.inccommand = "nosplit"
 vim.opt.laststatus = 2
 
-vim.cmd([[ let NERDTreeIgnore=['\.pyc$', '__pycache__'] ]])
-
 -- Keep the visual textwidth but don't add new line in insert mode:
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
 
@@ -63,20 +61,24 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile", "BufRead" }, {
 
 -- Mappings
 
-local telescope_builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", function()
-  telescope_builtin.git_files({ show_untracked = true })
-end, {})
-vim.keymap.set("n", "<c-f>", function()
-  telescope_builtin.git_files({ show_untracked = true })
-end, {})
-vim.keymap.set("n", "<leader>F", telescope_builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
-vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, {})
-vim.keymap.set("n", "<leader>fd", telescope_builtin.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set("n", "<leader>fm", telescope_builtin.marks, {})
+-- Telescope is disabled under vscode-neovim, so only wire up its keymaps when
+-- running standalone (the require would otherwise error at startup).
+if not vim.g.vscode then
+  local telescope_builtin = require("telescope.builtin")
+  vim.keymap.set("n", "<leader>ff", function()
+    telescope_builtin.git_files({ show_untracked = true })
+  end, {})
+  vim.keymap.set("n", "<c-f>", function()
+    telescope_builtin.git_files({ show_untracked = true })
+  end, {})
+  vim.keymap.set("n", "<leader>F", telescope_builtin.find_files, {})
+  vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
+  vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
+  vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
+  vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, {})
+  vim.keymap.set("n", "<leader>fd", telescope_builtin.lsp_dynamic_workspace_symbols, {})
+  vim.keymap.set("n", "<leader>fm", telescope_builtin.marks, {})
+end
 
 vim.keymap.set("n", "<m-a>", vim.cmd.e)
 vim.keymap.set("n", "<m-.>", vim.lsp.buf.code_action)
@@ -149,8 +151,9 @@ vim.keymap.set("n", "<Leader>s", ":G<CR>")
 vim.keymap.set("n", "zs", "v%zf")
 vim.keymap.set("n", "zS", "$v%zf")
 
-vim.keymap.set("n", "<M-/>", "gcc")
-vim.keymap.set("v", "<M-/>", "gc")
+-- Built-in commenting (Neovim 0.10+); remap = true so these expand to gcc/gc.
+vim.keymap.set("n", "<M-/>", "gcc", { remap = true })
+vim.keymap.set("v", "<M-/>", "gc", { remap = true })
 
 vim.keymap.set("n", "¬", "5zl")
 vim.keymap.set("n", "˙", "5zh")
@@ -261,22 +264,22 @@ vim.api.nvim_create_user_command("GW", function()
   vim.cmd(":Gw")
 end, {})
 vim.api.nvim_create_user_command("NF", function()
-  vim.cmd(":NERDTreeFind")
+  vim.cmd("Neotree reveal")
 end, {})
 vim.api.nvim_create_user_command("OF", function()
-  require("oil").open_float()
+  vim.cmd("Neotree float reveal")
 end, {})
 vim.api.nvim_create_user_command("NT", function()
-  vim.cmd(":NERDTreeToggle")
+  vim.cmd("Neotree toggle")
 end, {})
 vim.api.nvim_create_user_command("WD", function()
   vim.cmd(":windo difft")
 end, {})
-vim.keymap.set("n", "<m-e>", "<cmd>NERDTreeToggle<CR>", {
-  desc = "Toggle NERDTree",
+vim.keymap.set("n", "<m-e>", "<cmd>Neotree toggle<CR>", {
+  desc = "Toggle file explorer",
 })
-vim.keymap.set("n", "<m-E>", "<cmd>NERDTreeFind<CR>", {
-  desc = "Find current file in NERDTree",
+vim.keymap.set("n", "<m-E>", "<cmd>Neotree reveal<CR>", {
+  desc = "Reveal current file in explorer",
 })
 vim.api.nvim_create_user_command("Exe", function()
   vim.cmd(":!chmod +ux %")

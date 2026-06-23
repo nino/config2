@@ -4,6 +4,11 @@
 -- the number of references and renders it as virtual text on the line above the
 -- definition, similar to VS Code's "references" CodeLens.
 
+-- VS Code shows its own reference CodeLens; this LSP virtual text is redundant.
+if vim.g.vscode then
+  return {}
+end
+
 local M = {}
 
 local ns = vim.api.nvim_create_namespace("reference_count")

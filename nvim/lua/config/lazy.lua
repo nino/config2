@@ -26,4 +26,11 @@ require("lazy").setup({
   -- install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true, notify = false },
+  defaults = {
+    -- Inside the vscode-neovim extension, VS Code already provides the IDE
+    -- layer (LSP, completion, file tree, fuzzy finder, statusline, gutter,
+    -- syntax highlighting). Disable every plugin by default so they don't
+    -- fight VS Code; pure text-editing plugins opt back in with `cond = true`.
+    cond = not vim.g.vscode,
+  },
 })

@@ -1,3 +1,8 @@
+-- VS Code handles syntax highlighting; treesitter highlighting/folding clashes.
+if vim.g.vscode then
+  return
+end
+
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local ft = vim.bo[args.buf].filetype

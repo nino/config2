@@ -1,13 +1,17 @@
+-- VS Code provides its own LSP, completion, linting and formatting.
+if vim.g.vscode then
+  return
+end
+
 vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
--- Add toggle function and keymap for diagnostic virtual text
--- local diagnostic_virtual_text = false
--- vim.keymap.set("n", "<leader><M-d>", function()
---   diagnostic_virtual_text = not diagnostic_virtual_text
---   vim.diagnostic.config({ virtual_text = diagnostic_virtual_text })
--- end)
+-- Completion capabilities (blink.cmp) applied to *every* server via the "*"
+-- wildcard, instead of repeating `capabilities = ...` on each server config.
+vim.lsp.config("*", {
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
 
--- LSP keymaps
+-- Buffer-local LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
@@ -17,7 +21,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- Inlay hints are off by default (distracting); toggle them per-buffer here.
+vim.keymap.set("n", "<leader>h", function()
+  local filter = { bufnr = 0 }
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
+end, { desc = "Toggle inlay hints" })
 
 -- Linting setup
 require("lint").linters_by_ft = {
@@ -56,202 +64,20 @@ require("conform").setup({
   end,
 })
 
--- LSP Configuration using new vim.lsp.config API
--- Note: vim.lsp.config() defines the config, vim.lsp.enable() starts the server
-
-vim.lsp.config("zls", {
-  cmd = { "zls" },
-  filetypes = { "zig" },
-  root_markers = { "build.zig", ".git" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("tailwindcss", {
-  cmd = { "tailwindcss-language-server", "--stdio" },
-  filetypes = {
-    "html",
-    "css",
-    "scss",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "svelte",
-  },
-  root_markers = { "tailwind.config.js", "tailwind.config.ts", "tailwind.config.cjs" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("astro", {
-  cmd = { "astro-ls", "--stdio" },
-  filetypes = { "astro" },
-  root_markers = { "package.json", "astro.config.mjs", ".git" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("rust_analyzer", {
-  cmd = { "rust-analyzer" },
-  filetypes = { "rust" },
-  root_markers = { "Cargo.toml", "rust-project.json" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("cmake", {
-  cmd = { "cmake-language-server" },
-  filetypes = { "cmake" },
-  root_markers = { "CMakeLists.txt", ".git" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("pyright", {
-  cmd = { "pyright-langserver", "--stdio" },
-  filetypes = { "python" },
-  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
-  on_attach = function(client, bufnr)
-    -- client.server_capabilities.documentFormattingProvider = false
-  end,
-  -- settings = {
-  --   python = {
-  --     pythonPath = ".venv/bin/python",
-  --   },
-  -- },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("gopls", {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_markers = { "go.work", "go.mod", ".git" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("kotlin_language_server", {
-  cmd = { "kotlin-language-server" },
-  filetypes = { "kotlin" },
-  root_markers = { "settings.gradle", "settings.gradle.kts", ".git" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("dartls", {
-  cmd = { "dart", "language-server", "--protocol=lsp" },
-  filetypes = { "dart" },
-  root_markers = { "pubspec.yaml", ".git" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("solargraph", {
-  cmd = { "solargraph", "stdio" },
-  filetypes = { "ruby" },
-  root_markers = { "Gemfile", ".git" },
-  capabilities = capabilities,
-})
+-- LSP servers.
+--
+-- nvim-lspconfig ships the cmd / filetypes / root_markers for every server in
+-- its `lsp/` directory, so we only declare the servers we want (below) and
+-- override the handful of settings that differ from those bundled defaults.
+-- Each override is deep-merged on top of both the bundled config and the "*"
+-- config above, so e.g. clangd still gets the blink capabilities.
 
 vim.lsp.config("clangd", {
-  cmd = { "clangd" },
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-  root_markers = {
-    ".clangd",
-    ".clang-tidy",
-    ".clang-format",
-    "compile_commands.json",
-    "compile_flags.txt",
-    "configure.ac",
-    ".git",
-  },
-  capabilities = {
-    offsetEncoding = "utf-8",
-  },
+  -- clangd warns unless the offset encoding is pinned
+  capabilities = { offsetEncoding = "utf-8" },
 })
-
-vim.lsp.config("denols", {
-  cmd = { "deno", "lsp" },
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-  root_markers = { "deno.json", "deno.jsonc" },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("eslint", {
-  cmd = { "vscode-eslint-language-server", "--stdio" },
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-    "vue",
-    "svelte",
-    "astro",
-  },
-  root_markers = {
-    ".eslintrc",
-    ".eslintrc.js",
-    ".eslintrc.cjs",
-    ".eslintrc.yaml",
-    ".eslintrc.yml",
-    ".eslintrc.json",
-    "eslint.config.js",
-    "package.json",
-  },
-  capabilities = capabilities,
-})
-
-vim.lsp.config("ts_ls", {
-  cmd = { "typescript-language-server", "--stdio" },
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-  root_markers = { "package.json" },
-  single_file_support = false,
-  -- on_attach = function(client, bufnr)
-  --   -- client.server_capabilities.documentFormattingProvider = true
-  --   if client:supports_method('textDocument/completion') then
-  --     -- Enable completion side effects
-  --     vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
-  --   end
-  -- end,
-  settings = {
-    typescript = {
-      format = {
-        indentSize = 2,
-        tabSize = 2,
-        convertTabsToSpaces = true,
-      },
-    },
-    javascript = {
-      format = {
-        indentSize = 2,
-        tabSize = 2,
-        convertTabsToSpaces = true,
-      },
-    },
-  },
-  capabilities = capabilities,
-})
-
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function(args)
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
-
---     if client:supports_method('textDocument/completion') then
---       -- Enable completion side effects
---       vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = false})
---     end
---   end,
--- })
 
 vim.lsp.config("lua_ls", {
-  cmd = { "lua-language-server" },
-  filetypes = { "lua" },
-  root_markers = {
-    ".luarc.json",
-    ".luarc.jsonc",
-    ".luacheckrc",
-    ".stylua.toml",
-    "stylua.toml",
-    "selene.toml",
-    "selene.yml",
-    ".git",
-  },
   settings = {
     Lua = {
       diagnostics = {
@@ -263,26 +89,64 @@ vim.lsp.config("lua_ls", {
       },
     },
   },
-  capabilities = capabilities,
 })
 
--- Enable all configured LSP servers
-vim.lsp.enable("zls")
-vim.lsp.enable("tailwindcss")
-vim.lsp.enable("astro")
-vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("cmake")
-vim.lsp.enable("pyright")
-vim.lsp.enable("gopls")
-vim.lsp.enable("kotlin_language_server")
-vim.lsp.enable("dartls")
-vim.lsp.enable("solargraph")
-vim.lsp.enable("clangd")
-vim.lsp.enable("eslint")
-vim.lsp.enable("lua_ls")
+vim.lsp.config("gopls", {
+  settings = {
+    gopls = {
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
+})
 
--- Conditionally enable ts_ls OR denols based on project type
--- This autocmd runs when opening JS/TS files and determines which server to use
+-- Inlay-hint settings shared by the TS/JS server config below.
+local ts_inlay_hints = {
+  includeInlayParameterNameHints = "all",
+  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  includeInlayFunctionParameterTypeHints = true,
+  includeInlayVariableTypeHints = true,
+  includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+  includeInlayPropertyDeclarationTypeHints = true,
+  includeInlayFunctionLikeReturnTypeHints = true,
+  includeInlayEnumMemberValueHints = true,
+}
+local ts_format = { indentSize = 2, tabSize = 2, convertTabsToSpaces = true }
+
+vim.lsp.config("ts_ls", {
+  single_file_support = false,
+  settings = {
+    typescript = { format = ts_format, inlayHints = ts_inlay_hints },
+    javascript = { format = ts_format, inlayHints = ts_inlay_hints },
+  },
+})
+
+-- Servers that work as-is with lspconfig's bundled defaults.
+vim.lsp.enable({
+  "zls",
+  "tailwindcss",
+  "astro",
+  "rust_analyzer",
+  "cmake",
+  "pyright",
+  "gopls",
+  "kotlin_language_server",
+  "dartls",
+  "solargraph",
+  "clangd",
+  "eslint",
+  "lua_ls",
+})
+
+-- ts_ls and denols conflict, so enable exactly one based on the project root.
+-- (Neither is in the enable() list above — this autocmd turns one on per project.)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   callback = function(args)
@@ -293,7 +157,6 @@ vim.api.nvim_create_autocmd("FileType", {
       return
     end
 
-    -- Check if it's a Deno project
     local is_deno = vim.uv.fs_stat(root_dir .. "/deno.json") or vim.uv.fs_stat(root_dir .. "/deno.jsonc")
 
     if is_deno then
