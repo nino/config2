@@ -1,3 +1,8 @@
+-- Telescope is disabled under vscode-neovim (VS Code has its own pickers).
+if vim.g.vscode then
+  return
+end
+
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {

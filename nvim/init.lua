@@ -61,20 +61,24 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile", "BufRead" }, {
 
 -- Mappings
 
-local telescope_builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", function()
-  telescope_builtin.git_files({ show_untracked = true })
-end, {})
-vim.keymap.set("n", "<c-f>", function()
-  telescope_builtin.git_files({ show_untracked = true })
-end, {})
-vim.keymap.set("n", "<leader>F", telescope_builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
-vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, {})
-vim.keymap.set("n", "<leader>fd", telescope_builtin.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set("n", "<leader>fm", telescope_builtin.marks, {})
+-- Telescope is disabled under vscode-neovim, so only wire up its keymaps when
+-- running standalone (the require would otherwise error at startup).
+if not vim.g.vscode then
+  local telescope_builtin = require("telescope.builtin")
+  vim.keymap.set("n", "<leader>ff", function()
+    telescope_builtin.git_files({ show_untracked = true })
+  end, {})
+  vim.keymap.set("n", "<c-f>", function()
+    telescope_builtin.git_files({ show_untracked = true })
+  end, {})
+  vim.keymap.set("n", "<leader>F", telescope_builtin.find_files, {})
+  vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
+  vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
+  vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
+  vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, {})
+  vim.keymap.set("n", "<leader>fd", telescope_builtin.lsp_dynamic_workspace_symbols, {})
+  vim.keymap.set("n", "<leader>fm", telescope_builtin.marks, {})
+end
 
 vim.keymap.set("n", "<m-a>", vim.cmd.e)
 vim.keymap.set("n", "<m-.>", vim.lsp.buf.code_action)

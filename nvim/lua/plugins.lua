@@ -5,12 +5,14 @@ return {
   "mbbill/undotree",
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
-  "tpope/vim-surround",
-  "tpope/vim-characterize",
-  "tpope/vim-repeat",
-  "https://github.com/godlygeek/tabular",
+  -- Pure text-editing plugins: kept on under vscode-neovim (cond = true) since
+  -- they enhance editing without duplicating any VS Code feature.
+  { "tpope/vim-surround", cond = true },
+  { "tpope/vim-characterize", cond = true },
+  { "tpope/vim-repeat", cond = true },
+  { "https://github.com/godlygeek/tabular", cond = true },
   "https://github.com/duane9/nvim-rg",
-  "https://github.com/wsdjeg/vim-fetch", -- Allow opening `path:linenr`
+  { "https://github.com/wsdjeg/vim-fetch", cond = true }, -- Allow opening `path:linenr`
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/NoahTheDuke/vim-just",
   "https://github.com/vlime/vlime",
@@ -97,17 +99,53 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        theme = "auto",
-        globalstatus = true,
-        section_separators = "",
-        component_separators = "",
-      },
-      sections = {
-        lualine_c = { { "filename", path = 1 } }, -- show the relative path
-      },
-    },
+    opts = function()
+      -- High-contrast light theme. The "auto" theme derives washed-out greys
+      -- from lunaperche; spell the colours out so every section is legible.
+      local dark = "#1c1c1c"
+      local light = "#fafafa"
+      local theme = {
+        normal = {
+          a = { fg = light, bg = "#005f87", gui = "bold" }, -- blue mode badge
+          b = { fg = dark, bg = "#d0d0d0" }, -- branch/diagnostics
+          c = { fg = dark, bg = "#e4e4e4" }, -- filename / fill
+        },
+        insert = { a = { fg = light, bg = "#5f8700", gui = "bold" } },
+        visual = { a = { fg = light, bg = "#8700af", gui = "bold" } },
+        replace = { a = { fg = light, bg = "#af0000", gui = "bold" } },
+        command = { a = { fg = light, bg = "#af5f00", gui = "bold" } },
+        inactive = {
+          a = { fg = dark, bg = "#c6c6c6" },
+          b = { fg = dark, bg = "#d0d0d0" },
+          c = { fg = "#626262", bg = "#e4e4e4" },
+        },
+      }
+      return {
+        options = {
+          theme = theme,
+          globalstatus = true,
+          section_separators = "",
+          component_separators = "",
+        },
+        sections = {
+          -- Single-character mode indicator (N/I/V/C/R/…).
+          lualine_a = {
+            { "mode", fmt = function(str) return str:sub(1, 1) end },
+          },
+          -- Trim long branch names so they don't dominate the bar.
+          lualine_b = {
+            { "branch", fmt = function(name)
+              return #name > 12 and name:sub(1, 12) .. "…" or name
+            end },
+            "diff",
+            "diagnostics",
+          },
+          lualine_c = { { "filename", path = 1 } }, -- show the relative path
+          -- Drop "encoding" (utf-8), "fileformat" (the OS logo) and "filetype".
+          lualine_x = {},
+        },
+      }
+    end,
   },
 
   -- Diagnostics / quickfix panel

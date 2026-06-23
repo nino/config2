@@ -1,3 +1,8 @@
+-- VS Code provides its own LSP, completion, linting and formatting.
+if vim.g.vscode then
+  return
+end
+
 vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
 -- Completion capabilities (blink.cmp) applied to *every* server via the "*"
@@ -6,22 +11,17 @@ vim.lsp.config("*", {
   capabilities = require("blink.cmp").get_lsp_capabilities(),
 })
 
--- Buffer-local LSP keymaps + inlay hints
+-- Buffer-local LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
-
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client:supports_method("textDocument/inlayHint") then
-      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    end
   end,
 })
 
--- Toggle inlay hints for the current buffer
+-- Inlay hints are off by default (distracting); toggle them per-buffer here.
 vim.keymap.set("n", "<leader>h", function()
   local filter = { bufnr = 0 }
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
