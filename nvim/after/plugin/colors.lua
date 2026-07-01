@@ -3,5 +3,5 @@ if vim.g.vscode then
   return
 end
 
-vim.o.background = "dark"
+vim.o.background = "light"
 vim.cmd("colorscheme lunaperche")

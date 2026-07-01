@@ -41,7 +41,7 @@ local function_value_types = {
 }
 
 -- Whether annotations are currently enabled. Toggle with :ReferenceCountToggle.
-local enabled = true
+local enabled = false
 
 -- Per-buffer debounce timers, keyed by bufnr.
 local timers = {}
