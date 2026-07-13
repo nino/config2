@@ -1,198 +1,176 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# zsh config, ported from fish/config.fish
+#
+# Install:
+#   ln -sf ~/.config/zsh/zshrc ~/.zshrc
+#   brew install zsh-autosuggestions zsh-syntax-highlighting
+#   chsh -s $(which zsh)
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# default: ZSH_THEME="robbyrussell"
-ZSH_THEME="robbyrussell"
+# --- PATH ---------------------------------------------------------------
+typeset -U path  # dedupe, like fish_add_path
+path=(
+  /opt/homebrew/bin
+  /usr/local/bin
+  ~/.cargo/bin
+  ~/.config/scripts
+  ~/.local/context-osx-64/bin
+  ~/Developer/plinth/database-scripts/ninos-scripts/runnable
+  ~/.pixi/bin
+  ~/.modular/bin
+  ~/.local/bin
+  ~/secret-config2/scripts
+  $path
+)
 
-eval "$(direnv hook zsh)"
+# --- Environment --------------------------------------------------------
+export GHOSTCONF="$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+export REACT_EDITOR='nvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
+export CMAKE_EXPORT_COMPILE_COMMANDS=true
+export PACKERPATH=$HOME/.local/share/nvim/site/pack/packer/start
+export HOMEBREW_AUTO_UPDATE_SECS=600
+export CMAKE_GENERATOR=Ninja
+export CMAKE_PREFIX_PATH="/opt/homebrew:$CMAKE_PREFIX_PATH"
+export MAKEFLAGS="-j16"
+export VCPKG_ROOT=$HOME/code-friends/vcpkg
+export TRIPLET='arm64-osx'
+# export VCPKG_TARGET_ARCHITECTURE=x64
+export PKG_CONFIG_PATH="$VCPKG_ROOT/installed/$TRIPLET/lib/pkgconfig:$PKG_CONFIG_PATH"
+export CMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+path+=($VCPKG_ROOT)
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(git github osx history ruby rvm brew vi-mode)
-plugins=(git github macos history ruby brew wd vi-mode)
+# --- History (big, shared across sessions, deduped) ----------------------
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history hist_ignore_dups hist_ignore_space
 
-bindkey -v
-source $ZSH/oh-my-zsh.sh
+# --- Options & keybindings ------------------------------------------------
+bindkey -e                 # emacs bindings (^F, ^A, ^E …)
+setopt no_nomatch          # bash-like: pass unmatched globs through instead of erroring
+setopt interactive_comments
 
-setopt extended_glob
+# --- Completion -----------------------------------------------------------
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # case-insensitive, like fish
 
-PROMPT="$PROMPT$ "
-
-# trash() {
-#   mv $1 ~/.Trash/$1-$(date +%H%M%S)
-# }
-
-
-local_ip_address() {
-  ipconfig getifaddr en0 || ipconfig getifaddr en7
-}
-
-# supposed to make the git prompt thing faster:
-function git_prompt_info() {
-  echo ""
-}
-# export DISABLE_AUTO_TITLE=true
-
-alias l='ls -l -h'
+# --- Aliases ---------------------------------------------------------------
+alias l='eza -lh'
+alias la='eza -lha'
 alias ls='ls'
+alias dum='diskutil unmount'
+alias js='jekyll serve --watch'
+alias pastepd='pbpaste | pandoc --smart --css css.css'
+alias pdtex='pandoc --template ~/Google\ Drive/Other\ Shit/pandoc-template.tex'
+alias osajsi='osascript -i -l JavaScript'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias vs='nvim -S ~/Prevsession.vim'
 alias bb='bbedit'
+alias vimserv='NVIM_LISTEN_ADDRESS=/tmp/neovim/neovim nvim'
+alias vv='/Applications/VV.app/Contents/Resources/bin/vv'
+alias zhrc='bbedit ~/.zshrc'
+alias zshrc='bbedit ~/.zshrc'
+alias zzr='source ~/.zshrc'
+alias tmconf='bbedit ~/.tmux.conf'
 alias tst='tig status'
 alias vc='nvim -S `ls | grep .vim | fzf`'
-alias ct='ctags -R .'
-alias uuid='uuidgen | tr -d "\n" | pbcopy'
+alias ydl="youtube-dl -f 'best[ext=mp4]' "
+alias yda="youtube-dl -x --audio-format mp3 "
+alias ct='ctags -R --exclude="**/node_modules/**" --exclude="node_modules/**/*" --exclude="models/classifier.json"'
+alias uuid='uuidgen | tr -d "\n" | tr "[:upper:]" "[:lower:]" | pbcopy'
+alias myarn='git checkout upstream/develop -- yarn.lock && yarn && git add yarn.lock'
+alias beep="echo -ne '\007' && sleep 1 && echo -ne '\007' && sleep 1 && echo -ne '\007'"
 alias com="git add . && git commit -m"
 alias awk='gawk'
 alias dockre='docker'
-
-if [ -f ~/.config/secret-config2/secret_zsh ]; then
-  source ~/.config/secret-config2/secret_zsh
-fi
-
-alias tnm='tig --no-merges'
-
 alias yran='yarn'
 alias yanr='yarn'
 alias ynar='yarn'
 alias ynra='yarn'
 alias ayrn='yarn'
-
-alias zzr='source ~/.zshrc'
-
-mcd() {
-  mkdir $1 && cd $1
-}
-
-
-
-co() {
-  local branch=`git lb | uniquelines | fzf`
-  if [ -z "$1" ]; then
-    gco $branch
-  elif [ "$1" = "merge" ]; then
-    eval "git merge \"$branch\""
-  fi
-  # local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
-  # if [ ! -z $branch ]; then
-  #   if [ -z $1 ]; then
-  #     git checkout "$branch"
-  #   elif [ "$1" = "tig" ]; then
-  #     eval "tig \"$branch\""
-  #   else
-  #     local command="git $1 \"$branch\""
-  #     eval $command
-  #   fi
-  # fi
-}
-
-
+alias vlime='sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
+alias rvlime='rlwrap sbcl --load ~/.local/share/nvim/lazy/vlime/lisp/start-vlime.lisp'
+alias pddraft='pandoc --pdf-engine=lualatex -V papersize:a5 -V documentclass:scrarticle -V classoption:oneside -V indent -V fontfamily:ebgaramond-maths --top-level-division=section  --shift-heading-level-by=0 -V microtypeoptions:protrusion=true,expansion=true,tracking=true,factor=500,stretch=30,shrink=30'
+alias pddraft4='pandoc --pdf-engine=lualatex -V papersize:a4 -V documentclass:scrarticle -V classoption:oneside -V indent -V fontfamily:ebgaramond-maths --top-level-division=section  --shift-heading-level-by=0 -V microtypeoptions:protrusion=true,expansion=true,tracking=true,factor=500,stretch=30,shrink=30'
 alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
+alias cl='claude'
 
-try_invoke() {
-  eval "$1 || $1 || $1"
+# --- Functions ---------------------------------------------------------------
+save() {
+  if [ $# -eq 0 ]; then
+    git commit && git push
+  else
+    git commit -m "$@" && git push
+  fi
 }
 
-
-# So you can press ctrl-s to save
-# v() {
-#     stty stop '' -ixoff; vim $*
-# }
-# this and stty stop '' -ixoff; make that ctrl is not intercepted by terminal
-# `Frozing' tty, so after any command terminal settings will be restored
-ttyctl -f
-
-# recursive line count
-countlines() {
-    find . -name $1 | xargs wc -l
+gfmm() {
+  git fetch origin $TRUNKBRANCHNAME:$TRUNKBRANCHNAME
 }
 
-# fortune -s rationality
-
-passgen(){
-    [ $# -eq 0 ] && 1="16"
-    tr -dc "[[:alnum:]!\"#$%&'()*+,./:;<=>?@\\_{|}~-]" < /dev/random |
-    head -c $1; echo
+saveall() {
+  git add .
+  save "$@"
 }
 
-matrix() {
-  echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
+mcd() {
+  mkdir "$1" && cd "$1"
 }
 
-export LIN='~/.config/nvim/lua/initialize.lua'
-export THING='~/.config/nvim/colors/thing.lua'
-export THINGLIGHT='~/.config/nvim/colors/thinglight.lua'
-export PLAINDARK='~/.config/nvim/colors/plaindark.lua'
-export SECRETZSH='~/.config/secret-config2/secret_zsh'
-export KITTYCONF='~/.config/kitty/kitty.conf'
+co() {
+  local branch=$(git lb | uniquelines | fzf)
+  if [ -z "$1" ]; then
+    gco "$branch"
+  elif [ "$1" = "merge" ]; then
+    git merge "$branch"
+  fi
+}
 
-PERL_MB_OPT="--install_base \"/Users/Nino/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/Nino/perl5"; export PERL_MM_OPT;
+local_ip_address() {
+  ipconfig getifaddr en0 || ipconfig getifaddr en7
+}
 
-# To fix the weird python utf8 problem
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+cheat.sh() {
+  curl cheat.sh/$1
+}
+# completions on-the-fly, non-cached, because the actual command won't be cached anyway
+_cheat_sh() { compadd $(curl -s cheat.sh/:list) }
+compdef _cheat_sh cheat.sh
 
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-export CMAKE_EXPORT_COMPILE_COMMANDS=true
+maybe_source() {
+  [ -f "$1" ] && source "$1"
+  return 0
+}
 
-# Set NVM dir if nvm is installed
-if hash nvm 2>/dev/null; then
-  NVM_DIR="/Users/Nino/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+# --- Prompt, git aliases, worktree helpers -----------------------------------
+source ~/.config/zsh/prompt.zsh
+source ~/.config/zsh/git.zsh
+source ~/.config/zsh/worktrees.zsh
+
+# --- Secret / machine-local config ----------------------------------------
+maybe_source ~/secret-config2/zsh/secret.zsh
+maybe_source ~/credentials
+
+# --- Tool hooks --------------------------------------------------------------
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
+# Lazy-load mise - use shims instead of full shell integration for faster startup
+if [ -f ~/.local/bin/mise ]; then
+  eval "$(~/.local/bin/mise activate zsh --shims)"
 fi
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+maybe_source ~/.fzf.zsh
 
-# Fuzzy Finder
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-# export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:~/Library/Python/3.6/bin:${PATH}"
-# export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-# if [ -n "$(command -v pyenv)" ]; then # Only if pyenv command exists
-#   eval "$(pyenv init -)"
-# fi
-#
-
-
-export PATH="$HOME/.config/scripts:${PATH}"
-export PATH="$HOME/.config/secret-config2/scripts:${PATH}"
-export PATH="$HOME/.local/bin:${PATH}"
-export TERM=screen-256color
-
-
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.secret_vars ] && source ~/.secret_vars
-
-
-export PATH=$PATH:/home/nino/.cargo/bin
-export PATH=$PATH:/Users/nino/.rustup/toolchains/stable-aarch64-apple-darwin/bin
-
-
-# For rm-improved
-export GRAVEYARD=~/.Trash
-
-# https://github.com/keybase/keybase-issues/issues/2798
-# export GPG_TTY=$(tty)
-eval "$(~/.local/bin/mise activate zsh)"
-
-export PATH=$PATH:/opt/homebrew/bin
-
-export PATH="/Users/Nino/.pixi/bin:$PATH"
+# --- Fish-style ghost text + syntax highlighting ------------------------------
+_brew_prefix=${HOMEBREW_PREFIX:-/opt/homebrew}
+if [ -f $_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source $_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ZSH_AUTOSUGGEST_STRATEGY=(history completion)  # suggest from history first, then completions
+  bindkey '^F' autosuggest-accept                # accept the ghost suggestion with ^F, like fish
+fi
+# must stay at the very end of .zshrc
+maybe_source $_brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
