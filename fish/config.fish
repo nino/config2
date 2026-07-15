@@ -136,3 +136,12 @@ if test -f ~/.local/bin/mise
     ~/.local/bin/mise activate fish --shims | source
 end
 fish_add_path /Users/Nino/.modular/bin
+
+export PNPM_HOME=~/.pnpm
+
+# pnpm
+set -gx PNPM_HOME "/Users/admin/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
