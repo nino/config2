@@ -99,6 +99,8 @@ alias pddraft4='pandoc --pdf-engine=lualatex -V papersize:a4 -V documentclass:sc
 alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
 alias cl='claude'
+alias cs='cursor'
+alias vs='code'
 
 # --- Functions ---------------------------------------------------------------
 save() {
