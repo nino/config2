@@ -18,6 +18,7 @@ path=(
   ~/.modular/bin
   ~/.local/bin
   ~/secret-config2/scripts
+  ~/.bun/bin
   $path
 )
 
