@@ -17,6 +17,41 @@ return {
   "https://github.com/NoahTheDuke/vim-just",
   "https://github.com/vlime/vlime",
 
+  -- <C-h/j/k/l> moves between nvim splits and tmux panes alike.
+  {
+    "alexghergh/nvim-tmux-navigation",
+    config = function()
+      require("nvim-tmux-navigation").setup({
+        keybindings = {
+          left = "<C-h>",
+          down = "<C-j>",
+          up = "<C-k>",
+          right = "<C-l>",
+          last_active = "<C-\\>",
+        },
+      })
+
+      local util = require("nvim-tmux-navigation.tmux_util")
+      local tmux_socket = vim.fn.split(vim.env.TMUX or "", ",")[1]
+      local tmux_dirs = { p = "l", h = "L", j = "D", k = "U", l = "R", n = "t:.+" }
+
+      -- Patch short-circuit bug: the plugin calls is_tmux_pane_zoomed() (a shell
+      -- fork) on every keypress even when disable_when_zoomed is false.
+      local orig = util.should_tmux_control
+      util.should_tmux_control = function(is_same_winnr, disable_nav_when_zoomed)
+        if not disable_nav_when_zoomed then return is_same_winnr end
+        return orig(is_same_winnr, disable_nav_when_zoomed)
+      end
+
+      -- Replace synchronous vim.fn.system() with async vim.system() and skip
+      -- the intermediate shell by passing a list.
+      util.tmux_change_pane = function(direction)
+        if not tmux_socket then return end
+        vim.system({ "tmux", "-S", tmux_socket, "select-pane", "-" .. tmux_dirs[direction] })
+      end
+    end,
+  },
+
   -- Git
   {
     "https://github.com/lewis6991/gitsigns.nvim",

@@ -126,10 +126,12 @@ vim.keymap.set("n", "gk", "k")
 
 vim.keymap.set("i", "<m-bs>", "<c-w>")
 
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- Split navigation comes from nvim-tmux-navigation, which also crosses into
+-- tmux panes. These maps would shadow it, because this file runs after lazy.
+-- vim.keymap.set("n", "<C-j>", "<C-w>j")
+-- vim.keymap.set("n", "<C-k>", "<C-w>k")
+-- vim.keymap.set("n", "<C-h>", "<C-w>h")
+-- vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "T", "gT")
 vim.keymap.set("n", "t", "gt")
 vim.keymap.set("n", "<Leader>t", function()
