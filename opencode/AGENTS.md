@@ -19,3 +19,7 @@ Do this instead:
 - Or force splitting: `prettier --write ${=files}` (or `${(z)files}`).
 
 Don't assume bash word-splitting when passing a list of files through a variable.
+
+---
+
+Only report to me in ASD-STE100 Simplified Technical English.
