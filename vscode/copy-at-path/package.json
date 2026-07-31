@@ -1,0 +1,72 @@
+{
+  "name": "copy-at-path",
+  "displayName": "Copy @path",
+  "description": "Copy @<file path>, optionally with :line or :start-end, to the clipboard.",
+  "version": "0.0.1",
+  "publisher": "nino",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "copyAtPath.copy",
+        "title": "Copy @path (line number if text is selected)"
+      },
+      {
+        "command": "copyAtPath.copyWithLine",
+        "title": "Copy @path with line number or range"
+      },
+      {
+        "command": "copyAtPath.copyPathOnly",
+        "title": "Copy @path without line number"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "copyAtPath.copy",
+        "key": "alt+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "copyAtPath.copyWithLine",
+        "key": "shift+alt+c",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Copy @path",
+      "properties": {
+        "copyAtPath.pathStyle": {
+          "type": "string",
+          "enum": [
+            "absolute",
+            "workspaceRelative"
+          ],
+          "default": "absolute",
+          "markdownEnumDescriptions": [
+            "Full path, for example `@/Users/me/proj/src/app.ts`.",
+            "Path relative to the workspace folder, for example `@src/app.ts`. Files outside a workspace folder keep the full path."
+          ],
+          "description": "The type of path to copy."
+        },
+        "copyAtPath.prefix": {
+          "type": "string",
+          "default": "@",
+          "description": "The text to put before the path."
+        },
+        "copyAtPath.showNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a short status bar message after the copy operation."
+        }
+      }
+    }
+  }
+}
