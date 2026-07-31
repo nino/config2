@@ -13,7 +13,7 @@ wta() {
 }
 
 wtam() {
-    wta "$1" -b "$1" $TRUNKBRANCHNAME
+    wta "$1" -b "$1" $(git_trunk)
 }
 
 wtax() {
@@ -41,7 +41,7 @@ wtax() {
     tmux new-session -d -s $branch_name -c $current_dir
 
     # Run gfmm && wta to create the worktree, then cd into it
-    tmux send-keys -t $branch_name:0 "gfmm && wta $branch_name -b $branch_name master && cd $worktree_path" C-m
+    tmux send-keys -t $branch_name:0 "gfmm && wta $branch_name -b $branch_name \$(git_trunk) && cd $worktree_path" C-m
 
     # Wait a moment for the worktree to be created
     sleep 1

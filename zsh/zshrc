@@ -111,8 +111,16 @@ save() {
   fi
 }
 
+# Print the trunk branch name (from origin's default branch, fallback: main)
+git_trunk() {
+  local trunk
+  trunk=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null)
+  echo ${${trunk#origin/}:-main}
+}
+
 gfmm() {
-  git fetch origin $TRUNKBRANCHNAME:$TRUNKBRANCHNAME
+  local trunk=$(git_trunk)
+  git fetch origin $trunk:$trunk
 }
 
 saveall() {
