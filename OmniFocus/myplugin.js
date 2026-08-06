@@ -9,11 +9,10 @@
     "mediumLabel": "Come on this should work please",
     "paletteLabel": "Come on this should work please",
 }*/
-import { Lib } from './lib.js'
+import { Lib } from "./lib.js";
 
-const TO_BE_EXPORTED = new PlugIn.Action(function(selection) {
-    // Add code to run when the action is invoked
-    console.log("Invoked with selection", selection);
-    new Alert("Message", Lib.msg).show();
+const TO_BE_EXPORTED = new PlugIn.Action(function (selection) {
+  // Add code to run when the action is invoked
+  console.log("Invoked with selection", selection);
+  new Alert("Message", Lib.msg).show();
 });
-

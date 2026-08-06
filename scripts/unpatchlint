@@ -24,7 +24,10 @@ function matchPattern(cwd: string, pattern: string): boolean {
 
 async function getGitRepoRoot(): Promise<string | null> {
   try {
-    const { stdout } = await execFileAsync("git", ["rev-parse", "--git-common-dir"]);
+    const { stdout } = await execFileAsync("git", [
+      "rev-parse",
+      "--git-common-dir",
+    ]);
     const gitDir = stdout.trim();
     return dirname(resolve(gitDir));
   } catch {

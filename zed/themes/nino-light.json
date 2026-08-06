@@ -190,7 +190,10 @@
           "attribute": { "color": "#6600CCff" },
           "boolean": { "color": "#BB5500ff" },
           "comment": { "color": "#444400ff", "background_color": "#FFFFEA" },
-          "comment.doc": { "color": "#444400ff", "background_color": "#FFFFEA" },
+          "comment.doc": {
+            "color": "#444400ff",
+            "background_color": "#FFFFEA"
+          },
           "constant": { "color": "#BB5500ff" },
           "constructor": { "color": "#6600CCff" },
           "embedded": { "color": "#000000ff" },

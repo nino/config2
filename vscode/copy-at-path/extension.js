@@ -66,8 +66,7 @@ async function run(lineMode) {
   const prefix = config().get("prefix");
   const filePath = pathFor(editor.document);
   const withLine =
-    lineMode === "always" ||
-    (lineMode === "auto" && !editor.selection.isEmpty);
+    lineMode === "always" || (lineMode === "auto" && !editor.selection.isEmpty);
   const suffix = withLine ? lineSuffix(editor.selection) : "";
   await copy(`${prefix}${filePath}${suffix}`);
 }
@@ -75,8 +74,12 @@ async function run(lineMode) {
 function activate(context) {
   context.subscriptions.push(
     vscode.commands.registerCommand("copyAtPath.copy", () => run("auto")),
-    vscode.commands.registerCommand("copyAtPath.copyWithLine", () => run("always")),
-    vscode.commands.registerCommand("copyAtPath.copyPathOnly", () => run("never")),
+    vscode.commands.registerCommand("copyAtPath.copyWithLine", () =>
+      run("always"),
+    ),
+    vscode.commands.registerCommand("copyAtPath.copyPathOnly", () =>
+      run("never"),
+    ),
   );
 }
 
