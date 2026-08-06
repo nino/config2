@@ -5,10 +5,10 @@ This is the same as the `<M-c>` keymap in the Neovim configuration.
 
 ## Keys
 
-| Key             | Result                                                    |
-| --------------- | --------------------------------------------------------- |
-| `option`+`c`    | `@/path/to/file` — or `@/path/to/file:12` / `@/path/to/file:12-18` if text is selected |
-| `shift`+`option`+`c` | Always adds the line number or the range               |
+| Key                  | Result                                                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| `option`+`c`         | `@/path/to/file` — or `@/path/to/file:12` / `@/path/to/file:12-18` if text is selected |
+| `shift`+`option`+`c` | Always adds the line number or the range                                               |
 
 The command palette also has `Copy @path without line number`.
 

@@ -19,14 +19,14 @@ async function processPDF(inputPath, outputPath) {
     await execAsync(
       `magick convert -density 260 "${inputPath}" "${join(
         tempDir,
-        "page_%03d.jpg"
-      )}"`
+        "page_%03d.jpg",
+      )}"`,
     );
 
     // List files in temp directory to verify conversion
     const files = await readdir(tempDir);
     const jpgFiles = files.filter(
-      (f) => f.startsWith("page_") && f.endsWith(".jpg")
+      (f) => f.startsWith("page_") && f.endsWith(".jpg"),
     );
 
     if (jpgFiles.length === 0) {
@@ -55,7 +55,7 @@ async function processPDF(inputPath, outputPath) {
 
         try {
           await execAsync(
-            `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} +noise Gaussian -attenuate ${noise} "${filePath}"`
+            `magick "${filePath}" -rotate ${rotation} -blur 0x${blur} +noise Gaussian -attenuate ${noise} "${filePath}"`,
           );
         } catch (error) {
           console.error(`Error processing ${file}:`, error.message);
@@ -69,7 +69,7 @@ async function processPDF(inputPath, outputPath) {
 
     console.log("Creating final PDF...");
     await execAsync(
-      `magick convert "${join(tempDir, "page_*.jpg")}" "${outputPath}"`
+      `magick convert "${join(tempDir, "page_*.jpg")}" "${outputPath}"`,
     );
 
     console.log("Done!");

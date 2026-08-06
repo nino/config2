@@ -1,1 +1,1 @@
-export const Lib = { msg: "aaaaaa"}
+export const Lib = { msg: "aaaaaa" };

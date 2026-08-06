@@ -182,7 +182,7 @@ try {
     const pct = total > 0 ? ((aheadCount / total) * 100).toFixed(1) : "0.0";
     console.log(
       `\n${c.marker}── stat ──${c.reset}` +
-        `\n  ${aheadCount} / ${total} lines (${pct}%) ahead of ${BOLD}${args.base}${c.reset}`
+        `\n  ${aheadCount} / ${total} lines (${pct}%) ahead of ${BOLD}${args.base}${c.reset}`,
     );
   }
 } catch (err: any) {

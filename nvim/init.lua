@@ -89,22 +89,28 @@ end, {})
 vim.keymap.set("x", "<leader>P", [["0p]])
 
 -- Copy @filepath (or @filepath:line in visual mode) to clipboard
-vim.keymap.set("n", "<M-c>", function()
+local copy_filepath = function()
   vim.fn.setreg("+", "@" .. vim.fn.expand("%:p"))
-end, { desc = "Copy @filepath to clipboard" })
+end
+vim.keymap.set("n", "<M-c>", copy_filepath, { desc = "Copy @filepath to clipboard" })
+vim.keymap.set("n", "ç", copy_filepath, { desc = "Copy @filepath to clipboard" })
 
-vim.keymap.set("n", "<M-C>", function()
+local copy_filepath_with_line = function()
   vim.fn.setreg("+", "@" .. vim.fn.expand("%:p") .. ":" .. vim.fn.line("."))
-end, { desc = "Copy @filepath:line to clipboard" })
+end
+vim.keymap.set("n", "<M-C>", copy_filepath_with_line, { desc = "Copy @filepath:line to clipboard" })
+vim.keymap.set("n", "Ç", copy_filepath_with_line, { desc = "Copy @filepath:line to clipboard" })
 
-vim.keymap.set("v", "<M-c>", function()
+local copy_filepath_with_lines = function()
   local start_line = vim.fn.line("v")
   local end_line = vim.fn.line(".")
   if start_line > end_line then
     start_line, end_line = end_line, start_line
   end
   vim.fn.setreg("+", "@" .. vim.fn.expand("%:p") .. ":" .. start_line .. "-" .. end_line)
-end, { desc = "Copy @filepath:lines to clipboard" })
+end
+vim.keymap.set("v", "<M-c>", copy_filepath_with_lines, { desc = "Copy @filepath:lines to clipboard" })
+vim.keymap.set("v", "ç", copy_filepath_with_lines, { desc = "Copy @filepath:lines to clipboard" })
 
 vim.keymap.set("v", "<M-C>", function()
   local start_line = vim.fn.line("v")
@@ -173,8 +179,12 @@ end)
 vim.keymap.set("n", "<C-p>", function()
   vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
 end)
+-- The option-key versions do not reach Neovim on macOS, because option+e/n/p
+-- are dead keys, so each one also has a <leader> equivalent.
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
+vim.keymap.set("n", "<leader>n", ":cnext<CR>", { desc = "Next quickfix item" })
+vim.keymap.set("n", "<leader>p", ":cprev<CR>", { desc = "Previous quickfix item" })
 
 vim.keymap.set("n", "™", "@@")
 vim.keymap.set("n", "<M-2>", "@@")
@@ -186,7 +196,7 @@ end)
 vim.keymap.set("", "<leader>-", function()
   require("conform").format()
 end)
-vim.keymap.set("n", "<leader>p", function()
+vim.keymap.set("n", "<leader>P", function()
   if vim.bo.filetype == "python" then
     exec("black --quiet '" .. vim.fn.expand("%") .. "'")
   elseif vim.bo.filetype == "prisma" then
@@ -196,7 +206,7 @@ vim.keymap.set("n", "<leader>p", function()
   end
   vim.cmd("e")
 end)
-vim.keymap.set("n", "<leader>P", function()
+vim.keymap.set("n", "<localleader>P", function()
   exec("prettier --write --prose-wrap=always '" .. vim.fn.expand("%") .. "'")
   vim.cmd("e")
 end)
@@ -281,6 +291,12 @@ vim.keymap.set("n", "<m-e>", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle file explorer",
 })
 vim.keymap.set("n", "<m-E>", "<cmd>Neotree reveal<CR>", {
+  desc = "Reveal current file in explorer",
+})
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {
+  desc = "Toggle file explorer",
+})
+vim.keymap.set("n", "<leader>E", "<cmd>Neotree reveal<CR>", {
   desc = "Reveal current file in explorer",
 })
 vim.api.nvim_create_user_command("Exe", function()
