@@ -299,6 +299,22 @@ vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {
 vim.keymap.set("n", "<leader>E", "<cmd>Neotree reveal<CR>", {
   desc = "Reveal current file in explorer",
 })
+
+-- Aliases for terminals without option-as-meta (e.g. the Claude Code pane).
+-- The macOS ABC layout emits these characters for the option key combos.
+-- Note: opt-e and opt-shift-e both emit "´", so <M-E> has no alias.
+vim.keymap.set("n", "´", "<M-e>", { remap = true })
+vim.keymap.set("n", "ç", "<M-c>", { remap = true })
+vim.keymap.set("v", "ç", "<M-c>", { remap = true })
+vim.keymap.set("n", "Ç", "<M-C>", { remap = true })
+vim.keymap.set("v", "Ç", "<M-C>", { remap = true })
+vim.keymap.set("n", "÷", "<M-/>", { remap = true })
+vim.keymap.set("v", "÷", "<M-/>", { remap = true })
+vim.keymap.set("n", "√", "<M-v>", { remap = true })
+vim.keymap.set("n", "˜", "<M-n>", { remap = true })
+vim.keymap.set("n", "π", "<M-p>", { remap = true })
+vim.keymap.set("n", "®", "<M-r>", { remap = true })
+vim.keymap.set("n", "ß", "<M-s>", { remap = true })
 vim.api.nvim_create_user_command("Exe", function()
   vim.cmd(":!chmod +ux %")
 end, {})

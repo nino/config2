@@ -13,9 +13,11 @@ require("telescope").setup({
     mappings = {
       i = {
         ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
+        ["Œ"] = actions.send_to_qflist + actions.open_qflist,
       },
       n = {
         ["<M-Q>"] = actions.send_to_qflist + actions.open_qflist,
+        ["Œ"] = actions.send_to_qflist + actions.open_qflist,
       },
     },
   },

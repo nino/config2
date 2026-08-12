@@ -89,3 +89,5 @@ manicode
 firebase-debug.log
 
 hunk/state.json
+
+vercel-plugin/
