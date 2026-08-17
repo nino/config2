@@ -18,6 +18,7 @@ vim.filetype.add({
 require("config.lazy")
 require("plugins")
 require("abbreviations")
+require("autoreload")
 local utils = require("utils")
 
 -- Defaults
