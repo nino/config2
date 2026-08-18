@@ -100,7 +100,6 @@ alias stash='git stash --include-untracked'
 alias stpop='git stash pop'
 alias cl='claude'
 alias cs='cursor'
-alias vs='code'
 
 # --- Functions ---------------------------------------------------------------
 save() {
