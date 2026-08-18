@@ -13,33 +13,346 @@
  * into each immediate subdirectory that has a package.json.
  */
 
-import { existsSync, readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { dirname, join, relative } from "node:path";
 
-async function spawn(cmd: string[], cwd?: string): Promise<number> {
+const color =
+  Boolean(process.stderr.isTTY) && !process.env.NO_COLOR && process.env.TERM !== "dumb";
+
+const bold = (s: string) => (color ? `\x1b[1m${s}\x1b[22m` : s);
+const red = (s: string) => (color ? `\x1b[31m${s}\x1b[39m` : s);
+const dim = (s: string) => (color ? `\x1b[2m${s}\x1b[22m` : s);
+const cyan = (s: string) => (color ? `\x1b[36m${s}\x1b[39m` : s);
+
+/** Print a friendly error and stop. Blank strings become blank lines. */
+function fail(message: string, ...details: string[]): never {
+  console.error(`${red(bold("np:"))} ${message}`);
+  if (details.length > 0) console.error("");
+  for (const line of details) console.error(line === "" ? "" : `  ${line}`);
+  process.exit(1);
+}
+
+/** Turn a caught value into something worth printing. */
+function describe(err: unknown): string {
+  if (err instanceof Error) {
+    const code = (err as NodeJS.ErrnoException).code;
+    return code ? `${err.message} (${code})` : err.message;
+  }
+  return String(err);
+}
+
+/** Paths inside the cwd read better relative; anything else stays absolute. */
+function displayPath(path: string): string {
+  const rel = relative(process.cwd(), path);
+  return rel === "" || rel.startsWith("..") ? path : rel;
+}
+
+type Manager = "pnpm" | "npm" | "yarn";
+
+const MANAGERS: Manager[] = ["pnpm", "npm", "yarn"];
+
+const LOCKFILES: Record<Manager, string> = {
+  pnpm: "pnpm-lock.yaml",
+  npm: "package-lock.json",
+  yarn: "yarn.lock",
+};
+
+const INSTALL_HINTS: Record<Manager, string[]> = {
+  pnpm: ["brew install pnpm", "npm install --global pnpm"],
+  npm: ["brew install node", "(npm ships with Node)"],
+  yarn: ["brew install yarn", "npm install --global yarn"],
+};
+
+/**
+ * Commands the package managers handle themselves, so `np <cmd>` shouldn't be
+ * mistaken for a typo'd package.json script.
+ */
+const PASSTHROUGH = new Set([
+  "add",
+  "audit",
+  "bin",
+  "cache",
+  "config",
+  "create",
+  "dedupe",
+  "dlx",
+  "exec",
+  "why",
+  "import",
+  "info",
+  "init",
+  "install",
+  "licenses",
+  "link",
+  "list",
+  "ls",
+  "node",
+  "outdated",
+  "pack",
+  "patch",
+  "plugin",
+  "prune",
+  "publish",
+  "rebuild",
+  "remove",
+  "run",
+  "set",
+  "store",
+  "unlink",
+  "up",
+  "upgrade",
+  "version",
+  "workspace",
+  "workspaces",
+]);
+
+const SIGNAL_EXIT_CODES: Record<string, number> = {
+  SIGHUP: 129,
+  SIGINT: 130,
+  SIGQUIT: 131,
+  SIGKILL: 137,
+  SIGTERM: 143,
+};
+
+async function spawn(cmd: string[], cwd: string): Promise<number> {
+  let proc;
   try {
-    const proc = Bun.spawn(cmd, {
+    proc = Bun.spawn(cmd, {
       cwd,
       stdin: "inherit",
       stdout: "inherit",
       stderr: "inherit",
     });
-    return await proc.exited;
   } catch (err) {
-    console.error(
-      `Error occurred while spawning process ${cmd.join(" ")}:`,
-      err,
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === "ENOENT") {
+      // `ensureInstalled` normally catches this first; PATH can change under us.
+      fail(
+        `Couldn't run \`${cmd[0]}\` — it's not in your $PATH.`,
+        `Tried to run: ${cyan(cmd.join(" "))}`,
+      );
+    }
+    if (code === "EACCES") {
+      fail(
+        `Not allowed to run \`${cmd[0]}\`.`,
+        `Tried to run: ${cyan(cmd.join(" "))}`,
+        "",
+        `Check the permissions on ${Bun.which(cmd[0]) ?? cmd[0]}.`,
+      );
+    }
+    fail(
+      `Couldn't start \`${cmd.join(" ")}\`.`,
+      describe(err),
     );
-    return 1;
+  }
+
+  const status = await proc.exited;
+  const signal = proc.signalCode;
+
+  if (signal) {
+    if (signal !== "SIGINT" && signal !== "SIGTERM") {
+      console.error("");
+      console.error(`${red(bold("np:"))} ${cmd[0]} was killed by ${signal}.`);
+    }
+    return SIGNAL_EXIT_CODES[signal] ?? 1;
+  }
+
+  return status ?? 0;
+}
+
+/**
+ * Which manager does this directory want? Reports whether that was read off a
+ * lockfile or just np's default, since the difference matters when the
+ * manager turns out to be missing.
+ */
+function detectManager(dir: string): { manager: Manager; lockfile: string | null } {
+  for (const manager of MANAGERS) {
+    if (existsSync(join(dir, LOCKFILES[manager]))) {
+      return { manager, lockfile: LOCKFILES[manager] };
+    }
+  }
+  return { manager: "yarn", lockfile: null };
+}
+
+/**
+ * A binary that's on $PATH but not executable looks exactly like a missing one
+ * to `Bun.which`, and it's a confusing enough trap to call out by name.
+ */
+function findUnexecutable(name: string): string | null {
+  for (const entry of (process.env.PATH ?? "").split(":")) {
+    if (entry === "") continue;
+    const candidate = join(entry, name);
+    try {
+      if (statSync(candidate).isFile()) return candidate;
+    } catch {
+      // Not there, or not readable. Either way, keep looking.
+    }
+  }
+  return null;
+}
+
+/** Bail with an actually helpful message if the chosen manager isn't installed. */
+function ensureInstalled(manager: Manager, lockfile: string | null, dir: string): void {
+  if (Bun.which(manager)) return;
+
+  const unexecutable = findUnexecutable(manager);
+  if (unexecutable) {
+    fail(
+      `\`${manager}\` is at ${unexecutable}, but it isn't executable.`,
+      `Fix it with:  ${cyan(`chmod +x ${unexecutable}`)}`,
+      "",
+      "Or reinstall it, if that file isn't meant to be there.",
+    );
+  }
+
+  const alternatives = MANAGERS.filter((m) => m !== manager && Bun.which(m));
+  const where = dir === process.cwd() ? "" : ` (in ${displayPath(dir)}/)`;
+  const details: string[] = [];
+
+  if (lockfile) {
+    details.push(`This project has a ${lockfile}${where}, so np picked ${manager}.`);
+  } else {
+    details.push(
+      `There's no lockfile${where ? ` in ${displayPath(dir)}/` : " here"}` +
+        ` (${MANAGERS.map((m) => LOCKFILES[m]).join(", ")}),`,
+      `so np fell back to its default, ${manager}.`,
+    );
+  }
+
+  details.push("");
+  details.push(`Install it:  ${cyan(INSTALL_HINTS[manager][0])}`);
+  details.push(dim(`             ${INSTALL_HINTS[manager][1]}`));
+
+  if (alternatives.length > 0) {
+    details.push("");
+    details.push(
+      `You do have ${alternatives.join(" and ")} installed. ` +
+        (lockfile
+          ? "Using a different manager here would fight with the lockfile."
+          : `Run \`${alternatives[0]} install\` once to create a lockfile and np will follow it.`),
+    );
+  } else {
+    details.push("");
+    details.push("No package manager at all was found on this machine.");
+  }
+
+  fail(`\`${manager}\` isn't installed, or isn't in your $PATH.`, ...details);
+}
+
+function readPackageJson(dir: string): Record<string, unknown> | null {
+  const path = displayPath(join(dir, "package.json"));
+  let raw: string;
+  try {
+    raw = readFileSync(join(dir, "package.json"), "utf8");
+  } catch (err) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === "EACCES") {
+      fail(`Can't read ${path} — permission denied.`);
+    }
+    if (code === "EISDIR") {
+      fail(`${path} is a directory, not a file.`);
+    }
+    fail(`Can't read ${path}.`, describe(err));
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+      fail(
+        `${path} isn't a JSON object.`,
+        "np (and every package manager) expects it to look like `{ \"name\": ... }`.",
+      );
+    }
+    return parsed as Record<string, unknown>;
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      fail(
+        `${path} isn't valid JSON.`,
+        err.message,
+        "",
+        "Fix it before running np — every package manager will choke on it too.",
+      );
+    }
+    throw err;
   }
 }
 
-type Manager = "pnpm" | "npm" | "yarn";
+/** Edit distance, for "did you mean" suggestions. */
+function distance(a: string, b: string): number {
+  const prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    let corner = prev[0];
+    prev[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const above = prev[j];
+      prev[j] = Math.min(
+        prev[j] + 1,
+        prev[j - 1] + 1,
+        corner + (a[i - 1] === b[j - 1] ? 0 : 1),
+      );
+      corner = above;
+    }
+  }
+  return prev[b.length];
+}
 
-function detectManager(dir: string): Manager {
-  if (existsSync(join(dir, "pnpm-lock.yaml"))) return "pnpm";
-  if (existsSync(join(dir, "package-lock.json"))) return "npm";
-  return "yarn";
+function suggest(name: string, candidates: string[]): string | null {
+  let best: string | null = null;
+  let bestDistance = Infinity;
+  for (const candidate of candidates) {
+    const d = distance(name.toLowerCase(), candidate.toLowerCase());
+    if (d < bestDistance) {
+      best = candidate;
+      bestDistance = d;
+    }
+  }
+  return best !== null && bestDistance <= Math.max(2, Math.floor(name.length / 3))
+    ? best
+    : null;
+}
+
+/**
+ * Catch `np biuld` before the package manager does, and say which scripts
+ * actually exist.
+ */
+function checkScriptExists(dir: string, args: string[]): void {
+  const name = args[0];
+  if (name === undefined) return;
+  if (name.startsWith("-")) return;
+  if (PASSTHROUGH.has(name)) return;
+
+  const pkg = readPackageJson(dir);
+  const scripts = pkg?.scripts;
+  const where = displayPath(join(dir, "package.json"));
+
+  if (scripts === undefined || scripts === null) {
+    fail(
+      `There's no \`scripts\` section in ${where}, so there's no \`${name}\` to run.`,
+    );
+  }
+
+  if (typeof scripts !== "object" || Array.isArray(scripts)) {
+    fail(`The \`scripts\` field in ${where} isn't an object.`);
+  }
+
+  const names = Object.keys(scripts as Record<string, unknown>);
+  if (names.includes(name)) return;
+
+  const details: string[] = [];
+  const guess = suggest(name, names);
+  if (guess) {
+    details.push(`Did you mean ${cyan(`np ${guess}`)}?`);
+    details.push("");
+  }
+
+  if (names.length === 0) {
+    details.push(`${where} has an empty \`scripts\` section.`);
+  } else {
+    details.push(`Scripts in ${where}:`);
+    for (const script of names.sort()) details.push(`  ${dim("·")} ${script}`);
+  }
+
+  fail(`No script called \`${name}\` in ${where}.`, ...details);
 }
 
 function buildCommand(manager: Manager, args: string[]): string[] {
@@ -51,6 +364,14 @@ function buildCommand(manager: Manager, args: string[]): string[] {
 
   if (args[0] === "add") {
     const rest = args.slice(1);
+    if (rest.length === 0) {
+      fail(
+        "`np add` needs at least one package to add.",
+        `For example: ${cyan("np add react")}`,
+        "",
+        `To install what's already in package.json, just run ${cyan("np")}.`,
+      );
+    }
     if (manager === "pnpm") return ["pnpm", "add", ...rest];
     if (manager === "npm") return ["npm", "install", ...rest];
     return ["yarn", "add", ...rest];
@@ -61,11 +382,55 @@ function buildCommand(manager: Manager, args: string[]): string[] {
   return ["yarn", ...args];
 }
 
+/** Run np in one directory: detect, sanity-check, spawn. */
+async function run(dir: string, args: string[]): Promise<number> {
+  const { manager, lockfile } = detectManager(dir);
+  ensureInstalled(manager, lockfile, dir);
+  checkScriptExists(dir, args);
+  return spawn(buildCommand(manager, args), dir);
+}
+
+/** Nearest ancestor with a package.json, so we can point somewhere useful. */
+function findPackageJsonAbove(dir: string): string | null {
+  let current = dirname(dir);
+  while (true) {
+    if (existsSync(join(current, "package.json"))) return current;
+    const parent = dirname(current);
+    if (parent === current) return null;
+    current = parent;
+  }
+}
+
 const argv = process.argv.slice(2);
-const cwd = process.cwd();
+
+let cwd: string;
+try {
+  cwd = process.cwd();
+} catch (err) {
+  fail(
+    "Can't work out the current directory — it may have been deleted or renamed.",
+    describe(err),
+    "",
+    `Try ${cyan("cd $PWD")} (or cd somewhere that exists) and run np again.`,
+  );
+}
 
 if (!existsSync(join(cwd, "package.json"))) {
-  const entries = readdirSync(cwd)
+  let entries: string[];
+  try {
+    entries = readdirSync(cwd);
+  } catch (err) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === "EACCES") {
+      fail(`Can't read ${cwd} — permission denied.`);
+    }
+    if (code === "ENOENT") {
+      fail(`${cwd} doesn't exist any more.`);
+    }
+    fail(`Can't read ${cwd}.`, describe(err));
+  }
+
+  const projects = entries
     .filter((e) => {
       try {
         return statSync(join(cwd, e)).isDirectory();
@@ -73,22 +438,42 @@ if (!existsSync(join(cwd, "package.json"))) {
         return false;
       }
     })
-    .filter((e) => existsSync(join(cwd, e, "package.json")));
+    .filter((e) => existsSync(join(cwd, e, "package.json")))
+    .sort();
 
-  if (entries.length === 0) {
-    console.log("No package.json found. Exiting.");
-    process.exit(1);
+  if (projects.length === 0) {
+    const above = findPackageJsonAbove(cwd);
+    const details = [
+      `Looked in ${cwd} and one level down into its subdirectories.`,
+    ];
+    if (above) {
+      details.push("");
+      details.push(`There is one in ${cyan(above)} — did you mean to run np there?`);
+    } else {
+      details.push("");
+      details.push(
+        `If this is a new project, start it with ${cyan("npm init -y")} (or yarn/pnpm init).`,
+      );
+    }
+    fail("No package.json here.", ...details);
   }
 
-  for (const dir of entries) {
+  for (const [index, dir] of projects.entries()) {
     console.log(`Running \`np\` in ${dir}`);
-    const manager = detectManager(join(cwd, dir));
-    const code = await spawn(buildCommand(manager, argv), join(cwd, dir));
-    if (code !== 0) process.exit(code);
+    const code = await run(join(cwd, dir), argv);
+    if (code !== 0) {
+      const remaining = projects.length - index - 1;
+      console.error("");
+      console.error(
+        `${red(bold("np:"))} ${bold(dir)} exited with code ${code}. Stopping here` +
+          (remaining > 0
+            ? `; ${remaining} more ${remaining === 1 ? "directory" : "directories"} left untouched.`
+            : "."),
+      );
+      process.exit(code);
+    }
   }
   process.exit(0);
 }
 
-const manager = detectManager(cwd);
-const code = await spawn(buildCommand(manager, argv));
-process.exit(code);
+process.exit(await run(cwd, argv));
