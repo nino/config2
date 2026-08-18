@@ -100,15 +100,15 @@ fn checkout_commit(repo_path: &Path, hash: &str) -> Result<()> {
     Ok(())
 }
 
-fn run_yarn_install(repo_path: &Path) -> Result<()> {
-    let output = Command::new("yarn")
+fn run_pnpm_install(repo_path: &Path) -> Result<()> {
+    let output = Command::new("pnpm")
         .current_dir(repo_path)
-        .arg("--frozen-lockfile")
+        .args(["install", "--frozen-lockfile"])
         .output()
-        .context("Failed to run yarn")?;
+        .context("Failed to run pnpm")?;
 
     if !output.status.success() {
-        anyhow::bail!("yarn install failed: {}", output.stderr_as_string());
+        anyhow::bail!("pnpm install failed: {}", output.stderr_as_string());
     }
     Ok(())
 }
@@ -118,13 +118,13 @@ fn run_lint(repo_path: &Path, temp_file: &Path) -> Result<String> {
     let file =
         std::fs::File::create(temp_file).context("Failed to create temp file for lint output")?;
 
-    Command::new("yarn")
+    Command::new("pnpm")
         .current_dir(repo_path)
-        .args(["next", "lint"])
+        .args(["exec", "next", "lint"])
         .stdout(std::process::Stdio::null())
         .stderr(file)
         .status()
-        .context("Failed to run yarn next lint")?;
+        .context("Failed to run pnpm exec next lint")?;
 
     let output = std::fs::read_to_string(temp_file).context("Failed to read lint output file")?;
 
@@ -273,8 +273,8 @@ fn process_commit(repo_path: &Path, commit: &CommitInfo) -> CommitResult {
         return result;
     }
 
-    if let Err(e) = run_yarn_install(repo_path) {
-        result.error = Some(format!("Yarn install failed: {}", e));
+    if let Err(e) = run_pnpm_install(repo_path) {
+        result.error = Some(format!("pnpm install failed: {}", e));
         return result;
     }
 
