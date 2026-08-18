@@ -49,6 +49,25 @@ function mod.run_once(description, fun)
   run_once_functions[description] = true
 end
 
+--- Find the remote's default branch (e.g. "origin/main" or "origin/master").
+--- @param remote string|nil defaults to "origin"
+--- @return string
+function mod.git_default_branch(remote)
+  remote = remote or "origin"
+  local head = vim.fn.systemlist("git symbolic-ref --short refs/remotes/" .. remote .. "/HEAD")[1]
+  if vim.v.shell_error == 0 and head and #head > 0 then
+    return head
+  end
+  for _, name in ipairs({ "main", "master", "trunk", "develop" }) do
+    local branch = remote .. "/" .. name
+    vim.fn.system("git rev-parse --verify --quiet " .. branch)
+    if vim.v.shell_error == 0 then
+      return branch
+    end
+  end
+  return remote .. "/main"
+end
+
 --- Run a shell command and populate the quickfix list with filenames from the output.
 --- @param cmd string
 --- @param title string|nil

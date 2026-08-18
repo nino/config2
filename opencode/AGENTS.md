@@ -20,6 +20,7 @@ Do this instead:
 
 Don't assume bash word-splitting when passing a list of files through a variable.
 
----
+# Committing
 
-Always respond in ASD-STE100 Simplified Technical English.
+Only commit when I explicitly ask you to.
+

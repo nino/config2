@@ -385,7 +385,7 @@ end, {})
 vim.api.nvim_create_user_command("GD", function(info)
   local base = info.args
   if #base == 0 then
-    base = "origin/main"
+    base = utils.git_default_branch()
   end
   utils.shell_to_quickfix("git diff " .. base .. "... --name-only", "git diff vs " .. base)
 end, { nargs = "?" })

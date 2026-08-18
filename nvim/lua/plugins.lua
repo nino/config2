@@ -39,14 +39,18 @@ return {
       -- fork) on every keypress even when disable_when_zoomed is false.
       local orig = util.should_tmux_control
       util.should_tmux_control = function(is_same_winnr, disable_nav_when_zoomed)
-        if not disable_nav_when_zoomed then return is_same_winnr end
+        if not disable_nav_when_zoomed then
+          return is_same_winnr
+        end
         return orig(is_same_winnr, disable_nav_when_zoomed)
       end
 
       -- Replace synchronous vim.fn.system() with async vim.system() and skip
       -- the intermediate shell by passing a list.
       util.tmux_change_pane = function(direction)
-        if not tmux_socket then return end
+        if not tmux_socket then
+          return
+        end
         vim.system({ "tmux", "-S", tmux_socket, "select-pane", "-" .. tmux_dirs[direction] })
       end
     end,
@@ -165,19 +169,34 @@ return {
         sections = {
           -- Single-character mode indicator (N/I/V/C/R/…).
           lualine_a = {
-            { "mode", fmt = function(str) return str:sub(1, 1) end },
+            {
+              "mode",
+              fmt = function(str)
+                return str:sub(1, 1)
+              end,
+            },
           },
           -- Trim long branch names so they don't dominate the bar.
           lualine_b = {
-            { "branch", fmt = function(name)
-              return #name > 12 and name:sub(1, 12) .. "…" or name
-            end },
+            {
+              "branch",
+              fmt = function(name)
+                return #name > 12 and name:sub(1, 12) .. "…" or name
+              end,
+            },
             "diff",
             "diagnostics",
           },
           lualine_c = { { "filename", path = 1 } }, -- show the relative path
           -- Drop "encoding" (utf-8), "fileformat" (the OS logo) and "filetype".
           lualine_x = {},
+          -- Replace the default "line:col" location with <col>-<line>/<total>.
+          lualine_z = {
+            function()
+              local pos = vim.api.nvim_win_get_cursor(0)
+              return string.format("%d:%d/%d", pos[2] + 1, pos[1], vim.api.nvim_buf_line_count(0))
+            end,
+          },
         },
       }
     end,
