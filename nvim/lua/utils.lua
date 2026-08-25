@@ -139,6 +139,41 @@ function mod.git_path_in_commit(commit, path)
   return vim.v.shell_error == 0
 end
 
+--- Close every `fugitive://` window in the current tabpage, so stepping
+--- through `:GD`'s quickfix list doesn't leave the previous file's diff pane
+--- on screen. Fugitive windows in other tabs are left alone, and so is the
+--- current window, whose buffer callers still need to resolve `%` against.
+--- @return integer closed
+function mod.close_fugitive_windows()
+  local current = vim.api.nvim_get_current_win()
+  local closed = 0
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if win ~= current and vim.api.nvim_win_is_valid(win) then
+      local name = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+      -- pcall: a fugitive buffer with unsaved edits refuses to close.
+      if vim.startswith(name, "fugitive://") and pcall(vim.api.nvim_win_close, win, false) then
+        closed = closed + 1
+      end
+    end
+  end
+  return closed
+end
+
+--- Open `target` (a `<rev>:<path>` fugitive spec) in a vertical diff split,
+--- unfold both panes, and leave the cursor where it started -- on the working
+--- copy. Returning to the origin window by id rather than `wincmd l` keeps
+--- this correct whichever side `Gvdiffsplit` puts the new window on.
+--- @param target string
+function mod.diff_split(target)
+  local origin = vim.api.nvim_get_current_win()
+  vim.cmd("Gvdiffsplit " .. target)
+  vim.cmd("norm! zR")
+  if vim.api.nvim_win_is_valid(origin) then
+    vim.api.nvim_set_current_win(origin)
+    vim.cmd("norm! zR")
+  end
+end
+
 --- Run a shell command and populate the quickfix list with filenames from the output.
 --- @param cmd string
 --- @param title string|nil

@@ -340,19 +340,20 @@ vim.api.nvim_create_user_command("D", function(info)
   if info.bang then
     utils.clear_diff_base_cache()
   end
+  utils.close_fugitive_windows()
   local base, ref = utils.git_diff_base_commit(info.args)
   if not utils.git_path_in_commit(base, vim.fn.expand("%:p")) then
     vim.notify(vim.fn.expand("%:t") .. " doesn't exist in " .. ref .. " -- nothing to diff", vim.log.levels.WARN)
     return
   end
-  vim.cmd("Gvdiffsplit " .. base .. ":%")
-  vim.cmd("norm zR<c-w>l")
+  utils.diff_split(base .. ":%")
 end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("DiffJs", function(info)
   if info.bang then
     utils.clear_diff_base_cache()
   end
+  utils.close_fugitive_windows()
   local base, ref = utils.git_diff_base_commit(info.args)
   local js_path = vim.fn.expand("%:r") .. ".js"
   if not utils.git_path_in_commit(base, vim.fn.expand("%:p:r") .. ".js") then
@@ -362,8 +363,7 @@ vim.api.nvim_create_user_command("DiffJs", function(info)
     )
     return
   end
-  vim.cmd("Gvdiffsplit " .. base .. ":" .. js_path)
-  vim.cmd("norm zR<c-w>l")
+  utils.diff_split(base .. ":" .. js_path)
 end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("Re", function(info)
