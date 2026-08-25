@@ -98,7 +98,49 @@ return {
         },
       },
       signature = { enabled = true },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+        -- blink asks Neovim for *all* completions and does the filtering itself
+        -- with a fuzzy score that penalises a case mismatch, so `:la<Tab>` gave
+        -- `:labove` and pushed `Lazy` far down the list. Neovim's own ordering is
+        -- already what we want -- case-insensitive, but an exact case match wins
+        -- (`:la` -> Lazy, LazyDev, labove, ...; `:La` -> Lazy, LazyDev only) --
+        -- so on the command line we rank by that order first and keep blink's
+        -- score only as the tie-break for items Neovim did not return.
+        sorts = function()
+          if vim.fn.getcmdtype() == "" then
+            return { "score", "sort_text" }
+          end
+
+          local rank = {}
+          local query = vim.fn.getcmdline():sub(1, vim.fn.getcmdpos() - 1)
+          local ok, native = pcall(vim.fn.getcompletion, query, "cmdline")
+          if ok then
+            for i, name in ipairs(native) do
+              rank[name] = rank[name] or i
+            end
+          end
+
+          return {
+            function(a, b)
+              local ra, rb = rank[a.label], rank[b.label]
+              if ra and rb then
+                if ra ~= rb then
+                  return ra < rb
+                end
+                return nil
+              end
+              -- Anything Neovim itself offers beats anything it does not
+              if ra ~= rb then
+                return ra ~= nil
+              end
+              return nil
+            end,
+            "score",
+            "sort_text",
+          }
+        end,
+      },
     },
   },
 
