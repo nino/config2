@@ -128,6 +128,23 @@ vim.lsp.config("ts_ls", {
   },
 })
 
+-- The native TypeScript 7 server (`tsc --lsp`) reads its own settings key and
+-- spells the inlay hints differently; keep them in step with ts_inlay_hints.
+vim.lsp.config("tsc", {
+  settings = {
+    ["js/ts"] = {
+      inlayHints = {
+        parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        enumMemberValues = { enabled = true },
+      },
+    },
+  },
+})
+
 -- ocamllsp is installed per-project inside an opam switch (`_opam/`), so it is
 -- not on the global PATH. `opam exec` resolves the right switch from the cwd.
 vim.lsp.config("ocamllsp", {
@@ -152,8 +169,20 @@ vim.lsp.enable({
   "ocamllsp",
 })
 
--- ts_ls and denols conflict, so enable exactly one based on the project root.
--- (Neither is in the enable() list above — this autocmd turns one on per project.)
+-- ts_ls, tsc and denols all conflict, so enable exactly one based on the project
+-- root. (None is in the enable() list above — this autocmd turns one on per
+-- project.)
+--
+-- TypeScript 7 replaced the JS tsserver with a native binary, so its
+-- node_modules/typescript ships no tsserver.js and ts_ls bails out on startup
+-- with "provides no tsserver.js". lspconfig's `tsc` config speaks to the native
+-- server over `tsc --lsp` instead, so projects whose own TypeScript has dropped
+-- tsserver.js get that one.
+local function needs_native_tsserver(root_dir)
+  local ts_dir = root_dir .. "/node_modules/typescript"
+  return vim.uv.fs_stat(ts_dir) ~= nil and vim.uv.fs_stat(ts_dir .. "/lib/tsserver.js") == nil
+end
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   callback = function(args)
@@ -168,6 +197,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
     if is_deno then
       vim.lsp.enable("denols", true)
+    elseif needs_native_tsserver(root_dir) then
+      vim.lsp.enable("tsc", true)
     else
       vim.lsp.enable("ts_ls", true)
     end
