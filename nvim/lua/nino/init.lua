@@ -73,6 +73,10 @@ local function highlights(p)
     Search = { bg = p.select_bg },
     CurSearch = { bg = p.cursearch_bg },
 
+    -- Scrollbar (nvim-scrollview). Grey, so it stays quieter than Visual,
+    -- which it links to by default.
+    ScrollView = { bg = p.scrollbar_bg },
+
     -- Status line and tab line
     StatusLine = { fg = p.status_fg, bg = p.status_bg, bold = true },
     StatusLineNC = { fg = p.status_nc_fg, bg = p.status_nc_bg },

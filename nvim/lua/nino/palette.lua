@@ -52,6 +52,7 @@ local common = {
 --- @field status_fg Colour
 --- @field status_nc_bg Colour Status line and tab line of the other windows
 --- @field status_nc_fg Colour
+--- @field scrollbar_bg Colour The scrollbar on the right edge of a window
 --- @field error Colour
 --- @field warn Colour
 --- @field info Colour
@@ -77,6 +78,7 @@ local light = vim.tbl_extend("error", common, {
   status_bg = colour("#777777", 243),
   status_nc_bg = colour("#DDDDDD", 253),
   status_nc_fg = colour("#555555", 240),
+  scrollbar_bg = colour("#CCCCCC", 252),
   diff_add = colour("#EAFFDC", 157),
   diff_delete = colour("#F9DDDD", 224),
   diff_change = colour("#EEEEFF", 189),
@@ -99,6 +101,7 @@ local dark = vim.tbl_extend("error", common, {
   status_bg = colour("#666666", 242),
   status_nc_bg = colour("#444444", 238),
   status_nc_fg = colour("#AAAAAA", 248),
+  scrollbar_bg = colour("#444444", 238),
   diff_add = colour("#223322", 22),
   diff_delete = colour("#442222", 52),
   diff_change = colour("#222244", 235),

@@ -314,6 +314,16 @@ return {
   -- UI niceties
   { "https://github.com/stevearc/dressing.nvim", enabled = true },
   {
+    -- Scrollbar on the right edge, with marks for diagnostics/search/marks.
+    -- Off under vscode-neovim, which has its own scrollbar.
+    "https://github.com/dstein64/nvim-scrollview",
+    opts = {
+      signs_on_startup = { "diagnostics", "search", "marks", "quickfix" },
+      excluded_filetypes = { "neo-tree", "trouble", "Outline" },
+      current_only = true, -- only the focused window gets a bar
+    },
+  },
+  {
     "https://github.com/hedyhli/outline.nvim",
     init = function()
       require("outline").setup({
