@@ -1,6 +1,4 @@
-**/bundle/*
 **/undo
-**/bundle
 **/node_modules
 zsh-update
 nvim/.netrwhist

@@ -184,3 +184,9 @@ if [ -f $_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 fi
 # must stay at the very end of .zshrc
 maybe_source $_brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/Nino/.lmstudio/bin"
+# End of LM Studio CLI section
+
+

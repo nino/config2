@@ -128,6 +128,12 @@ vim.lsp.config("ts_ls", {
   },
 })
 
+-- ocamllsp is installed per-project inside an opam switch (`_opam/`), so it is
+-- not on the global PATH. `opam exec` resolves the right switch from the cwd.
+vim.lsp.config("ocamllsp", {
+  cmd = { "opam", "exec", "--", "ocamllsp" },
+})
+
 -- Servers that work as-is with lspconfig's bundled defaults.
 vim.lsp.enable({
   "zls",
@@ -143,6 +149,7 @@ vim.lsp.enable({
   "clangd",
   "eslint",
   "lua_ls",
+  "ocamllsp",
 })
 
 -- ts_ls and denols conflict, so enable exactly one based on the project root.
