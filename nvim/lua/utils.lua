@@ -68,6 +68,77 @@ function mod.git_default_branch(remote)
   return remote .. "/main"
 end
 
+--- Cache of branch name -> diff base, so we only pay for `gh` once per branch.
+--- @type table<string, string>
+local diff_base_cache = {}
+
+--- Forget any cached diff bases (e.g. after opening or retargeting a PR).
+function mod.clear_diff_base_cache()
+  diff_base_cache = {}
+end
+
+--- Find the ref to diff the current branch against: the base branch of its open
+--- PR if there is one, otherwise the remote's default branch.
+--- @param remote string|nil defaults to "origin"
+--- @return string
+function mod.git_diff_base(remote)
+  remote = remote or "origin"
+  local branch = vim.fn.systemlist("git rev-parse --abbrev-ref HEAD")[1]
+  if vim.v.shell_error ~= 0 or not branch or #branch == 0 then
+    return mod.git_default_branch(remote)
+  end
+  if diff_base_cache[branch] then
+    return diff_base_cache[branch]
+  end
+  local base --- @type string|nil
+  if vim.fn.executable("gh") == 1 then
+    local out = vim.fn.systemlist("gh pr view --json baseRefName --jq .baseRefName 2>/dev/null")[1]
+    if vim.v.shell_error == 0 and out and out:match("^[%w%._/%-]+$") then
+      base = out
+      -- Prefer the remote-tracking ref, which is what we actually want to diff against.
+      vim.fn.system("git rev-parse --verify --quiet " .. remote .. "/" .. base)
+      if vim.v.shell_error == 0 then
+        base = remote .. "/" .. base
+      end
+    end
+  end
+  base = base or mod.git_default_branch(remote)
+  diff_base_cache[branch] = base
+  return base
+end
+
+--- Resolve the commit to diff a working file against: the merge base of HEAD
+--- and `base` (defaults to `git_diff_base()`), so commits landed on the target
+--- since we branched off don't show up as our changes.
+--- @param base string|nil
+--- @return string commit the commit to diff against
+--- @return string ref the human-readable ref it came from
+function mod.git_diff_base_commit(base)
+  if not base or #base == 0 then
+    base = mod.git_diff_base()
+  end
+  local merge_base = vim.fn.systemlist("git merge-base HEAD " .. base)[1]
+  if vim.v.shell_error == 0 and merge_base and #merge_base > 0 then
+    return merge_base, base
+  end
+  return base, base
+end
+
+--- Check whether `path` is tracked in `commit`.
+--- @param commit string
+--- @param path string absolute path to the file
+--- @return boolean
+function mod.git_path_in_commit(commit, path)
+  if #path == 0 then
+    return false
+  end
+  local dir = vim.fn.fnamemodify(path, ":h")
+  local name = vim.fn.fnamemodify(path, ":t")
+  -- `<rev>:./name` resolves relative to -C, so this works from any subdirectory.
+  vim.fn.system({ "git", "-C", dir, "cat-file", "-e", commit .. ":./" .. name })
+  return vim.v.shell_error == 0
+end
+
 --- Run a shell command and populate the quickfix list with filenames from the output.
 --- @param cmd string
 --- @param title string|nil

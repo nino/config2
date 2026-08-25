@@ -5,9 +5,11 @@
  * `yarn`, `npm`, or `pnpm` again.
  *
  * Usage:
- *   np            --> runs `yarn`, `npm i`, or `pnpm install`
- *   np add <pkg>  --> runs `yarn add`, `npm install`, or `pnpm add`
- *   np <args>     --> runs `yarn <args>`, `npm run <args>`, or `pnpm run <args>`
+ *   np            --> runs `pnpm install`, `npm i`, or `yarn`
+ *   np add <pkg>  --> runs `pnpm add`, `npm install`, or `yarn add`
+ *   np <args>     --> runs `pnpm run <args>`, `npm run <args>`, or `yarn <args>`
+ *
+ * The manager comes from whichever lockfile is present; with none, pnpm.
  *
  * If there's no package.json in the current directory, recurses one level
  * into each immediate subdirectory that has a package.json.
@@ -171,7 +173,7 @@ function detectManager(dir: string): { manager: Manager; lockfile: string | null
       return { manager, lockfile: LOCKFILES[manager] };
     }
   }
-  return { manager: "yarn", lockfile: null };
+  return { manager: "pnpm", lockfile: null };
 }
 
 /**

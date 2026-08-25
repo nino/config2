@@ -337,23 +337,34 @@ utils.new_cmd("Min", function()
 end, {})
 
 vim.api.nvim_create_user_command("D", function(info)
-  local main_branch = info.args
-  if #main_branch == 0 then
-    main_branch = "main"
+  if info.bang then
+    utils.clear_diff_base_cache()
   end
-  vim.cmd("Gvdiffsplit " .. main_branch .. ":%")
+  local base, ref = utils.git_diff_base_commit(info.args)
+  if not utils.git_path_in_commit(base, vim.fn.expand("%:p")) then
+    vim.notify(vim.fn.expand("%:t") .. " doesn't exist in " .. ref .. " -- nothing to diff", vim.log.levels.WARN)
+    return
+  end
+  vim.cmd("Gvdiffsplit " .. base .. ":%")
   vim.cmd("norm zR<c-w>l")
-end, { nargs = "?" })
+end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("DiffJs", function(info)
-  local main_branch = info.args
-  if #main_branch == 0 then
-    main_branch = "main"
+  if info.bang then
+    utils.clear_diff_base_cache()
   end
+  local base, ref = utils.git_diff_base_commit(info.args)
   local js_path = vim.fn.expand("%:r") .. ".js"
-  vim.cmd("Gvdiffsplit " .. main_branch .. ":" .. js_path)
+  if not utils.git_path_in_commit(base, vim.fn.expand("%:p:r") .. ".js") then
+    vim.notify(
+      vim.fn.fnamemodify(js_path, ":t") .. " doesn't exist in " .. ref .. " -- nothing to diff",
+      vim.log.levels.WARN
+    )
+    return
+  end
+  vim.cmd("Gvdiffsplit " .. base .. ":" .. js_path)
   vim.cmd("norm zR<c-w>l")
-end, { nargs = "?" })
+end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("Re", function(info)
   --- @type string | nil
@@ -383,12 +394,15 @@ vim.api.nvim_create_user_command("L", function()
 end, {})
 
 vim.api.nvim_create_user_command("GD", function(info)
+  if info.bang then
+    utils.clear_diff_base_cache()
+  end
   local base = info.args
   if #base == 0 then
-    base = utils.git_default_branch()
+    base = utils.git_diff_base()
   end
   utils.shell_to_quickfix("git diff " .. base .. "... --name-only", "git diff vs " .. base)
-end, { nargs = "?" })
+end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("MD", function()
   vim.cmd([[ !mkdir -p '%:p:h' ]])
