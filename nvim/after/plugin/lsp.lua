@@ -22,10 +22,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Sits under the same <leader>x prefix as the other Trouble panels.
     vim.keymap.set("n", "<leader>xi", "<cmd>Trouble lsp_incoming_calls toggle<cr>", { buffer = bufnr })
     vim.keymap.set("n", "<leader>xo", "<cmd>Trouble lsp_outgoing_calls toggle<cr>", { buffer = bufnr })
+
+    -- Turn inlay hints on where the server is configured to send only type
+    -- hints. Other servers send the noisier kinds too, so they stay off until
+    -- <leader>h asks for them.
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and (client.name == "ts_ls" or client.name == "tsc") then
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
   end,
 })
 
--- Inlay hints are off by default (distracting); toggle them per-buffer here.
+-- Inlay hints are on for TS/JS (where they show only variable and property
+-- types) and off elsewhere; toggle them per-buffer here.
 vim.keymap.set("n", "<leader>h", function()
   local filter = { bufnr = 0 }
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
@@ -111,16 +120,17 @@ vim.lsp.config("gopls", {
   },
 })
 
--- Inlay-hint settings shared by the TS/JS server config below.
+-- Inlay-hint settings shared by the TS/JS server config below. Only the type
+-- hints are on: parameter names and return types crowd the line too much to
+-- have them showing all the time.
 local ts_inlay_hints = {
-  includeInlayParameterNameHints = "all",
-  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  includeInlayFunctionParameterTypeHints = true,
+  includeInlayParameterNameHints = "none",
+  includeInlayFunctionParameterTypeHints = false,
   includeInlayVariableTypeHints = true,
   includeInlayVariableTypeHintsWhenTypeMatchesName = false,
   includeInlayPropertyDeclarationTypeHints = true,
-  includeInlayFunctionLikeReturnTypeHints = true,
-  includeInlayEnumMemberValueHints = true,
+  includeInlayFunctionLikeReturnTypeHints = false,
+  includeInlayEnumMemberValueHints = false,
 }
 local ts_format = { indentSize = 2, tabSize = 2, convertTabsToSpaces = true }
 
@@ -138,12 +148,12 @@ vim.lsp.config("tsc", {
   settings = {
     ["js/ts"] = {
       inlayHints = {
-        parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
-        parameterTypes = { enabled = true },
+        parameterNames = { enabled = "none" },
+        parameterTypes = { enabled = false },
         variableTypes = { enabled = true },
         propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enabled = true },
-        enumMemberValues = { enabled = true },
+        functionLikeReturnTypes = { enabled = false },
+        enumMemberValues = { enabled = false },
       },
     },
   },
