@@ -18,6 +18,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
+    -- Call hierarchy (VS Code's "Show Call Hierarchy"), rendered in Trouble.
+    -- Sits under the same <leader>x prefix as the other Trouble panels.
+    vim.keymap.set("n", "<leader>xi", "<cmd>Trouble lsp_incoming_calls toggle<cr>", { buffer = bufnr })
+    vim.keymap.set("n", "<leader>xo", "<cmd>Trouble lsp_outgoing_calls toggle<cr>", { buffer = bufnr })
   end,
 })
 
