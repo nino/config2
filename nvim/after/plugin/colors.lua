@@ -24,3 +24,10 @@ function CheckAppearance()
 end
 
 CheckAppearance()
+
+-- macOS can switch appearance while neovim is in the background, so re-check
+-- on focus rather than only at startup.
+vim.api.nvim_create_autocmd("FocusGained", {
+  group = vim.api.nvim_create_augroup("nino_appearance", { clear = true }),
+  callback = CheckAppearance,
+})
