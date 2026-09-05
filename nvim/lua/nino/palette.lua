@@ -39,6 +39,7 @@ local common = {
 --- @field keyword_control Colour `return` and `throw`
 --- @field punctuation Colour
 --- @field unnecessary Colour Code that the language server reports as unused
+--- @field inlay_hint Colour Types and parameter names the language server adds
 --- @field comment_fg Colour
 --- @field comment_bg Colour
 --- @field special_char Colour
@@ -70,6 +71,7 @@ local light = vim.tbl_extend("error", common, {
   keyword_control = colour("#C64690", 205),
   comment_fg = colour("#444400", 58),
   comment_bg = colour("#FFFFEA", 230),
+  inlay_hint = colour("#BBBDC2", 250),
   float_bg = colour("#EEEEEE", 255),
   code_bg = colour("#EEEEEE", 255),
   select_bg = colour("#AADDFF", 153),
@@ -93,6 +95,7 @@ local dark = vim.tbl_extend("error", common, {
   keyword_control = colour("#FF66AA", 205),
   comment_fg = colour("#AAAA66", 143),
   comment_bg = colour("#222200", 234),
+  inlay_hint = colour("#4F5258", 240),
   float_bg = colour("#222222", 235),
   code_bg = colour("#333333", 236),
   select_bg = colour("#005588", 24),

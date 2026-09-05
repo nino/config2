@@ -93,6 +93,10 @@ local function highlights(p)
     DiagnosticUnnecessary = { fg = p.unnecessary },
     DiagnosticUnderlineWarn = {},
 
+    -- Inlay hints. They sit inside the code, so they stay quieter than the
+    -- code around them.
+    LspInlayHint = { fg = p.inlay_hint, bg = none },
+
     -- Diffs
     DiffAdd = { fg = none, bg = p.diff_add },
     DiffDelete = { bg = p.diff_delete },
