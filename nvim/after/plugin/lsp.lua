@@ -151,6 +151,13 @@ vim.lsp.config("ocamllsp", {
   cmd = { "opam", "exec", "--", "ocamllsp" },
 })
 
+-- The Gleam compiler ships its own language server (`gleam lsp`) and
+-- lspconfig's bundled config already points at it, so no override is needed
+-- here. The binary comes from a mise shim, which picks the version from the
+-- process cwd -- so start nvim inside the project. From elsewhere the shim
+-- reports "No version is set for shim: gleam"; `mise use -g gleam@latest`
+-- makes it cwd-independent.
+
 -- Servers that work as-is with lspconfig's bundled defaults.
 vim.lsp.enable({
   "zls",
@@ -167,6 +174,7 @@ vim.lsp.enable({
   "eslint",
   "lua_ls",
   "ocamllsp",
+  "gleam",
 })
 
 -- ts_ls, tsc and denols all conflict, so enable exactly one based on the project
