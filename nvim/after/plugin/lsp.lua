@@ -172,6 +172,42 @@ vim.lsp.config("ocamllsp", {
 -- reports "No version is set for shim: gleam"; `mise use -g gleam@latest`
 -- makes it cwd-independent.
 
+-- pyright resolves imports against whatever `python` is on PATH, which in a
+-- uv project is not the project's interpreter. Point it at the local venv
+-- (`.venv/`, which uv and `python -m venv` both create by default) or at an
+-- already-activated one, so third-party packages resolve.
+--
+-- The pyright binary itself is pip-installed in the mise python, reached via
+-- a mise shim. The shim only resolves where a python version is active, so
+-- the global mise config pins one; without that, opening a file in a uv
+-- project fails with "No version is set for shim: pyright-langserver".
+local function find_python(root_dir)
+  local venv = vim.env.VIRTUAL_ENV
+  if venv and vim.uv.fs_stat(venv .. "/bin/python") then
+    return venv .. "/bin/python"
+  end
+  for _, dir in ipairs({ ".venv", "venv" }) do
+    local python = root_dir .. "/" .. dir .. "/bin/python"
+    if vim.uv.fs_stat(python) then
+      return python
+    end
+  end
+end
+
+-- (`on_init` rather than `before_init`: the client copies `settings` when it
+-- is created, so edits to the config in `before_init` never reach the server.)
+vim.lsp.config("pyright", {
+  on_init = function(client)
+    local python = client.root_dir and find_python(client.root_dir)
+    if python then
+      client.settings = vim.tbl_deep_extend("force", client.settings, {
+        python = { pythonPath = python },
+      })
+      client:notify("workspace/didChangeConfiguration", { settings = client.settings })
+    end
+  end,
+})
+
 -- Servers that work as-is with lspconfig's bundled defaults.
 vim.lsp.enable({
   "zls",
