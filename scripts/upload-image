@@ -1,0 +1,352 @@
+#!/usr/bin/env bun
+/**
+ * upload-image — resize, optimise and upload an image to Backblaze B2 for a blog post.
+ *
+ * Usage:
+ *   upload-image <file> [alt text] [--size N] [--no-optim] [--no-copy]
+ *
+ * What it does:
+ *   1. Copies the image to two temp files.
+ *   2. Bakes any EXIF orientation into the pixels (ImageOptim strips metadata, which would
+ *      otherwise leave the image rotated) and shrinks one copy so its longest side is at
+ *      most N px (default 800), both using ImageMagick.
+ *   3. Runs ImageOptim on both copies.
+ *   4. Uploads both to B2 as images/<name>_full.<ext> and images/<name>_thumb.<ext>.
+ *   5. Prints an HTML snippet linking the thumbnail to the full-size image, and copies it
+ *      to the clipboard.
+ *
+ * Configuration (environment variables, or a KEY=value file at ~/.config/image-uploader/.env):
+ *   B2_APPLICATION_KEY_ID   Backblaze application key ID
+ *   B2_APPLICATION_KEY      Backblaze application key
+ *   BUCKET_NAME             Name of the B2 bucket (e.g. NinoPublic)
+ *   BUCKET_URL              Public URL prefix for files in the bucket, with trailing slash
+ *                           (e.g. https://f001.backblazeb2.com/file/NinoPublic/)
+ *
+ * Requirements:
+ *   - ImageMagick (`brew install imagemagick`)
+ *   - ImageOptim.app in /Applications (https://imageoptim.com), unless --no-optim
+ */
+
+import { $ } from "bun";
+import { existsSync, readFileSync } from "fs";
+import { copyFile, mkdtemp, rm } from "fs/promises";
+import { homedir, tmpdir } from "os";
+import { basename, extname, join } from "path";
+
+const CONFIG_FILE = join(homedir(), ".config", "image-uploader", ".env");
+const IMAGEOPTIM = "/Applications/ImageOptim.app/Contents/MacOS/ImageOptim";
+const REQUIRED_VARS = ["B2_APPLICATION_KEY_ID", "B2_APPLICATION_KEY", "BUCKET_NAME", "BUCKET_URL"] as const;
+
+const HELP = `upload-image — resize, optimise and upload an image to Backblaze B2 for a blog post.
+
+Usage:
+  upload-image <file> [alt text] [options]
+
+Arguments:
+  <file>        Path to the image to upload.
+  [alt text]    Alt text for the <img> tag. Optional but recommended.
+
+Options:
+  --size N      Longest side of the thumbnail in pixels (default: 800).
+  --no-optim    Skip ImageOptim.
+  --no-copy     Don't copy the resulting HTML to the clipboard.
+  -h, --help    Show this help.
+
+Output:
+  <a href="<full-url>"><img src="<thumb-url>" alt="..."></a>
+
+Configuration:
+  Set B2_APPLICATION_KEY_ID, B2_APPLICATION_KEY, BUCKET_NAME and BUCKET_URL in the
+  environment, or as KEY=value lines in ${CONFIG_FILE}.
+
+Requirements:
+  ImageMagick (brew install imagemagick) and ImageOptim.app in /Applications.
+`;
+
+class UserError extends Error {}
+
+function fail(message: string): never {
+  throw new UserError(message);
+}
+
+// ---------------------------------------------------------------- arguments
+
+interface Options {
+  file: string;
+  alt: string;
+  size: number;
+  optim: boolean;
+  copy: boolean;
+}
+
+function parseArgs(argv: string[]): Options {
+  const positional: string[] = [];
+  let size = 800;
+  let optim = true;
+  let copy = true;
+
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    if (arg === "-h" || arg === "--help") {
+      process.stdout.write(HELP);
+      process.exit(0);
+    } else if (arg === "--size") {
+      const value = argv[++i];
+      size = Number(value);
+      if (!value || !Number.isInteger(size) || size <= 0) {
+        fail(`--size expects a positive integer, got "${value ?? ""}".`);
+      }
+    } else if (arg.startsWith("--size=")) {
+      size = Number(arg.slice("--size=".length));
+      if (!Number.isInteger(size) || size <= 0) fail(`--size expects a positive integer, got "${arg}".`);
+    } else if (arg === "--no-optim") {
+      optim = false;
+    } else if (arg === "--no-copy") {
+      copy = false;
+    } else if (arg.startsWith("-") && arg !== "-") {
+      fail(`Unknown option "${arg}". Run upload-image --help for usage.`);
+    } else {
+      positional.push(arg);
+    }
+  }
+
+  if (positional.length === 0) {
+    fail(`No file given.\n\n${HELP}`);
+  }
+  if (positional.length > 2) {
+    fail(
+      `Too many arguments: ${positional.map((p) => `"${p}"`).join(", ")}.\n` +
+        `Quote the alt text if it contains spaces: upload-image photo.jpg "A sunny beach"`,
+    );
+  }
+
+  const [file, alt = ""] = positional;
+  if (!alt) console.error("Warning: no alt text given; the <img> will have an empty alt attribute.");
+  return { file, alt, size, optim, copy };
+}
+
+// ---------------------------------------------------------------- config
+
+function loadConfig(): Record<(typeof REQUIRED_VARS)[number], string> {
+  if (existsSync(CONFIG_FILE)) {
+    for (const rawLine of readFileSync(CONFIG_FILE, "utf8").split("\n")) {
+      const line = rawLine.trim().replace(/^export\s+/, "");
+      if (!line || line.startsWith("#")) continue;
+      const eq = line.indexOf("=");
+      if (eq === -1) continue;
+      const key = line.slice(0, eq).trim();
+      let value = line.slice(eq + 1).trim();
+      if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+      // Environment variables take precedence over the config file.
+      if (!process.env[key]) process.env[key] = value;
+    }
+  }
+
+  const missing = REQUIRED_VARS.filter((name) => !process.env[name]);
+  if (missing.length > 0) {
+    fail(
+      `Missing configuration: ${missing.join(", ")}.\n` +
+        `Set them as environment variables or add KEY=value lines to ${CONFIG_FILE}` +
+        (existsSync(CONFIG_FILE) ? "." : " (file does not exist yet)."),
+    );
+  }
+
+  const config = Object.fromEntries(REQUIRED_VARS.map((name) => [name, process.env[name]!])) as ReturnType<
+    typeof loadConfig
+  >;
+  if (!config.BUCKET_URL.endsWith("/")) config.BUCKET_URL += "/";
+  return config;
+}
+
+// ---------------------------------------------------------------- image tools
+
+async function findImageMagick(): Promise<string[]> {
+  if (Bun.which("magick")) return ["magick"];
+  if (Bun.which("convert")) return ["convert"];
+  fail("ImageMagick not found (neither `magick` nor `convert` is on PATH). Install it with: brew install imagemagick");
+}
+
+/**
+ * Rewrites the image in place with the EXIF orientation applied to the pixels and, if
+ * `size` is given, the longest side shrunk to at most `size` px.
+ */
+async function normaliseImage(path: string, size?: number) {
+  const magick = await findImageMagick();
+  const resize = size === undefined ? [] : ["-resize", `${size}x${size}>`];
+  const result = await $`${magick} ${path} -auto-orient ${resize} ${path}`.nothrow().quiet();
+  if (result.exitCode !== 0) {
+    fail(`ImageMagick failed to process ${path} (exit code ${result.exitCode}):\n${result.stderr.toString().trim()}`);
+  }
+}
+
+async function optimiseImages(paths: string[]) {
+  if (!existsSync(IMAGEOPTIM)) {
+    fail(
+      `ImageOptim not found at ${IMAGEOPTIM}.\n` +
+        `Install it from https://imageoptim.com or run with --no-optim to skip optimisation.`,
+    );
+  }
+  const result = await $`${IMAGEOPTIM} ${paths}`.nothrow().quiet();
+  if (result.exitCode !== 0) {
+    fail(`ImageOptim failed (exit code ${result.exitCode}):\n${result.stderr.toString().trim()}`);
+  }
+}
+
+// ---------------------------------------------------------------- Backblaze B2
+
+interface B2Session {
+  apiUrl: string;
+  authToken: string;
+  bucketId: string;
+}
+
+async function b2Json(url: string, init: RequestInit, what: string): Promise<any> {
+  let response: Response;
+  try {
+    response = await fetch(url, init);
+  } catch (error) {
+    fail(`Network error while ${what}: ${(error as Error).message}`);
+  }
+  const text = await response.text();
+  if (!response.ok) {
+    let detail = text;
+    try {
+      const body = JSON.parse(text);
+      detail = `${body.code}: ${body.message}`;
+    } catch {}
+    fail(`B2 request failed while ${what} (HTTP ${response.status}) — ${detail}`);
+  }
+  return JSON.parse(text);
+}
+
+async function b2Authorize(keyId: string, key: string, bucketName: string): Promise<B2Session> {
+  const auth = await b2Json(
+    "https://api.backblazeb2.com/b2api/v3/b2_authorize_account",
+    { headers: { Authorization: `Basic ${btoa(`${keyId}:${key}`)}` } },
+    "authorising with B2 (check B2_APPLICATION_KEY_ID and B2_APPLICATION_KEY)",
+  );
+  const apiUrl: string = auth.apiInfo.storageApi.apiUrl;
+  const authToken: string = auth.authorizationToken;
+  const accountId: string = auth.accountId;
+
+  // A key restricted to one bucket reports it directly; otherwise look it up by name.
+  const restricted = auth.apiInfo.storageApi;
+  let bucketId: string | undefined;
+  if (restricted.bucketId && restricted.bucketName === bucketName) {
+    bucketId = restricted.bucketId;
+  } else if (restricted.bucketId) {
+    fail(`This application key is restricted to bucket "${restricted.bucketName}", but BUCKET_NAME is "${bucketName}".`);
+  } else {
+    const list = await b2Json(
+      `${apiUrl}/b2api/v3/b2_list_buckets`,
+      {
+        method: "POST",
+        headers: { Authorization: authToken, "Content-Type": "application/json" },
+        body: JSON.stringify({ accountId, bucketName }),
+      },
+      `looking up bucket "${bucketName}"`,
+    );
+    bucketId = list.buckets?.[0]?.bucketId;
+    if (!bucketId) fail(`Bucket "${bucketName}" not found in this B2 account. Check BUCKET_NAME.`);
+  }
+  return { apiUrl, authToken, bucketId: bucketId! };
+}
+
+async function b2Upload(session: B2Session, localPath: string, remoteName: string): Promise<string> {
+  const target = await b2Json(
+    `${session.apiUrl}/b2api/v3/b2_get_upload_url`,
+    {
+      method: "POST",
+      headers: { Authorization: session.authToken, "Content-Type": "application/json" },
+      body: JSON.stringify({ bucketId: session.bucketId }),
+    },
+    "requesting an upload URL",
+  );
+
+  const bytes = await Bun.file(localPath).arrayBuffer();
+  const sha1 = new Bun.CryptoHasher("sha1").update(bytes).digest("hex");
+  const uploaded = await b2Json(
+    target.uploadUrl,
+    {
+      method: "POST",
+      headers: {
+        Authorization: target.authorizationToken,
+        "X-Bz-File-Name": encodeURIComponent(remoteName).replaceAll("%2F", "/"),
+        "Content-Type": "b2/x-auto",
+        "Content-Length": String(bytes.byteLength),
+        "X-Bz-Content-Sha1": sha1,
+      },
+      body: bytes,
+    },
+    `uploading ${remoteName}`,
+  );
+  return uploaded.fileName;
+}
+
+// ---------------------------------------------------------------- main
+
+function escapeAttr(text: string): string {
+  return text.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
+async function main() {
+  const options = parseArgs(process.argv.slice(2));
+  const config = loadConfig();
+
+  if (!existsSync(options.file)) fail(`File not found: ${options.file}`);
+  const stat = await Bun.file(options.file).stat();
+  if (!stat.isFile()) fail(`Not a regular file: ${options.file}`);
+
+  const filename = basename(options.file);
+  const ext = extname(filename);
+  const name = filename.slice(0, filename.length - ext.length);
+  if (!ext) fail(`"${filename}" has no file extension; can't tell what kind of image it is.`);
+
+  const workDir = await mkdtemp(join(tmpdir(), "upload-image-"));
+  try {
+    const fullPath = join(workDir, `${name}_full${ext}`);
+    const thumbPath = join(workDir, `${name}_thumb${ext}`);
+    await copyFile(options.file, fullPath);
+    await copyFile(options.file, thumbPath);
+
+    console.error("Applying EXIF orientation…");
+    await normaliseImage(fullPath);
+    console.error(`Resizing thumbnail to ${options.size}px…`);
+    await normaliseImage(thumbPath, options.size);
+
+    if (options.optim) {
+      console.error("Optimising with ImageOptim…");
+      await optimiseImages([fullPath, thumbPath]);
+    }
+
+    console.error("Authorising with B2…");
+    const session = await b2Authorize(config.B2_APPLICATION_KEY_ID, config.B2_APPLICATION_KEY, config.BUCKET_NAME);
+
+    console.error("Uploading…");
+    const fullName = await b2Upload(session, fullPath, `images/${name}_full${ext}`);
+    const thumbName = await b2Upload(session, thumbPath, `images/${name}_thumb${ext}`);
+
+    const html = `<a href="${config.BUCKET_URL}${fullName}"><img src="${config.BUCKET_URL}${thumbName}" alt="${escapeAttr(options.alt)}"></a>`;
+
+    if (options.copy) {
+      const copied = await $`pbcopy < ${new Response(html)}`.nothrow().quiet();
+      if (copied.exitCode === 0) console.error("Copied to clipboard.");
+      else console.error("Warning: could not copy to clipboard (pbcopy failed).");
+    }
+    console.log(html);
+  } finally {
+    await rm(workDir, { recursive: true, force: true });
+  }
+}
+
+main().catch((error) => {
+  if (error instanceof UserError) {
+    console.error(`Error: ${error.message}`);
+  } else {
+    console.error("Unexpected error:");
+    console.error(error);
+  }
+  process.exit(1);
+});
