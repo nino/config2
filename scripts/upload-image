@@ -11,7 +11,9 @@
  *      otherwise leave the image rotated) and shrinks one copy so its longest side is at
  *      most N px (default 800), both using ImageMagick.
  *   3. Runs ImageOptim on both copies.
- *   4. Uploads both to B2 as images/<name>_full.<ext> and images/<name>_thumb.<ext>.
+ *   4. Uploads both to B2 as images/<name>_<id>_full.<ext> and images/<name>_<id>_thumb.<ext>,
+ *      where <id> is a short random hex string so re-uploading a file with the same name
+ *      never overwrites an earlier upload.
  *   5. Prints an HTML snippet linking the thumbnail to the full-size image, and copies it
  *      to the clipboard.
  *
@@ -301,7 +303,9 @@ async function main() {
 
   const filename = basename(options.file);
   const ext = extname(filename);
-  const name = filename.slice(0, filename.length - ext.length);
+  // A short random ID keeps uploads of same-named files (e.g. IMG_0001.jpeg) from overwriting each other.
+  const id = Array.from(crypto.getRandomValues(new Uint8Array(3)), (b) => b.toString(16).padStart(2, "0")).join("");
+  const name = `${filename.slice(0, filename.length - ext.length)}_${id}`;
   if (!ext) fail(`"${filename}" has no file extension; can't tell what kind of image it is.`);
 
   const workDir = await mkdtemp(join(tmpdir(), "upload-image-"));

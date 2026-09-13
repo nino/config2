@@ -93,3 +93,4 @@ gcloud/
 cagent/
 
 simple-update-notifier
+image-uploader/.env
