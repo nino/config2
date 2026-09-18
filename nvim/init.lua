@@ -45,7 +45,7 @@ vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:4"
 vim.opt.title = true
 vim.opt.inccommand = "nosplit"
-vim.opt.laststatus = 2
+vim.opt.laststatus = 2 -- one statusline per window
 
 -- Keep the visual textwidth but don't add new line in insert mode:
 vim.opt.formatoptions = vim.opt.formatoptions - "t"
