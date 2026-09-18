@@ -2,17 +2,21 @@
 
 /**
  * np — Node dependency manager. Never wonder whether to use
- * `yarn`, `npm`, or `pnpm` again.
+ * `yarn`, `npm`, `pnpm`, `bun`, or `deno` again.
  *
  * Usage:
- *   np            --> runs `pnpm install`, `npm i`, or `yarn`
- *   np add <pkg>  --> runs `pnpm add`, `npm install`, or `yarn add`
- *   np <args>     --> runs `pnpm run <args>`, `npm run <args>`, or `yarn <args>`
+ *   np            --> `pnpm install`, `npm i`, `yarn`, `bun install`,
+ *                     or `deno install`
+ *   np add <pkg>  --> `pnpm add`, `npm install`, `yarn add`, `bun add`,
+ *                     or `deno add`
+ *   np <args>     --> `pnpm run <args>`, `npm run <args>`, `yarn <args>`,
+ *                     `bun run <args>`, or `deno task <args>`
  *
- * The manager comes from whichever lockfile is present; with none, pnpm.
+ * The manager comes from whichever lockfile is present. Failing that, a
+ * deno.json means Deno; with nothing at all, pnpm.
  *
- * If there's no package.json in the current directory, recurses one level
- * into each immediate subdirectory that has a package.json.
+ * If the current directory isn't a project, recurses one level into each
+ * immediate subdirectory that is one.
  */
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
@@ -49,21 +53,37 @@ function displayPath(path: string): string {
   return rel === "" || rel.startsWith("..") ? path : rel;
 }
 
-type Manager = "pnpm" | "npm" | "yarn";
+type Manager = "bun" | "deno" | "pnpm" | "npm" | "yarn";
 
-const MANAGERS: Manager[] = ["pnpm", "npm", "yarn"];
+/** Checked in this order, so the first lockfile found wins. */
+const MANAGERS: Manager[] = ["bun", "deno", "pnpm", "npm", "yarn"];
 
-const LOCKFILES: Record<Manager, string> = {
-  pnpm: "pnpm-lock.yaml",
-  npm: "package-lock.json",
-  yarn: "yarn.lock",
+/** Bun writes `bun.lock` now and `bun.lockb` in older versions. */
+const LOCKFILES: Record<Manager, string[]> = {
+  bun: ["bun.lock", "bun.lockb"],
+  deno: ["deno.lock"],
+  pnpm: ["pnpm-lock.yaml"],
+  npm: ["package-lock.json"],
+  yarn: ["yarn.lock"],
 };
 
+/** Deno keeps its tasks here, and a Deno project need not have a package.json. */
+const DENO_CONFIGS = ["deno.json", "deno.jsonc"];
+
+/** Anything that marks a directory as a project np can run in. */
+const PROJECT_FILES = ["package.json", ...DENO_CONFIGS];
+
 const INSTALL_HINTS: Record<Manager, string[]> = {
+  bun: ["brew install oven-sh/bun/bun", "curl -fsSL https://bun.sh/install | bash"],
+  deno: ["brew install deno", "curl -fsSL https://deno.land/install.sh | sh"],
   pnpm: ["brew install pnpm", "npm install --global pnpm"],
   npm: ["brew install node", "(npm ships with Node)"],
   yarn: ["brew install yarn", "npm install --global yarn"],
 };
+
+function isProject(dir: string): boolean {
+  return PROJECT_FILES.some((file) => existsSync(join(dir, file)));
+}
 
 /**
  * Commands the package managers handle themselves, so `np <cmd>` shouldn't be
@@ -93,6 +113,7 @@ const PASSTHROUGH = new Set([
   "pack",
   "patch",
   "plugin",
+  "pm",
   "prune",
   "publish",
   "rebuild",
@@ -106,6 +127,7 @@ const PASSTHROUGH = new Set([
   "version",
   "workspace",
   "workspaces",
+  "x",
 ]);
 
 const SIGNAL_EXIT_CODES: Record<string, number> = {
@@ -163,17 +185,21 @@ async function spawn(cmd: string[], cwd: string): Promise<number> {
 }
 
 /**
- * Which manager does this directory want? Reports whether that was read off a
- * lockfile or just np's default, since the difference matters when the
- * manager turns out to be missing.
+ * Which manager does this directory want? Reports the file that decided it, or
+ * null for np's default, since the difference matters when the manager turns
+ * out to be missing.
  */
-function detectManager(dir: string): { manager: Manager; lockfile: string | null } {
+function detectManager(dir: string): { manager: Manager; source: string | null } {
   for (const manager of MANAGERS) {
-    if (existsSync(join(dir, LOCKFILES[manager]))) {
-      return { manager, lockfile: LOCKFILES[manager] };
+    for (const lockfile of LOCKFILES[manager]) {
+      if (existsSync(join(dir, lockfile))) return { manager, source: lockfile };
     }
   }
-  return { manager: "pnpm", lockfile: null };
+  // No lockfile, but a deno.json still says plainly which manager this is.
+  for (const config of DENO_CONFIGS) {
+    if (existsSync(join(dir, config))) return { manager: "deno", source: config };
+  }
+  return { manager: "pnpm", source: null };
 }
 
 /**
@@ -194,7 +220,7 @@ function findUnexecutable(name: string): string | null {
 }
 
 /** Bail with an actually helpful message if the chosen manager isn't installed. */
-function ensureInstalled(manager: Manager, lockfile: string | null, dir: string): void {
+function ensureInstalled(manager: Manager, source: string | null, dir: string): void {
   if (Bun.which(manager)) return;
 
   const unexecutable = findUnexecutable(manager);
@@ -211,12 +237,12 @@ function ensureInstalled(manager: Manager, lockfile: string | null, dir: string)
   const where = dir === process.cwd() ? "" : ` (in ${displayPath(dir)}/)`;
   const details: string[] = [];
 
-  if (lockfile) {
-    details.push(`This project has a ${lockfile}${where}, so np picked ${manager}.`);
+  if (source) {
+    details.push(`This project has a ${source}${where}, so np picked ${manager}.`);
   } else {
     details.push(
       `There's no lockfile${where ? ` in ${displayPath(dir)}/` : " here"}` +
-        ` (${MANAGERS.map((m) => LOCKFILES[m]).join(", ")}),`,
+        ` (${MANAGERS.flatMap((m) => LOCKFILES[m]).join(", ")}),`,
       `so np fell back to its default, ${manager}.`,
     );
   }
@@ -229,8 +255,8 @@ function ensureInstalled(manager: Manager, lockfile: string | null, dir: string)
     details.push("");
     details.push(
       `You do have ${alternatives.join(" and ")} installed. ` +
-        (lockfile
-          ? "Using a different manager here would fight with the lockfile."
+        (source
+          ? `Using a different manager here would fight with ${source}.`
           : `Run \`${alternatives[0]} install\` once to create a lockfile and np will follow it.`),
     );
   } else {
@@ -279,6 +305,28 @@ function readPackageJson(dir: string): Record<string, unknown> | null {
   }
 }
 
+/**
+ * Task names from a deno.json, with the file they came from. Deno tolerates
+ * comments and trailing commas in both deno.json and deno.jsonc; Bun's
+ * importer only tolerates them in .jsonc. Returning null when the file won't
+ * parse means np skips its pre-flight check and lets deno report the problem
+ * in its own words.
+ */
+async function readDenoTasks(dir: string): Promise<{ file: string; names: string[] } | null> {
+  for (const file of DENO_CONFIGS) {
+    const path = join(dir, file);
+    if (!existsSync(path)) continue;
+    try {
+      const tasks = (await import(path)).default?.tasks;
+      if (tasks === null || typeof tasks !== "object" || Array.isArray(tasks)) return null;
+      return { file, names: Object.keys(tasks) };
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
 /** Edit distance, for "did you mean" suggestions. */
 function distance(a: string, b: string): number {
   const prev = Array.from({ length: b.length + 1 }, (_, i) => i);
@@ -314,33 +362,67 @@ function suggest(name: string, candidates: string[]): string | null {
 }
 
 /**
+ * Script names from a package.json. `strict` reports a malformed or missing
+ * `scripts` section as an error; a Deno project keeps its tasks elsewhere, so
+ * there it's merely nothing to add.
+ */
+function readPackageScripts(dir: string, name: string, strict: boolean): string[] | null {
+  const scripts = readPackageJson(dir)?.scripts;
+  const where = displayPath(join(dir, "package.json"));
+
+  if (scripts === undefined || scripts === null) {
+    if (strict) {
+      fail(`There's no \`scripts\` section in ${where}, so there's no \`${name}\` to run.`);
+    }
+    return null;
+  }
+  if (typeof scripts !== "object" || Array.isArray(scripts)) {
+    if (strict) fail(`The \`scripts\` field in ${where} isn't an object.`);
+    return null;
+  }
+  return Object.keys(scripts as Record<string, unknown>);
+}
+
+/**
  * Catch `np biuld` before the package manager does, and say which scripts
  * actually exist.
+ *
+ * Deno runs the tasks in deno.json, plus the package.json scripts of a project
+ * that also has one; every other manager reads package.json alone.
  */
-function checkScriptExists(dir: string, args: string[]): void {
+async function checkScriptExists(dir: string, manager: Manager, args: string[]): Promise<void> {
   const name = args[0];
   if (name === undefined) return;
   if (name.startsWith("-")) return;
   if (PASSTHROUGH.has(name)) return;
 
-  const pkg = readPackageJson(dir);
-  const scripts = pkg?.scripts;
-  const where = displayPath(join(dir, "package.json"));
+  const names: string[] = [];
+  const sources: string[] = [];
 
-  if (scripts === undefined || scripts === null) {
-    fail(
-      `There's no \`scripts\` section in ${where}, so there's no \`${name}\` to run.`,
-    );
+  if (manager === "deno") {
+    const tasks = await readDenoTasks(dir);
+    if (tasks) {
+      names.push(...tasks.names);
+      sources.push(tasks.file);
+    }
   }
 
-  if (typeof scripts !== "object" || Array.isArray(scripts)) {
-    fail(`The \`scripts\` field in ${where} isn't an object.`);
+  if (manager !== "deno" || existsSync(join(dir, "package.json"))) {
+    const scripts = readPackageScripts(dir, name, manager !== "deno");
+    if (scripts) {
+      names.push(...scripts);
+      sources.push("package.json");
+    }
   }
 
-  const names = Object.keys(scripts as Record<string, unknown>);
   if (names.includes(name)) return;
+  // Nothing readable to check against. Say nothing, and let deno have its say.
+  if (sources.length === 0) return;
 
+  const noun = manager === "deno" ? "task" : "script";
+  const where = sources.map((file) => displayPath(join(dir, file))).join(" or ");
   const details: string[] = [];
+
   const guess = suggest(name, names);
   if (guess) {
     details.push(`Did you mean ${cyan(`np ${guess}`)}?`);
@@ -348,17 +430,19 @@ function checkScriptExists(dir: string, args: string[]): void {
   }
 
   if (names.length === 0) {
-    details.push(`${where} has an empty \`scripts\` section.`);
+    details.push(`${where} defines no ${noun}s.`);
   } else {
-    details.push(`Scripts in ${where}:`);
+    details.push(`${noun[0].toUpperCase()}${noun.slice(1)}s in ${where}:`);
     for (const script of names.sort()) details.push(`  ${dim("·")} ${script}`);
   }
 
-  fail(`No script called \`${name}\` in ${where}.`, ...details);
+  fail(`No ${noun} called \`${name}\` in ${where}.`, ...details);
 }
 
 function buildCommand(manager: Manager, args: string[]): string[] {
   if (args.length === 0) {
+    if (manager === "bun") return ["bun", "install"];
+    if (manager === "deno") return ["deno", "install"];
     if (manager === "pnpm") return ["pnpm", "install"];
     if (manager === "npm") return ["npm", "i"];
     return ["yarn"];
@@ -374,11 +458,15 @@ function buildCommand(manager: Manager, args: string[]): string[] {
         `To install what's already in package.json, just run ${cyan("np")}.`,
       );
     }
+    if (manager === "bun") return ["bun", "add", ...rest];
+    if (manager === "deno") return ["deno", "add", ...rest];
     if (manager === "pnpm") return ["pnpm", "add", ...rest];
     if (manager === "npm") return ["npm", "install", ...rest];
     return ["yarn", "add", ...rest];
   }
 
+  if (manager === "bun") return ["bun", "run", ...args];
+  if (manager === "deno") return ["deno", "task", ...args];
   if (manager === "pnpm") return ["pnpm", "run", ...args];
   if (manager === "npm") return ["npm", "run", ...args];
   return ["yarn", ...args];
@@ -386,17 +474,17 @@ function buildCommand(manager: Manager, args: string[]): string[] {
 
 /** Run np in one directory: detect, sanity-check, spawn. */
 async function run(dir: string, args: string[]): Promise<number> {
-  const { manager, lockfile } = detectManager(dir);
-  ensureInstalled(manager, lockfile, dir);
-  checkScriptExists(dir, args);
+  const { manager, source } = detectManager(dir);
+  ensureInstalled(manager, source, dir);
+  await checkScriptExists(dir, manager, args);
   return spawn(buildCommand(manager, args), dir);
 }
 
-/** Nearest ancestor with a package.json, so we can point somewhere useful. */
-function findPackageJsonAbove(dir: string): string | null {
+/** Nearest ancestor that is a project, so we can point somewhere useful. */
+function findProjectAbove(dir: string): string | null {
   let current = dirname(dir);
   while (true) {
-    if (existsSync(join(current, "package.json"))) return current;
+    if (isProject(current)) return current;
     const parent = dirname(current);
     if (parent === current) return null;
     current = parent;
@@ -417,7 +505,7 @@ try {
   );
 }
 
-if (!existsSync(join(cwd, "package.json"))) {
+if (!isProject(cwd)) {
   let entries: string[];
   try {
     entries = readdirSync(cwd);
@@ -440,11 +528,11 @@ if (!existsSync(join(cwd, "package.json"))) {
         return false;
       }
     })
-    .filter((e) => existsSync(join(cwd, e, "package.json")))
+    .filter((e) => isProject(join(cwd, e)))
     .sort();
 
   if (projects.length === 0) {
-    const above = findPackageJsonAbove(cwd);
+    const above = findProjectAbove(cwd);
     const details = [
       `Looked in ${cwd} and one level down into its subdirectories.`,
     ];
@@ -454,10 +542,12 @@ if (!existsSync(join(cwd, "package.json"))) {
     } else {
       details.push("");
       details.push(
-        `If this is a new project, start it with ${cyan("npm init -y")} (or yarn/pnpm init).`,
+        `If this is a new project, start it with ${cyan("npm init -y")}` +
+          ` (or ${cyan("deno init")}, or yarn/pnpm/bun init).`,
       );
     }
-    fail("No package.json here.", ...details);
+    const wanted = `${PROJECT_FILES.slice(0, -1).join(", ")}, or ${PROJECT_FILES.at(-1)}`;
+    fail(`No ${wanted} here.`, ...details);
   }
 
   for (const [index, dir] of projects.entries()) {
