@@ -320,9 +320,17 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown" },
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- LaTeX rendering needs a `latex2text`/`utftex` binary and the latex
-    -- parser, neither of which is installed; leaving it on only warns.
-    opts = { latex = { enabled = false } },
+    opts = {
+      -- Default drops the whole buffer back to raw text in insert mode. Add
+      -- "i" so it stays rendered while typing; anti-conceal (on by default)
+      -- still un-renders just the cursor line, which is the line being
+      -- edited. blink.cmp draws its own popup, so mode() stays "i" while
+      -- completing and the buffer does not flicker.
+      render_modes = { "n", "c", "t", "i" },
+      -- LaTeX rendering needs a `latex2text`/`utftex` binary and the latex
+      -- parser, neither of which is installed; leaving it on only warns.
+      latex = { enabled = false },
+    },
   },
   {
     -- Scrollbar on the right edge, with marks for diagnostics/search/marks.
