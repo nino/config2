@@ -85,7 +85,13 @@ return {
     version = "1.*", -- a release tag pulls down the prebuilt fuzzy-matcher binary
     dependencies = { "rafamadriz/friendly-snippets" },
     opts = {
-      keymap = { preset = "enter" }, -- <CR> accepts, like the old nvim-cmp mapping
+      keymap = {
+        preset = "super-tab", -- <Tab> accepts, so <CR> stays a plain newline with the menu open
+        -- false drops the key from blink's mappings, so it never maps ^K at
+        -- all and digraph entry reads its two characters as it always did.
+        ["<C-k>"] = false,
+        ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+      },
       appearance = { nerd_font_variant = "mono" },
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
