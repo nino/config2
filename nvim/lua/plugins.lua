@@ -313,6 +313,17 @@ return {
 
   -- UI niceties
   { "https://github.com/stevearc/dressing.nvim", enabled = true },
+  -- Renders markdown in the buffer: headings, tables, code blocks, list
+  -- bullets, checkboxes. Anti-conceal shows the raw text on the cursor line.
+  -- The nino colorscheme already styles RenderMarkdownCode/CodeInline.
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- LaTeX rendering needs a `latex2text`/`utftex` binary and the latex
+    -- parser, neither of which is installed; leaving it on only warns.
+    opts = { latex = { enabled = false } },
+  },
   {
     -- Scrollbar on the right edge, with marks for diagnostics/search/marks.
     -- Off under vscode-neovim, which has its own scrollbar.
