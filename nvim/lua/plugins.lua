@@ -181,30 +181,65 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
-      -- High-contrast light theme. The "auto" theme derives washed-out greys
-      -- from lunaperche; spell the colours out so every section is legible.
-      local dark = "#1c1c1c"
-      local light = "#fafafa"
-      local theme = {
+      -- High-contrast themes, one per background. The "auto" theme derives
+      -- washed-out greys from lunaperche; spell the colours out so every
+      -- section is legible.
+      local dark_text = "#1c1c1c"
+      local light_text = "#fafafa"
+      local light_theme = {
         normal = {
-          a = { fg = light, bg = "#005f87", gui = "bold" }, -- blue mode badge
-          b = { fg = dark, bg = "#d0d0d0" }, -- branch/diagnostics
-          c = { fg = dark, bg = "#e4e4e4" }, -- filename / fill
+          a = { fg = light_text, bg = "#005f87", gui = "bold" }, -- blue mode badge
+          b = { fg = dark_text, bg = "#d0d0d0" }, -- branch/diagnostics
+          c = { fg = dark_text, bg = "#e4e4e4" }, -- filename / fill
         },
-        insert = { a = { fg = light, bg = "#5f8700", gui = "bold" } },
-        visual = { a = { fg = light, bg = "#8700af", gui = "bold" } },
-        replace = { a = { fg = light, bg = "#af0000", gui = "bold" } },
-        command = { a = { fg = light, bg = "#af5f00", gui = "bold" } },
+        insert = { a = { fg = light_text, bg = "#5f8700", gui = "bold" } },
+        visual = { a = { fg = light_text, bg = "#8700af", gui = "bold" } },
+        replace = { a = { fg = light_text, bg = "#af0000", gui = "bold" } },
+        command = { a = { fg = light_text, bg = "#af5f00", gui = "bold" } },
         inactive = {
-          a = { fg = dark, bg = "#c6c6c6" },
-          b = { fg = dark, bg = "#d0d0d0" },
+          a = { fg = dark_text, bg = "#c6c6c6" },
+          b = { fg = dark_text, bg = "#d0d0d0" },
           c = { fg = "#626262", bg = "#e4e4e4" },
         },
       }
+      -- The light sections are near-white, which glares on a dark background,
+      -- so the dark variant darkens the bar and puts dark text on lighter,
+      -- less saturated mode badges.
+      local dark_theme = {
+        normal = {
+          a = { fg = dark_text, bg = "#5fafd7", gui = "bold" }, -- blue mode badge
+          b = { fg = "#d0d0d0", bg = "#3a3a3a" }, -- branch/diagnostics
+          c = { fg = "#c6c6c6", bg = "#2c2c2c" }, -- filename / fill
+        },
+        insert = { a = { fg = dark_text, bg = "#87af5f", gui = "bold" } },
+        visual = { a = { fg = dark_text, bg = "#af87d7", gui = "bold" } },
+        replace = { a = { fg = light_text, bg = "#d75f5f", gui = "bold" } },
+        command = { a = { fg = dark_text, bg = "#d7875f", gui = "bold" } },
+        inactive = {
+          a = { fg = "#9e9e9e", bg = "#303030" },
+          b = { fg = "#9e9e9e", bg = "#303030" },
+          c = { fg = "#767676", bg = "#262626" },
+        },
+      }
+      -- <col>:<line>/<total> for the window the status line belongs to.
+      local function position()
+        local pos = vim.api.nvim_win_get_cursor(0)
+        return string.format("%d:%d/%d", pos[2] + 1, pos[1], vim.api.nvim_buf_line_count(0))
+      end
+
       return {
         options = {
-          theme = theme,
-          globalstatus = true,
+          -- lualine re-runs `setup()` on ColorScheme and on `background`
+          -- changes, and calls a function theme again each time, so the bar
+          -- follows the macOS appearance check in after/plugin/colors.lua.
+          theme = function()
+            return vim.o.background == "dark" and dark_theme or light_theme
+          end,
+          -- One status line per window, each reporting its own buffer. Under
+          -- `globalstatus` lualine renders a single line from the focused
+          -- window; laststatus is 2 (init.lua), so every split drew that same
+          -- line and described the wrong buffer.
+          globalstatus = false,
           section_separators = "",
           component_separators = "",
         },
@@ -233,12 +268,17 @@ return {
           -- Drop "encoding" (utf-8), "fileformat" (the OS logo) and "filetype".
           lualine_x = {},
           -- Replace the default "line:col" location with <col>-<line>/<total>.
-          lualine_z = {
-            function()
-              local pos = vim.api.nvim_win_get_cursor(0)
-              return string.format("%d:%d/%d", pos[2] + 1, pos[1], vim.api.nvim_buf_line_count(0))
-            end,
-          },
+          lualine_z = { position },
+        },
+        -- Unfocused splits: same components, minus the mode badge and the
+        -- git/diagnostics section, which only concern the focused window.
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { { "filename", path = 1 } },
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = { position },
         },
       }
     end,
