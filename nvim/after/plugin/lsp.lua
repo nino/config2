@@ -5,6 +5,39 @@ end
 
 vim.diagnostic.config({ virtual_text = false, jump = { float = true } })
 
+-- Which inlay hints the language servers send. They are off until <leader>h
+-- turns them on in a buffer; this table decides what shows up when they do.
+-- Edit the flags here rather than the per-server settings below, which are
+-- generated from them -- every server spells these differently, and some
+-- support only a few of them.
+local inlay_hints = {
+  -- Names of the parameters an argument is being passed to: false, "literals"
+  -- (only for literal arguments, e.g. `foo(bar: true)`) or "all". gopls reads
+  -- anything other than false as "all".
+  parameter_names = false,
+  -- Types of the parameters in a function's own signature.
+  parameter_types = false,
+  -- Types of variables at their declaration.
+  variable_types = true,
+  -- Types of variables whose name already says the type, e.g.
+  -- `const user = getUser()`. Only applies when variable_types is on. (TS/JS)
+  variable_types_matching_name = false,
+  -- Types of class properties at their declaration. (TS/JS)
+  property_types = true,
+  -- Return types of functions that do not write one out.
+  return_types = false,
+  -- Values of enum members, and of Go constants, that do not write one out.
+  enum_member_values = false,
+  -- Field names inside composite literals, e.g. `Point{1, 2}`. (Go)
+  composite_literal_fields = false,
+  -- Types of nested composite literals. (Go)
+  composite_literal_types = false,
+  -- Types inferred for a function's type parameters. (Go)
+  function_type_parameters = false,
+  -- Types of the variables bound by a `range` clause. (Go)
+  range_variable_types = false,
+}
+
 -- Completion capabilities (blink.cmp) applied to *every* server via the "*"
 -- wildcard, instead of repeating `capabilities = ...` on each server config.
 vim.lsp.config("*", {
@@ -22,19 +55,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Sits under the same <leader>x prefix as the other Trouble panels.
     vim.keymap.set("n", "<leader>xi", "<cmd>Trouble lsp_incoming_calls toggle<cr>", { buffer = bufnr })
     vim.keymap.set("n", "<leader>xo", "<cmd>Trouble lsp_outgoing_calls toggle<cr>", { buffer = bufnr })
-
-    -- Turn inlay hints on where the server is configured to send only type
-    -- hints. Other servers send the noisier kinds too, so they stay off until
-    -- <leader>h asks for them.
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and (client.name == "ts_ls" or client.name == "tsc") then
-      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    end
   end,
 })
 
--- Inlay hints are on for TS/JS (where they show only variable and property
--- types) and off elsewhere; toggle them per-buffer here.
+-- Inlay hints start off everywhere; this turns them on for one buffer, showing
+-- the kinds the `inlay_hints` table at the top of the file asks for.
 vim.keymap.set("n", "<leader>h", function()
   local filter = { bufnr = 0 }
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
@@ -108,29 +133,27 @@ vim.lsp.config("gopls", {
   settings = {
     gopls = {
       hints = {
-        assignVariableTypes = true,
-        compositeLiteralFields = true,
-        compositeLiteralTypes = true,
-        constantValues = true,
-        functionTypeParameters = true,
-        parameterNames = true,
-        rangeVariableTypes = true,
+        assignVariableTypes = inlay_hints.variable_types,
+        compositeLiteralFields = inlay_hints.composite_literal_fields,
+        compositeLiteralTypes = inlay_hints.composite_literal_types,
+        constantValues = inlay_hints.enum_member_values,
+        functionTypeParameters = inlay_hints.function_type_parameters,
+        parameterNames = inlay_hints.parameter_names ~= false,
+        rangeVariableTypes = inlay_hints.range_variable_types,
       },
     },
   },
 })
 
--- Inlay-hint settings shared by the TS/JS server config below. Only the type
--- hints are on: parameter names and return types crowd the line too much to
--- have them showing all the time.
+-- Inlay-hint settings shared by the TS/JS server config below.
 local ts_inlay_hints = {
-  includeInlayParameterNameHints = "none",
-  includeInlayFunctionParameterTypeHints = false,
-  includeInlayVariableTypeHints = true,
-  includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-  includeInlayPropertyDeclarationTypeHints = true,
-  includeInlayFunctionLikeReturnTypeHints = false,
-  includeInlayEnumMemberValueHints = false,
+  includeInlayParameterNameHints = inlay_hints.parameter_names or "none",
+  includeInlayFunctionParameterTypeHints = inlay_hints.parameter_types,
+  includeInlayVariableTypeHints = inlay_hints.variable_types,
+  includeInlayVariableTypeHintsWhenTypeMatchesName = inlay_hints.variable_types_matching_name,
+  includeInlayPropertyDeclarationTypeHints = inlay_hints.property_types,
+  includeInlayFunctionLikeReturnTypeHints = inlay_hints.return_types,
+  includeInlayEnumMemberValueHints = inlay_hints.enum_member_values,
 }
 local ts_format = { indentSize = 2, tabSize = 2, convertTabsToSpaces = true }
 
@@ -148,12 +171,12 @@ vim.lsp.config("tsc", {
   settings = {
     ["js/ts"] = {
       inlayHints = {
-        parameterNames = { enabled = "none" },
-        parameterTypes = { enabled = false },
-        variableTypes = { enabled = true },
-        propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enabled = false },
-        enumMemberValues = { enabled = false },
+        parameterNames = { enabled = inlay_hints.parameter_names or "none" },
+        parameterTypes = { enabled = inlay_hints.parameter_types },
+        variableTypes = { enabled = inlay_hints.variable_types },
+        propertyDeclarationTypes = { enabled = inlay_hints.property_types },
+        functionLikeReturnTypes = { enabled = inlay_hints.return_types },
+        enumMemberValues = { enabled = inlay_hints.enum_member_values },
       },
     },
   },
