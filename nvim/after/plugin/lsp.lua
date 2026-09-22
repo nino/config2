@@ -44,6 +44,88 @@ vim.lsp.config("*", {
   capabilities = require("blink.cmp").get_lsp_capabilities(),
 })
 
+-- References without imports.
+--
+-- Half of a `grr` quickfix list is usually the identifier's import statements
+-- rather than anything that uses it. The filtering is done with treesitter, not
+-- by matching /import/ against the quickfix line: prettier wraps a long import
+-- across lines, and the entry for `foo` in such a block is the bare line
+-- "  foo," with no "import" on it.
+
+-- Nodes whose subtree does not count as a use: whole import statements, plus
+-- js/ts export clauses, which cover both `export { foo }` and
+-- `export { foo } from "./foo"`. An export clause is names only, so nothing
+-- real hides in one -- `export const bar = foo` has no export_clause ancestor
+-- and survives.
+local non_use_nodes = {
+  import_statement = true, -- js/ts, python
+  import_from_statement = true, -- python
+  import_declaration = true, -- go, java
+  use_declaration = true, -- rust
+  using_directive = true, -- c#
+  export_clause = true, -- js/ts
+}
+
+--- Root node of `filename`, parsed from the file on disk. Going via a buffer
+--- would fire BufRead, and with it the linter below, once per file in the list.
+--- @param filename string
+--- @return TSNode|nil root, nil when the file has no treesitter parser
+local function parse_file(filename)
+  local ft = vim.filetype.match({ filename = filename })
+  local lang = ft and vim.treesitter.language.get_lang(ft)
+  if not lang then
+    return nil
+  end
+  local ok, lines = pcall(vim.fn.readfile, filename)
+  if not ok then
+    return nil
+  end
+  local parsed, parser = pcall(vim.treesitter.get_string_parser, table.concat(lines, "\n"), lang)
+  if not parsed then
+    return nil
+  end
+  local tree = parser:parse()[1]
+  return tree and tree:root() or nil
+end
+
+--- Whether the reference at `item` sits inside an import (or export clause).
+--- @param root TSNode
+--- @param item table quickfix item, with 1-indexed lnum and byte col
+--- @return boolean
+local function is_import(root, item)
+  local node = root:named_descendant_for_range(item.lnum - 1, item.col - 1, item.lnum - 1, item.col - 1)
+  while node do
+    if non_use_nodes[node:type()] then
+      return true
+    end
+    node = node:parent()
+  end
+  return false
+end
+
+--- Like vim.lsp.buf.references, minus the import statements. Files are parsed
+--- once each, so the cost is one read and parse per file in the list.
+local function references_excluding_imports()
+  vim.lsp.buf.references({ includeDeclaration = false }, {
+    on_list = function(list)
+      local roots = {}
+      list.items = vim.tbl_filter(function(item)
+        if roots[item.filename] == nil then
+          roots[item.filename] = parse_file(item.filename) or false
+        end
+        local root = roots[item.filename]
+        return not (root and is_import(root, item))
+      end, list.items)
+      if #list.items == 0 then
+        vim.notify("No references outside imports", vim.log.levels.INFO)
+        return
+      end
+      vim.fn.setqflist({}, " ", list)
+      vim.cmd.copen()
+    end,
+  })
+end
+
 -- Buffer-local LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -51,6 +133,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
+    -- Overrides the built-in grr, which lists imports alongside the uses.
+    -- `:lua vim.lsp.buf.references()` still gives the unfiltered list.
+    vim.keymap.set("n", "grr", references_excluding_imports, { buffer = bufnr })
     -- Call hierarchy (VS Code's "Show Call Hierarchy"), rendered in Trouble.
     -- Sits under the same <leader>x prefix as the other Trouble panels.
     vim.keymap.set("n", "<leader>xi", "<cmd>Trouble lsp_incoming_calls toggle<cr>", { buffer = bufnr })
