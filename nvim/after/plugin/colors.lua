@@ -30,4 +30,10 @@ check_appearance()
 vim.api.nvim_create_autocmd("FocusGained", {
   group = vim.api.nvim_create_augroup("nino_appearance", { clear = true }),
   callback = check_appearance,
+  -- `:colorscheme` must fire `ColorScheme` here. Plugins (render-markdown,
+  -- lualine, devicons, gitsigns) rebuild the groups that `highlight clear`
+  -- wipes on that event. Without `nested`, those groups stay empty; for
+  -- example, the fill beside a code block's language name falls back to the
+  -- terminal's text colour.
+  nested = true,
 })
