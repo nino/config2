@@ -9,6 +9,12 @@ what you mean. When a literal phrase is available, use it.
 
 # Global notes
 
+## H1 for final report
+
+When you're ready to present what you've done after an extended bit of work,
+start with an H1 heading, so I can clearly see where you finish narrating your
+progress and start reporting the final results.
+
 ## My shell is zsh, not bash — unquoted `$var` does NOT word-split
 
 The interactive/tooling shell here is **zsh**. The recurring gotcha: unlike
