@@ -33,3 +33,9 @@ Don't assume bash word-splitting when passing a list of files through a variable
 
 Only commit when I explicitly ask you to.
 
+# Reviewing PRs
+
+When I'm reviewing code changes, annotate all statements about existing
+functionality with 🧱 and statements about changed/new functionality with ✨.
+This makes it easier to see at a glance where I should consider making changes
+vs just having to deal with pre-existing architecture.
