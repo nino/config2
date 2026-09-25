@@ -13,3 +13,9 @@ updates:
     directory: "/yarn/global"
     schedule:
       interval: "weekly"
+  # Without this, the actions in .github/workflows have no update path and go
+  # stale silently — which is how checkout stayed on v3.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
