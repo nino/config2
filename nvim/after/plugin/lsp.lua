@@ -333,6 +333,9 @@ vim.lsp.enable({
   "lua_ls",
   "ocamllsp",
   "gleam",
+  -- rescript-language-server comes from a global `npm i -g
+  -- @rescript/language-server`, like the other npm-packaged servers here.
+  "rescriptls",
 })
 
 -- ts_ls, tsc and denols all conflict, so enable exactly one based on the project
