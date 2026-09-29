@@ -435,3 +435,84 @@ fn print_summary(results: &[CommitResult]) {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn strip_ansi_codes_removes_a_color_sequence() {
+        assert_eq!(strip_ansi_codes("\x1b[31mred\x1b[0m"), "red");
+    }
+
+    #[test]
+    fn strip_ansi_codes_handles_multiple_parameters() {
+        assert_eq!(
+            strip_ansi_codes("\x1b[1;33mbold yellow\x1b[0m text"),
+            "bold yellow text"
+        );
+    }
+
+    #[test]
+    fn strip_ansi_codes_leaves_plain_text_untouched() {
+        assert_eq!(strip_ansi_codes("no escapes here"), "no escapes here");
+    }
+
+    #[test]
+    fn parse_lint_output_counts_errors_and_warnings() {
+        let output = "\
+./src/app.tsx
+1:1  Error: Something is wrong  some-rule
+2:2  Warning: Be careful  another-rule
+3:3  Error: Also wrong  third-rule";
+        let stats = parse_lint_output(output);
+        assert_eq!(stats.errors, 2);
+        assert_eq!(stats.warnings, 1);
+        assert_eq!(stats.hints, 0);
+    }
+
+    #[test]
+    fn parse_lint_output_counts_info_and_hint_as_hints() {
+        let output = "1:1  Info: just so you know\n2:2  Hint: maybe do this";
+        let stats = parse_lint_output(output);
+        assert_eq!(stats.hints, 2);
+        assert_eq!(stats.errors, 0);
+        assert_eq!(stats.warnings, 0);
+    }
+
+    #[test]
+    fn parse_lint_output_strips_ansi_before_counting() {
+        let output = "\x1b[31m1:1  Error: a red error\x1b[0m";
+        let stats = parse_lint_output(output);
+        assert_eq!(stats.errors, 1);
+    }
+
+    #[test]
+    fn parse_lint_output_counts_at_most_one_per_line() {
+        // The parser breaks after the first keyword on a line, so a line
+        // mentioning two keywords still only contributes a single count.
+        let output = "1:1 Error: and also a Warning: on the same line";
+        let stats = parse_lint_output(output);
+        assert_eq!(stats.errors, 1);
+        assert_eq!(stats.warnings, 0);
+    }
+
+    #[test]
+    fn parse_lint_output_of_empty_input_is_all_zero() {
+        let stats = parse_lint_output("");
+        assert_eq!(stats.errors, 0);
+        assert_eq!(stats.warnings, 0);
+        assert_eq!(stats.hints, 0);
+    }
+
+    #[test]
+    fn truncate_returns_input_when_within_limit() {
+        assert_eq!(truncate("hello", 10), "hello");
+        assert_eq!(truncate("hello", 5), "hello");
+    }
+
+    #[test]
+    fn truncate_appends_ellipsis_when_too_long() {
+        assert_eq!(truncate("hello world", 5), "hell…");
+    }
+}
