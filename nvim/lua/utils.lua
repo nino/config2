@@ -140,7 +140,7 @@ function mod.git_path_in_commit(commit, path)
 end
 
 --- Close every `fugitive://` window in the current tabpage, so stepping
---- through `:GD`'s quickfix list doesn't leave the previous file's diff pane
+--- through `:GD`'s location list doesn't leave the previous file's diff pane
 --- on screen. Fugitive windows in other tabs are left alone, and so is the
 --- current window, whose buffer callers still need to resolve `%` against.
 --- @return integer closed
@@ -174,10 +174,11 @@ function mod.diff_split(target)
   end
 end
 
---- Run a shell command and populate the quickfix list with filenames from the output.
+--- Run a shell command and populate the current window's location list with
+--- filenames from the output.
 --- @param cmd string
 --- @param title string|nil
-function mod.shell_to_quickfix(cmd, title)
+function mod.shell_to_loclist(cmd, title)
   local lines = vim.fn.systemlist(cmd)
   if vim.v.shell_error ~= 0 then
     vim.notify("Command failed: " .. cmd, vim.log.levels.ERROR)
@@ -189,8 +190,8 @@ function mod.shell_to_quickfix(cmd, title)
       table.insert(items, { filename = line, lnum = 1 })
     end
   end
-  vim.fn.setqflist({}, " ", { title = title or cmd, items = items })
-  vim.cmd("copen")
+  vim.fn.setloclist(0, {}, " ", { title = title or cmd, items = items })
+  vim.cmd("lopen")
 end
 
 return mod

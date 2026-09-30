@@ -401,7 +401,7 @@ vim.api.nvim_create_user_command("GD", function(info)
   if #base == 0 then
     base = utils.git_diff_base()
   end
-  utils.shell_to_quickfix("git diff " .. base .. "... --name-only", "git diff vs " .. base)
+  utils.shell_to_loclist("git diff " .. base .. "... --name-only", "git diff vs " .. base)
 end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("MD", function()
