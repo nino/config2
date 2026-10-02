@@ -344,9 +344,15 @@ vim.api.nvim_create_user_command("D", function(info)
   local base, ref = utils.git_diff_base_commit(info.args)
   if not utils.git_path_in_commit(base, vim.fn.expand("%:p")) then
     vim.notify(vim.fn.expand("%:t") .. " doesn't exist in " .. ref .. " -- nothing to diff", vim.log.levels.WARN)
+    utils.flash("File is new")
     return
   end
-  utils.diff_split(base .. ":%")
+  local working_buf = vim.api.nvim_get_current_buf()
+  local diff_win = utils.diff_split(base .. ":%")
+  local base_lines = vim.api.nvim_buf_get_lines(vim.api.nvim_win_get_buf(diff_win), 0, -1, false)
+  if vim.deep_equal(base_lines, vim.api.nvim_buf_get_lines(working_buf, 0, -1, false)) then
+    utils.flash("File is unchanged")
+  end
 end, { nargs = "?", bang = true })
 
 vim.api.nvim_create_user_command("DiffJs", function(info)

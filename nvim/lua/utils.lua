@@ -164,14 +164,48 @@ end
 --- copy. Returning to the origin window by id rather than `wincmd l` keeps
 --- this correct whichever side `Gvdiffsplit` puts the new window on.
 --- @param target string
+--- @return integer diff_win the window showing `target`
 function mod.diff_split(target)
   local origin = vim.api.nvim_get_current_win()
   vim.cmd("Gvdiffsplit " .. target)
+  local diff_win = vim.api.nvim_get_current_win()
   vim.cmd("norm! zR")
   if vim.api.nvim_win_is_valid(origin) then
     vim.api.nvim_set_current_win(origin)
     vim.cmd("norm! zR")
   end
+  return diff_win
+end
+
+--- Show `msg` in a bordered float in the middle of the editor for `ms`
+--- milliseconds (default 1000), for messages that are easy to miss in the
+--- command line.
+--- @param msg string
+--- @param ms integer|nil
+function mod.flash(msg, ms)
+  local buf = vim.api.nvim_create_buf(false, true)
+  local text = "  " .. msg .. "  "
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, { text })
+  local width = vim.fn.strdisplaywidth(text)
+  local win = vim.api.nvim_open_win(buf, false, {
+    relative = "editor",
+    row = math.floor((vim.o.lines - 3) / 2),
+    col = math.floor((vim.o.columns - width - 2) / 2),
+    width = width,
+    height = 1,
+    style = "minimal",
+    border = "rounded",
+    focusable = false,
+    noautocmd = true,
+  })
+  vim.defer_fn(function()
+    if vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_win_close(win, true)
+    end
+    if vim.api.nvim_buf_is_valid(buf) then
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end
+  end, ms or 1000)
 end
 
 --- Run a shell command and populate the current window's location list with
