@@ -81,10 +81,10 @@ local light = vim.tbl_extend("error", common, {
   status_nc_bg = colour("#DDDDDD", 253),
   status_nc_fg = colour("#555555", 240),
   scrollbar_bg = colour("#CCCCCC", 252),
-  diff_add = colour("#F3FBEE", 194),
-  diff_delete = colour("#FBEEEE", 224),
-  diff_change = colour("#F4F4FB", 189),
-  diff_text = colour("#E3F3F2", "NONE"),
+  diff_add = colour("#EEFDE5", 194),
+  diff_delete = colour("#FAE5E5", 224),
+  diff_change = colour("#F1F1FD", 189),
+  diff_text = colour("#E0F7F6", "NONE"),
 })
 
 --- @type Palette
@@ -105,10 +105,10 @@ local dark = vim.tbl_extend("error", common, {
   status_nc_bg = colour("#444444", 238),
   status_nc_fg = colour("#AAAAAA", 248),
   scrollbar_bg = colour("#444444", 238),
-  diff_add = colour("#1C251C", 22),
-  diff_delete = colour("#2B1E1E", 52),
-  diff_change = colour("#1E1E2B", 235),
-  diff_text = colour("#1F3440", "NONE"),
+  diff_add = colour("#1F2C1F", 22),
+  diff_delete = colour("#372020", 52),
+  diff_change = colour("#202037", 235),
+  diff_text = colour("#203C4A", "NONE"),
 })
 
 --- The colour of the cursor itself. It does not change with the background.

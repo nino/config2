@@ -176,15 +176,6 @@ require("conform").setup({
     asm = { "asmfmt" },
     python = { "ruff" },
   },
-  format_on_save = function(bufnr)
-    if vim.api.nvim_buf_get_name(bufnr):find("^fugitive://") then
-      return
-    end
-    return {
-      timeout_ms = 2000,
-      lsp_format = "fallback",
-    }
-  end,
 })
 
 -- LSP servers.
