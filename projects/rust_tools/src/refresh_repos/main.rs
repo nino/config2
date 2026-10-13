@@ -105,9 +105,8 @@ fn process_repo(path: &str) -> anyhow::Result<ProcessResult> {
         update(path).log_err(format!("Failed to update {}", path))?;
     }
 
-    match repo.head()?.name() {
-        Some(branch) => result.current_branch = branch.replace("refs/heads/", "").to_string(),
-        None => {}
+    if let Ok(branch) = repo.head()?.name() {
+        result.current_branch = branch.replace("refs/heads/", "").to_string();
     }
     Ok(result)
 }
