@@ -26,13 +26,14 @@ Do this instead:
 
 Don't assume bash word-splitting when passing a list of files through a variable.
 
-# Committing
-
-Only commit when I explicitly ask you to.
-
 # Reviewing PRs
 
 When I'm reviewing code changes, annotate all statements about existing
 functionality with 🧱 and statements about changed/new functionality with ✨.
 This makes it easier to see at a glance where I should consider making changes
 vs just having to deal with pre-existing architecture.
+
+Use 🚧 for existing code that the change touches or claims to fix but leaves as
+it was. It's still 🧱 code, but it's in scope for the PR, so it's worth asking
+the author to fold in. Use one symbol per statement, never combinations like
+"🧱→✨".
