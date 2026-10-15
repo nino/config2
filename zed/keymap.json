@@ -25,6 +25,15 @@
     }
   },
   {
+    "context": "(vim_mode == normal || vim_mode == visual) && !menu",
+    "bindings": {
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }],
+      "g j": "vim::Down",
+      "g k": "vim::Up"
+    }
+  },
+  {
     "context": "vim_mode == visual",
     "bindings": {
       "shift-s": ["vim::PushAddSurrounds", {}]

@@ -126,10 +126,10 @@ vim.keymap.set("n", "<c-s>", vim.cmd.w)
 vim.keymap.set("n", "<localleader>s", vim.cmd.wa)
 vim.keymap.set("n", "<esc>", vim.cmd.nohlsearch)
 
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
-vim.keymap.set("n", "gj", "j")
-vim.keymap.set("n", "gk", "k")
+vim.keymap.set({ "n", "x" }, "j", "gj")
+vim.keymap.set({ "n", "x" }, "k", "gk")
+vim.keymap.set({ "n", "x" }, "gj", "j")
+vim.keymap.set({ "n", "x" }, "gk", "k")
 
 vim.keymap.set("i", "<m-bs>", "<c-w>")
 
