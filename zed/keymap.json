@@ -19,6 +19,12 @@
     }
   },
   {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "shift-x": ["workspace::SendKeystrokes", "d d"]
+    }
+  },
+  {
     "context": "vim_mode == visual",
     "bindings": {
       "shift-s": ["vim::PushAddSurrounds", {}]
