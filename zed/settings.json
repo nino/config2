@@ -7,6 +7,24 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "soft_wrap_indent": "extra_one",
+  "vim": {
+    "use_smartcase_find": true
+  },
+  "toolbar": {
+    "code_actions": true
+  },
+  "gutter": {
+    "min_line_number_digits": 1
+  },
+  "sticky_scroll": {
+    "enabled": true
+  },
+  "cursor_animation": {
+    "enabled": false
+  },
+  "default_open_behavior": "new_window",
+  "cli_default_open_behavior": "new_window",
   "on_new_window": "empty_tab",
   "buffer_font_weight": 400.0,
   "icon_theme": {
@@ -17,9 +35,10 @@
   "theme": {
     "mode": "system",
     "light": "Nino Light",
-    "dark": "One Dark",
+    "dark": "GitHub Dark Dimmed",
   },
   "minimap": {
+    "thumb_border": "left_open",
     "show": "always",
   },
   "code_lens": "on",
