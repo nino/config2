@@ -9,19 +9,19 @@
 {
   "soft_wrap_indent": "extra_one",
   "vim": {
-    "use_smartcase_find": true
+    "use_smartcase_find": true,
   },
   "toolbar": {
-    "code_actions": true
+    "code_actions": true,
   },
   "gutter": {
-    "min_line_number_digits": 1
+    "min_line_number_digits": 1,
   },
   "sticky_scroll": {
-    "enabled": true
+    "enabled": true,
   },
   "cursor_animation": {
-    "enabled": false
+    "enabled": false,
   },
   "default_open_behavior": "new_window",
   "cli_default_open_behavior": "new_window",
@@ -78,7 +78,6 @@
     "dock": "left",
   },
   "vim_mode": true,
-  "buffer_font_family": "Source Code Pro",
   "soft_wrap": "editor_width",
   "remove_trailing_whitespace_on_save": true,
   "show_wrap_guides": true,
