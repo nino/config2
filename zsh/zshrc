@@ -8,6 +8,7 @@
 # --- PATH ---------------------------------------------------------------
 typeset -U path  # dedupe, like fish_add_path
 path=(
+  /opt/homebrew/opt/rustup/bin  # rustup's cargo/rustc; keg-only in Homebrew
   /opt/homebrew/bin
   /usr/local/bin
   ~/.cargo/bin
